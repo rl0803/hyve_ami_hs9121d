@@ -2,33 +2,26 @@
 
 
 ### Common code Repos ###
-# AMI active branch for end-user: LTS-v13
-#
-# Last update date: 2021-09-13
-#
-# TARGET_BRANCH="cf083c0039a67146770f757a636f894ed069e206"
-# COMMON_BRANCH="d66ae0939f5d9d35012cc81a308021c29c68626f"
-# AST2600_BRANCH="e6dbe3605df8b41844575f564c5d0f2fa4bd83e1"
-# KERNEL_BRANCH="7f4bff200e8bbc01977aac2bd7c1ae00567e2c6c"
-# BOOTLOADER_BRANCH="559820080ad71b9b4c8f6cf54d5be6afbc008386"
-TARGET_BRANCH="LTS-v13"
-COMMON_BRANCH="LTS-v13"
-AST2600_BRANCH="LTS-v13"
-KERNEL_BRANCH="LTS-v13"
-BOOTLOADER_BRANCH="LTS-v13"
-UTILITIES_VMCLI_BRANCH="LTS-v13"
+AST2600_BRANCH="hyvecommon_dev"
+BOOTLOADER_BRANCH="hyvecommon_dev"
+COMMON_BRANCH="hyvecommon_dev"
+HYVECOMMON_BRANCH="hyvecommon_dev"
+KERNEL_BRANCH="hyvecommon_dev"
+TARGET_BRANCH="hyvecommon_dev"
+UTILITIES_VMCLI_BRANCH="hyvecommon_dev"
 
 
 # The format of mapping table:
 #       "submodule" "branch name / tag / commit hash ID " \
 #
 MappingList_submodule_branch=(\
-    "packages/target" "${TARGET_BRANCH}" \
-    "packages/common" "${COMMON_BRANCH}" \
     "packages/ast2600" "${AST2600_BRANCH}" \
-    "packages/kernel" "${KERNEL_BRANCH}" \
     "packages/bootloader" "${BOOTLOADER_BRANCH}" \
-    "packages/utilities/packages/vmcli" "${UTILITIES_VMCLI_BRANCH}" \
+    "packages/common" "${COMMON_BRANCH}" \
+    "packages/hyvecommon" "${HYVECOMMON_BRANCH}" \
+    "packages/kernel" "${KERNEL_BRANCH}" \
+    "packages/target" "${TARGET_BRANCH}" \
+    "packages/vmcli" "${UTILITIES_VMCLI_BRANCH}" \
 )
 
 FORCE_RESET=0

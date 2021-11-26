@@ -1,0 +1,28 @@
+[submodule "packages/ast2600"]
+	path = packages/ast2600
+	url = https://bitbucket.hyvedesignsolutions.com/scm/h13/ast2600.git
+	branch = hyvecommon_dev
+[submodule "packages/bootloader"]
+	path = packages/bootloader
+	url = https://bitbucket.hyvedesignsolutions.com/scm/h13/bootloader.git
+	branch = hyvecommon_dev
+[submodule "packages/common"]
+	path = packages/common
+	url = https://bitbucket.hyvedesignsolutions.com/scm/h13/common.git
+	branch = hyvecommon_dev
+[submodule "packages/hyvecommon"]
+	path = packages/hyvecommon
+	url = https://bitbucket.hyvedesignsolutions.com/scm/h13/hyvecommon.git
+	branch = hyvecommon_dev
+[submodule "packages/kernel"]
+	path = packages/kernel
+	url = https://bitbucket.hyvedesignsolutions.com/scm/h13/kernel.git
+	branch = hyvecommon_dev
+[submodule "packages/target"]
+	path = packages/target
+	url = https://bitbucket.hyvedesignsolutions.com/scm/h13/target.git
+	branch = hyvecommon_dev
+[submodule "packages/vmcli"]
+	path = packages/vmcli
+	url = https://bitbucket.hyvedesignsolutions.com/scm/h13/vmcli.git
+	branch = hyvecommon_dev
