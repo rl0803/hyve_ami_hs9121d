@@ -1,0 +1,504 @@
+<?xml version= "1.0" encoding="ISO-8859-1"?>
+<!-- Airflow sensor Device Description File -->
+<device xml:space="preserve">
+    <name>Hyve_SDRType1</name>
+    <class>Sensor</class>
+    <type>threshold</type>
+
+    <!-- Airflow Sensor init,read and write functions -->    
+
+    <init>
+    {
+        UN_USED(phal);
+        return 0;
+    }    
+    </init>
+
+    <write>
+    {
+        UN_USED(phal);
+        return 0;
+    }    
+    </write>     
+
+    <read>
+    {    
+        UN_USED(phal);       
+        return 0;
+    }    
+    </read>
+
+
+
+
+
+    <define>
+    <![CDATA[
+
+
+    /* Airflow sensor Properties */
+
+    SensorProp_T $(this).properties = {  
+        $(MONITOR_INTERVAL),
+        $(MONITOR_STATE),
+        DUMMY_NORMAL_VALUE,
+        $(POWER_ON_DELAY),
+        $(SYS_RESET_DELAY),
+        
+    };
+
+    ]]>          
+    </define>  
+
+    <code>
+    </code>
+
+    <sdr>
+        <data>
+        /* SDR Record Header */
+        .dw $(REC_ID)                   /* Record ID                        */
+        .db $(SDR_VER)                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "$(ID_STR)"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db $(SEN_ID)                   /* Sensor Owner ID                  */
+        .db $(LUN)                      /* Sensor Owner LUN                 */
+        .db $(SENSOR_NUM)               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db $(ENT_ID)                   /* Entity ID                        */
+        .db $(ENT_INST)                 /* Entity Instance                  */
+        .db $(SEN_INIT)                 /* Sensor Initialization            */
+        .db $(SEN_CAPS)                 /* Sensor Capabilities              */
+        .db 0x0b                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw $(LWR_T_MASK)               /* Lower Threshold Reading Mask     */
+        .dw $(UPR_T_MASK)               /* Upper Threshold Reading Mask     */
+        .dw $(S_R_T_MASK)               /* Settable/Readable Threshold Mask */
+        .db ($(ANALOG_FORMAT)   &lt;&lt; 6) + ($(RATE_UNIT) &lt;&lt; 3) + ($(MOD_UNIT) &lt;&lt; 1) + $(PERCENT)/* Sensor Units 1  */
+        .db $(BASE_UNIT)                /* Sensor Units 2 - Base Unit       */
+        .db $(UNIT_3)                   /* Sensor Units 3 - Modifier Unit   */
+        .db $(LINEAR)                   /* Linearization                    */
+        .db $(M_VAL) &amp; 0xFF         /* M                                */ 
+        .db (($(M_VAL) &gt;&gt; 2) &amp; 0xC0) + ($(TOLERENCE) &amp; 0x3F)   /* M, Tolerance        */
+        .db $(B_VAL) &amp; 0xFF         /* B                                */
+        .db (($(B_VAL) &gt;&gt; 2) &amp; 0xC0) + ($(ACCURACY)  &amp; 0x3F)   /* B, Accuracy  */
+        .db (($(ACCURACY) &gt;&gt; 2) &amp; 0xF0) + ($(ACCURACY_EXP) &amp; 0x0C) + $(SENSOR_DIR)    /* Accuracy, Accuracy exponent      */
+        .db ($(R_EXP) &lt;&lt; 4) + ($(B_EXP) &amp; 0x0F)          /*R exponent, B exponent           */
+        .db $(ACF)                      /* Analog Characteristics Flags     */
+        .db $(NOMINAL_READING)          /* Nominal Reading                  */
+        .db $(NOMINAL_MAX)              /* Normal Maximum                   */
+        .db $(NOMINAL_MIN)              /* Normal Minimum                   */
+        .db $(SEN_MAX)                  /* Sensor Maximum Reading           */
+        .db $(SEN_MIN)                  /* Sensor Minimum Reading           */
+        .db $(UPPER_NON_RECOVERABLE)    /* Upper Non-Recoverable Threshold  */
+        .db $(UPPER_CRITICAL)           /* Upper Critical Threshold         */
+        .db $(UPPER_NON_CRITICAL)       /* Upper Non-Critical Threshold     */
+        .db $(LOWER_NON_RECOVERABLE)    /* Lower Non-Recoverable Threshold  */
+        .db $(LOWER_CRITICAL)           /* Lower Critical Threshold         */
+        .db $(LOWER_NON_CRITICAL)       /* Lower Non-Critical Threshold     */
+        .db $(POSITIVE_HYSTERISIS)     /* Positive - threshold Hysteresis value*/
+        .db $(NEGATIVE_HYSTERISIS)     /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db $(OEM)                      /* OEM                              */
+        .db 0xc0 + sizeof "$(ID_STR)"   /* ID String Type / Length Code     */
+        .db "$(ID_STR)"
+        </data>
+
+        <config>
+            <var>SDR_VER</var>
+            <name>SDR Version</name>
+            <desc>SDR Version</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x51</default>
+        </config>
+        <config>
+            <var>SEN_ID</var>
+            <name>Software ID/Slave Address</name>
+            <desc>System Software ID or Slave Address</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x20</default>
+        </config>
+        <config>
+            <var>LUN</var>
+            <name>Sensor Owner LUN</name>
+            <desc>Sensor Owner LUN</desc>
+            <type>option_list</type>
+            <default>0x00</default>
+            <option>0x00,0x01</option>
+        </config>
+        <config>
+            <var>ENT_ID</var>
+            <name>Entity ID</name>
+            <desc>Physical Entity the Sensor is monitoring</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x03</default>
+        </config>
+        <config>
+            <var>ENT_INST</var>
+            <name>Entity Instance</name>
+            <desc>Instance Number for entity</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>SEN_INIT</var>
+            <name>Sensor Initialization</name>
+            <desc>Sensor Initialization</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x7F</default>
+        </config>
+        <config>
+            <var>SEN_CAPS</var>
+            <name>Sensor Capabilities</name>
+            <desc>Sensor Capabilities</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x68</default>
+        </config>
+        <config>
+            <var>LWR_T_MASK</var>
+            <name>Assertion mask</name>
+            <desc>Assertion mask</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x7a95</default>
+        </config>
+        <config>
+            <var>UPR_T_MASK</var>
+            <name>Deassertion mask</name>
+            <desc>Deassertion mask</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x7a95</default>
+        </config>
+        <config>
+            <var>S_R_T_MASK</var>
+            <name>Settable Readable Threshold Mask</name>
+            <desc>Settable Readable Threshold Mask</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x3F3F</default>
+        </config>
+        <config>
+            <var>ANALOG_FORMAT</var>
+            <name>Analog Data Format</name>
+            <desc>Analog (numeric) data format of the sensor reading</desc>
+            <type>option_list</type>
+            <option>Unsigned,1sComplement,2sComplement,NoAnalog</option>
+            <default>Unsigned</default>
+        </config>
+        <config>
+            <var>RATE_UNIT</var>
+            <name>Rate Unit</name>
+            <desc>Rate unit of the sensor reading</desc>
+            <type>option_list</type>
+            <option>None,PerMicroSec,PerMilliSec,PerSec,PerMinute,PerHour,PerDay</option>
+            <default>None</default>
+        </config>
+        <config>
+            <var>MOD_UNIT</var>
+            <name>Modifier Unit</name>
+            <desc>Modifier unit of the sensor reading</desc>
+            <type>option_list</type>
+            <option>None,BaiscByModifier,BasicTimesModifier</option>
+            <default>None</default>
+        </config>
+        <config>
+            <var>PERCENT</var>
+            <name>PercentRequired</name>
+            <desc>Is Percentage required</desc>
+            <type>option_list</type>
+            <option>NO,YES</option>
+            <default>NO</default>
+        </config>
+        <config>
+            <var>BASE_UNIT</var>
+            <name>Base Unit</name>
+            <desc>Sensor Units 2 -Base unit- of the sensor reading</desc>
+            <type>byte</type>
+            <default>0x01</default>
+        </config>
+        <config>
+            <var>UNIT_3</var>
+            <name>Modifier Unit</name>
+            <desc>Sensor Units 3 -modifier unit- of the sensor reading</desc>
+            <type>byte</type>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>LINEAR</var>
+            <name>Linearization</name>
+            <desc>Linearization factor for the sensor reading</desc>
+            <type>option_list</type>
+            <option>Linear,ln,log10,log2,e,exp10,exp2,1ByX,sqrX,CubeX,sqrtX,cubeInvX,NonLinear</option>
+            <default>Linear</default>
+        </config>
+        <config>
+            <var>M_VAL</var>
+            <name>Constant Multiplier (M)</name>
+            <desc>10 bit M value for the sensor reading</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x0001</default>
+        </config>
+        <config>
+            <var>TOLERENCE</var>
+            <name>Tolerence</name>
+            <desc>Tolerence value for the sensor reading</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x02</default>
+        </config>
+        <config>
+            <var>B_VAL</var>
+            <name>B</name>
+            <desc>10 bit B value for the sensor reading</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x0380</default>
+        </config>
+        <config>
+            <var>ACCURACY</var>
+            <name>Accuracy</name>
+            <desc>10 bit Accuracy value for the sensor reading</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x00C2</default>
+        </config>
+        <config>
+            <var>ACCURACY_EXP</var>
+            <name>Accuracy Exp</name>
+            <desc>Accuracy Exp value for the sensor reading</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x0</default>
+        </config>
+        <config>
+            <var>SENSOR_DIR</var>
+            <name>Sensor Direction</name>
+            <desc>Sensor Direction</desc>
+            <type>option_list</type>
+            <option>Unspecified,Input,Output</option>
+            <default>Unspecified</default>
+        </config>
+        <config>
+            <var>B_EXP</var>
+            <name>B Exp</name>
+            <desc>B Exp value for the sensor reading(K1)</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x0</default>
+        </config>
+        <config>
+            <var>R_EXP</var>
+            <name>R Exp</name>
+            <desc>R Exp value for the sensor reading(K2)</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x0</default>
+        </config>
+        <config>
+            <var>ACF</var>
+            <name>Analog Characteristics Flags</name>
+            <desc>Analog Characteristics Flags</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x07</default>
+        </config>
+        <config>
+            <var>NOMINAL_READING</var>
+            <name>Nominal Reading</name>
+            <desc>Set the nominal reading for this sensor.</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x97</default>
+        </config>
+        <config>
+            <var>NOMINAL_MAX</var>
+            <name>Nominal Maximum</name>
+            <desc>Set the nominal maximum reading for this sensor.</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0xC5</default>
+        </config>
+        <config>
+            <var>NOMINAL_MIN</var>
+            <name>Nominal Minimum</name>
+            <desc>Set the nominal minimum reading for this sensor.</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x8B</default>
+        </config>
+        <config>
+            <var>SEN_MAX</var>
+            <name>Sensor Maximum</name>
+            <desc>Set the sensor maximum reading for this sensor.</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0xFF</default>
+        </config>
+        <config>
+            <var>SEN_MIN</var>
+            <name>Sensor Minimum</name>
+            <desc>Set the sensor minimum reading for this sensor.</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>UPPER_NON_RECOVERABLE</var>
+            <name>Upper Non Recoverable</name>
+            <desc>Set the upper threshold for this sensor</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0xFF</default>
+        </config>
+        <config>
+            <var>UPPER_CRITICAL</var>
+            <name>Upper Critical</name>
+            <desc>Set the lower critical for this sensor</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0xAF</default>
+        </config>
+        <config>
+            <var>UPPER_NON_CRITICAL</var>
+            <name>Upper Non Critical</name>
+            <desc>Set the upper critical for this sensor</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0xAA</default>
+        </config>
+        <config>
+            <var>LOWER_NON_RECOVERABLE</var>
+            <name>Lower Non Recoverable</name>
+            <desc>Set the lower non recoverable for this sensor</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>LOWER_CRITICAL</var>
+            <name>Lower Critical</name>
+            <desc>Set the lower critical for this sensor</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x83</default>
+        </config>
+        <config>
+            <var>LOWER_NON_CRITICAL</var>
+            <name>Lower Non Critical</name>
+            <desc>Set the lower non critical threshold for this sensor</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x88</default>
+        </config>
+        <config>
+            <var>OEM</var>
+            <name>OEM</name>
+            <desc>OEM</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>POSITIVE_HYSTERISIS</var>
+            <name>Postive Hysterisis</name>
+            <desc>Set the positive-going hysteresis value</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>NEGATIVE_HYSTERISIS</var>
+            <name>Negative Hysterisis</name>
+            <desc>Set the negative-going hysteresis value</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+    </sdr>
+
+    <config>
+        <var>SENSOR_NUM</var>
+        <name>Sensor Number</name>
+        <desc>Set a unique sensor number for this sensor</desc>
+        <type>byte</type>
+        <radix>hex</radix>
+        <default>0</default>
+    </config>
+    <config>
+        <var>ID_STR</var>
+        <name>Sensor Name</name>
+        <desc>Set the name of this device</desc>
+        <type>string</type>
+        <length>16</length>
+        <default>Temp</default>
+    </config>
+    <config>
+        <var>ID_ENUM</var>
+        <name>Device ID</name>
+        <value>oemlist</value>
+        <desc>Set the Device Id for this device</desc>
+        <type>id_list</type>       
+        <default>ID_TEMP_SENSOR</default>
+    </config>    
+    <config>
+        <var>POWER_ON_DELAY</var>
+        <name>Power On Delay</name>
+        <desc>Delay after chassis power on in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+    <config>
+        <var>SYS_RESET_DELAY</var>
+        <name>System Reset Delay</name>
+        <desc>Delay after chassis reset in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+    <config>
+        <var>MONITOR_INTERVAL</var>
+        <name>Monitor interval</name>
+        <desc>Monitoring Interval in secs</desc>
+        <type>byte</type>
+        <default>1</default>
+    </config>
+    <config>
+        <var>MONITOR_STATE</var>
+        <name>Monitor State </name>
+        <desc>Select the states how the sensor needs to be monitored</desc>
+        <type>option_list</type>
+        <option>DoNotMontiorOnStandby,MonitorOnstandby</option>
+        <default>DoNotMontiorOnStandby</default>
+    </config>
+    <config>
+        <var>NORMAL_MAX_TEMP</var>
+        <name>Normal Maximum Temperature</name>
+        <desc>Set the normal maximum temperature for this sensor</desc>
+        <type>string</type>
+        <default>0x90</default>
+    </config>     	
+    <config>
+        <var>NOMINAL_TEMPERATURE</var>
+        <name>Nominal Temperature</name>
+        <desc>Set the nominal temperature for this sensor</desc>
+        <type>string</type>
+        <default>0x70</default>
+    </config>  
+    <config>
+        <var>NORMAL_MIN_TEMP</var>
+        <name>Normal Minimum Temperature</name>
+        <desc>Set the normal minimum temperature for this sensor</desc>
+        <type>string</type>
+        <default>0x70</default>
+    </config>
+</device>

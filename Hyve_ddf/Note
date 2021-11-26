@@ -1,0 +1,23 @@
+<About Hyve_AST_ADC.ddf>
+Why in ast2500, the reading value must right-shit 2 ???
+
+*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+
+
+<About Hyve_NC.ddf>
+This DDF uses a hook function "HyveMonitor_GetReadingValBySensorNum" to get reading value.
+
+Please implment this function
+    int HyveMonitor_GetReadingValBySensorNum(const INT8U sensorNum, const INT8U sensorLUN, hal_t* phal)
+
+<About HyvePsuReadings.ddf and HyvePsuSts.ddf>
+This DDF uses a hook function "HyveMonitor_Get_PSU_Info" to get reading value.
+
+Please implment this function
+int HyveMonitor_Get_PSU_Info(const INT8U psuNum, const INT8U param,
+							const INT8U sensorNum, const INT8U sensorLUN, hal_t *phal)
+
+
+
+

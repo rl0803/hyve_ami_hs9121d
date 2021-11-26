@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Microcontroller Device Description File -->
+<device xml:space="preserve">
+	<name>AST_PECI_TEMP</name>
+	<class>MicroController</class>
+	<init>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</init>
+
+	<read>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</read>
+
+
+	<write>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</write>
+	
+	<pecibus_S>
+		<name>PECI</name>
+		<init>
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		</init>
+
+		<write>
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		</write>
+
+		<read>
+		{
+			return peci_read_temp ( phal );
+		}   
+		</read>
+	</pecibus_S>
+	
+	<config>
+		<var>ID_STR</var>
+		<name>PECI Name</name>
+		<desc>Set the name of this device</desc>
+		<type>string</type>
+		<length>16</length>
+		<default>PECI</default>
+	</config>
+</device>

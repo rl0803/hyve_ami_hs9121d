@@ -1,0 +1,34 @@
+Source : libsnmp_template_mib
+Version :   13.0.1.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : Michael Wozniak (michaelw@ami.com)
+License : AMI
+Source-Location : AMI
+Source-Version : 1.0.0
+Builds : libsnmp_template_mib
+Build-Depends : sys_net_snmp(>=1.0.0), Crosscc, libdbgout_dev, global_dev, rules
+Customization-Type : SNMP
+Architecture : ALL
+Urgency :   critical
+Description : SNMP Template Extension
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package : libsnmp_template_mib
+Config-Tag : SNMP Template Extension
+Section : lib
+Group : FEATURES
+Essential : NO
+Depends : sys_net_snmp(>=1.0.0)
+Description : SNMP Template Extension
+.
+

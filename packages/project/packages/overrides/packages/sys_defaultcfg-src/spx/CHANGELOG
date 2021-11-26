@@ -1,0 +1,151 @@
+Package: sys_defaultcfg (13.0.1.0.0); urgency = critical
+
+Abstract:
+	add overrides folder (ivanlee@ami.com.tw)
+
+Files Added: data/defaults/keep.folder, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/sys_defaultcfg/DATA/keep.folder, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS/dev-install, spx/RULES, spx/RULES.D/device.lst, spx/RULES.D/directory.lst, spx/RULES.D/files.lst, spx/RULES.D/softlink.lst
+
+--Submitter: ivanlee (ivanlee)() 2020-12-01T20:01:10+08:00
+
+Package: sys_defaultcfg (13.0.0.0.0); urgency = low
+
+Abstract:
+	Move these packages to overrides/packages as per SPX-12 source archietecture (senguttuvanm@ami.com)
+
+Files Added: data/defaults/keep.folder, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/sys_defaultcfg/DATA/keep.folder, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS/dev-install, spx/RULES, spx/RULES.D/device.lst, spx/RULES.D/directory.lst, spx/RULES.D/files.lst, spx/RULES.D/softlink.lst
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-07-01T14:09:27-04:00
+
+Package: sys_defaultcfg (6.1.0.0.0); urgency = critical
+
+Abstract:
+	The packages are deleted (winstont@ami.com)
+	Add 'packages/sys_defaultcfg-src/' from commit '927bdc84befb9951fa482e1274402e0abb758ec3'
+
+git-subtree-dir: packages/sys_defaultcfg-src
+git-subtree-mainline: c5719b0760f78f2275c3784530e1b64825081a8d
+git-subtree-split: 927bdc84befb9951fa482e1274402e0abb758ec3 (winstont@ami.com)
+
+Files Added: data/defaults/keep.folder, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/sys_defaultcfg/DATA/keep.folder, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS/dev-install, spx/RULES, spx/RULES.D/device.lst, spx/RULES.D/directory.lst, spx/RULES.D/files.lst, spx/RULES.D/softlink.lst
+Files Removed: data/defaults/keep.folder, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/sys_defaultcfg/DATA/keep.folder, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS/dev-install, spx/RULES, spx/RULES.D/device.lst, spx/RULES.D/directory.lst, spx/RULES.D/files.lst, spx/RULES.D/softlink.lst
+
+--Submitter: Winston Thangapandian (winstont)() 2019-03-07T16:42:45Z
+
+Package: sys_defaultcfg (6.1.0.0.0); urgency = low
+
+Abstract:
+	Adding previous Changelog
+
+Files Modified: spx/CHANGELOG
+
+--Submitter: Winston (winstont)(winstont@ami.com) Sat, 08 Dec 2018 20:17:02 UTC
+
+Package: sys_defaultcfg (6.0.0.0.0); urgency = high
+
+Abstract:
+	This OEM package provides OEM default configuration file to overwrite the configuration file of sys_* package
+
+Files Added: data, data/defaults, data/defaults/keep.folder, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/sys_defaultcfg, spx/PACKAGES.D/sys_defaultcfg/DATA, spx/PACKAGES.D/sys_defaultcfg/DATA/keep.folder, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS/dev-install, spx/RULES, spx/RULES.D, spx/RULES.D/device.lst, spx/RULES.D/directory.lst, spx/RULES.D/files.lst, spx/RULES.D/softlink.lst
+
+--Submitter: Winston (winstont)(winstont@ami.com) Tue, 10 Apr 2018 01:45:31 UTC
+
+Package: sys_defaultcfg (3.0.0.0.0); urgency = high
+
+Abstract:
+	Upgraded to 5 Digit format
+
+
+--Submitter: Samvinesh Christopher (vinesh)(vinesh@ami.com) Sat, 19 Aug 2017 03:41:32 UTC
+
+Package: sys_defaultcfg (2.3.0); urgency = medium
+
+Abstract:
+	.keep files changed to keep.folder
+
+Files Added: data/defaults/keep.folder, spx/PACKAGES.D/sys_defaultcfg/DATA/keep.folder
+Files Deleted: data/defaults/.keep, spx/PACKAGES.D/sys_defaultcfg/DATA/.keep
+
+--Submitter: Samvinesh Christopher (vinesh@ami.com) Thu, 05 May 2016 18:20:24 EDT
+
+Package: sys_defaultcfg (2.2.0); urgency = medium
+
+Abstract:
+	Adding .keep file to empty directories to satisfy source controls like git
+
+Files Added: data/defaults/.keep, spx/PACKAGES.D/sys_defaultcfg/DATA/.keep
+
+--Submitter: Winston (winstont@ami.com) Mon, 04 Jan 2016 23:23:04 EST
+
+Package: sys_defaultcfg (2.1.0); urgency = low
+
+Abstract:
+	Fixed essential, dependencies and empty menues
+
+Files Deleted: data/defaults/etc, data/defaults/etc/defconfig, data/defaults/etc/defconfig/dns.conf.0x1, data/defaults/etc/defconfig/dns.conf.0x2, data/defaults/etc/defconfig/dns.conf.0x3, data/defaults/etc/defconfig/dns.conf.0x4, data/defaults/etc/defconfig/ntp.conf, data/defaults/etc/defconfig/ntp.stat
+Files Modified: spx/INFO, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS/dev-install, spx/RULES, spx/RULES.D/directory.lst, spx/RULES.D/files.lst, spx/RULES.D/softlink.lst
+
+--Submitter: Samvinesh Christopher (vineshc@ami.com) Wed, 03 Dec 2014 13:47:59 EST
+
+Package: sys_defaultcfg (2.0.0); urgency = high
+
+Abstract:
+	Converting the packages to SPX 2.0 Format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 18 Oct 2014 06:34:38 GMT
+
+Package: sys_defaultcfg (1.5.0); urgency = medium
+
+Abstract:
+	Due to various issues reverting the package to SPX 1.0 format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 27 Sep 2014 08:00:11 GMT
+
+Package: sys_defaultcfg (1.4.0); urgency = medium
+
+Abstract:
+	Converting the package to SPX 2.0 format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Fri, 26 Sep 2014 06:12:12 GMT
+
+Package: sys_defaultcfg (1.3.0); urgency = medium
+
+Abstract:
+	Changing init level for ntpd
+
+Files Modified: spx/LICENSES/LICENSE.AMI, spx/RULES.D/softlink.lst
+
+--Submitter: Dipankar Patra (dipankarpatra@amiindia.co.in) Wed, 24 Sep 2014 10:23:51 HMT
+
+Package: sys_defaultcfg (1.2.0); urgency = medium
+
+Abstract:
+	Changed from refering package name to Provides Value
+
+Files Modified: spx/INFO
+
+--Submitter: Samvinesh Christopher (vineshc@ami.com) Thu, 31 Jul 2014 12:16:13 EDT
+
+Package: sys_defaultcfg (1.1.0); urgency = medium
+
+Abstract:
+	Updated to support Debian Wheezy target and new complier
+
+Files Modified: spx/INFO
+
+--Submitter: Samvinesh Christopher (vineshc@ami.com) Sun, 22 Sep 2013 02:10:54 EDT
+
+Package: sys_defaultcfg (1.0.0); urgency = new
+
+Abstract:
+	This OEM package provides OEM default configuration file to overwrite the configuration file of sys_* package
+
+Files Added: data, data/defaults, data/defaults/etc, data/defaults/etc/defconfig, data/defaults/etc/defconfig/dns.conf.0x1, data/defaults/etc/defconfig/dns.conf.0x2, data/defaults/etc/defconfig/dns.conf.0x3, data/defaults/etc/defconfig/dns.conf.0x4, data/defaults/etc/defconfig/ntp.conf, data/defaults/etc/defconfig/ntp.stat, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/sys_defaultcfg, spx/PACKAGES.D/sys_defaultcfg/DATA, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS, spx/PACKAGES.D/sys_defaultcfg/SCRIPTS/dev-install, spx/RULES, spx/RULES.D, spx/RULES.D/device.lst, spx/RULES.D/directory.lst, spx/RULES.D/files.lst, spx/RULES.D/softlink.lst
+
+--Submitter: jcchiu (jcchiu@ami.com.tw) Tue, 11 Dec 2012 11:17:36 CST
+

@@ -1,0 +1,11 @@
+#install Script
+
+build-install:
+	MKDIR_NOCLEAN %SPXLIB/ipmiparams
+	MKDIR_NOCLEAN %SPXINC/ipmiparams
+	COPY_FILE ./libipmiparams.a %SPXLIB/ipmiparams
+	COPY_FILE ./params.h %SPXINC/ipmiparams
+	COPY_FILE ./libipmiparams.so.%PKG_MAJOR.%PKG_MINOR.%PKG_AUX %SPXLIB/ipmiparams
+	ADD_LIBRARY_LINKS %SPXLIB/ipmiparams libipmiparams.so.%PKG_MAJOR.%PKG_MINOR.%PKG_AUX
+
+debug-install:

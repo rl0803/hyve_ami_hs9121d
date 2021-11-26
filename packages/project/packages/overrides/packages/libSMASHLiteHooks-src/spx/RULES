@@ -1,0 +1,29 @@
+#Extract Source	in %SOURCE
+extract_source:
+
+#Build Source in %BUILD
+build_source:
+	CWD %BUILD/%PACKAGE/data
+	INVOKE_MAKE
+
+#Clean Source
+clean_source:
+
+#--------------------- Mandatory Rules for every binary package -------------------------
+
+# Rules to create libSMASHLiteHooks package
+build_package-libSMASHLiteHooks:
+	PACK_SPX ./ %BUILD/%PACKAGE/data/libSMASHLiteHooks.so.%PKG_MAJOR.%PKG_MINOR.%PKG_AUX
+
+# Rules to create libSMASHLiteHooks_dev package
+build_package-libSMASHLiteHooks_dev:
+	#header files
+	MKDIR_CLEAN %TEMPDIR/%PACKAGE/tmp/Includes
+	COPY_DIR %BUILD/%PACKAGE/data/Includes %TEMPDIR/%PACKAGE/tmp/Includes
+	COPY_FILE %BUILD/%PACKAGE/data/SMLH_OEM_bnf.h %TEMPDIR/%PACKAGE/tmp/Includes
+	COPY_FILE %BUILD/%PACKAGE/data/SMLH_OEM_rules.h %TEMPDIR/%PACKAGE/tmp/Includes
+	#library
+    MKDIR_CLEAN %TEMPDIR/%PACKAGE/tmp/lib
+    COPY_FILE %BUILD/%PACKAGE/data/libSMASHLiteHooks.a %TEMPDIR/%PACKAGE/tmp/lib
+    COPY_FILE %BUILD/%PACKAGE/data/libSMASHLiteHooks.so.%PKG_MAJOR.%PKG_MINOR.%PKG_AUX %TEMPDIR/%PACKAGE/tmp/lib
+    PACK_SPX ./ %TEMPDIR/%PACKAGE/tmp

@@ -1,0 +1,125 @@
+<?xml version= "1.0" encoding="ISO-8859-1"?>
+<!-- Temperature sensor Device Description File -->
+<device xml:space="preserve">
+    <name>AWS_SdrVersion</name>
+    <class>SDR</class>
+    <type>OEM</type>
+
+    <init>
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    </init>
+    <read>
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    </read>
+
+    <write>
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    </write>
+    <define>
+    <![CDATA[
+
+
+
+
+    SensorProp_T $(this).properties = {  
+        0,
+        0,
+        0,
+        0,
+        0,
+
+    };
+
+    ]]>         
+    </define> 
+
+    <code>
+    </code>
+
+
+    <sdr>
+        <data>
+        /* SDR Record Header */
+        .dw $(REC_ID)                           /* Record ID                        */
+        .db $(SDR_VER)                          /* SDR Version                      */
+        .db 0xC0                                /* Record Type                      */
+        .db 4 + sizeof "$(OEM_DATA_1)"          /* Record Length = 4+ string length */
+
+        /* Record Body Bytes*/
+        .db $(MANFC_ID_0)                 		/* Manufacturer ID LSB              */
+        .db $(MANFC_ID_1)                 		/* Manufacturer ID byte 1           */
+        .db ($(MANFC_ID_2) &amp; 0x0F)          /* Manufacturer ID MSB              */
+        .db $(RECORD_SUBTYPE)                 	/* Record suptype                   */
+        .db "$(OEM_DATA_1)"				        /* Oem SDR version                  */
+
+        </data>
+
+        <config>
+            <var>SDR_VER</var>
+            <name>SDR Version</name>
+            <desc>SDR Version</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x51</default>
+        </config>
+        <config>
+            <var>MANFC_ID_0</var>
+            <name>Manufacturer ID</name>
+            <desc>Manufacturer ID Byte 0 (LSB)</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>MANFC_ID_1</var>
+            <name>Manufacturer ID</name>
+            <desc>Manufacturer ID Byte 1</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>MANFC_ID_2</var>
+            <name>Manufacturer ID</name>
+            <desc>Manufacturer ID Byte 2 (bits 7:4 Rsvd)</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>RECORD_SUBTYPE</var>
+            <name>Record subtype</name>
+            <desc>AWS SDR version record</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x01</default>
+        </config>
+        <config>
+            <var>OEM_DATA_1</var>
+            <name>Oem SDR version</name>
+            <desc>Oem SDR version</desc>
+            <type>string</type>
+            <length>30</length>
+            <default>0x00</default>
+        </config>
+    </sdr> 
+
+    <config>
+        <var>ID_STR</var>
+        <name>Device Name</name>
+        <desc>OEM Sdr Name</desc>
+        <type>string</type>
+        <length>16</length>
+        <default>OemSdr</default>
+    </config>  
+
+</device>

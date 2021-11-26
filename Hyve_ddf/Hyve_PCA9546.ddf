@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- I2C Switch Device Description File -->
+<device xml:space="preserve">
+    <name>Hyve_PCA9546</name>
+    <class>Logical Devices</class>
+
+    <init>
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    </init>
+
+    <read>
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    </read>
+
+    <write>
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    </write>
+
+    <i2c_X>
+    <name>I2C</name>
+    </i2c_X>
+
+    <i2c_S>
+    <name>CH0</name>
+        <readreg>
+        {
+            int ret = 0;
+            
+            ret = $(this).OpenChannel(phal, 0);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).readreg (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+            
+            ret = $(this).CloseChannel(phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            return (ret);
+        }
+        </readreg>
+
+        <writereg>
+        {
+            int ret = 0;
+            
+            ret = $(this).OpenChannel(phal, 0);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).writereg (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            return (ret);
+        }
+        </writereg>
+
+        <rwi2c>
+        {
+            int ret = 0;
+            ret = $(this).OpenChannel(phal, 0);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).rwi2c (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(this).CloseChannel(phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+            
+            return (ret);
+        }
+        </rwi2c>
+
+        <export>
+        </export>
+    </i2c_S>
+    
+    <i2c_S>
+    <name>CH1</name>
+        <readreg>
+        {
+            int ret = 0;
+            
+            ret = $(this).OpenChannel(phal, 1);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).readreg (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+            
+            ret = $(this).CloseChannel(phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            return (ret);
+        }
+        </readreg>
+
+        <writereg>
+        {
+            int ret = 0;
+            
+            ret = $(this).OpenChannel(phal, 1);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).writereg (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            return (ret);
+        }
+        </writereg>
+
+        <rwi2c>
+        {
+            int ret = 0;
+            ret = $(this).OpenChannel(phal, 1);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).rwi2c (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(this).CloseChannel(phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+            
+            return (ret);
+        }
+        </rwi2c>
+
+        <export>
+        </export>
+    </i2c_S>
+    
+    <i2c_S>
+    <name>CH2</name>
+        <readreg>
+        {
+            int ret = 0;
+            
+            ret = $(this).OpenChannel(phal, 2);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).readreg (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+            
+            ret = $(this).CloseChannel(phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            return (ret);
+        }
+        </readreg>
+
+        <writereg>
+        {
+            int ret = 0;
+            
+            ret = $(this).OpenChannel(phal, 2);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).writereg (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            return (ret);
+        }
+        </writereg>
+
+        <rwi2c>
+        {
+            int ret = 0;
+            ret = $(this).OpenChannel(phal, 2);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).rwi2c (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(this).CloseChannel(phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+            
+            return (ret);
+        }
+        </rwi2c>
+
+        <export>
+        </export>
+    </i2c_S>
+    
+    <i2c_S>
+    <name>CH3</name>
+        <readreg>
+        {
+            int ret = 0;
+            
+            ret = $(this).OpenChannel(phal, 3);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).readreg (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+            
+            ret = $(this).CloseChannel(phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            return (ret);
+        }
+        </readreg>
+
+        <writereg>
+        {
+            int ret = 0;
+            
+            ret = $(this).OpenChannel(phal, 3);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).writereg (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            return (ret);
+        }
+        </writereg>
+
+        <rwi2c>
+        {
+            int ret = 0;
+            ret = $(this).OpenChannel(phal, 3);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(I2C).rwi2c (phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+
+            ret = $(this).CloseChannel(phal);
+            if(ret != HAL_ERR_NONE){
+                return ret;
+            }
+            
+            return (ret);
+        }
+        </rwi2c>
+
+        <export>
+        </export>
+    </i2c_S>
+
+    <define>
+    <![CDATA[
+    /* PCA9546 I2C Multiplexer Properties */
+    SensorProp_T $(this).properties =
+    {
+        0, /* Reserved 1 */
+        0, /* Reserved 2 */
+        0, /* Reserved 3 */
+        $(POWER_ON_DELAY), /* Reserved 4 */
+        $(SYS_RESET_DELAY),  /* Reserved 5 */
+    };
+    ]]>
+    </define>
+
+    <code>
+    <![CDATA[
+    int $(this).OpenChannel(hal_t *phal, INT8U ChannelNum)
+    {
+        int ret = 0;
+            
+        INT8U backup_addr = phal->i2c.slave_addr;
+        INT8U backup_reg = phal->i2c.reg_num;
+        INT8U backup_data_read_len = phal->read_len;
+        INT8U backup_data_write_len = phal->write_len;
+        
+        phal->i2c.slave_addr    = $(SLAVE_ADDR);
+        phal->i2c.reg_num       = 1<<ChannelNum;//Channel X
+        phal->write_len         = 1;
+        ret = $(I2C).writereg (phal);
+        
+        phal->i2c.slave_addr    = backup_addr;
+        phal->i2c.reg_num       = backup_reg;
+        phal->read_len          = backup_data_read_len;
+        phal->write_len         = backup_data_write_len;
+
+        return ret;
+    }
+
+    int $(this).CloseChannel(hal_t *phal)
+    {
+        int ret = 0;
+            
+        INT8U backup_addr = phal->i2c.slave_addr;
+        INT8U backup_reg = phal->i2c.reg_num;
+        INT8U backup_data_read_len = phal->read_len;
+        INT8U backup_data_write_len = phal->write_len;
+        
+        phal->i2c.slave_addr    = $(SLAVE_ADDR);
+        phal->i2c.reg_num       = 0;//Close all channel
+        phal->write_len         = 1;
+        ret = $(I2C).writereg (phal);
+        
+        phal->i2c.slave_addr    = backup_addr;
+        phal->i2c.reg_num       = backup_reg;
+        phal->read_len          = backup_data_read_len;
+        phal->write_len         = backup_data_write_len;
+
+        return ret;
+    }
+    ]]>
+    </code>
+    <config>
+        <var>ID_STR</var>
+        <name>Device Name</name>
+        <desc>Set the name of this device</desc>
+        <type>string</type>
+        <default>PCA9548</default>
+    </config>
+    <config>
+        <var>ID_ENUM</var>
+        <name>Device ID</name>
+        <value>oemlist</value>
+        <desc>Set the Device Id for this device</desc>
+        <type>id_list</type>
+        <default>UNKNOWN</default>
+    </config>
+    <config>
+        <var>SLAVE_ADDR</var>
+        <name>Slave Address</name>
+        <desc>Slave Address of this device</desc>
+        <type>byte</type>
+        <radix>hex</radix>
+        <default>0x70</default>
+    </config>
+    <config>
+        <var>POWER_ON_DELAY</var>
+        <name>Power On Delay</name>
+        <desc>Delay after chassis power on in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+    <config>
+        <var>SYS_RESET_DELAY</var>
+        <name>System Reset Delay</name>
+        <desc>Delay after chassis reset in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+</device>

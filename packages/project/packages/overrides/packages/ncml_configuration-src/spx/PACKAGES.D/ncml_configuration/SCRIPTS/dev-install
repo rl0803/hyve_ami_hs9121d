@@ -1,0 +1,19 @@
+# Install Script
+
+build-install:
+	EXECUTE chmod 744 ./ncmlupdate_cfg
+	COPY_FILE ./ncml.conf.%CONFIG_SPX_FEATURE_GLOBAL_NIC_COUNT %IMAGE_TREE/conf/ncml.conf
+	COPY_FILE ./ncml.conf.%CONFIG_SPX_FEATURE_GLOBAL_NIC_COUNT %IMAGE_TREE/etc/defconfig/ncml.conf
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_ETH0" == "YES" ] || [ "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_ETH1" == "YES" ] || [ "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_BOTH" == "YES" ]; then ./ncmlupdate_cfg ./ncml_bond.conf 1 %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT_VALUE; cp ./ncml_bond.conf %IMAGE_TREE/conf/ncml.conf; fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_ETH0" == "YES" ] || [ "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_ETH1" == "YES" ] || [ "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_BOTH" == "YES" ]; then ./ncmlupdate_cfg ./ncml_bond.conf 1 %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT_VALUE; cp ./ncml_bond.conf %IMAGE_TREE/etc/defconfig/ncml.conf; fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_SSICOMPUTEBLADE_SUPPORT" == "YES" ]; then ./ncmlupdate_cfg ./ncml_ssi.conf.%CONFIG_SPX_FEATURE_GLOBAL_NIC_COUNT 1 %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT_VALUE; cp ./ncml_ssi.conf.%CONFIG_SPX_FEATURE_GLOBAL_NIC_COUNT %IMAGE_TREE/conf/ncml.conf; fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_SSICOMPUTEBLADE_SUPPORT" == "YES" ]; then ./ncmlupdate_cfg ./ncml_ssi.conf.%CONFIG_SPX_FEATURE_GLOBAL_NIC_COUNT 1 %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT_VALUE; cp ./ncml_ssi.conf.%CONFIG_SPX_FEATURE_GLOBAL_NIC_COUNT %IMAGE_TREE/etc/defconfig/ncml.conf; fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_SSICOMPUTEBLADE_SUPPORT" == "YES" ] && [ "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_ETH0" == "YES" -o "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_ETH1" == "YES" -o "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_BOTH" == "YES" ]; then ./ncmlupdate_cfg ./ncml_ssi_bond.conf 1 %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT_VALUE; cp ./ncml_ssi_bond.conf %IMAGE_TREE/conf/ncml.conf; fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_SSICOMPUTEBLADE_SUPPORT" == "YES" ] && [ "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_ETH0" == "YES" -o "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_ETH1" == "YES" -o "%CONFIG_SPX_FEATURE_ACTIVE_SLAVE_BOTH" == "YES" ]; then ./ncmlupdate_cfg ./ncml_ssi_bond.conf 1 %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT_VALUE; cp ./ncml_ssi_bond.conf %IMAGE_TREE/etc/defconfig/ncml.conf; fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_BUSYBOX_TELNET_CONFIGURATION" == "YES" ]; then cat ./ncml_telnet.conf >> %IMAGE_TREE/conf/ncml.conf; cat ./ncml_telnet.conf >> %IMAGE_TREE/etc/defconfig/ncml.conf; fi 	
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_VNC_SUPPORT" == "YES" ]; then cat ./ncml_vnc.conf >> %IMAGE_TREE/conf/ncml.conf; 	cat ./ncml_vnc.conf >> %IMAGE_TREE/etc/defconfig/ncml.conf; fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_VNC_OVER_SSH_SUPPORT" == "YES" ];	then ./ncmlupdate_cfg %IMAGE_TREE/conf/ncml.conf "2" "YES" "3C"; cp %IMAGE_TREE/conf/ncml.conf %IMAGE_TREE/etc/defconfig/ncml.conf;  fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_SPX_REST" == "YES" ];     then ./ncmlupdate_cfg %IMAGE_TREE/conf/ncml.conf "3" "YES" %CONFIG_SPX_FEATURE_WEB_SESSION_TIMEOUT; cp %IMAGE_TREE/conf/ncml.conf %IMAGE_TREE/etc/defconfig/ncml.conf;  fi
+	EXECUTE if [ "%CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT" == "YES" ];     then ./ncmlupdate_cfg %IMAGE_TREE/conf/ncml.conf "1" "YES" %CONFIG_SPX_FEATURE_KVM_SESSION_TIMEOUT_VALUE; cp %IMAGE_TREE/conf/ncml.conf %IMAGE_TREE/etc/defconfig/ncml.conf;  fi
+
+debug-install:

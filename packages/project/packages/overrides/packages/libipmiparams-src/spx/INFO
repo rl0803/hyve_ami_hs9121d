@@ -1,0 +1,42 @@
+Source : libipmiparams
+Version :   13.0.1.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : senathipathy (senathipathyt@ami.com)
+License : AMI
+Source-Location : AMI
+Source-Version : 1.0.0
+Builds : libipmiparams, libipmiparams_dev
+Build-Depends : rules, global_dev, ipmi_dev
+Customization-Type : PDK
+Architecture : ALL
+Urgency :   critical
+Description : This packages contains AMI OEM parameter values and OEM-specific parameter value mappings.
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package : libipmiparams
+Section : lib
+License : AMI
+Group : IPMI
+Essential : NO
+Provides : ipmiparams
+Description : Library to convert configuration parameter values.
+.
+
+Package : libipmiparams_dev
+Section : dev
+License : AMI
+Group : DEVEL
+Essential : NO
+Description : Development package for libipmiparams
+.
+

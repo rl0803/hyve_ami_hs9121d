@@ -1,0 +1,33 @@
+Source : spx_restservice_extension
+Version :   13.1.3.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : Kirankumar B (kirankumarb@amiindia.co.in)
+License : AMI
+Source-Location : AMI
+Source-Version : AMI
+Builds : spx_restservice_extension
+Build-Depends : global_dev, libfcgi_dev, libfeaturedefine_dev, libraphters_dev, libsession_dev, rules, webifc_dev, spx_restservice_dev, libadvisercfg_dev, libtoken_dev, libsyslogconf_dev, libracsessioninfo_dev, libipmiparams_dev, libi2c_dev
+Customization-Type : WEB
+Architecture : ALL
+Urgency :   high
+Description : Customized SPX REST Service created with libraphters framework based on FastCGI. This service is a extension for spx rest service.
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package : spx_restservice_extension
+Section : app
+License : AMI
+Group : FEATURES
+Essential : NO
+Description : Customized SPX REST Service created with libraphters framework based on FastCGI. This service is a extension for spx rest service.
+.
+

@@ -1,0 +1,233 @@
+<?xml version= "1.0" encoding="ISO-8859-1"?>
+<!-- Hardware Monitoring Device Description File -->
+<device xml:space="preserve">
+    <name>MAX6654</name>
+    <class>HW Monitor</class>
+
+    <!-- MAX6654 init,read and write functions -->
+
+    <init>
+    {
+        UN_USED(phal);
+
+        /* MAX6654 initialization */
+        return 0 ;
+    }
+    </init>
+
+    <read>
+    {
+        /* slave address */
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+    
+        /* Invoke read write I2C */
+        $(I2C).readreg ( phal );
+    
+        return 0 ;
+    }
+    </read>
+
+    <write>
+    {
+		/* MAX6654 write function */
+        /* slave address */
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+    
+        /* Invoke read write I2C */
+        $(I2C).writereg ( phal );
+    
+        return 0 ;
+    }
+    </write>
+    
+
+    <i2c_X>
+        <name>I2C</name>
+    </i2c_X>
+
+    
+    <define>
+     	<![CDATA[
+             
+         SensorProp_T $(this).properties = {  
+                         0,
+                         0,
+                         0,
+                         $(POWER_ON_DELAY),
+                         $(SYS_RESET_DELAY),
+
+                   };
+                   
+         ]]>          
+    </define> 
+    <code>
+    </code>
+
+    <config>
+        <var>ID_STR</var>
+        <name>Device Name</name>
+        <desc>Set the name of this device</desc>
+        <type>string</type>
+        <length>16</length>
+        <default>MAX6654</default>
+    </config>
+    <config>
+        <var>ID_ENUM</var>
+        <name>App Type</name>
+        <value>oemlist</value>
+        <desc>Set the App type for this device</desc>
+        <type>id_list</type>       
+        <default>UNKNOWN</default>
+    </config>
+    <config>
+        <var>SLAVE_ADDR</var>
+        <name>Slave Address</name>
+        <desc>Slave Address of this device</desc>
+        <type>byte</type>
+        <radix>hex</radix>
+        <default>0x48</default>
+    </config>
+    <config>
+        <var>INITIALIZE_DEVICE</var>
+        <name>Initialize device (values 0/1)</name>
+        <desc>Initialize this device (1 - initialize, 0 - not)</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+    <config>
+        <var>SIMULATE_DEVICE</var>
+        <name>Simulate (values 0/1)</name>
+        <desc>Simulate this device (values 0/1)</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+    <config>
+        <var>SIM_TEMP</var>
+        <name>Simulate temperature</name>
+        <desc>Simulate this temperature</desc>
+        <type>byte</type>
+        <radix>hex</radix>
+        <default>0x32</default>
+    </config>
+    <config>
+        <var>POWER_ON_DELAY</var>
+        <name>Power On Delay</name>
+        <desc>Delay after chassis power on in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+    <config>
+        <var>SYS_RESET_DELAY</var>
+        <name>System Reset Delay</name>
+        <desc>Delay after chassis reset in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+
+	<therm_S>
+		<name>Internal_Temp</name>
+		<read>
+    {
+    /* MAX6654 Therm Pin Read Function  */
+    
+#if $(SIMULATE_DEVICE)   
+
+        /* return with the simulated value */
+        phal->pbyte [0] = $(SIM_TEMP);
+        return 0;
+        
+#endif
+		INT16U i16Value = 0;
+		INT16U i16Temp = 0;
+
+        float temp = 0.0f; 
+        /* register number to read temperature value */
+        phal->i2c.reg_num = 0;
+
+        /* slave address */
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+		/* Get the External temp */
+		phal->pwrite_buf[0]  = 0x00; /* RLTS : read internal temprature */
+		phal->write_len	     = 1; /* register size is one byte */
+		phal->read_len       = 1; /* read one byte temp value */		
+        /* Invoke read I2C register */
+        $(I2C).rwi2c ( phal );
+		
+		i16Temp = (INT16U) phal->pread_buf[0];
+		
+		phal->pwrite_buf[0]  = 0x11; /* RLET : read internal extended temprature */
+		phal->write_len	     = 1; /* register size is one byte */
+		phal->read_len       = 1; /* read one byte temp value */
+		/* Invoke read I2C register */
+        $(I2C).rwi2c ( phal );
+		i16Value = ((((INT16U) i16Temp) &lt;&lt; 8) | phal->pread_buf[0]);
+		
+		i16Value = (i16Value &amp; 0xFFE0) &gt;&gt; 5;
+        //printf("i16Value %x\n",i16Value);
+       
+        if(i16Value &amp; 0x400) //Nevigate value
+        {
+        	i16Value |= 0xF800;
+        }
+		
+		temp = ((float) i16Value) * 0.125;
+		phal->pword[0] = (INT16U) temp;
+		//printf("temp %x (%f)\n",(unsigned int)temp, temp);
+        return 0 ;
+    }</read>
+	</therm_S>
+
+	
+
+	<therm_S>
+		<name>External_Temp</name>
+		<read>
+    {
+    /* MAX6654 Therm Pin Read Function  */
+    
+#if $(SIMULATE_DEVICE)   
+
+        /* return with the simulated value */
+        phal->pbyte [0] = $(SIM_TEMP);
+        return 0;
+        
+#endif
+		INT16U i16Value = 0;
+		INT16U i16Temp = 0;
+
+        float temp = 0.0f; 
+        /* register number to read temperature value */
+        phal->i2c.reg_num = 0;
+
+        /* slave address */
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+		/* Get the External temp */
+		phal->pwrite_buf[0]  = 0x01; /* RRTE : read external temprature */
+		phal->write_len	     = 1; /* register size is one byte */
+		phal->read_len       = 1; /* read one byte temp value */		
+        /* Invoke read I2C register */
+        $(I2C).rwi2c ( phal );
+		
+		i16Temp = (INT16U) phal->pread_buf[0];
+		
+		phal->pwrite_buf[0]  = 0x10; /* RRET : read external extended temprature */
+		phal->write_len	     = 1; /* register size is one byte */
+		phal->read_len       = 1; /* read one byte temp value */
+		/* Invoke read I2C register */
+        $(I2C).rwi2c ( phal );
+		i16Value = ((((INT16U) i16Temp) &lt;&lt; 8) | phal->pread_buf[0]);
+		i16Value = (i16Value &amp; 0xFFE0) &gt;&gt; 5;
+        //printf("i16Value %x\n",i16Value);
+       
+        if(i16Value &amp; 0x400) //Nevigate value
+        {
+        	i16Value |= 0xF800;
+        }
+
+		temp = ((float) i16Value) * 0.125;
+		phal->pword[0] = (INT16U) temp;
+		//printf("temp %x (%f)\n",(unsigned int)temp, temp);
+        return 0 ;
+    }</read>
+	</therm_S>
+</device>

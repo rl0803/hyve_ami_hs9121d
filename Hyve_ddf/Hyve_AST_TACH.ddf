@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Microcontroller Device Description File -->
+<device xml:space="preserve">
+	<name>AST_TACH</name>
+	<class>MicroController</class>
+	<init>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</init>
+
+	<read>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</read>
+
+
+	<write>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</write>
+	
+	<tach_S>
+		<name>TACH</name>
+		<init>
+		{
+			phal->fan.fannum = $(TACH_CHANNEL);
+            phal->fan.fanpwm = $(TACH_CHANNEL);
+			phal->fan.fantach = $(TACH_CHANNEL);
+			fan_set_connect ( phal );
+			return 0;
+		}
+		</init>
+
+		<write>
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		</write>
+
+		<read>
+		{
+			<![CDATA[
+			phal->fan.fannum = $(TACH_CHANNEL);
+			if( 0 > fan_speed_read ( phal ))
+			{
+				return -1;
+			}
+			if ( 0 == phal->pword [0])
+			{
+				phal->pword [0] = 0 ;
+				return 0;
+			}
+			if (phal->pword [0] <=18 && phal->pword [0] != 0)
+			{		
+				phal->pword [0] = 18;
+			}
+			/* 80 < RPM < 19531 */
+			/* M = 80*/
+			/*phal->pword [0] = (INT16U)((351562 / phal->pword [0])) / 0x50;*/
+			phal->pword [0] = (INT16U)(phal->pword [0]) / $(M_VAL);
+			return 0;
+			]]>
+		}   
+		</read>
+		<export>
+		</export>
+	</tach_S>
+	
+	<config>
+		<var>ID_STR</var>
+		<name>TACH Name</name>
+		<desc>Set the name of this device</desc>
+		<type>string</type>
+		<length>16</length>
+		<default>TACH</default>
+	</config>
+	<config>
+        <var>TACH_CHANNEL</var>
+        <name>Tach Channel(0 base)</name>
+        <desc>Tach Channel(0 base)</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+	<config>
+		<var>M_VAL</var>
+		<name>Constant Multiplier (M)</name>
+		<desc>10 bit M value for the sensor reading</desc>
+		<type>word</type>
+		<radix>hex</radix>
+		<default>0x0064</default>
+	</config>
+</device>

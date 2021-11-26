@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- FRU Locator Device Description File -->
+<device xml:space="preserve">
+    <name>FRU Device</name>
+    <class>SDR</class>
+    <type>digital</type>
+    <init>
+   {
+        UN_USED(phal);
+        return 0;
+   }
+    </init>
+    <read>
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    </read>
+    
+    <write>
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    </write>
+    <define>
+         	<![CDATA[
+     
+             
+             
+                 
+             SensorProp_T $(this).properties = {  
+                             0,
+                             0,
+                             0,
+                             $(POWER_ON_DELAY),
+                             $(SYS_RESET_DELAY),
+
+                       };
+                       
+             ]]>          
+    </define> 
+    <code>
+    
+    	
+    </code>
+
+    <sdr>
+        <data>
+        /* SDR Record Header */
+            .dw $(REC_ID)               /* Record ID                        */
+            .db $(SDR_VER)              /* SDR Version                      */
+            .db 0x11                    /* Record Type                      */
+            .db 11 + sizeof "$(ID_STR)" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db $(DEVICE_ADDR)          /* Device access addres             */
+            .db $(DEVICE_ID)            /* FRU Device IU                    */
+            .db $(LOGICAL_ID)           /* Channel number                   */
+            .db $(CHANNEL)              /* Channel number                   */
+            /* RECORD BODY BYTES*/
+            .db 0x00                    /* Reserved                         */
+            .db $(DEVICE_TYPE)          /* Device Type codes                */
+            .db $(DEVICE_TYPE_MODIFIER) /* Device Type modifier codes       */
+            .db $(ENT_ID)               /* Entity ID                        */
+            .db $(ENT_INST)             /* Entity Instance                  */
+            .db $(OEM)                  /* OEM                              */
+            .db 0xc0 + sizeof"$(ID_STR)"/* ID String Type / Length Code     */
+            .db "$(ID_STR)"
+        </data>
+        <config>
+            <var>SDR_VER</var>
+            <name>SDR Version</name>
+            <desc>SDR Version</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x51</default>
+        </config>
+        <config>
+            <var>DEVICE_ADDR</var>
+            <name>Slave address</name>
+            <desc>Slave address of the controler used to access device</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x20</default>
+        </config>
+        <config>
+            <var>DEVICE_ID</var>
+            <name>Device ID</name>
+            <desc>Logical FRU device ID or slave address for non-intelligent FRU</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>LOGICAL_ID</var>
+            <name>Logical ID</name>	
+            <desc>Logical/physical FRU device, Master LUN and BUS ID</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x80</default>
+        </config>
+        <config>
+            <var>CHANNEL</var>
+            <name>Channel Number</name>
+            <desc>Channel number that the management conrotller is on</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>DEVICE_TYPE</var>
+            <name>Device Type</name>
+            <desc>I2C Device type codes</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x0f</default>
+        </config>
+        <config>
+            <var>DEVICE_TYPE_MODIFIER</var>
+            <name>Device Type Modifier</name>
+            <desc>I2C Device type modifier codes</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x02</default>
+        </config>
+        <config>
+            <var>ENT_ID</var>
+            <name>Entity ID</name>
+            <desc>Physical Entity the Sensor is monitoring</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x07</default>
+        </config>
+        <config>
+            <var>ENT_INST</var>
+            <name>Entity Instant</name>
+            <desc>Instance Number for entity</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>OEM</var>
+            <name>OEM</name>
+            <desc>OEM Field</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+    </sdr>
+    <config>
+        <var>ID_STR</var>
+        <name>FRU Name</name>
+        <desc>Set the name of this device</desc>
+        <type>string</type>
+	    <length>16</length>
+        <default>BMC FRU</default>
+    </config>
+    
+    <config>
+        <var>ID_ENUM</var>
+        <name>Device ID</name>
+        <value>oemlist</value>
+        <desc>Set the Device Id for this device</desc>
+        <type>id_list</type>       
+        <default>UNKNOWN</default>
+    </config> 
+    <config>
+        <var>POWER_ON_DELAY</var>
+        <name>Power On Delay</name>
+        <desc>Delay after chassis power on in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+    <config>
+        <var>SYS_RESET_DELAY</var>
+        <name>System Reset Delay</name>
+        <desc>Delay after chassis reset in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+    
+</device>

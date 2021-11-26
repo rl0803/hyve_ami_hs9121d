@@ -1,0 +1,262 @@
+Package: Bootloader_20XX_Config (13.17.11.0.0); urgency = high
+
+Abstract:
+	Adding kernel fit support and multiple platform support (arjuncr@ami.com)
+
+Files Modified: spx/INFO
+
+--Submitter: jcchiu (jcchiu)() 2021-11-16T01:15:11+00:00
+
+Package: Bootloader_20XX_Config (13.17.10.0.0); urgency = high
+
+Abstract:
+	Revert "Merge branch 'sdk_v701_emmc' into 'LTS-v13'"
+
+This reverts merge request !414 (jcchiu@ami.com)
+
+Files Modified: data/ast2600-A1evb.dts
+
+--Submitter: jcchiu (jcchiu)() 2021-11-02T09:31:24+00:00
+
+Package: Bootloader_20XX_Config (13.17.9.0.0); urgency = high
+
+Abstract:
+	LTS v7.01 emmc/sd migration (roshank@ami.com)
+
+Files Modified: data/ast2600-A1evb.dts
+
+--Submitter: jcchiu (jcchiu)() 2021-10-26T21:47:41+00:00
+
+Package: Bootloader_20XX_Config (13.17.8.0.0); urgency = high
+
+Abstract:
+	Corrected the ENV OFFSET Location (gouravkumarg@amiindia.co.in)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: jcchiu (jcchiu)() 2021-08-26T04:58:20+00:00
+
+Package: Bootloader_20XX_Config (13.17.7.0.0); urgency = low
+
+Abstract:
+	Fix EIP619380,SDK v07.00 Network Bug fixes Migrated into LTS-v13 (kennywu@ami.com.tw)
+
+Files Modified: data/ast2600-A1evb.dts
+
+--Submitter: jcchiu (jcchiu)() 2021-07-08T03:25:18+00:00
+
+Package: Bootloader_20XX_Config (13.17.6.0.0); urgency = high
+
+Abstract:
+	Fix to correct config_env_offset defines in uboot for uboot env start make it same as uboot_env_start of prj (RobinChiu@ami.com.tw)
+	Bootloader SDK upgrade (SeanCheng@ami.com.tw)
+	sdk 6.01 migration (desmondwu@ami.com.tw)
+	Fix to correct config_env_offset defines in uboot for uboot env start make it same as uboot_env_start of prj (RobinChiu@ami.com.tw)
+
+Files Added: data/ast2600evb-emmc.config
+Files Modified: data/ast2600evb-emmc.config, data/ast2600evb.config, data/ast2600-A0evb.dts, data/ast2600-A1evb.dts, data/ast2600evb.config, spx/RULES.py, data/ast2600-A1evb.dts, data/ast2600evb-emmc.config, data/ast2600evb.config
+
+--Submitter: jcchiu (jcchiu)() 2021-06-04T07:41:35+00:00
+
+Package: Bootloader_20XX_Config (13.17.5.0.0); urgency = high
+
+Abstract:
+	Fix eSPI not work issue (jonlee@ami.com.tw)
+
+Files Modified: data/ast2600-A0evb.dts, data/ast2600-A1evb.dts
+
+--Submitter: jcchiu (jcchiu)() 2021-05-11T05:37:24+00:00
+
+Package: Bootloader_20XX_Config (13.17.4.0.0); urgency = high
+
+Abstract:
+	Fixed EIP585096, Add MARCO to mapping into dts file. (kennywu@ami.com.tw)
+
+Files Modified: data/ast2600-A0evb.dts, data/ast2600-A1evb.dts
+
+--Submitter: ivanlee (ivanlee)() 2021-01-21T10:47:04-05:00
+
+Package: Bootloader_20XX_Config (13.17.3.0.0); urgency = high
+
+Abstract:
+	fix spi flash issue (DerekHuang@mail.com.tw)
+
+Files Modified: data/ast2600-A1evb.dts
+
+--Submitter: ivanlee (ivanlee)() 2021-01-21T10:46:55-05:00
+
+Package: Bootloader_20XX_Config (13.17.2.0.0); urgency = high
+
+Abstract:
+	Fix to correct gpio pin and behavior for host reset control function (robertlin@ami.com.tw)
+
+Files Modified: data/ast2600-A0evb.dts, data/ast2600-A1evb.dts
+
+--Submitter: ivanlee (ivanlee)() 2020-12-25T04:00:08-05:00
+
+Package: Bootloader_20XX_Config (13.17.1.0.0); urgency = high
+
+Abstract:
+	Fix for Build error while rebuilding the Bootloader. (gouravkumarg@amiindia.co.in)
+
+Files Removed: data/001-uboot_arch_arm_mach-aspeed_board_c.patch
+
+--Submitter: ivanlee (ivanlee)() 2020-12-21T12:01:43-05:00
+
+Package: Bootloader_20XX_Config (13.17.0.0.0); urgency = critical
+
+Abstract:
+	Disable the SCU lock in bootloader (senguttuvanm@ami.com)
+
+Files Modified: data/001-uboot_arch_arm_mach-aspeed_board_c.patch
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-09-18T17:07:56+00:00
+
+Package: Bootloader_20XX_Config (13.16.0.0.0); urgency = low
+
+Abstract:
+	Code for Hardware Strap 2, set decode 0x4E was moved from uartRoute Driver to Bootloader Config (senguttuvanm@ami.com)
+
+Files Added: data/001-uboot_arch_arm_mach-aspeed_board_c.patch
+Files Modified: spx/RULES.py
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-09-17T11:47:08-04:00
+
+Package: Bootloader_20XX_Config (13.15.0.0.0); urgency = high
+
+Abstract:
+	Python3 support (senguttuvanm@ami.com)
+
+Files Modified: spx/RULES.py
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-09-08T16:47:19-04:00
+
+Package: Bootloader_20XX_Config (13.14.0.0.0); urgency = low
+
+Abstract:
+	Enabling MAC0 support in A1 board (nandakumarn@amiindia.co.in)
+
+Files Modified: data/ast2600-A1evb.dts
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-09-04T10:29:30-04:00
+
+Package: Bootloader_20XX_Config (13.13.0.0.0); urgency = low
+
+Abstract:
+	Disabled the mac0 support to fix the ipmi crash (senguttuvanm@ami.com)
+
+Files Modified: data/ast2600-A1evb.dts
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-08-27T12:50:40-04:00
+
+Package: Bootloader_20XX_Config (13.12.0.0.0); urgency = low
+
+Abstract:
+	Fix for MAC address mapping issue (nandakumarn@amiindia.co.in)
+
+Files Modified: data/ast2600-A1evb.dts
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-08-27T10:20:35-04:00
+
+Package: Bootloader_20XX_Config (13.11.0.0.0); urgency = high
+
+Abstract:
+	A1 DTS file is updated to enable Display port (senguttuvanm@ami.com)
+
+Files Modified: data/ast2600-A1evb.dts
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-08-26T15:31:19-04:00
+
+Package: Bootloader_20XX_Config (13.10.0.0.0); urgency = low
+
+Abstract:
+	Fix for MAC Address mapping issue (nandakumarn@amiindia.co.in)
+
+Files Added: data/ast2600-A0evb.dts, data/ast2600-A1evb.dts
+Files Modified: spx/RULES.py
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-08-26T10:53:11-04:00
+
+Package: Bootloader_20XX_Config (13.9.0.0.0); urgency = low
+
+Abstract:
+	Support for Display port (senguttuvanm@ami.com)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: Gopinath Sekaran (Gopinath)() 2020-08-26T08:54:33-04:00
+
+Package: Bootloader_20XX_Config (13.8.0.0.0); urgency = high
+
+Abstract:
+	Revert "Merge branch 'update_sdk_5.06' into 'master'"
+
+This reverts merge request !70 (senguttuvanm@ami.com)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-07-14T12:47:33-04:00
+
+Package: Bootloader_20XX_Config (13.7.0.0.0); urgency = low
+
+Abstract:
+	update_sdk_5.06 (desmondwu@ami.com.tw)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-07-14T12:28:56-04:00
+
+Package: Bootloader_20XX_Config (13.6.0.0.0); urgency = high
+
+Abstract:
+	BMC auto recovery feature for ast2600 (valantinaa@amiindia.co.in)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: Balasubramanian C (balasubramanianc)() 2020-07-08T03:58:14-04:00
+
+Package: Bootloader_20XX_Config (13.5.0.0.0); urgency = low
+
+Abstract:
+	Disabled CONFIG_SPI_FLASH_USE_4K_SECTORS in bootloader (senguttuvanm@ami.com)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-06-25T12:37:33-04:00
+
+Package: Bootloader_20XX_Config (13.4.0.0.0); urgency = low
+
+Abstract:
+	Added the Build depends for Bootloader_20XX_oem Kernel_5_oem (senguttuvanm@ami.com)
+
+Files Modified: spx/INFO
+
+--Submitter: Winston Thangapandian (winstont)() 2020-06-11T18:27:36-04:00
+
+Package: Bootloader_20XX_Config (13.3.0.0.0); urgency = high
+
+Abstract:
+	addinglan and dram support in uboot' (arjuncr@amiindia.co.in)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-05-28T09:54:32-04:00
+
+Package: Bootloader_20XX_Config (13.2.0.0.0); urgency = high
+
+Abstract:
+	Bootloader and Kernel configuration Change for the SDK5.04 update (senguttuvanm@ami.com)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-04-15T21:07:40-04:00
+
+Package: Bootloader_20XX_Config (13.1.0.0.0); urgency = high
+
+Abstract:
+	SDK upgraded to 5.03 (senguttuvanm@ami.com)
+
+Files Modified: data/ast2600evb.config
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-04-14T18:53:57-04:00
+

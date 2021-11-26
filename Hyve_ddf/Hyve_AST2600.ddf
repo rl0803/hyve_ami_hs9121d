@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Microcontroller Device Description File -->
+<device xml:space="preserve">
+	<name>Hyve_AST2600</name>
+	<class>MicroController</class>
+	<init>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</init>
+
+	<read>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</read>
+
+
+	<write>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</write>
+
+	<code>
+	</code>
+
+	<sdr>
+		<data>
+		/* SDR Record header */
+		.dw $(REC_ID)                   /* Record ID                        */
+		.db $(SDR_VER)                  /* SDR Version                      */
+		.db 0x12                        /* Record Type                      */
+		.db 11 + sizeof "$(ID_STR)"     /* Record Length = 11+ string length*/
+		
+		/* Record Key Bytes*/            
+		.db 0x20                        /* Slave address - 0x20 Primary BMC */
+		.db 0x00                        /* ChannelNumber - 0x00 Primary BMC */
+		
+		/* Record Body Bytes*/
+		.db $(POWER_STATE_NOTIFY)       /* power state notification         */
+		.db $(DEVICE_CAPABLITIES)       /* Device Capablities               */
+		.db 0                           /* RESERVED                         */
+		.db 0                           /* RESERVED                         */
+		.db 0                           /* RESERVED                         */
+		.db $(ENT_ID)                   /* Entity ID                        */
+		.db $(ENT_INST)                 /* Entity Instance                  */
+		.db $(OEM)                      /* OEM                              */
+		.db 0xc0 + sizeof "$(ID_STR)"   /* ID String Type / Length Code     */
+		.db "$(ID_STR)"
+		</data>
+
+		<config>
+			<var>SDR_VER</var>
+			<name>SDR Version</name>
+			<desc>sdr Version</desc>
+			<type>byte</type>
+			<radix>hex</radix>
+			<default>0x51</default>
+		</config>
+		<config>
+			<var>POWER_STATE_NOTIFY</var>
+			<name>Power State notification</name>
+			<desc>Power State notification</desc>
+			<type>byte</type>
+			<radix>hex</radix>
+			<default>0x00</default>
+		</config>
+		<config>
+			<var>DEVICE_CAPABLITIES</var>
+			<name>Device Capablities</name>
+			<desc>device Capablities</desc>
+			<type>byte</type>
+			<radix>hex</radix>
+			<default>0xFF</default>
+		</config>
+		<config>
+			<var>ENT_ID</var>
+			<name>Entity ID</name>
+			<desc>Physical Entity the Sensor is monitoring</desc>
+			<type>byte</type>
+			<radix>hex</radix>
+			<default>0x00</default>
+		</config>
+		<config>
+			<var>ENT_INST</var>
+			<name>Entity Instance </name>
+			<desc>Instance Number for entity</desc>
+			<type>byte</type>
+			<radix>hex</radix>
+			<default>0x01</default>
+		</config>
+       
+		<config>
+			<var>OEM</var>
+			<name>OEM field</name>
+			<desc>set OEM specfic field</desc>
+			<type>byte</type>
+			<radix>hex</radix>
+			<default>0x00</default>
+		</config>
+	</sdr>
+	
+	<config>
+		<var>ID_STR</var>
+		<name>BMC Controler Name</name>
+		<desc>Set the name of this device</desc>
+		<type>string</type>
+		<length>16</length>
+		<default>AST2600</default>
+	</config>
+</device>

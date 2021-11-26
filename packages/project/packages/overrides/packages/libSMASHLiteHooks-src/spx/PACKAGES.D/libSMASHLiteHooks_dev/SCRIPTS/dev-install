@@ -1,0 +1,12 @@
+# Install Script
+
+build-install:
+	#copy header file
+	MKDIR_NOCLEAN %SPXINC/SMLiteHooks        
+	COPY_DIR Includes %SPXINC/SMLiteHooks
+	#copy library
+	MKDIR_NOCLEAN %SPXLIB/SMLiteHooks
+	COPY_DIR lib %SPXLIB/SMLiteHooks
+	ADD_LIBRARY_LINKS %SPXLIB/SMLiteHooks libSMASHLiteHooks.so.%PKG_MAJOR.%PKG_MINOR.%PKG_AUX
+	
+debug-install:

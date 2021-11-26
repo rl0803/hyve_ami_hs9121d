@@ -1,0 +1,324 @@
+<?xml version= "1.0" encoding="ISO-8859-1"?>
+<!-- Discrete Sensor Device Description File -->
+<device xml:space="preserve">
+    <name>Discrete_NC</name>
+    <class>Sensor</class>
+    <type>digital</type>
+
+
+
+    <!-- General purpose input pin -->
+    
+
+  <define>
+       	<![CDATA[
+   
+           
+           
+               
+           SensorProp_T $(this).properties = {  
+                           $(MONITOR_INTERVAL),
+                           $(MONITOR_STATE),
+                           $(NORMAL_VALUE),
+                           $(POWER_ON_DELAY),
+                           $(SYS_RESET_DELAY),
+                     };
+                     
+           ]]>          
+    </define> 
+  <code>
+  
+   
+  
+  	
+      	 		
+  </code>
+
+
+  <init>
+  {
+  	UN_USED(phal);
+	return 0;
+  }
+  </init>
+
+
+   <!-- Read reading -->
+    <read>
+    {
+    UN_USED(phal);
+	return 0;
+    }
+    </read>
+
+    <!-- Discrete sensor SDR record -->
+    <sdr>
+        <data>
+            /* SDR Record Header */
+            .dw $(REC_ID)               /* Record ID                        */
+            .db $(SDR_VER)              /* SDR Version                      */
+            .db 0x02                    /* Record Type                      */
+            .db 27 + sizeof "$(ID_STR)" /* Record Length = 27+ string length*/
+            /* RECORD KEY BYTES*/
+            .db $(SEN_ID)               /* Sensor Owner ID                  */
+            .db $(LUN)                  /* Sensor Owner LUN                 */
+            .db $(SENSOR_NUM)           /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db $(ENT_ID)               /* Entity ID                        */
+            .db $(ENT_INST)             /* Entity Instance                  */
+            .db $(SEN_INIT)             /* Sensor Initialization            */
+            .db $(SEN_CAPS)             /* Sensor Capabilities              */
+            .db $(SEN_TYPE)             /* Sensor Type                      */
+            .db $(EVT_READ_TYPE)         /* Event / Reading Type             */
+            .dw $(ASSERTION_MASK)       /* Lower Threshold Reading Mask     */
+            .dw $(DE-ASSERTION_MASK)    /* Upper Threshold Reading Mask     */
+            .dw $(S_R_T_MASK)           /* Settable/Readable Threshold Mask */
+            .db $(SEN_UNITS1)           /* Sensor Units 1                   */
+            .db $(SEN_UNITS2)           /* Sensor Units 2 - Base Unit       */
+            .db $(SEN_UNITS3)           /* Sensor Units 3 - Modifier Unit   */
+            .dw $(SEN_REC_SHAR)         /* Sensor Recodr Sharing            */
+            .db $(POS_HYST)             /* Positive - going threshold Hysteresis value*/
+            .db $(NEG_HYST)             /* Negative - going threshold Hysteresis value*/
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                     /* Reserved                         */
+            .db $(OEM)                  /* OEM                              */
+            .db 0xc0 + sizeof"$(ID_STR)"/* ID String Type / Length Code     */
+            .db "$(ID_STR)"
+            </data>
+
+        <config>
+            <var>SDR_VER</var>
+            <name>SDR Version</name>
+            <desc>SDR Version</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x51</default>
+        </config>
+        <config>
+            <var>SEN_ID</var>
+            <name>Software ID/Slave Address</name>
+            <desc>System Software ID or Slave Address</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x20</default>
+        </config>
+        <config>
+            <var>LUN</var>
+            <name>Sensor Owner LUN</name>
+            <desc>Sensor Owner LUN</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>ENT_ID</var>
+            <name>Entity ID</name>
+            <desc>Physical Entity the Sensor is monitoring</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>ENT_INST</var>
+            <name>Entity Instance</name>
+            <desc>Instance Number for entity</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>SEN_INIT</var>
+            <name>Sensor Initialization</name>
+            <desc>Sensor Initialization</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x67</default>
+        </config>
+        <config>
+            <var>SEN_CAPS</var>
+            <name>Sensor Capabilities</name>
+            <desc>Sensor Capabilities</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x40</default>
+        </config>
+        <config>
+            <var>SEN_TYPE</var>
+            <name>Sensor Type</name>
+            <desc>Sensor Type</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x01</default>
+        </config>
+        <config>
+            <var>EVT_READ_TYPE</var>
+            <name>Event Reading Type</name>
+            <desc>Event Reading typed for this sensor</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x08</default>
+        </config>
+        <config>
+            <var>ASSERTION_MASK</var>
+            <name>Assertion mask</name>
+            <desc>Assertion mask</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x0003</default>
+        </config>
+        <config>
+            <var>DE-ASSERTION_MASK</var>
+            <name>Deassertion mask</name>
+            <desc>Deassertion mask</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x0000</default>
+        </config>
+        <config>
+            <var>S_R_T_MASK</var>
+            <name>Settable/Readable Threshold Mask</name>
+            <desc>Settable Readable Threshold Mask</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x0003</default>
+        </config>
+        <config>
+            <var>SEN_UNITS1</var>
+            <name>Sensor Units1</name>
+            <desc>Sensor Units1</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>SEN_UNITS2</var>
+            <name>Sensor Units2</name>
+            <desc>Sensor Units2</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>SEN_UNITS3</var>
+            <name>Sensor Units3</name>
+            <desc>Sensor Units3</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>SEN_REC_SHAR</var>
+            <name>Record Sharing</name>
+            <desc>Record Sharing</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x8101</default>
+        </config>
+        <config>
+            <var>POS_HYST</var>
+            <name>Positive Hysteresis</name>
+            <desc>Positive-going Threshold Hysteresis value</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>NEG_HYST</var>
+            <name>Negative Hysteresis</name>
+            <desc>Negative-going Threshold Hysteresis value</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>OEM</var>
+            <name>OEM</name>
+            <desc>OEM</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+    </sdr>
+    <config>
+       <var>ID_STR</var>
+       <name>Sensor Name</name>
+       <desc>Set the name of this device</desc>
+       <type>string</type>
+       <length>16</length>
+       <default>Discrete</default>
+    </config>
+    <config>
+       <var>SENSOR_NUM</var>
+       <name>Sensor Number</name>
+       <desc>Set a unique sensor number for this sensor</desc>
+       <type>byte</type>
+       <radix>hex</radix>
+       <default>0x0</default>
+    </config>
+    <config>
+       <var>ACTIVE_STATE</var>
+       <name>Active State (in hex)</name>
+       <desc>Set '0' for Active High and '1' for Active Low for each bit</desc>
+       <type>byte</type>
+       <radix>hex</radix>
+       <default>0x0</default>
+    </config>
+    <config>
+       <var>MONITOR_ON_STANDBY</var>
+       <name>Monitor On standby (value 0/1)</name>
+       <desc>Monitor the sensor when system power is off</desc>
+       <type>byte</type>
+       <default>0</default>
+    </config>
+
+    <config>
+           <var>MONITOR_INTERVAL</var>
+           <name>Monitor interval</name>
+           <desc>Monitoring Interval in secs</desc>
+           <type>byte</type>
+           <default>5</default>
+    </config>
+
+    <config>
+        <var>MONITOR_STATE</var>
+        <name>Monitor State </name>
+        <desc>Select the states how the sensor needs to be monitored</desc>
+        <type>option_list</type>
+        <option>DoNotMontiorOnStandby,MonitorOnstandby</option>
+        <default>DoNotMontiorOnStandby</default>
+    </config>
+    <config>
+        <var>POWER_ON_DELAY</var>
+        <name>Power On Delay</name>
+        <desc>Delay after chassis power on in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+    <config>
+        <var>SYS_RESET_DELAY</var>
+        <name>System Reset Delay</name>
+        <desc>Delay after chassis reset in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+   <config>
+       <var>NORMAL_VALUE</var>
+       <name>Normal Value</name>
+       <desc>Expected default Value</desc>
+       <type>word</type>
+       <radix>hex</radix>
+       <default>0x0</default>
+    </config>
+    <config>
+        <var>ID_ENUM</var>
+        <name>Device ID</name>
+        <value>oemlist</value>
+        <desc>Set the Device Id for this device</desc>
+        <type>id_list</type>       
+        <default>UNKNOWN</default>
+    </config>
+    <desc>OEM Discrete Senor, No connection</desc>
+
+	
+</device>

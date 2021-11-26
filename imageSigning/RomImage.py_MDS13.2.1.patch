@@ -1,0 +1,71 @@
+--- RomImage.py	2021-07-29 15:50:10.684089791 +0800
++++ RomImage_new.py	2021-07-29 15:50:39.212114366 +0800
+@@ -16,6 +16,7 @@
+ import cfg
+ import glob,hashlib,shutil
+ import subprocess,tempfile
++import time
+ 
+ from MMCImage import BuildMMCImage,CreateFirmwareTarBall
+ 
+@@ -962,6 +963,49 @@
+ 
+ 	return 0
+ 
++#Hyve++
++def RunSingtool():
++	srcfolder = os.path.join(cfg.ExecPath, 'image-signing-tool/')	
++	tarfolder = os.path.join(cfg.Output, 'image-signing-tool/')
++
++	if not (os.path.isdir(cfg.Output + '/image-signing-tool/')):
++		shutil.copytree(srcfolder,tarfolder)
++
++	currdir = os.getcwd()
++	os.chdir(cfg.Output)
++
++	# Remove older file first
++	if os.path.isfile("encrypted_rom.ima"):
++		cmd = "rm -f encrypted_rom.ima"
++		dummy,retval = RunExec(cmd)
++		if (retval != 0):
++			print ("Error in removing old encrypted_rom.ima")
++			return 1
++
++	if os.path.isfile("encrypted_rom.ima_enc"):
++		cmd = "rm -f encrypted_rom.ima_enc"
++		dummy,retval = RunExec(cmd)
++		if (retval != 0):
++			print ("Error in removing old encrypted_rom.ima_enc")
++			return 1
++
++	# Generate signed image    
++	os.chdir(tarfolder)
++	cmd = "./imageSigningTool.sh"
++	dummy,retval = RunExec(cmd)
++	if (retval != 0):
++		print ("Execute image signment failed")
++		return 1
++
++	print ("signed hashed image update successful !\n")
++	print (cfg.Output + "/encrypted_rom.ima\n")
++	print (cfg.Output + "/encrypted_rom.ima_enc")
++	print (time.strftime("\n%Y-%m-%d %H:%M:%S", time.localtime()))
++    
++	os.chdir(currdir)
++	return 0
++#++Hyve
++
+ def BuildRomImage():
+ 
+ 	Assemble_FeaturesAndMacros()
+@@ -1010,6 +1054,10 @@
+ 				print("\n===================================================")
+ 				print("Please use ImageSigningTool to sign the Image")
+ 				print("===================================================")
++				#Hyve++
++				if 1 == RunSingtool():
++					return 1
++				#++Hyve
+ 			else:
+ 				if CreateSignedImage() == 1:
+ 					return 1        

@@ -1,0 +1,54 @@
+Package: @PLATFORM_AST2600EVB (13.5.1.0.0); urgency = high
+
+Abstract:
+	Fix for Build error while rebuilding the Bootloader. (gouravkumarg@amiindia.co.in)
+
+Files Modified: spx/P.CONFIG
+
+--Submitter: ivanlee (ivanlee)() 2020-12-21T12:01:43-05:00
+
+Package: @PLATFORM_AST2600EVB (13.5.0.0.0); urgency = low
+
+Abstract:
+	Adding bootlogo support (ajaykumarg@amiindia.co.in)
+
+Files Modified: spx/P.CONFIG
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-09-17T09:55:12-04:00
+
+Package: @PLATFORM_AST2600EVB (13.4.0.0.0); urgency = high
+
+Abstract:
+	Enabled Extended log and extended sel storage to SD/eMMC (gouravkumarg@amiindia.co.in)
+
+Files Modified: spx/P.CONFIG
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-06-16T11:37:42-04:00
+
+Package: @PLATFORM_AST2600EVB (13.3.0.0.0); urgency = low
+
+Abstract:
+	ecc_support (changjunk@kang.us.megatrends.com)
+
+Files Modified: spx/P.CONFIG
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-06-15T18:41:02-04:00
+
+Package: @PLATFORM_AST2600EVB (13.2.0.0.0); urgency = high
+
+Abstract:
+	addinglan and dram support in uboot' (arjuncr@amiindia.co.in)
+
+Files Modified: spx/P.CONFIG
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-05-28T09:54:32-04:00
+
+Package: @PLATFORM_AST2600EVB (13.1.0.0.0); urgency = high
+
+Abstract:
+	Removed the Unsupported features (senguttuvanm@ami.com)
+
+Files Modified: spx/P.CONFIG
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-05-07T18:01:48-04:00
+

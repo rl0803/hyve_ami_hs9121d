@@ -1,0 +1,7 @@
+./HyvePlatform.h 1358 7586becb92b611407f2ca836d870c6dc
+./HyvePlatformFan.h 330 652e8e90802643c2e7e106951cf97786
+./HyvePlatformHooks.h 1002 da74596da8bf9e8983d5b9381b6c653b
+./HyvePlatformPSU.h 469 ab9babc21054f7f6800088c598aef616
+./HyvePlatformSensorMonitor.h 483 f1696a1362ec59426754bf39e1a73660
+./HyvePlatformSensorNum.h 569 f0d5741965d066f8169280b175bfd3ee
+./HyvePlatformTask.h 1457 37aadf7eabac4988a3ceeb32e719b1d2

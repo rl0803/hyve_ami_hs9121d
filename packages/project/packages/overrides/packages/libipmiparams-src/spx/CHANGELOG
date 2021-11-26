@@ -1,0 +1,303 @@
+Package: libipmiparams (13.0.1.0.0); urgency = critical
+
+Abstract:
+	add overrides folder (ivanlee@ami.com.tw)
+
+Files Added: data/Makefile, data/params.c, data/params.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libipmiparams/DATA/keep.folder, spx/PACKAGES.D/libipmiparams/SCRIPTS/dev-install, spx/PACKAGES.D/libipmiparams_dev/DATA/keep.folder, spx/PACKAGES.D/libipmiparams_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: ivanlee (ivanlee)() 2020-12-01T20:01:10+08:00
+
+Package: libipmiparams (13.0.0.0.0); urgency = low
+
+Abstract:
+	Move these packages to overrides/packages as per SPX-12 source archietecture (senguttuvanm@ami.com)
+
+Files Added: data/Makefile, data/params.c, data/params.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libipmiparams/DATA/keep.folder, spx/PACKAGES.D/libipmiparams/SCRIPTS/dev-install, spx/PACKAGES.D/libipmiparams_dev/DATA/keep.folder, spx/PACKAGES.D/libipmiparams_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-07-01T14:09:27-04:00
+
+Package: libipmiparams (6.1.0.0.0); urgency = critical
+
+Abstract:
+	The packages are deleted (winstont@ami.com)
+	Add 'packages/libipmiparams-src/' from commit '28a12d47fec8796eb905404ba0bac55817a7a883'
+
+git-subtree-dir: packages/libipmiparams-src
+git-subtree-mainline: b03be8996923118fee331f88c577206036a83ea1
+git-subtree-split: 28a12d47fec8796eb905404ba0bac55817a7a883 (winstont@ami.com)
+
+Files Added: data/Makefile, data/params.c, data/params.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libipmiparams/DATA/keep.folder, spx/PACKAGES.D/libipmiparams/SCRIPTS/dev-install, spx/PACKAGES.D/libipmiparams_dev/DATA/keep.folder, spx/PACKAGES.D/libipmiparams_dev/SCRIPTS/dev-install, spx/RULES
+Files Removed: data/Makefile, data/params.c, data/params.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libipmiparams/DATA/keep.folder, spx/PACKAGES.D/libipmiparams/SCRIPTS/dev-install, spx/PACKAGES.D/libipmiparams_dev/DATA/keep.folder, spx/PACKAGES.D/libipmiparams_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston Thangapandian (winstont)() 2019-03-07T16:42:45Z
+
+Package: libipmiparams (6.1.0.0.0); urgency = low
+
+Abstract:
+	Adding previous Changelog
+
+Files Modified: spx/CHANGELOG
+
+--Submitter: Winston (winstont)(winstont@ami.com) Sat, 08 Dec 2018 20:05:20 UTC
+
+Package: libipmiparams (6.0.0.0.0); urgency = medium
+
+Abstract:
+	This packages contains AMI OEM parameter values and OEM-specific parameter value mappings.
+
+Files Added: data, data/Makefile, data/params.c, data/params.h, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/libipmiparams, spx/PACKAGES.D/libipmiparams/DATA, spx/PACKAGES.D/libipmiparams/DATA/keep.folder, spx/PACKAGES.D/libipmiparams/SCRIPTS, spx/PACKAGES.D/libipmiparams/SCRIPTS/dev-install, spx/PACKAGES.D/libipmiparams_dev, spx/PACKAGES.D/libipmiparams_dev/DATA, spx/PACKAGES.D/libipmiparams_dev/DATA/keep.folder, spx/PACKAGES.D/libipmiparams_dev/SCRIPTS, spx/PACKAGES.D/libipmiparams_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston (winstont)(winstont@ami.com) Tue, 10 Apr 2018 00:17:51 UTC
+
+Package: libipmiparams (4.0.0.0.0); urgency = high
+
+Abstract:
+	Upgraded to 5 Digit format
+
+
+--Submitter: Samvinesh Christopher (vinesh)(vinesh@ami.com) Sat, 19 Aug 2017 03:21:55 UTC
+
+Package: libipmiparams (3.5.0); urgency = medium
+
+Abstract:
+	Fix for build break
+
+Files Modified: spx/PACKAGES.D/libipmiparams_dev/SCRIPTS/dev-install
+
+--Submitter: S Rajamanickem (srajamanickem@amiindia.co.in) Wed, 03 May 2017 16:15:18 IST
+
+Package: libipmiparams (3.4.0); urgency = low
+
+Abstract:
+	Dependency fixes for binary builds
+
+Files Added: spx/PACKAGES.D/libipmiparams_dev, spx/PACKAGES.D/libipmiparams_dev/DATA, spx/PACKAGES.D/libipmiparams_dev/DATA/keep.folder, spx/PACKAGES.D/libipmiparams_dev/SCRIPTS, spx/PACKAGES.D/libipmiparams_dev/SCRIPTS/dev-install
+Files Modified: spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libipmiparams/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston (winstont@ami.com) Tue, 02 May 2017 23:19:43 EDT
+
+Package: libipmiparams (3.3.0); urgency = medium
+
+Abstract:
+	.keep files changed to keep.folder
+
+Files Added: spx/PACKAGES.D/libipmiparams/DATA/keep.folder
+Files Deleted: spx/PACKAGES.D/libipmiparams/DATA/.keep
+
+--Submitter: Samvinesh Christopher (vinesh@ami.com) Thu, 05 May 2016 16:14:00 EDT
+
+Package: libipmiparams (3.2.0); urgency = medium
+
+Abstract:
+	Adding .keep file to empty directories to satisfy source controls like git
+
+Files Added: spx/PACKAGES.D/libipmiparams/DATA/.keep
+
+--Submitter: Winston (winstont@ami.com) Mon, 04 Jan 2016 21:23:04 EST
+
+Package: libipmiparams (3.1.0); urgency = medium
+
+Abstract:
+	Fix For Bleeding Edge Compilation Errors
+
+Files Modified: data/params.c, spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: Prashant Vyankatrao Bharade (prashantbharadev@amiindia.co.in) Thu, 24 Dec 2015 12:10:30 HMT
+
+Package: libipmiparams (3.0.0); urgency = high
+
+Abstract:
+	Converting the packages to SPX 2.0 Format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 18 Oct 2014 04:54:26 GMT
+
+Package: libipmiparams (2.19.0); urgency = medium
+
+Abstract:
+	Remove Group Field from source section
+
+Files Modified: spx/INFO
+
+--Submitter: Dipankar Patra (dipankarpatra@amiindia.co.in) Fri, 17 Oct 2014 10:36:37 HMT
+
+Package: libipmiparams (2.18.0); urgency = medium
+
+Abstract:
+	Due to various issues reverting the package to SPX 1.0 format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 27 Sep 2014 06:33:48 GMT
+
+Package: libipmiparams (2.17.0); urgency = medium
+
+Abstract:
+	Converting the package to SPX 2.0 format
+
+Files Modified: spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: Winston (winstont@ami.com) Fri, 26 Sep 2014 04:45:43 GMT
+
+Package: libipmiparams (2.16.0); urgency = high
+
+Abstract:
+	Changes done to make openssl as configurable for all architectures
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Thu, 27 Jun 2013 15:31:43 EDT
+
+Package: libipmiparams (2.15.0); urgency = medium
+
+Abstract:
+	Adding one more parameter in both Set and Get the NCSI Settings by using the Port Number
+
+Files Modified: data/params.h
+
+--Submitter: madhug (gaddammadhug@amiindia.co.in) Mon, 10 Jun 2013 12:33:37 HMT
+
+Package: libipmiparams (2.14.0); urgency = medium
+
+Abstract:
+	Added new NCSI OEM Extension parameter
+
+Files Modified: data/params.h
+
+--Submitter: Prakash.S (prakashs@amiindia.co.in) Mon, 28 Jan 2013 09:46:13 HMT
+
+Package: libipmiparams (2.13.0); urgency = low
+
+Abstract:
+	Added an OEM LAN Parameter to set the static IPv6 address based on EUI_64 algorithm.
+
+Files Modified: data/params.h
+
+--Submitter: Kiran Kumar S (kirankumars@amiindia.co.in) Thu, 15 Nov 2012 10:34:12 HMT
+
+Package: libipmiparams (2.12.0); urgency = medium
+
+Abstract:
+	Adding LAN_PARAMS_AMI_OEM_MTU_SETTINGS to m_OEMLanParamTbl.
+
+Files Modified: data/params.h
+
+--Submitter: Winston (winstont@ami.com) Thu, 16 Aug 2012 13:03:09 EDT
+
+Package: libipmiparams (2.11.0); urgency = medium
+
+Abstract:
+	Added support for NCSI Mode change
+
+Files Modified: data/params.h
+
+--Submitter: Prakash.S (prakashs@amiindia.co.in) Fri, 06 Jul 2012 09:13:07 IST
+
+Package: libipmiparams (2.10.0); urgency = low
+
+Abstract:
+	Changed libipmiparams package custumization type to PDK
+
+Files Modified: spx/INFO
+
+--Submitter: sena (senathipathyt@ami.com) Tue, 24 Apr 2012 14:41:15 IST
+
+Package: libipmiparams (2.9.0); urgency = medium
+
+Abstract:
+	Removed Conditional Compilation of SSI Compute Blade Support
+
+Files Modified: data/params.h
+
+--Submitter: Suresh V (sureshv@amiindia.co.in) Fri, 24 Feb 2012 09:31:21 IST
+
+Package: libipmiparams (2.8.0); urgency = low
+
+Abstract:
+	Removed condition compilation for NCSI macros
+
+Files Modified: data/params.h
+
+--Submitter: sudarshan (sudarshans@amiindia.co.in) Thu, 16 Feb 2012 15:01:41 IST
+
+Package: libipmiparams (2.7.0); urgency = medium
+
+Abstract:
+	Adding Link local address and prefix OEM parameters
+
+Files Modified: data/params.h
+
+--Submitter: sridhar chinthala (sridharch@amiindia.co.in) Tue, 29 Nov 2011 11:24:14 IST
+
+Package: libipmiparams (2.6.0); urgency = low
+
+Abstract:
+	Moved out support for auto timeout response
+
+Files Modified: data/params.c, data/params.h
+
+--Submitter: sena (senathipathyt@ami.com) Wed, 02 Nov 2011 12:19:29 IST
+
+Package: libipmiparams (2.5.0); urgency = low
+
+Abstract:
+	Added support for auto timeout response
+
+Files Modified: data/params.c, data/params.h
+
+--Submitter: sena (senathipathyt@ami.com) Wed, 27 Jul 2011 14:38:20 IST
+
+Package: libipmiparams (2.4.0); urgency = medium
+
+Abstract:
+	Add SSI LAN Parameters support for SSI Compute Blade.
+
+Files Modified: data/params.h
+
+--Submitter: Kevin Cheng (kevincheng@ami.com.tw) Wed, 18 May 2011 16:12:51 EDT
+
+Package: libipmiparams (2.3.0); urgency = medium
+
+Abstract:
+	Proper AMI License Added
+
+Files Modified: spx/LICENSES/LICENSE.AMI
+
+--Submitter: Samvinesh Christopher (vineshc@ami.com) Fri, 13 May 2011 14:52:49 EDT
+
+Package: libipmiparams (2.2.0); urgency = low
+
+Abstract:
+	Added copyright header
+
+Files Modified: data/params.h
+
+--Submitter: sena (senathipathyt@ami.com) Tue, 03 May 2011 11:21:30 IST
+
+Package: libipmiparams (2.1.0); urgency = low
+
+Abstract:
+	Correcting customization type and Group
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstonv@amiindia.co.in) Tue, 22 Mar 2011 18:33:39 IST
+
+Package: libipmiparams (2.0.0); urgency = low
+
+Abstract:
+	Incrementing the version to 2.0.0
+
+
+--Submitter: Winston (winstonv@amiindia.co.in) Mon, 21 Mar 2011 19:38:56 IST
+
+Package: libipmiparams (1.0.0); urgency = new
+
+Abstract:
+	This packages contains AMI OEM parameter values and OEM-specific parameter value mappings.
+
+Files Added: data, data/Makefile, data/params.c, data/params.h, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/libipmiparams, spx/PACKAGES.D/libipmiparams/DATA, spx/PACKAGES.D/libipmiparams/SCRIPTS, spx/PACKAGES.D/libipmiparams/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: sena (senathipathyt@ami.com) Wed, 16 Feb 2011 20:05:27 IST
+

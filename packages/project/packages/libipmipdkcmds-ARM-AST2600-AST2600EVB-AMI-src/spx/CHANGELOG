@@ -1,0 +1,16 @@
+Package: libipmipdkcmds (13.0.0.0.0); urgency = low
+
+Abstract:
+	Added PDK packages for AST2600EVB (prakashs@ami.com)
+
+Files Added: data/Makefile, data/OemSMMCmds.c, data/PDKCmds.c, data/PDKPend.c, data/cmdselect.c, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libipmipdkcmds/DATA/keep.folder, spx/PACKAGES.D/libipmipdkcmds/SCRIPTS/dev-install.py, spx/RULES.py
+
+--Submitter: Winston Thangapandian (winstont)() 2020-04-20T16:07:03-04:00
+
+Package:libipmipdkcmds (1.0.0.0.0);urgency=new
+
+Abstract:
+	This package contains PDK commands for AST2600EVB
+
+--Submitter: Prakash Shanmugakani (prakashs@ami.com) Wed, 15 Apr 2020 20:08:35 -0400
+

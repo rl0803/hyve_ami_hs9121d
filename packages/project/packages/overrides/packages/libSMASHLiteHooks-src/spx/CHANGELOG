@@ -1,0 +1,586 @@
+Package: libSMASHLiteHooks (13.3.4.0.0); urgency = high
+
+Abstract:
+	Fix for Smash[Coverity][LTS-v13] High issues at GetTargetDetails (manikandanv@ami.com)
+
+Files Modified: data/SMLH_GetTargetDetails.c
+
+--Submitter: jcchiu (jcchiu)() 2021-08-31T15:40:18+00:00
+
+Package: libSMASHLiteHooks (13.3.3.0.0); urgency = high
+
+Abstract:
+	Fix for [SMASH] Get GUID (manikandanv@ami.com)
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: jcchiu (jcchiu)() 2021-08-11T00:21:53+00:00
+
+Package: libSMASHLiteHooks (13.3.2.0.0); urgency = high
+
+Abstract:
+	Fix for smashlitehook [High] coverity issues (sureshp@ami.com)
+	Fix for smashlitehook [High] coverity issues (sureshp@ami.com)
+	updated GUID-removed Compilation Code (sureshp@ami.com)
+
+Files Modified: data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_GetProperties.c
+
+--Submitter: jcchiu (jcchiu)() 2021-05-27T13:18:19+00:00
+
+Package: libSMASHLiteHooks (13.3.1.0.0); urgency = critical
+
+Abstract:
+	add overrides folder (ivanlee@ami.com.tw)
+
+Files Added: data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/Includes/SMLH_OEM.h, data/Includes/SMLH_OEMParser.h, data/Makefile, data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_IPMI.c, data/SMLH_InitHooks.c, data/SMLH_OEM.c, data/SMLH_OEMParser.c, data/SMLH_OEM_bnf.h, data/SMLH_OEM_rules.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libSMASHLiteHooks/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks/SCRIPTS/dev-install, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: ivanlee (ivanlee)() 2020-12-01T20:01:10+08:00
+
+Package: libSMASHLiteHooks (13.3.0.0.0); urgency = high
+
+Abstract:
+	sync with v12-update-3.02 (senguttuvanm@ami.com)
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-05-27T18:19:28-04:00
+
+Package: libSMASHLiteHooks (13.2.0.0.0); urgency = high
+
+Abstract:
+	Sync with SPX12 Update3 TB4 (senguttuvanm@ami.com)
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-03-16T16:04:29-04:00
+
+Package: libSMASHLiteHooks (13.1.0.0.0); urgency = high
+
+Abstract:
+	Syncing the SPX12 Update3 TB2 changes (senguttuvanm@ami.com)
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/Makefile, data/SMLH_GetProperties.c, data/SMLH_IPMI.c, data/SMLH_InitHooks.c, data/SMLH_OEM.c, spx/INFO
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-03-02T15:23:54-05:00
+
+Package: libSMASHLiteHooks (6.6.0.0.0); urgency = critical
+
+Abstract:
+	The packages are deleted (winstont@ami.com)
+	Add 'packages/libSMASHLiteHooks-src/' from commit 'f4b1e98e0e17c8855763da15016629a181a9dcea'
+
+git-subtree-dir: packages/libSMASHLiteHooks-src
+git-subtree-mainline: f3e1d7590adf4818fbd96b444f3542aa8df73e1d
+git-subtree-split: f4b1e98e0e17c8855763da15016629a181a9dcea (winstont@ami.com)
+
+Files Added: data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/Includes/SMLH_OEM.h, data/Includes/SMLH_OEMParser.h, data/Makefile, data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_IPMI.c, data/SMLH_InitHooks.c, data/SMLH_OEM.c, data/SMLH_OEMParser.c, data/SMLH_OEM_bnf.h, data/SMLH_OEM_rules.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libSMASHLiteHooks/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks/SCRIPTS/dev-install, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks_dev/SCRIPTS/dev-install, spx/RULES
+Files Removed: data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/Includes/SMLH_OEM.h, data/Includes/SMLH_OEMParser.h, data/Makefile, data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_IPMI.c, data/SMLH_InitHooks.c, data/SMLH_OEM.c, data/SMLH_OEMParser.c, data/SMLH_OEM_bnf.h, data/SMLH_OEM_rules.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libSMASHLiteHooks/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks/SCRIPTS/dev-install, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston Thangapandian (winstont)() 2019-03-07T16:42:45Z
+
+Package: libSMASHLiteHooks (6.6.0.0.0); urgency = low
+
+Abstract:
+	Enabled smashlite core mode in LTS stack
+
+Files Modified: data/SMLH_GetProperties.c, spx/FILES, spx/INFO
+
+--Submitter: Prakash S (prakashs)(prakashs@ami.com) Fri, 04 Jan 2019 16:32:30 UTC
+
+Package: libSMASHLiteHooks (6.5.0.0.0); urgency = low
+
+Abstract:
+	Fix Fortify [Buffer Overflow] issue, get host name function require 64 bytes memory size
+
+Files Modified: data/Includes/SMLH_Include.h, spx/FILES, spx/INFO
+
+--Submitter: TomYu (TomYu)(TomYu@ami.com.tw) Sat, 22 Dec 2018 09:48:01 UTC
+
+Package: libSMASHLiteHooks (6.4.0.0.0); urgency = medium
+
+Abstract:
+	Comment Fortify Buffer Overflow false positive
+
+Files Modified: data/SMLH_GetProperties.c, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: SamHung (SamHung)(SamHung@ami.com.tw) Wed, 19 Dec 2018 06:58:01 UTC
+
+Package: libSMASHLiteHooks (6.3.0.0.0); urgency = low
+
+Abstract:
+	Adding previous Changelog
+
+Files Modified: spx/CHANGELOG
+
+--Submitter: Winston (winstont)(winstont@ami.com) Sat, 08 Dec 2018 20:09:00 UTC
+
+Package: libSMASHLiteHooks (6.2.0.0.0); urgency = medium
+
+Abstract:
+	Merged buffer overlow fixes and removed deprecated configurations
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: Rudhranandhan R (rudhranandhanr)(rudhranandhanr@amiindia.co.in) Thu, 02 Aug 2018 10:00:59 UTC
+
+Package: libSMASHLiteHooks (6.1.0.0.0); urgency = medium
+
+Abstract:
+	Fix for Getting wrong FRU information using SMASHLITE.
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: Rudhranandhan R (rudhranandhanr)(rudhranandhanr@amiindia.co.in) Tue, 17 Apr 2018 13:08:40 UTC
+
+Package: libSMASHLiteHooks (6.0.0.0.0); urgency = medium
+
+Abstract:
+	This packages provides the proper Hooks for the customizable functions related to SMASH LITE
+
+Files Added: data, data/Includes, data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/Includes/SMLH_OEM.h, data/Includes/SMLH_OEMParser.h, data/Makefile, data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_IPMI.c, data/SMLH_InitHooks.c, data/SMLH_OEM.c, data/SMLH_OEMParser.c, data/SMLH_OEM_bnf.h, data/SMLH_OEM_rules.h, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/libSMASHLiteHooks, spx/PACKAGES.D/libSMASHLiteHooks/DATA, spx/PACKAGES.D/libSMASHLiteHooks/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks/SCRIPTS, spx/PACKAGES.D/libSMASHLiteHooks/SCRIPTS/dev-install, spx/PACKAGES.D/libSMASHLiteHooks_dev, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks_dev/SCRIPTS, spx/PACKAGES.D/libSMASHLiteHooks_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston (winstont)(winstont@ami.com) Mon, 09 Apr 2018 23:41:03 UTC
+
+Package: libSMASHLiteHooks (2.1.0.0.0); urgency = medium
+
+Abstract:
+	FIX SMASHLITE - Improper Major and Minor firmware version is displaying under System Properties.
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: Sountharya R (sountharyar)(sountharyar@amiindia.co.in) Fri, 01 Sep 2017 12:16:39 UTC
+
+Package: libSMASHLiteHooks (2.0.0.0.0); urgency = high
+
+Abstract:
+	Upgraded to 5 Digit format
+
+
+--Submitter: Samvinesh Christopher (vinesh)(vinesh@ami.com) Sat, 19 Aug 2017 03:14:14 UTC
+
+Package: libSMASHLiteHooks (1.46.0); urgency = medium
+
+Abstract:
+	SMASH-Code optimisation
+
+Files Modified: data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: R Sountharya (sountharyar@amiindia.co.in) Tue, 13 Jun 2017 11:11:39 HMT
+
+Package: libSMASHLiteHooks (1.45.0); urgency = medium
+
+Abstract:
+	Fixed EIP 316178, fix SMASH system properties name and value.
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: jcchiu (jcchiu@ami.com.tw) Thu, 01 Jun 2017 21:11:32 CST
+
+Package: libSMASHLiteHooks (1.44.0); urgency = medium
+
+Abstract:
+	Support for Fan target
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: Sountharya R (sountharyar@amiindia.co.in) Thu, 13 Apr 2017 09:33:52 HMT
+
+Package: libSMASHLiteHooks (1.43.0); urgency = medium
+
+Abstract:
+	SMASH-Support for IPV6 Address in SnmpTrapserverIP
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: Sountharya R (sountharyar@amiindia.co.in) Fri, 31 Mar 2017 15:07:04 HMT
+
+Package: libSMASHLiteHooks (1.42.0); urgency = low
+
+Abstract:
+	Fix unused variable 'MaxSelCount' [-Werror=unused-variable]
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: David Wise (davidw@ami.com) Thu, 09 Mar 2017 11:04:45 EST
+
+Package: libSMASHLiteHooks (1.41.0); urgency = medium
+
+Abstract:
+	Fortify Fixes
+
+Files Modified: data/Includes/SMLH_Include.h
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Mon, 27 Feb 2017 18:45:16 HMT
+
+Package: libSMASHLiteHooks (1.40.0); urgency = medium
+
+Abstract:
+	Fortify fixes : Redundancy NULL check
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Wed, 01 Feb 2017 12:25:11 HMT
+
+Package: libSMASHLiteHooks (1.39.0); urgency = medium
+
+Abstract:
+	Fortify fix: Redundant NULL check
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Tue, 31 Jan 2017 12:52:54 HMT
+
+Package: libSMASHLiteHooks (1.38.0); urgency = medium
+
+Abstract:
+	Fix to pass channel num and channel type while setting the user
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/SMLH_IPMI.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Wed, 18 Jan 2017 12:42:14 HMT
+
+Package: libSMASHLiteHooks (1.37.0); urgency = medium
+
+Abstract:
+	Fix to set Active session count only through SMASH
+
+Files Modified: data/SMLH_IPMI.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Tue, 17 Jan 2017 12:12:54 HMT
+
+Package: libSMASHLiteHooks (1.36.0); urgency = medium
+
+Abstract:
+	Fix for build error
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Tue, 20 Dec 2016 18:30:35 HMT
+
+Package: libSMASHLiteHooks (1.35.0); urgency = medium
+
+Abstract:
+	Fix for EIP 302185
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Fri, 02 Dec 2016 15:31:32 HMT
+
+Package: libSMASHLiteHooks (1.34.0); urgency = medium
+
+Abstract:
+	Fix for EIP:286773
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Thu, 25 Aug 2016 13:22:16 HMT
+
+Package: libSMASHLiteHooks (1.33.0); urgency = medium
+
+Abstract:
+	OEM Hook to parse the target ufct
+
+Files Added: data/Includes/SMLH_OEMParser.h, data/SMLH_OEMParser.c
+Files Modified: data/Makefile
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Thu, 07 Jul 2016 14:51:01 HMT
+
+Package: libSMASHLiteHooks (1.32.0); urgency = medium
+
+Abstract:
+	Fix for SEL Count Update
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Tue, 21 Jun 2016 15:04:29 HMT
+
+Package: libSMASHLiteHooks (1.31.0); urgency = medium
+
+Abstract:
+	Build Fix For Werror switch default statements
+
+Files Modified: data/SMLH_IPMI.c, data/SMLH_OEM.c, spx/LICENSES/LICENSE.AMI
+
+--Submitter: ponsaravananp (ponsaravananp@amiindia.co.in) Fri, 03 Jun 2016 14:34:53 IST
+
+Package: libSMASHLiteHooks (1.30.0); urgency = medium
+
+Abstract:
+	Fix for audit log recording
+
+Files Modified: data/Includes/SMLH_Include.h
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Thu, 19 May 2016 15:19:06 HMT
+
+Package: libSMASHLiteHooks (1.29.0); urgency = medium
+
+Abstract:
+	.keep files changed to keep.folder
+
+Files Added: spx/PACKAGES.D/libSMASHLiteHooks/DATA/keep.folder, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA/keep.folder
+Files Deleted: spx/PACKAGES.D/libSMASHLiteHooks/DATA/.keep, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA/.keep
+
+--Submitter: Samvinesh Christopher (vinesh@ami.com) Thu, 05 May 2016 16:59:31 EDT
+
+Package: libSMASHLiteHooks (1.28.0); urgency = medium
+
+Abstract:
+	Fix for Auto logout
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/SMLH_IPMI.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Tue, 03 May 2016 17:43:49 HMT
+
+Package: libSMASHLiteHooks (1.27.0); urgency = medium
+
+Abstract:
+	Fix for  NTPServerIP when set with IPv6
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: B Sreedhar (bsreedhar@amiindia.co.in) Fri, 29 Apr 2016 12:57:38 HMT
+
+Package: libSMASHLiteHooks (1.26.0); urgency = medium
+
+Abstract:
+	Fix for improper ordering of audit logs in SMASH session
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: Logapriya Nagarajan (logapriyan@amiindia.co.in) Thu, 31 Mar 2016 16:03:06 HMT
+
+Package: libSMASHLiteHooks (1.25.0); urgency = medium
+
+Abstract:
+	Fix For Bleeding Edge Compilation Errors
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: abhilash padmakar nimbalkar (abhilashpadmakarn@amiindia.co.in) Wed, 20 Jan 2016 17:58:34 HMT
+
+Package: libSMASHLiteHooks (1.24.0); urgency = medium
+
+Abstract:
+	Adding .keep file to empty directories to satisfy source controls like git
+
+Files Added: spx/PACKAGES.D/libSMASHLiteHooks/DATA/.keep, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA/.keep
+
+--Submitter: Winston (winstont@ami.com) Mon, 04 Jan 2016 22:05:57 EST
+
+Package: libSMASHLiteHooks (1.23.0); urgency = medium
+
+Abstract:
+	Fix For Bleeding Edge Compilation Errors
+
+Files Modified: data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_IPMI.c, data/SMLH_OEM.c
+
+--Submitter: Prashant Vyankatrao Bharade (prashantbharadev@amiindia.co.in) Thu, 24 Dec 2015 12:31:19 HMT
+
+Package: libSMASHLiteHooks (1.22.0); urgency = medium
+
+Abstract:
+	Added build depends
+
+Files Modified: spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: rajaj (jraja@amiindia.co.in) Fri, 18 Sep 2015 22:39:33 IST
+
+Package: libSMASHLiteHooks (1.21.0); urgency = medium
+
+Abstract:
+	Fixed build error in SMASHLite core mode
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: Bojanki Ravi (bojankiravi@amiindia.co.in) Tue, 15 Sep 2015 23:56:14 CST
+
+Package: libSMASHLiteHooks (1.20.0); urgency = medium
+
+Abstract:
+	Fixed SMASHLite issues for RR11
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: Bojanki Ravi (bojankiravi@amiindia.co.in) Fri, 21 Aug 2015 14:34:14 CST
+
+Package: libSMASHLiteHooks (1.19.0); urgency = medium
+
+Abstract:
+	Fixed SMASHLite issues for RR11
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: Bojanki Ravi (bojankiravi@amiindia.co.in) Thu, 13 Aug 2015 18:22:58 HMT
+
+Package: libSMASHLiteHooks (1.18.0); urgency = medium
+
+Abstract:
+	Fixed EIP:212533 summary details
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: Bojanki Ravi (bojankiravi@amiindia.co.in) Wed, 22 Jul 2015 20:45:06 HMT
+
+Package: libSMASHLiteHooks (1.17.0); urgency = medium
+
+Abstract:
+	Added OEMCustomisation changes
+
+Files Modified: data/SMLH_OEM.c
+
+--Submitter: Bojanki Ravi (bojankiravi@amiindia.co.in) Thu, 02 Jul 2015 19:13:33 HMT
+
+Package: libSMASHLiteHooks (1.16.0); urgency = medium
+
+Abstract:
+	Fixed SMASH LITE EIPs
+
+Files Modified: data/SMLH_IPMI.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Wed, 08 Apr 2015 13:00:43 UTC
+
+Package: libSMASHLiteHooks (1.15.0); urgency = medium
+
+Abstract:
+	Added Debug statements in startrfcb PDK
+
+Files Modified: data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Wed, 11 Mar 2015 13:09:48 UTC
+
+Package: libSMASHLiteHooks (1.14.0); urgency = medium
+
+Abstract:
+	Fixed SMASH LITE Issues
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Thu, 05 Mar 2015 14:51:36 UTC
+
+Package: libSMASHLiteHooks (1.13.0); urgency = medium
+
+Abstract:
+	Fixed SMASH Lite Issues
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Wed, 04 Mar 2015 15:04:24 UTC
+
+Package: libSMASHLiteHooks (1.12.0); urgency = medium
+
+Abstract:
+	Fixed set Invalid Prop handling
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Wed, 25 Feb 2015 16:14:46 UTC
+
+Package: libSMASHLiteHooks (1.11.0); urgency = medium
+
+Abstract:
+	Fixed issues related to UT Document
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/SMLH_GetProperties.c, data/SMLH_IPMI.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Tue, 24 Feb 2015 14:38:10 UTC
+
+Package: libSMASHLiteHooks (1.10.0); urgency = medium
+
+Abstract:
+	Fixed SMASH LITE EIPs
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Fri, 20 Feb 2015 14:33:42 UTC
+
+Package: libSMASHLiteHooks (1.9.0); urgency = medium
+
+Abstract:
+	Modified Smash Lite for fixing the EIPs
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Thu, 19 Feb 2015 15:21:05 UTC
+
+Package: libSMASHLiteHooks (1.8.0); urgency = medium
+
+Abstract:
+	Modified for fixing the EIPs
+
+Files Modified: data/Includes/SMLH_Include.h, data/SMLH_GetProperties.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Tue, 17 Feb 2015 06:55:26 UTC
+
+Package: libSMASHLiteHooks (1.7.0); urgency = medium
+
+Abstract:
+	Fixed SMASHLITE related EIP's
+
+Files Modified: data/SMLH_GetProperties.c
+
+--Submitter: gayathri (gayathril@amiindia.co.in) Thu, 12 Feb 2015 15:32:32 HMT
+
+Package: libSMASHLiteHooks (1.6.0); urgency = medium
+
+Abstract:
+	updated function prototypes w.r.t ipmi calls
+
+Files Modified: data/SMLH_IPMI.c
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Wed, 14 Jan 2015 12:54:11 UTC
+
+Package: libSMASHLiteHooks (1.5.0); urgency = medium
+
+Abstract:
+	updated smashlite w.r.t ipmi calls
+
+Files Modified: data/SMLH_IPMI.c, spx/INFO
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Wed, 14 Jan 2015 12:25:03 UTC
+
+Package: libSMASHLiteHooks (1.4.0); urgency = medium
+
+Abstract:
+	Modified for Smash Lite scorpio/core mode
+
+Files Added: data/Includes/SMLH_OEM.h, data/SMLH_OEM.c, data/SMLH_OEM_bnf.h, data/SMLH_OEM_rules.h
+Files Modified: data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/Makefile, data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_IPMI.c, data/SMLH_InitHooks.c, spx/RULES
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Wed, 14 Jan 2015 06:10:13 UTC
+
+Package: libSMASHLiteHooks (1.3.0); urgency = medium
+
+Abstract:
+	Modified for smash lite scorpio
+
+Files Modified: data/Includes/SMLH_IPMI.h, data/Makefile, data/SMLH_GetProperties.c, data/SMLH_IPMI.c, spx/INFO
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Wed, 10 Dec 2014 13:02:44 UTC
+
+Package: libSMASHLiteHooks (1.2.0); urgency = medium
+
+Abstract:
+	fixed libSMASHLiteHooks Build error
+
+Files Modified: data/SMLH_GetProperties.c, spx/INFO
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Tue, 18 Nov 2014 13:28:28 UTC
+
+Package: libSMASHLiteHooks (1.1.0); urgency = medium
+
+Abstract:
+	rectified crosscc build error
+
+Files Modified: spx/INFO
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Mon, 17 Nov 2014 14:47:39 UTC
+
+Package: libSMASHLiteHooks (1.0.0); urgency = new
+
+Abstract:
+	This packages provides the proper Hooks for the customizable functions related to SMASH LITE
+
+Files Added: data, data/Includes, data/Includes/SMLH_IPMI.h, data/Includes/SMLH_Include.h, data/Makefile, data/SMLH_GetProperties.c, data/SMLH_GetTargetDetails.c, data/SMLH_IPMI.c, data/SMLH_InitHooks.c, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/libSMASHLiteHooks, spx/PACKAGES.D/libSMASHLiteHooks/DATA, spx/PACKAGES.D/libSMASHLiteHooks/SCRIPTS, spx/PACKAGES.D/libSMASHLiteHooks/SCRIPTS/dev-install, spx/PACKAGES.D/libSMASHLiteHooks_dev, spx/PACKAGES.D/libSMASHLiteHooks_dev/DATA, spx/PACKAGES.D/libSMASHLiteHooks_dev/SCRIPTS, spx/PACKAGES.D/libSMASHLiteHooks_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Fri, 14 Nov 2014 09:54:10 UTC
+

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Microcontroller Device Description File -->
+<device xml:space="preserve">
+	<name>AST_I2C</name>
+	<class>MicroController</class>
+	<init>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</init>
+
+	<read>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</read>
+
+
+	<write>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</write>
+	
+	<i2c_S>
+		<name>I2C</name>
+		<readreg>
+		{
+			/**
+				* phal->i2c.bus has the i2c bus number,
+				* phal->i2c.slave_addr has slave address.
+				* phal->i2c.reg_no should have register number.
+				* phal->pread_buf [0] should be the output.
+				* phal->pread_len should have the bytes read.            
+				**/
+			
+			/* bus number */
+			phal->i2c.bus = $(I2C_CHANNEL)-1;
+			/* Invoke i2c read register api */
+			i2c_read_reg ( phal );
+			return 0 ;
+		}       
+		</readreg>
+
+		<writereg>
+		{
+			/**
+				* phal->i2c.bus has the i2c bus number,
+				* phal->i2c.slave_addr has slave address.
+				* phal->i2c.reg_no should have register number.            
+				* phal->pwrite_buf [0] should have the bytes to write.
+				* phal->pwrite_len should have the total bytes to write.
+				**/
+			
+			/* bus number */
+			phal->i2c.bus = $(I2C_CHANNEL)-1;
+			/* Invoke i2c write register api */
+			i2c_write_reg ( phal );
+			return 0 ;
+		}         
+		</writereg>
+
+		<rwi2c>
+		{
+			/**
+				* phal->i2c.bus has the i2c bus number,
+				* phal->i2c.slave_addr has slave address.
+				* phal->pread_buf  will have bytes read.
+				* phal->pread_len will have the total bytes read.                        
+				* phal->pwrite_buf [0] should have the bytes to write.
+				* phal->pwrite_len should have the bytes to write.
+				**/
+			
+			/* bus number */
+			phal->i2c.bus = $(I2C_CHANNEL)-1;
+			/* Invoke i2c write register api */
+			i2c_write_read ( phal );
+			return 0 ;
+		}
+		</rwi2c>
+
+		<export>
+			/* Bus No is exported to the connected device if in case they need it */
+			#define     $(I2C).BUS_NO    $(I2C_CHANNEL)-1
+		</export>
+	</i2c_S>
+	
+	<config>
+		<var>ID_STR</var>
+		<name>I2C Name</name>
+		<desc>Set the name of this device</desc>
+		<type>string</type>
+		<length>16</length>
+		<default>I2C</default>
+	</config>
+	<config>
+        <var>I2C_CHANNEL</var>
+        <name>I2C Channel(1 base)</name>
+        <desc>I2C Channel(1 base)</desc>
+        <type>byte</type>
+        <default>1</default>
+    </config>
+</device>

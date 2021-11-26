@@ -1,0 +1,24 @@
+Source                   	:	sys_defaultcfg
+Version :   13.0.1.0.0
+SPX-Version              	:	4.0
+SPX-Format               	:	2.0
+Owner                    	:	AMI
+Maintainer               	:	Senguttuvan Marimuthu  (senguttuvanm@ami.com)
+License                  	:	AMI
+Source-Location          	:	AMI
+Source-Version           	:	1.0.0
+Builds                   	:	sys_defaultcfg
+Build-Depends            	:	Target, Crosscc, BaseSystem
+Customization-Type       	:	CONFIG
+Architecture             	:	ALL
+Urgency :   critical
+Description              	:	This OEM package provides OEM default configuration file to overwrite the configuration file of sys_* package
+.
+
+Package                  	:	sys_defaultcfg
+Section                  	:	sys
+Group                    	:	BASE
+Essential                	:	YES
+Description              	:	This OEM package provides OEM default configuration file to overwrite the configuration file of sys_* package
+.
+

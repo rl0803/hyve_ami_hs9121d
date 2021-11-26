@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Microcontroller Device Description File -->
+<device xml:space="preserve">
+	<name>AST_ADC</name>
+	<class>MicroController</class>
+	<init>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</init>
+
+	<read>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</read>
+
+
+	<write>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</write>
+	
+	<volt_S>
+	
+		<name>AVIN</name>
+		
+		<init>
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		</init> 
+		
+		<read>
+		{
+			<![CDATA[
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = $(ADC_CHANNEL);
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			]]>
+		}
+		</read>
+
+		<export>
+		</export>
+	</volt_S>
+	
+	<config>
+		<var>ID_STR</var>
+		<name>ADC Name</name>
+		<desc>Set the name of this device</desc>
+		<type>string</type>
+		<length>16</length>
+		<default>ADC</default>
+	</config>
+	<config>
+        <var>ADC_CHANNEL</var>
+        <name>ADC Channel(0 base)</name>
+        <desc>ADC Channel(0 base)</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+</device>

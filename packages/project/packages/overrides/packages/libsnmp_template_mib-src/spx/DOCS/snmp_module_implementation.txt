@@ -1,0 +1,65 @@
+1.	Purpose
+
+This document is intended to be used by the developers who are involved in creating SPX packages.
+
+This document provides the guidelines to create a SPX package for a SNMP Module.
+
+“Generic MegaRAC® SP-X core” refers to the new core of AMI’s MegaRAC® SP firmware running on various SoC platforms.
+
+“SP” and “Service Processor” terms are used interchangeably throughout this document to refer to AMI’s generic MegaRAC® SP solution.
+
+“MegaRAC® SP-X”, “MegaRAC SP”, “SP-X”, “SP-X Core” and “Generic MegaRAC® SP” terms are used interchangeably throughout this document to refer to AMI’s service processor firmware solution.
+
+
+2.	Introduction
+
+SNMP Modules are created to easily extend the functionality of SNMP.  This document explains how to create an SNMP Module and integrate it into the SPX architecture.
+
+
+3.	Implementation
+
+There is a template package called libsnmp_template_mib-1.1.0-src.spx
+
+This package has all the necessary files to create a SPX package for a new mib.
+
+Changes must be made to each of these files:
+
+amiMibModule.c:
+
+ the name of the init function needs to be changed from init_libsnmp_CHANGEME_mib on line 15
+
+ the OID needs to be filled out on line 17.  The first part of the AMI OID is already filled out.
+
+ the handler function name needs to be changed on line 22 to match the name of the function to use.
+
+ There is an example handler function on line 28 that can be changed to get and set necessary data.
+
+amiMibModule.h:
+
+ the name of the init function needs to be changed on line 9
+ 
+ the name of the handler function needs to be changed on line 10
+
+Makefile:
+
+ Lines 11, 23, and 25 need to be changed to reflect the name of the module.
+
+ Libraries that need to be included should be added to the CFLAGS
+
+RULES:
+
+ Lines 16 and 17 need to be changed to reflect the name of the module.
+
+dev-install:
+
+ lines 5 and 6 need to be changed to reflect the name of the module.
+
+INFO:
+
+ Needs to be updated for new module info.
+
+
+Other files:
+SPX-MIB.my:
+
+ The MIB file needs to be updated to reflect the OID used in the new module and the new definitions.

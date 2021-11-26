@@ -1,0 +1,37 @@
+Source : libipmipar_HS9121D
+Version :   1.0.0.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : AlanW (alanw@hyvedesignsolutions.com)
+License : AMI
+Source-Location : AMI
+Source-Version : 1.0.0.0.0
+Builds : libipmipar_HS9121D
+Build-Depends : Crosscc, global_dev, ipmi_dev, ipmipdk_dev, libdbgout_dev, libfeaturedefine_dev, libiniparser_dev, libipmihalapi_dev, libunix_dev, rules, libmmap
+Customization-Type : PMCP
+Architecture : ARM
+SOC : AST2600
+PLATFORM : AST2600EVB
+OEM : AMI
+Urgency :   new
+Description : This package contains Board sensor porting related stuffs for HS9121D platform
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package : libipmipar_HS9121D
+Config-Tag : IPMI Platform Library for HS9121D Platform (HYVE OEM)
+Section : lib
+Group : PLATFORM
+Essential : NO
+Required : libfeaturedefine
+Description : This package contains IPMI configuration and sensor porting related stuffs for HS9121D Platform
+.
+

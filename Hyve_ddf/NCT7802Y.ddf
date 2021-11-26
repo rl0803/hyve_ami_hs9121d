@@ -1,0 +1,192 @@
+<?xml version= "1.0" encoding="ISO-8859-1"?>
+
+<device xml:space="preserve">
+	<name>NCT7802Y</name>
+	<desc>NCT7802Y H/W Monitor</desc>
+	<class>HW Monitor</class>
+    <init>
+    {
+		UN_USED(phal);
+#if $(INITIALIZE_DEVICE)
+        /* slave address */
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+        phal->write_len      = 2; /* register size is one byte */
+        
+        /* Set Mode Selection register to 0x7E */
+        /* RTD1_MD: thermistor mode */
+        phal->i2c.reg_num   = 0x22;
+        phal->pwrite_buf[0] = $(INIT_VALUE);
+        $(this).writereg ( phal );
+#endif
+        return 0;
+    }
+    </init>
+    
+    <read>
+    {
+        $(this).readreg ( phal );
+        return 0;
+    }
+    </read>
+
+    <write>
+    {
+        $(this).writereg ( phal );
+        return 0;
+    }
+    </write>
+    
+	<i2c_X>
+		<name>I2C</name>
+	</i2c_X>
+	
+	<therm_S>
+        <name>INTL</name>
+        <read>
+        {
+            phal->i2c.reg_num =  0x04;
+            phal->read_len = 2;
+            $(this).readreg ( phal );
+            return 0;
+        }
+        </read>
+    </therm_S>
+
+	<therm_S>
+		<name>TR1</name>
+		<read>
+		{
+			phal->i2c.reg_num =  0x01;
+            phal->read_len = 1;
+            $(this).readreg ( phal );
+            return 0;
+		}
+		</read>
+	</therm_S>    
+
+    <therm_S>
+        <name>TR2</name>
+        <read>
+        {
+            phal->i2c.reg_num =  0x02;
+            phal->read_len = 1;
+            $(this).readreg ( phal );
+            return 0;
+        }
+        </read>
+    </therm_S>
+
+    <therm_S>
+        <name>TR3</name>
+        <read>
+        {
+            phal->i2c.reg_num =  0x03;
+            phal->read_len = 1;
+            $(this).readreg ( phal );
+            return 0;
+        }
+        </read>
+    </therm_S>
+	
+	 <define>
+        <![CDATA[
+          
+              
+          SensorProp_T $(this).properties = {  
+                          0,
+                          0,
+                          0,
+                         $(POWER_ON_DELAY),
+                         $(SYS_RESET_DELAY),
+                    };
+                    
+          ]]>          
+     </define> 
+     
+    <!-- Common Code -->
+    <code>
+    
+    /* NCT7904D HW Monitor properties */
+  
+    int $(this).readreg ( hal_t* phal )     
+    {
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+        $(I2C).readreg( phal );       
+        return 0;
+    }
+
+    int $(this).writereg ( hal_t* phal )
+    {
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+        $(I2C).writereg ( phal );
+        return 0;
+    }
+    <!--
+    int $(this).readtach ( hal_t* phal )
+    {
+        UINT16  temp; 
+        phal->read_len = 1;
+        $(this).readreg ( phal );
+        temp = (0x7530/$(FAN_TACH_PULSES));
+        temp /= phal->pbyte[0];
+        phal->pword [0] = (UINT8) temp;
+        return 0;
+    }
+    -->
+    </code>
+    
+    <config>
+        <var>ID_STR</var>
+        <name>HM Device Name</name>
+        <desc>NCT7802Y Hardware monitoring controller</desc>
+        <type>string</type>
+        <length>16</length>
+        <default>NCT7802Y</default>
+    </config>
+    <config>
+        <var>SLAVE_ADDR</var>
+        <name>Slave Address</name>
+        <desc>Slave Address of this device</desc>
+        <type>byte</type>
+        <radix>hex</radix>
+        <default>0x50</default>
+    </config>
+    <config>
+        <var>INIT_VALUE</var>
+        <name>Initial register value</name>
+        <desc>Initial reg offset 0x22</desc>
+        <type>byte</type>
+        <radix>hex</radix>
+        <default>0x6A</default>
+    </config>    
+    <config>
+        <var>INITIALIZE_DEVICE</var>
+        <name>Initialize device (values 0/1)</name>
+        <desc>Initialize this device (1 - initialize, 0 - not)</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+    <config>
+        <var>ID_ENUM</var>
+        <name>Device ID</name>
+        <value>oemlist</value>
+        <desc>Set the Device Id for this device</desc>
+        <type>id_list</type>       
+        <default>UNKNOWN</default>
+    </config> 
+    <config>
+        <var>POWER_ON_DELAY</var>
+        <name>Power On Delay</name>
+        <desc>Delay after chassis power on in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+    <config>
+        <var>SYS_RESET_DELAY</var>
+        <name>System Reset Delay</name>
+        <desc>Delay after chassis reset in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>   
+	
+</device>

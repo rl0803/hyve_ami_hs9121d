@@ -1,0 +1,39 @@
+Source : libSMASHLiteHooks
+Version :   13.3.4.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : Manoj A (manoja@amiindia.co.in)
+License : AMI
+Source-Location : AMI
+Source-Version : 1.0.0
+Builds : libSMASHLiteHooks, libSMASHLiteHooks_dev
+Build-Depends : Crosscc, rules, global_dev, liboemsystemlog, libdbgout_dev,liboemsystemlog_dev, libpmbus_dev, libpmbus, libntpconf, libntpconf_dev
+Customization-Type : PDK
+Architecture : ANY
+Urgency :   high
+Description : This packages provides the proper Hooks for the customizable functions related to SMASH LITE
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package : libSMASHLiteHooks
+Section : lib
+Group : SMASH
+Essential : NO
+Description : This packages provides the proper Hooks for the customizable functions  related to SMASH LITE
+.
+
+Package : libSMASHLiteHooks_dev
+Section : dev
+Group : SMASH
+Essential : NO
+Description : Package Description.
+.
+

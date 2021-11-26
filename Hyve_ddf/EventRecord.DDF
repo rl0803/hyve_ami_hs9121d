@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Even-Only Device Description File -->
+<device xml:space="preserve">
+    <name>EventRecord</name>
+    <class>SDR</class>
+    <type>digital</type>
+    <init>
+    {
+            UN_USED(phal);
+            return 0;
+    }
+    </init>
+    <read>
+    {
+            UN_USED(phal);
+            return 0;
+    }
+    </read>
+    
+    <write>
+    {
+            UN_USED(phal);
+            return 0;
+    }
+    </write>    
+     
+    <define>
+         	<![CDATA[
+     
+             
+            
+                 
+             SensorProp_T $(this).properties = {  
+                             0,
+                             0,
+                             0,
+                             $(POWER_ON_DELAY),
+                             $(SYS_RESET_DELAY),
+
+                       };
+                       
+             ]]>          
+    </define> 
+    <code>
+        
+            
+    
+    </code>
+
+    <sdr>
+        <data>
+        /* SDR Record Header */
+            .dw $(REC_ID)               /* Record ID                        */
+            .db $(SDR_VER)              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "$(ID_STR)" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db $(SEN_ID)               /* Sensor Owner ID                  */
+            .db $(LUN)                  /* Sensor Owner LUN                 */
+            .db $(SENSOR_NUMBER)        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db $(ENT_ID)               /* Entity ID                        */
+            .db $(ENT_INST)             /* Entity Instance                  */
+            .db $(SEN_TYPE)             /* Sensor Type                      */
+            .db $(READ_TYPE)            /* Event / Reading Type             */
+            .dw $(RECORD_SHARING)       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db $(OEM)                  /* OEM                              */
+            .db 0xc0 + sizeof"$(ID_STR)"/* ID String Type / Length Code     */
+            .db "$(ID_STR)"
+    </data>
+        <config>
+            <var>SDR_VER</var>
+            <name>SDR Version</name>
+            <desc>SDR Version</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x51</default>
+        </config>
+        <config>
+            <var>SEN_ID</var>
+            <name>Sensor owner ID</name>
+            <desc>Sensor Owner Id - System Software ID or Slave Address</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x20</default>
+        </config>
+        <config>
+            <var>LUN</var>
+            <name>LUN</name>
+            <desc>Sensor Owner LUN</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>SENSOR_NUMBER</var>
+            <name>Sensor Number</name>
+            <desc>Sensor Number</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>ENT_ID</var>
+            <name>Entity ID</name>
+            <desc>Physical Entity the Sensor is monitoring</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>ENT_INST</var>
+            <name>Entity Instance</name>
+            <desc>Instance Number for entity</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>SEN_TYPE</var>
+            <name>Sensor type</name>
+            <desc>Sensor type</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+        <config>
+            <var>READ_TYPE</var>
+            <name>Sensor reading type</name>
+            <desc>Sensor reading type code</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x6F</default>
+        </config>
+        <config>
+            <var>RECORD_SHARING</var>
+            <name>Record sharing</name>
+            <desc>Record sharing count</desc>
+            <type>word</type>
+            <radix>hex</radix>
+            <default>0x0000</default>
+        </config>
+        <config>
+            <var>OEM</var>
+            <name>OEM</name>
+            <desc>OEM</desc>
+            <type>byte</type>
+            <radix>hex</radix>
+            <default>0x00</default>
+        </config>
+    </sdr>
+    <config>
+        <var>ID_STR</var>
+        <name>Sensor name</name>
+        <desc>Set the name of this device</desc>
+        <type>string</type>
+	    <length>16</length>
+        <default>EventOnly</default>
+    </config>
+    <config>
+        <var>ID_ENUM</var>
+        <name>Device ID</name>
+        <value>oemlist</value>
+        <desc>Set the Device Id for this device</desc>
+        <type>id_list</type>       
+        <default>UNKNOWN</default>
+    </config> 
+    <config>
+        <var>POWER_ON_DELAY</var>
+        <name>Power On Delay</name>
+        <desc>Delay after chassis power on in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+    <config>
+        <var>SYS_RESET_DELAY</var>
+        <name>System Reset Delay</name>
+        <desc>Delay after chassis reset in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+
+</device>

@@ -1,0 +1,9 @@
+workspace*
+spx-packages
+spx-packages-links
+**/.workspace/**
+**/.patch/**
+packages/webui_html5_libs-src/data/node_modules/
+packages/webui_html5_libs-src/data/vendor/
+
+**pycache**

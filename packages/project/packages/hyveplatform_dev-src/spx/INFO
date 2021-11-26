@@ -1,0 +1,31 @@
+Source : hyveplatform_dev
+Version : 1.0.0.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : AlanW (alanw@hyvedesignsolutions.com)
+License : AMI
+Source-Location : AMI
+Source-Version : 1.0.0
+Builds : hyveplatform_dev
+Customization-Type : PDK
+Architecture : ALL
+Urgency : new
+Description : This package contains the platform library header files.
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package : hyveplatform_dev
+Section : dev
+Group : IPMI
+Essential : YES
+Description : This package contains the platform library header files.
+.
+

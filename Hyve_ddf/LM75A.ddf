@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Hardware Monitoring Device Description File -->
+<device xml:space="preserve">
+    <name>LM75A</name>
+    <class>HW Monitor</class>
+
+    <!-- LM75A init,read and write functions -->
+
+    <init>
+    {
+        /* LM75A initialization */
+	UN_USED(phal);
+        return 0 ;
+    }
+    </init>
+
+    <read>
+    {
+        /* slave address */
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+    
+        /* Invoke read write I2C */
+        if(0 != $(I2C).readreg ( phal ))
+        {
+        	phal->status_code = HAL_ERR_READ;
+        	return -1;
+        }
+    
+        return 0 ;
+    }
+    </read>
+
+    <write>
+    {
+		/* LM75A write function */
+        /* slave address */
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+    
+        /* Invoke read write I2C */
+        if(0 != $(I2C).writereg ( phal ))
+        {
+        	phal->status_code = HAL_ERR_WRITE;
+        	return -1;
+        }
+    
+        return 0 ;
+    }
+    </write>
+    
+
+    <i2c_X>
+        <name>I2C</name>
+    </i2c_X>
+
+    <therm_S>
+    <name>Temp</name>
+    
+    
+    <read>
+    {
+    /* LM75A Therm Pin Read Function  */
+    
+#if $(SIMULATE_DEVICE)   
+
+        /* return with the simulated value */
+        phal->pbyte [0] = $(SIM_TEMP);
+        return 0;
+        
+#endif
+
+        /* register number to read temperature value */
+        phal->i2c.reg_num = 0;
+
+        /* slave address */
+        phal->i2c.slave_addr = $(SLAVE_ADDR);
+		phal->pwrite_buf[0]  = 0x0;
+		phal->write_len	     = 1; /* register size is one byte */
+		phal->read_len       = 2; /* read two byte temp value */		
+    
+        /* Invoke read I2C register */
+        if ( 0 != $(I2C).rwi2c ( phal ))
+        {
+        	phal->status_code = HAL_ERR_READ;
+        	return -1;
+        }
+        
+        INT16U i16Value = 0;
+        float temp = 0.0f; 
+        
+        i16Value = ((((INT16U) phal->pread_buf[0]) &lt;&lt; 8) | phal->pread_buf[1]);
+        i16Value = (i16Value &amp; 0xFFE0) &gt;&gt; 5;
+        //printf("i16Value %x\n",i16Value);
+       
+        if(i16Value &amp; 0x400) //Nevigate value
+        {
+        	i16Value |= 0xF800;
+        }
+
+        /* Resolution is 0.125 */
+        temp = ((float) i16Value) * 0.125;
+        phal->pword[0] = (INT16U) temp;  
+        //printf("i16Value %x temp %f phal->pword[0] %x\n",i16Value,temp, phal->pword[0]);
+    
+        return 0 ;
+    }
+    </read>
+    
+    <export>
+    
+      
+    </export>
+
+    </therm_S>
+    <define>
+     	<![CDATA[
+             
+         SensorProp_T $(this).properties = {  
+                         0,
+                         0,
+                         0,
+                         $(POWER_ON_DELAY),
+                         $(SYS_RESET_DELAY),
+
+                   };
+                   
+         ]]>          
+    </define> 
+    <code>
+    </code>
+
+    <config>
+        <var>ID_STR</var>
+        <name>Device Name</name>
+        <desc>Set the name of this device</desc>
+        <type>string</type>
+        <length>16</length>
+        <default>LM75A</default>
+    </config>
+    <config>
+        <var>ID_ENUM</var>
+        <name>App Type</name>
+        <value>oemlist</value>
+        <desc>Set the App type for this device</desc>
+        <type>id_list</type>       
+        <default>UNKNOWN</default>
+    </config>
+    <config>
+        <var>SLAVE_ADDR</var>
+        <name>Slave Address</name>
+        <desc>Slave Address of this device</desc>
+        <type>byte</type>
+        <radix>hex</radix>
+        <default>0x48</default>
+    </config>
+    <config>
+        <var>INITIALIZE_DEVICE</var>
+        <name>Initialize device (values 0/1)</name>
+        <desc>Initialize this device (1 - initialize, 0 - not)</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+    <config>
+        <var>SIMULATE_DEVICE</var>
+        <name>Simulate (values 0/1)</name>
+        <desc>Simulate this device (values 0/1)</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+    <config>
+        <var>SIM_TEMP</var>
+        <name>Simulate temperature</name>
+        <desc>Simulate this temperature</desc>
+        <type>byte</type>
+        <radix>hex</radix>
+        <default>0x32</default>
+    </config>
+    <config>
+        <var>POWER_ON_DELAY</var>
+        <name>Power On Delay</name>
+        <desc>Delay after chassis power on in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+    <config>
+        <var>SYS_RESET_DELAY</var>
+        <name>System Reset Delay</name>
+        <desc>Delay after chassis reset in seconds</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>          
+</device>

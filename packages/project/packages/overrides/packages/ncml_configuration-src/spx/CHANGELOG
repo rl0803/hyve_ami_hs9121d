@@ -1,0 +1,412 @@
+Package: ncml_configuration (13.1.1.0.0); urgency = critical
+
+Abstract:
+	add overrides folder (ivanlee@ami.com.tw)
+
+Files Added: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf, data/ncml_telnet.conf, data/ncml_vnc.conf, data/ncmlupdate_cfg, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.GPL-V2, spx/PACKAGES.D/ncml_configuration/DATA/keep.folder, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: ivanlee (ivanlee)() 2020-12-01T20:01:10+08:00
+
+Package: ncml_configuration (13.1.0.0.0); urgency = low
+
+Abstract:
+	Move these packages to overrides/packages as per SPX-12 source archietecture (senguttuvanm@ami.com)
+
+Files Added: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf, data/ncml_telnet.conf, data/ncml_vnc.conf, data/ncmlupdate_cfg, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.GPL-V2, spx/PACKAGES.D/ncml_configuration/DATA/keep.folder, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-07-01T14:09:27-04:00
+
+Package: ncml_configuration (13.1.0.0.0); urgency = high
+
+Abstract:
+	sync with v12-update-3.02 (senguttuvanm@ami.com)
+
+Files Modified: spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-05-27T18:19:55-04:00
+
+Package: ncml_configuration (6.8.0.0.0); urgency = low
+
+Abstract:
+	Addressed the issue of configured timeout in MDS for web,kvm should be reflect in web ui (kirankumarb@amiindia.co.in)
+	Addressed the issue of configured timeout in MDS for web,kvm should be reflect in web ui (kirankumarb@amiindia.co.in)
+	Addressed the issue of configured timeout in MDS for web,kvm should be reflect in web ui (kirankumarb@amiindia.co.in)
+
+Files Modified: data/ncmlupdate_cfg, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install, data/ncmlupdate_cfg, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install, data/ncmlupdate_cfg
+
+--Submitter: Winston Thangapandian (winstont)() 2019-03-18T18:11:56Z
+
+Package: ncml_configuration (6.7.0.0.0); urgency = critical
+
+Abstract:
+	The packages are deleted (winstont@ami.com)
+	Add 'packages/ncml_configuration-src/' from commit '67625a119239797721e3eb19eee8abb2400001c4'
+
+git-subtree-dir: packages/ncml_configuration-src
+git-subtree-mainline: 050b2e2a35f123658b3cfa43726a95d89f4f0345
+git-subtree-split: 67625a119239797721e3eb19eee8abb2400001c4 (winstont@ami.com)
+
+Files Added: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf, data/ncml_telnet.conf, data/ncml_vnc.conf, data/ncmlupdate_cfg, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.GPL-V2, spx/PACKAGES.D/ncml_configuration/DATA/keep.folder, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install, spx/RULES
+Files Removed: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf, data/ncml_telnet.conf, data/ncml_vnc.conf, data/ncmlupdate_cfg, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.GPL-V2, spx/PACKAGES.D/ncml_configuration/DATA/keep.folder, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston Thangapandian (winstont)() 2019-03-07T16:42:45Z
+
+Package: ncml_configuration (6.7.0.0.0); urgency = medium
+
+Abstract:
+	Fix for SSH session alive even after disabling VNC over ssh session
+
+Files Modified: data/ncmlupdate_cfg, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: deepakmn (deepakmn)(deepakmn@amiindia.co.in) Wed, 13 Feb 2019 14:35:24 UTC
+
+Package: ncml_configuration (6.6.0.0.0); urgency = medium
+
+Abstract:
+	Fixed VNC launch issue
+
+Files Modified: data/ncml_vnc.conf
+
+--Submitter: sowmyaa (sowmyaa)(sowmyaa@amiindia.co.in) Fri, 01 Feb 2019 10:31:52 UTC
+
+Package: ncml_configuration (6.5.0.0.0); urgency = medium
+
+Abstract:
+	Fix for Notification message occurs as "Port value is already in use" when SSH timeout changes from 300 to 600 seconds
+
+Files Modified: data/ncml_vnc.conf, spx/FILES, spx/INFO
+
+--Submitter: U B S Kiran Kumar (suryakk)(suryakk@amiindia.co.in) Thu, 31 Jan 2019 09:29:23 UTC
+
+Package: ncml_configuration (6.4.0.0.0); urgency = medium
+
+Abstract:
+	Changed VNC minimum time out value from 60 to 300 via IPMI
+
+Files Modified: data/ncml_vnc.conf
+
+--Submitter: sowmyaa (sowmyaa)(sowmyaa@amiindia.co.in) Fri, 18 Jan 2019 07:31:13 UTC
+
+Package: ncml_configuration (6.3.0.0.0); urgency = low
+
+Abstract:
+	Adding previous Changelog
+
+Files Modified: spx/CHANGELOG
+
+--Submitter: Winston (winstont)(winstont@ami.com) Sat, 08 Dec 2018 20:11:22 UTC
+
+Package: ncml_configuration (6.2.0.0.0); urgency = medium
+
+Abstract:
+	VNC Changes for SPX 12.1
+
+Files Added: data/ncml_vnc.conf
+Files Modified: spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: Winston (winstont)(winstont@ami.com) Sat, 24 Nov 2018 16:06:18 UTC
+
+Package: ncml_configuration (6.1.0.0.0); urgency = medium
+
+Abstract:
+	Fix Host cant access BMC Redfish via Ethernet Over USB when platform only suporrt signal NIC
+
+Files Modified: spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: RobertLin (RobertLin)(robertlin@ami.com.tw) Thu, 21 Jun 2018 07:12:16 UTC
+
+Package: ncml_configuration (6.0.0.0.0); urgency = medium
+
+Abstract:
+	This package contains the default configuration file of ncml package.
+
+Files Added: data, data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf, data/ncml_telnet.conf, data/ncmlupdate_cfg, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.GPL-V2, spx/PACKAGES.D, spx/PACKAGES.D/ncml_configuration, spx/PACKAGES.D/ncml_configuration/DATA, spx/PACKAGES.D/ncml_configuration/DATA/keep.folder, spx/PACKAGES.D/ncml_configuration/SCRIPTS, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston (winstont)(winstont@ami.com) Tue, 10 Apr 2018 01:55:07 UTC
+
+Package: ncml_configuration (3.0.0.0.0); urgency = high
+
+Abstract:
+	Upgraded to 5 Digit format
+
+
+--Submitter: Samvinesh Christopher (vinesh)(vinesh@ami.com) Sat, 19 Aug 2017 03:29:56 UTC
+
+Package: ncml_configuration (2.8.0); urgency = high
+
+Abstract:
+	SOL on HTML5 feature.
+
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf
+
+--Submitter: albertlin (albertlin@ami.com.tw) Thu, 10 Aug 2017 12:07:03 CST
+
+Package: ncml_configuration (2.7.0); urgency = medium
+
+Abstract:
+	Fix for EIP [336648]: TELNET section is still available in ncml.conf
+
+Files Added: data/ncml_telnet.conf
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: abhilash padmakar nimbalkar (abhilashpadmakarn@amiindia.co.in) Fri, 23 Jun 2017 11:38:48 HMT
+
+Package: ncml_configuration (2.6.0); urgency = medium
+
+Abstract:
+	Fix for EIP 340940 - Unable to activate solssh
+
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf
+
+--Submitter: S Rajamanickem (srajamanickem@amiindia.co.in) Wed, 07 Jun 2017 20:05:48 IST
+
+Package: ncml_configuration (2.5.0); urgency = medium
+
+Abstract:
+	Remove FD media section from /conf/ncml.conf
+
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf
+
+--Submitter: jerryshih (jerryshih@ami.com.tw) Wed, 29 Mar 2017 14:44:29 CST
+
+Package: ncml_configuration (2.4.0); urgency = medium
+
+Abstract:
+	.keep files changed to keep.folder
+
+Files Added: spx/PACKAGES.D/ncml_configuration/DATA/keep.folder
+Files Deleted: spx/PACKAGES.D/ncml_configuration/DATA/.keep
+
+--Submitter: Samvinesh Christopher (vinesh@ami.com) Thu, 05 May 2016 17:20:35 EDT
+
+Package: ncml_configuration (2.3.0); urgency = medium
+
+Abstract:
+	Adding .keep file to empty directories to satisfy source controls like git
+
+Files Added: spx/PACKAGES.D/ncml_configuration/DATA/.keep
+
+--Submitter: Winston (winstont@ami.com) Mon, 04 Jan 2016 22:25:33 EST
+
+Package: ncml_configuration (2.2.0); urgency = medium
+
+Abstract:
+	modified session inactivity timeout value for cd,fd,hd services
+
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4, data/ncml_ssi_bond.conf, spx/INFO
+
+--Submitter: rajaj (jraja@amiindia.co.in) Wed, 02 Sep 2015 21:05:28 IST
+
+Package: ncml_configuration (2.1.0); urgency = low
+
+Abstract:
+	change the solssh port number to a valid one when interface bond is enabled
+
+Files Modified: data/ncml_bond.conf
+
+--Submitter: changjun kang (changjunk@ami.com) Thu, 30 Oct 2014 16:45:50 EDT
+
+Package: ncml_configuration (2.0.0); urgency = high
+
+Abstract:
+	Converting the packages to SPX 2.0 Format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 18 Oct 2014 05:48:39 GMT
+
+Package: ncml_configuration (1.20.0); urgency = low
+
+Abstract:
+	Display SOLSSH on webui
+
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml.conf.0x3, data/ncml.conf.0x4
+
+--Submitter: changjun kang (changjunk@ami.com) Fri, 03 Oct 2014 14:07:32 EDT
+
+Package: ncml_configuration (1.19.0); urgency = medium
+
+Abstract:
+	Due to various issues reverting the package to SPX 1.0 format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 27 Sep 2014 07:20:31 GMT
+
+Package: ncml_configuration (1.18.0); urgency = medium
+
+Abstract:
+	Converting the package to SPX 2.0 format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Fri, 26 Sep 2014 05:32:30 GMT
+
+Package: ncml_configuration (1.17.0); urgency = medium
+
+Abstract:
+	Changed from refering package name to Provides Value
+
+Files Modified: spx/INFO
+
+--Submitter: Samvinesh Christopher (vineshc@ami.com) Thu, 31 Jul 2014 12:46:19 EDT
+
+Package: ncml_configuration (1.16.0); urgency = medium
+
+Abstract:
+	Fix the problem that TFTP service will be invoked while SSICOMPUTEBLADE feature is diabled
+
+Files Modified: spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: patrickhuang (patrickhuang@ami.com.tw) Wed, 30 Jul 2014 17:29:12 CST
+
+Package: ncml_configuration (1.15.0); urgency = low
+
+Abstract:
+	Support multi-sideband card
+
+Files Added: data/ncml.conf.0x3, data/ncml.conf.0x4, data/ncml_ssi.conf.0x3, data/ncml_ssi.conf.0x4
+
+--Submitter: jcchiu (jcchiu@ami.com.tw) Mon, 21 Apr 2014 13:53:15 CST
+
+Package: ncml_configuration (1.14.0); urgency = medium
+
+Abstract:
+	Maxixmum session count for CD, FD and HD redirection services increased to 4.
+
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi_bond.conf
+
+--Submitter: deepakmn (deepakmn@amiindia.co.in) Thu, 25 Jul 2013 16:06:59 GMT
+
+Package: ncml_configuration (1.13.0); urgency = medium
+
+Abstract:
+	#updated value of KVM session timeout to make it configurable
+
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi_bond.conf
+
+--Submitter: gopinaths (gopinaths@amiindia.co.in) Thu, 04 Jul 2013 15:11:35 GMT
+
+Package: ncml_configuration (1.12.0); urgency = medium
+
+Abstract:
+	Maximum and Minimum session inactivity timeouts modified.
+
+Files Modified: data/ncml.conf.0x1, data/ncml.conf.0x2, data/ncml_bond.conf, data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2, data/ncml_ssi_bond.conf, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: deepakmn (deepakmn@amiindia.co.in) Thu, 27 Jun 2013 20:33:17 GMT
+
+Package: ncml_configuration (1.11.0); urgency = medium
+
+Abstract:
+	Select correct ncml.conf according to number of NIC.
+
+Files Added: data/ncml.conf.0x1, data/ncml.conf.0x2
+Files Deleted: data/ncml.conf
+Files Modified: spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: owenchou (jcchiu@ami.com.tw) Wed, 12 Jun 2013 08:03:29 PDT
+
+Package: ncml_configuration (1.10.0); urgency = medium
+
+Abstract:
+	If bonding is not enabled, set interface_name = "eth0" or "both", depends on number of NIC.
+
+Files Added: data/ncml_ssi.conf.0x1, data/ncml_ssi.conf.0x2
+Files Deleted: data/ncml_ssi.conf
+Files Modified: spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: owenchou (jcchiu@ami.com.tw) Tue, 11 Jun 2013 14:28:01 PDT
+
+Package: ncml_configuration (1.9.0); urgency = medium
+
+Abstract:
+	Adding customization type as CONFIG.
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Mon, 10 Jun 2013 17:45:00 EDT
+
+Package: ncml_configuration (1.8.0); urgency = medium
+
+Abstract:
+	Minor change in dev_install for Copying ncml_ssi_bond.conf file only in the case of both the ssi and bonding support are enabled only.
+
+Files Modified: spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: madhug (gaddammadhug@amiindia.co.in) Mon, 11 Mar 2013 20:57:15 HMT
+
+Package: ncml_configuration (1.7.0); urgency = medium
+
+Abstract:
+	Web server will listening error interface when enabled bonding feature, change to corresponding interface.
+
+Files Added: data/ncml_ssi_bond.conf
+Files Modified: spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: ivanlee (ivanlee@ami.com.tw) Mon, 04 Mar 2013 00:12:38 EST
+
+Package: ncml_configuration (1.6.0); urgency = low
+
+Abstract:
+	Fixed core_features & core_macros wipe out while Rebuilding sys_base alone
+
+Files Modified: spx/INFO
+
+--Submitter: sandipan (sandipang@amiindia.co.in) Mon, 04 Feb 2013 19:11:46 HMT
+
+Package: ncml_configuration (1.5.0); urgency = medium
+
+Abstract:
+	#Increased KVM MAX session from 2 to 4
+
+Files Modified: data/ncml.conf
+
+--Submitter: gopinaths (gopinaths@amiindia.co.in) Thu, 06 Dec 2012 21:14:09 IST
+
+Package: ncml_configuration (1.4.0); urgency = low
+
+Abstract:
+	SOLSSH Timeout configurable through Set Service configuration command
+
+Files Modified: data/ncml.conf
+
+--Submitter: sandipan (sandipang@amiindia.co.in) Fri, 09 Nov 2012 18:37:39 HMT
+
+Package: ncml_configuration (1.3.0); urgency = low
+
+Abstract:
+	SOLSSH Timeout & Escape Key Sequence as configurable
+
+Files Modified: data/ncml.conf
+
+--Submitter: sandipan (sandipang@amiindia.co.in) Tue, 06 Nov 2012 18:55:34 HMT
+
+Package: ncml_configuration (1.2.0); urgency = medium
+
+Abstract:
+	Changes done so that Telnet is in disabled state by default.
+
+Files Modified: data/ncml.conf, data/ncml_bond.conf, data/ncml_ssi.conf
+
+--Submitter: Winston (winstont@ami.com) Fri, 03 Aug 2012 17:38:49 EDT
+
+Package: ncml_configuration (1.1.0); urgency = medium
+
+Abstract:
+	Added ncml_ssi.conf for TFTP daemon required by SSI Compute Blade.
+
+Files Added: data/ncml_ssi.conf
+Files Modified: data/ncml.conf, data/ncml_bond.conf, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install
+
+--Submitter: Kevin Cheng (kevincheng@ami.com.tw) Thu, 03 May 2012 11:05:58 CST
+
+Package: ncml_configuration (1.0.0); urgency = new
+
+Abstract:
+	This package contains the default configuration file of ncml package.
+
+Files Added: data, data/ncml.conf, data/ncml_bond.conf, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.GPL-V2, spx/PACKAGES.D, spx/PACKAGES.D/ncml_configuration, spx/PACKAGES.D/ncml_configuration/DATA, spx/PACKAGES.D/ncml_configuration/SCRIPTS, spx/PACKAGES.D/ncml_configuration/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: sena (senathipathyt@ami.com) Wed, 21 Mar 2012 13:40:57 IST
+

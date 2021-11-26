@@ -1,0 +1,36 @@
+Source 			: Bootloader_20XX_Config
+Version :   13.17.11.0.0
+SPX-Version 	: 4.0
+SPX-Format 		: 2.0
+Owner 			: AMI
+Maintainer 		: Samvinesh Christopher(vinesh@ami.com)
+License 		: GPL-V2
+Source-Location : AMI
+Source-Version 	: 1.0.0
+Builds 			: Bootloader_20XX
+Build-Depends : buildtools, Crosscc, Bootloader_20XX_amiext, Bootloader_20XX_oem
+Customization-Type : CONFIG
+Architecture	: ARM
+SOC 			: AST2600
+PLATFORM 		: AST2600EVB
+Urgency :   high
+Description 	: Contains Configuration and Builds bootloader for AST2600EVB
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package 	: Bootloader_20XX
+Section 	: app
+Group 		: BASE
+Essential 	: YES
+Feature-Required : CONFIG_SPX_FEATURE_GLOBAL_BOOTLOADER_20XX
+Provides 	: BootSupport
+Description 	: Bootloader for AST2600EVB.
+.
+

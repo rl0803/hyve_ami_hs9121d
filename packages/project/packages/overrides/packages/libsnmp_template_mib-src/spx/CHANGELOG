@@ -1,0 +1,205 @@
+Package: libsnmp_template_mib (13.0.1.0.0); urgency = critical
+
+Abstract:
+	add overrides folder (ivanlee@ami.com.tw)
+
+Files Added: data/Makefile, data/amiMibModule.c, data/amiMibModule.h, spx/CHANGELOG, spx/DOCS/DO_NOT_DELETE_AMI_INTERNAL_USAGE, spx/DOCS/snmp_module_implementation.txt, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libsnmp_template_mib/DATA/keep.folder, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: ivanlee (ivanlee)() 2020-12-01T20:01:10+08:00
+
+Package: libsnmp_template_mib (6.1.0.0.0); urgency = critical
+
+Abstract:
+	The packages are deleted (winstont@ami.com)
+	Add 'packages/libsnmp_template_mib-src/' from commit 'bd0f4a382152eaed090b940787acac649c4b87fe'
+
+git-subtree-dir: packages/libsnmp_template_mib-src
+git-subtree-mainline: 41e352aa6962054037bd2790777e5cac3c14e524
+git-subtree-split: bd0f4a382152eaed090b940787acac649c4b87fe (winstont@ami.com)
+
+Files Added: data/Makefile, data/amiMibModule.c, data/amiMibModule.h, spx/CHANGELOG, spx/DOCS/DO_NOT_DELETE_AMI_INTERNAL_USAGE, spx/DOCS/snmp_module_implementation.txt, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libsnmp_template_mib/DATA/keep.folder, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS/dev-install, spx/RULES
+Files Removed: data/Makefile, data/amiMibModule.c, data/amiMibModule.h, spx/CHANGELOG, spx/DOCS/DO_NOT_DELETE_AMI_INTERNAL_USAGE, spx/DOCS/snmp_module_implementation.txt, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/libsnmp_template_mib/DATA/keep.folder, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston Thangapandian (winstont)() 2019-03-07T16:42:45Z
+
+Package: libsnmp_template_mib (6.1.0.0.0); urgency = low
+
+Abstract:
+	Adding previous Changelog
+
+Files Modified: spx/CHANGELOG
+
+--Submitter: Winston (winstont)(winstont@ami.com) Sat, 08 Dec 2018 20:09:17 UTC
+
+Package: libsnmp_template_mib (6.0.0.0.0); urgency = high
+
+Abstract:
+	SNMP Template Extension
+
+Files Added: data, data/Makefile, data/amiMibModule.c, data/amiMibModule.h, spx, spx/CHANGELOG, spx/DOCS, spx/DOCS/DO_NOT_DELETE_AMI_INTERNAL_USAGE, spx/DOCS/snmp_module_implementation.txt, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/libsnmp_template_mib, spx/PACKAGES.D/libsnmp_template_mib/DATA, spx/PACKAGES.D/libsnmp_template_mib/DATA/keep.folder, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston (winstont)(winstont@ami.com) Tue, 10 Apr 2018 01:45:14 UTC
+
+Package: libsnmp_template_mib (3.0.0.0.0); urgency = high
+
+Abstract:
+	Upgraded to 5 Digit format
+
+
+--Submitter: Samvinesh Christopher (vinesh)(vinesh@ami.com) Sat, 19 Aug 2017 03:27:04 UTC
+
+Package: libsnmp_template_mib (2.5.0); urgency = medium
+
+Abstract:
+	Added new file in spx/DOCS to maintain category and sub-category of the corresponding features.
+
+Files Added: spx/DOCS/DO_NOT_DELETE_AMI_INTERNAL_USAGE
+Files Modified: spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: Nandakumar Nanjappan (nandakumarn@amiindia.co.in) Wed, 03 May 2017 17:03:18 HMT
+
+Package: libsnmp_template_mib (2.4.0); urgency = medium
+
+Abstract:
+	Added Category and Sub-Category fields for the packages in INFO file.
+
+Files Modified: spx/INFO
+
+--Submitter: Nandakumar Nanjappan (nandakumarn@amiindia.co.in) Fri, 28 Apr 2017 14:44:27 HMT
+
+Package: libsnmp_template_mib (2.3.0); urgency = medium
+
+Abstract:
+	.keep files changed to keep.folder
+
+Files Added: spx/PACKAGES.D/libsnmp_template_mib/DATA/keep.folder
+Files Deleted: spx/PACKAGES.D/libsnmp_template_mib/DATA/.keep
+
+--Submitter: Samvinesh Christopher (vinesh@ami.com) Thu, 05 May 2016 17:01:42 EDT
+
+Package: libsnmp_template_mib (2.2.0); urgency = medium
+
+Abstract:
+	Adding .keep file to empty directories to satisfy source controls like git
+
+Files Added: spx/PACKAGES.D/libsnmp_template_mib/DATA/.keep
+
+--Submitter: Winston (winstont@ami.com) Mon, 04 Jan 2016 22:07:58 EST
+
+Package: libsnmp_template_mib (2.1.0); urgency = medium
+
+Abstract:
+	Fix for bleeding edge compilation errors.
+
+Files Modified: data/amiMibModule.c
+
+--Submitter: Prashant Vyankatrao Bharade (prashantbharadev@amiindia.co.in) Wed, 30 Dec 2015 18:42:46 HMT
+
+Package: libsnmp_template_mib (2.0.0); urgency = high
+
+Abstract:
+	Converting the packages to SPX 2.0 Format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 18 Oct 2014 05:32:44 GMT
+
+Package: libsnmp_template_mib (1.10.0); urgency = medium
+
+Abstract:
+	Remove Group Field from source section
+
+Files Modified: spx/INFO
+
+--Submitter: Dipankar Patra (dipankarpatra@amiindia.co.in) Fri, 17 Oct 2014 11:13:05 HMT
+
+Package: libsnmp_template_mib (1.9.0); urgency = medium
+
+Abstract:
+	Due to various issues reverting the package to SPX 1.0 format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 27 Sep 2014 07:07:26 GMT
+
+Package: libsnmp_template_mib (1.8.0); urgency = medium
+
+Abstract:
+	Converting the package to SPX 2.0 format
+
+Files Modified: spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: Winston (winstont@ami.com) Fri, 26 Sep 2014 05:19:32 GMT
+
+Package: libsnmp_template_mib (1.7.0); urgency = medium
+
+Abstract:
+	Updated to support Debian Wheezy target and new complier
+
+Files Modified: spx/INFO
+
+--Submitter: Samvinesh Christopher (vineshc@ami.com) Sun, 22 Sep 2013 01:28:21 EDT
+
+Package: libsnmp_template_mib (1.6.0); urgency = high
+
+Abstract:
+	Changing libsnmp_tamplate_mib  package custmerize type from none to SNMP.
+
+Files Modified: spx/INFO
+
+--Submitter: kentyeh (kentyeh@ami.com.tw) Tue, 04 Dec 2012 22:33:45 PST
+
+Package: libsnmp_template_mib (1.5.0); urgency = low
+
+Abstract:
+	Fix Error Msg When Snmp Load Template Mib
+
+Files Modified: data/Makefile, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: jcchiu (jcchiu@ami.com.tw) Thu, 05 Jul 2012 15:41:29 CST
+
+Package: libsnmp_template_mib (1.4.0); urgency = low
+
+Abstract:
+	libsnmp_template_mib-1.3.0-src.spx
+
+Files Modified: spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS/dev-install
+
+--Submitter: jcchiu (jcchiu@ami.com.tw) Fri, 22 Jun 2012 18:41:41 CST
+
+Package: libsnmp_template_mib (1.3.0); urgency = high
+
+Abstract:
+	update config file for /conf and /etc/defconfig
+
+Files Modified: data/Makefile, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS/dev-install
+
+--Submitter: michaelw (michaelw@ami.com) Fri, 08 Jul 2011 11:05:10 EDT
+
+Package: libsnmp_template_mib (1.2.0); urgency = high
+
+Abstract:
+	added snmp template implementation doc to package
+
+Files Added: spx/DOCS, spx/DOCS/snmp_module_implementation.txt
+
+--Submitter: michaelw (michaelw@ami.com) Wed, 08 Jun 2011 17:22:26 EDT
+
+Package: libsnmp_template_mib (1.1.0); urgency = high
+
+Abstract:
+	modified to ensure build will not fail if this package is included in the PRJ
+
+Files Modified: data/Makefile, data/amiMibModule.c
+
+--Submitter: michaelw (michaelw@ami.com) Wed, 08 Jun 2011 15:52:22 EDT
+
+Package: libsnmp_template_mib (1.0.0); urgency = new
+
+Abstract:
+	SNMP Template Extension
+
+Files Added: data, data/Makefile, data/amiMibModule.c, data/amiMibModule.h, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/libsnmp_template_mib, spx/PACKAGES.D/libsnmp_template_mib/DATA, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS, spx/PACKAGES.D/libsnmp_template_mib/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: michaelw (michaelw@ami.com) Fri, 03 Jun 2011 15:35:22 EDT
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Microcontroller Device Description File -->
+<device xml:space="preserve">
+	<name>AST_GPIO</name>
+	<class>MicroController</class>
+	<init>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</init>
+
+	<read>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</read>
+
+
+	<write>
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	</write>
+	
+	<gpio_S>
+	<name>GPIO_0</name>
+		<!-- Initialize GPIO Pin 0 -->
+		<init>
+		{
+			/* Initialise pin 0 */
+			UN_USED(phal);
+			return 0 ;
+		}
+		</init>
+		<!-- Function to write GPIO Pin 0 -->
+		<getgpionum>
+		{
+			phal->gpio.pol = 0;
+			return  0;
+		} 	
+		</getgpionum>
+		<write>
+		{
+			phal->gpio.dir = WRITE_GPIO;
+			phal->gpio.pin = $(GPIO_NUM);
+			gpio_write ( phal );    
+			return 0 ;
+		}   
+		</write>
+		<!-- Function to read GPIO Pin 0 -->
+		<read>
+		{
+			phal->gpio.dir = READ_GPIO;
+			phal->gpio.pin = $(GPIO_NUM);
+			gpio_read ( phal );      
+			return 0 ;
+		}   
+		</read>
+		<!-- Function to Set Direction for GPIO Pin 0 -->
+		<setdir>
+		{
+			phal->gpio.dir = SET_GPIO_DIRECTION;
+			phal->gpio.pin = $(GPIO_NUM);
+			gpio_write (phal);
+			return 0;
+		}		
+		</setdir>
+		<setpol>
+		{
+			phal->gpio.dir = SET_GPIO_POLARITY;
+			phal->gpio.pin = $(GPIO_NUM);
+			gpio_write (phal);
+			return 0;
+		}		
+		</setpol>
+		<getdir>
+		{   
+			phal->gpio.dir = GET_GPIO_DIRECTION;
+			phal->gpio.pin = $(GPIO_NUM);
+			gpio_read (phal);
+			return 0;
+		}		
+		</getdir>     
+		<getpol>
+		{   
+			phal->gpio.dir = GET_GPIO_POLARITY;
+			phal->gpio.pin = $(GPIO_NUM);
+			gpio_read (phal);
+			return 0;
+		}		
+		</getpol>
+	</gpio_S>
+	
+	<config>
+		<var>ID_STR</var>
+		<name>GPIO Name</name>
+		<desc>Set the name of this device</desc>
+		<type>string</type>
+		<length>16</length>
+		<default>GPIO</default>
+	</config>
+	<config>
+        <var>GPIO_NUM</var>
+        <name>GPIO Number(0 base)</name>
+        <desc>GPIO Number(0 base)</desc>
+        <type>byte</type>
+        <default>0</default>
+    </config>
+</device>

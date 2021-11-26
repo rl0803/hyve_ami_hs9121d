@@ -1,0 +1,32 @@
+Source : oempdk_dev
+Version :   13.2.1.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : Suresh V (sureshv@amiindia.co.in)
+License : AMI
+Source-Location : AMI
+Source-Version : 1.0.0
+Builds : oempdk_dev
+Customization-Type : PDK
+Architecture : ALL
+Urgency :   critical
+Description : This package contains the PDK Oem Header Files.
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package : oempdk_dev
+Section : dev
+Group : IPMI
+Essential : NO
+Provides : oem_pdk
+Description : This Package contains PDK Header files required for pdk packages.
+.
+

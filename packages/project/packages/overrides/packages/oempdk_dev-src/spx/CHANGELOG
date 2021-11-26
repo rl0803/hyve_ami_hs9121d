@@ -1,0 +1,577 @@
+Package: oempdk_dev (13.2.1.0.0); urgency = critical
+
+Abstract:
+	add overrides folder (ivanlee@ami.com.tw)
+
+Files Added: data/.PDKPend.h.swo, data/.PDKPend.h.swp, data/OEMCmds.h, data/PDKAlert.h, data/PDKBridgeMsg.h, data/PDKCmdselect.h, data/PDKDevIds.h, data/PDKEEPROM.h, data/PDKHW.h, data/PDKInt.h, data/PDKLED.h, data/PDKNM.h, data/PDKPend.h, data/PDKSDR.h, data/PDKSEL.h, data/PDKSensor.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/oempdk_dev/DATA/keep.folder, spx/PACKAGES.D/oempdk_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: ivanlee (ivanlee)() 2020-12-01T20:01:10+08:00
+
+Package: oempdk_dev (13.2.0.0.0); urgency = high
+
+Abstract:
+	Fix the GPIO interrupt is not workable (robertlin@ami.com.tw)
+
+Files Modified: data/PDKInt.h
+
+--Submitter: ivanlee (ivanlee)() 2020-08-06T03:17:45-04:00
+
+Package: oempdk_dev (13.1.0.0.0); urgency = low
+
+Abstract:
+	Move these packages to overrides/packages as per SPX-12 source archietecture (senguttuvanm@ami.com)
+
+Files Added: data/.PDKPend.h.swo, data/.PDKPend.h.swp, data/OEMCmds.h, data/PDKAlert.h, data/PDKBridgeMsg.h, data/PDKCmdselect.h, data/PDKDevIds.h, data/PDKEEPROM.h, data/PDKHW.h, data/PDKInt.h, data/PDKLED.h, data/PDKNM.h, data/PDKPend.h, data/PDKSDR.h, data/PDKSEL.h, data/PDKSensor.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/oempdk_dev/DATA/keep.folder, spx/PACKAGES.D/oempdk_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2020-07-01T14:09:27-04:00
+
+Package: oempdk_dev (13.1.0.0.0); urgency = low
+
+Abstract:
+	Added PDK packages for AST2600EVB (prakashs@ami.com)
+
+Files Modified: data/PDKSDR.h, data/PDKSEL.h
+
+--Submitter: Winston Thangapandian (winstont)() 2020-04-20T16:06:16-04:00
+
+Package: oempdk_dev (6.1.0.0.0); urgency = critical
+
+Abstract:
+	The packages are deleted (winstont@ami.com)
+	Add 'packages/oempdk_dev-src/' from commit '76e3182d0926a6204162483c9aa5c307f257c576'
+
+git-subtree-dir: packages/oempdk_dev-src
+git-subtree-mainline: bec8bbb1ce733ffcf9a3068327fc0315f460b1d6
+git-subtree-split: 76e3182d0926a6204162483c9aa5c307f257c576 (winstont@ami.com)
+
+Files Added: data/.PDKPend.h.swo, data/.PDKPend.h.swp, data/OEMCmds.h, data/PDKAlert.h, data/PDKBridgeMsg.h, data/PDKCmdselect.h, data/PDKDevIds.h, data/PDKEEPROM.h, data/PDKHW.h, data/PDKInt.h, data/PDKLED.h, data/PDKNM.h, data/PDKPend.h, data/PDKSDR.h, data/PDKSEL.h, data/PDKSensor.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/oempdk_dev/DATA/keep.folder, spx/PACKAGES.D/oempdk_dev/SCRIPTS/dev-install, spx/RULES
+Files Removed: data/.PDKPend.h.swo, data/.PDKPend.h.swp, data/OEMCmds.h, data/PDKAlert.h, data/PDKBridgeMsg.h, data/PDKCmdselect.h, data/PDKDevIds.h, data/PDKEEPROM.h, data/PDKHW.h, data/PDKInt.h, data/PDKLED.h, data/PDKNM.h, data/PDKPend.h, data/PDKSDR.h, data/PDKSEL.h, data/PDKSensor.h, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D/oempdk_dev/DATA/keep.folder, spx/PACKAGES.D/oempdk_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston Thangapandian (winstont)() 2019-03-07T16:42:45Z
+
+Package: oempdk_dev (6.1.0.0.0); urgency = low
+
+Abstract:
+	Adding previous Changelog
+
+Files Modified: spx/CHANGELOG
+
+--Submitter: Winston (winstont)(winstont@ami.com) Sat, 08 Dec 2018 20:12:03 UTC
+
+Package: oempdk_dev (6.0.0.0.0); urgency = high
+
+Abstract:
+	This package contains the PDK Oem Header Files.
+
+Files Added: data, data/.PDKPend.h.swo, data/.PDKPend.h.swp, data/OEMCmds.h, data/PDKAlert.h, data/PDKBridgeMsg.h, data/PDKCmdselect.h, data/PDKDevIds.h, data/PDKEEPROM.h, data/PDKHW.h, data/PDKInt.h, data/PDKLED.h, data/PDKNM.h, data/PDKPend.h, data/PDKSDR.h, data/PDKSEL.h, data/PDKSensor.h, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/oempdk_dev, spx/PACKAGES.D/oempdk_dev/DATA, spx/PACKAGES.D/oempdk_dev/DATA/keep.folder, spx/PACKAGES.D/oempdk_dev/SCRIPTS, spx/PACKAGES.D/oempdk_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Winston (winstont)(winstont@ami.com) Tue, 10 Apr 2018 01:51:11 UTC
+
+Package: oempdk_dev (4.0.0.0.0); urgency = high
+
+Abstract:
+	Upgraded to 5 Digit format
+
+
+--Submitter: Samvinesh Christopher (vinesh)(vinesh@ami.com) Sat, 19 Aug 2017 03:31:05 UTC
+
+Package: oempdk_dev (3.25.0); urgency = medium
+
+Abstract:
+	EIP_347307 Add IBM NetFN 0x3A commands for the IPMI lock commands and Extended SEL commands-for maintrunk process
+
+Files Modified: data/OEMCmds.h
+
+--Submitter: P Sivakrishna (psivakrishna@amiindia.co.in) Thu, 10 Aug 2017 15:25:21 HMT
+
+Package: oempdk_dev (3.24.0); urgency = medium
+
+Abstract:
+	EIP_309857PNOR Version Access from BMC
+
+Files Modified: data/OEMCmds.h
+
+--Submitter: P Sivakrishna (psivakrishna@amiindia.co.in) Fri, 07 Jul 2017 11:30:39 HMT
+
+Package: oempdk_dev (3.23.0); urgency = low
+
+Abstract:
+	Adding oem_pdk as provides field
+
+Files Modified: spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: Winston (winstont@ami.com) Thu, 25 May 2017 21:34:03 EDT
+
+Package: oempdk_dev (3.22.0); urgency = medium
+
+Abstract:
+	EIP_313248 Decleraed an undeclared marco which causing build error
+
+Files Modified: data/PDKSensor.h
+
+--Submitter: P Sivakrishna (psivakrishna@amiindia.co.in) Thu, 12 Jan 2017 17:58:58 HMT
+
+Package: oempdk_dev (3.21.0); urgency = medium
+
+Abstract:
+	EIP:309854:merged the P8_Firestone - Fault roll-up LED changes in the Core tree
+
+Files Modified: data/PDKSensor.h
+
+--Submitter: bhavesh sahu (bhaveshsahu@amiindia.co.in) Wed, 28 Dec 2016 23:22:52 IST
+
+Package: oempdk_dev (3.20.0); urgency = high
+
+Abstract:
+	Adding POWER9 to the condition check to enable the POWER specific definitions
+
+Files Modified: data/OEMCmds.h, data/PDKHW.h, data/PDKInt.h, data/PDKLED.h, data/PDKPend.h, data/PDKSensor.h
+
+--Submitter: Viswanathan Swaminathan (viswanathans@ami.com) Mon, 31 Oct 2016 22:53:44 EDT
+
+Package: oempdk_dev (3.19.0); urgency = low
+
+Abstract:
+	Added MSR Dump code for WCS Get MSR Dump Command
+
+Files Added: data/PDKDevIds.h
+
+--Submitter: Arvind (arvindb@amiindia.co.in) Fri, 22 Jul 2016 11:20:56 IST
+
+Package: oempdk_dev (3.18.0); urgency = medium
+
+Abstract:
+	Making PSU Alert support for ast2400 RB:14746
+
+Files Modified: data/PDKHW.h, data/PDKInt.h
+
+--Submitter: rajamanickamt (rajamanickamt@amiindia.co.in) Fri, 08 Jul 2016 12:28:12 IST
+
+Package: oempdk_dev (3.17.0); urgency = medium
+
+Abstract:
+	RB:14511 Making WCS commonds SetGPIO,GetGPIO,SetNVDIMM,GetNVDIMM generic
+
+Files Modified: data/PDKHW.h
+
+--Submitter: rajamanickamt (rajamanickamt@amiindia.co.in) Wed, 15 Jun 2016 13:07:06 IST
+
+Package: oempdk_dev (3.16.0); urgency = low
+
+Abstract:
+	Removed duplicate NetFn defines
+
+Files Modified: data/PDKNM.h
+
+--Submitter: Winston (winstont@ami.com) Mon, 06 Jun 2016 16:00:18 EDT
+
+Package: oempdk_dev (3.15.0); urgency = high
+
+Abstract:
+	Moved the PiestewaPeak specific function declarations and macro definations to OEM package.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: Mohan Pujari (mohanrp@amiindia.co.in) Mon, 06 Jun 2016 18:37:48 HMT
+
+Package: oempdk_dev (3.14.0); urgency = medium
+
+Abstract:
+	Added Code for LEDs(SystemFault LED,Locator LED and BMC LED) Glow ON/OFF of piestewa peak platform.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: Pinapatruni suresh (pinapatrunis@amiindia.co.in) Wed, 01 Jun 2016 17:42:24 HMT
+
+Package: oempdk_dev (3.13.0); urgency = medium
+
+Abstract:
+	.keep files changed to keep.folder
+
+Files Added: spx/PACKAGES.D/oempdk_dev/DATA/keep.folder
+Files Deleted: spx/PACKAGES.D/oempdk_dev/DATA/.keep
+
+--Submitter: Samvinesh Christopher (vinesh@ami.com) Thu, 05 May 2016 17:25:29 EDT
+
+Package: oempdk_dev (3.12.0); urgency = high
+
+Abstract:
+	[EIP_NONE] Integrating all the latest fixes from the OEM tree into core
+
+Files Modified: data/OEMCmds.h, data/PDKHW.h, data/PDKPend.h, data/PDKSensor.h
+
+--Submitter: Viswanathan Swaminathan (viswanathans@ami.com) Fri, 11 Mar 2016 00:44:59 EST
+
+Package: oempdk_dev (3.11.0); urgency = medium
+
+Abstract:
+	Adding platform related PDK Hook declaration for PiestewaPeak
+
+Files Modified: data/PDKHW.h
+
+--Submitter: Pravinash (pravinashj@amiindia.co.in) Fri, 12 Feb 2016 12:55:41 HMT
+
+Package: oempdk_dev (3.10.0); urgency = medium
+
+Abstract:
+	sync with IBM Power RR9 and fix the power on issue, review board #12621
+
+Files Modified: data/OEMCmds.h, data/PDKPend.h
+
+--Submitter: Pearce (pearcelee@ami.com.tw) Mon, 25 Jan 2016 18:22:08 EST
+
+Package: oempdk_dev (3.9.0); urgency = medium
+
+Abstract:
+	Fix for compilation errors
+
+Files Modified: data/OEMCmds.h
+
+--Submitter: Winston (winstont@ami.com) Sun, 10 Jan 2016 13:07:44 EST
+
+Package: oempdk_dev (3.8.0); urgency = medium
+
+Abstract:
+	Adding .keep file to empty directories to satisfy source controls like git
+
+Files Added: spx/PACKAGES.D/oempdk_dev/DATA/.keep
+
+--Submitter: Winston (winstont@ami.com) Mon, 04 Jan 2016 22:30:09 EST
+
+Package: oempdk_dev (3.7.0); urgency = low
+
+Abstract:
+	Enable the power8 flag for power8 only data structure
+
+Files Modified: data/PDKSensor.h
+
+--Submitter: Pearce (pearcelee@ami.com.tw) Fri, 18 Dec 2015 13:54:41 EST
+
+Package: oempdk_dev (3.6.0); urgency = medium
+
+Abstract:
+	Fix the missing member leading building failed
+
+Files Modified: data/PDKSensor.h
+
+--Submitter: Pearce (pearcelee@ami.com.tw) Thu, 17 Dec 2015 09:45:21 EST
+
+Package: oempdk_dev (3.5.0); urgency = medium
+
+Abstract:
+	review baord #11998 - change for single-socket/dual-socket platform
+
+Files Modified: data/PDKHW.h, data/PDKSensor.h, spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: Pearce (pearcelee@ami.com.tw) Mon, 14 Dec 2015 14:27:06 EST
+
+Package: oempdk_dev (3.4.0); urgency = medium
+
+Abstract:
+	Pendtask - modified OEMPendTaskOperation_E to be generic
+
+Files Modified: data/PDKPend.h
+
+--Submitter: VALANTINA (valantinaa@amiindia.co.in) Thu, 24 Sep 2015 16:10:30 IST
+
+Package: oempdk_dev (3.3.0); urgency = medium
+
+Abstract:
+	Changes for POWER8 platform porting
+
+Files Added: data/.PDKPend.h.swo, data/.PDKPend.h.swp, data/OEMCmds.h, data/PDKLED.h, data/PDKPend.h
+Files Modified: data/PDKHW.h, data/PDKInt.h, data/PDKSensor.h
+
+--Submitter: Maheswari Alagarasamy (maheswaria@amiindia.co.in) Mon, 06 Jul 2015 17:28:03 HMT
+
+Package: oempdk_dev (3.2.0); urgency = low
+
+Abstract:
+	Added a hook to give net-snmp the abilitty to handle snmp traps
+
+Files Modified: data/PDKAlert.h
+
+--Submitter: u b s kiran kumar (suryakk@amiindia.co.in) Fri, 15 May 2015 15:49:14 IST
+
+Package: oempdk_dev (3.1.0); urgency = medium
+
+Abstract:
+	modified for SMASH_LITE
+
+Files Modified: data/PDKCmdselect.h
+
+--Submitter: ravib (bojankiravi@amiindia.co.in) Fri, 14 Nov 2014 10:12:32 UTC
+
+Package: oempdk_dev (3.0.0); urgency = high
+
+Abstract:
+	Converting the packages to SPX 2.0 Format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 18 Oct 2014 05:53:32 GMT
+
+Package: oempdk_dev (2.22.0); urgency = medium
+
+Abstract:
+	Due to various issues reverting the package to SPX 1.0 format
+
+Files Modified: spx/INFO
+
+--Submitter: Winston (winstont@ami.com) Sat, 27 Sep 2014 07:24:33 GMT
+
+Package: oempdk_dev (2.21.0); urgency = medium
+
+Abstract:
+	Converting the package to SPX 2.0 format
+
+Files Modified: spx/INFO, spx/LICENSES/LICENSE.AMI
+
+--Submitter: Winston (winstont@ami.com) Fri, 26 Sep 2014 05:36:41 GMT
+
+Package: oempdk_dev (2.20.0); urgency = high
+
+Abstract:
+	BIOS Remote control command.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: kentyeh (kentyeh@ami.com.tw) Wed, 04 Sep 2013 14:08:09 EDT
+
+Package: oempdk_dev (2.19.0); urgency = high
+
+Abstract:
+	Enable/Disable of Individual commands are moved to core area from PDKCMDS package.However overriding can be done in PDKCMDS package.
+
+Files Added: data/PDKCmdselect.h
+
+--Submitter: Winston (winstont@ami.com) Mon, 29 Jul 2013 12:54:11 EDT
+
+Package: oempdk_dev (2.18.0); urgency = high
+
+Abstract:
+	Fixed the Init thresholds to use the readablethresholdmask instead of settablethresholdmask. Added a hook to override the CheckForentityPresence functionality, and fixed the CheckForEntityPresence where they need to AND and check for the sensor presence bit
+
+Files Modified: data/PDKSensor.h
+
+--Submitter: Viswanathan Swaminathan (viswanathans@ami.com) Fri, 12 Jul 2013 16:44:35 EDT
+
+Package: oempdk_dev (2.17.0); urgency = high
+
+Abstract:
+	Adding in new hooks to override sensor reading, override readsdrrepository, override loadsdrdefaults, beforevalidsensorlist
+
+Files Modified: data/PDKSDR.h, data/PDKSensor.h
+
+--Submitter: Viswanathan Swaminathan (viswanathans@ami.com) Thu, 18 Apr 2013 22:48:14 EDT
+
+Package: oempdk_dev (2.16.0); urgency = medium
+
+Abstract:
+	Added feature to move sellog from conf to extendedlog partition
+
+Files Modified: data/PDKSEL.h
+
+--Submitter: pravinash (pravinashj@amiindia.co.in) Mon, 11 Mar 2013 16:04:25 HMT
+
+Package: oempdk_dev (2.15.0); urgency = low
+
+Abstract:
+	Support for more than 256 sensors
+    - PDKSensor.h - Increased SensorNum size to INT16U
+
+Files Modified: data/PDKSensor.h
+
+--Submitter: David Wise (davidw@ami.com) Sat, 05 Jan 2013 15:17:06 EST
+
+Package: oempdk_dev (2.14.0); urgency = low
+
+Abstract:
+	Changed Customization Type to PDK
+
+Files Modified: spx/INFO
+
+--Submitter: sureshv (sureshv@amiindia.co.in) Tue, 10 Apr 2012 15:36:28 IST
+
+Package: oempdk_dev (2.13.0); urgency = medium
+
+Abstract:
+	Removed Conditional Compliation of SSI Compute Blade Support
+
+Files Modified: data/PDKHW.h
+
+--Submitter: Suresh V (sureshv@amiindia.co.in) Fri, 24 Feb 2012 09:55:34 IST
+
+Package: oempdk_dev (2.12.0); urgency = low
+
+Abstract:
+	Removed the conditional compilation for FEATURE_DCMI_VERSION_1_5_SUPPORT
+
+Files Modified: data/PDKHW.h
+
+--Submitter: KIRAN KUMAR S (kirankumars@amiindia.co.in) Tue, 14 Feb 2012 20:50:35 IST
+
+Package: oempdk_dev (2.11.0); urgency = low
+
+Abstract:
+	Added support to maintain the originator of a message in pending bridge table
+
+Files Added: data/PDKBridgeMsg.h
+
+--Submitter: sena (senathipathyt@ami.com) Tue, 31 Jan 2012 18:52:48 IST
+
+Package: oempdk_dev (2.10.0); urgency = medium
+
+Abstract:
+	Added PDK hook for GetMiscChassisState.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: akshay (akshayp@amiindia.co.in) Tue, 03 Jan 2012 19:37:36 IST
+
+Package: oempdk_dev (2.9.0); urgency = medium
+
+Abstract:
+	Implement Intel Intelligent Power Node Manager feature.
+Option is CONFIG_SPX_FEATURE_INTEL_INTELLIGENT_POWER_NODE_MANAGER.
+
+Files Added: data/PDKNM.h
+
+--Submitter: owenchou (owenchou@ami.com.tw) Wed, 07 Dec 2011 06:44:48 EST
+
+Package: oempdk_dev (2.8.0); urgency = medium
+
+Abstract:
+	Added DCMI PDK Hooks.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: muthuchamyk (muthusamyk@amiindia.co.in) Thu, 01 Dec 2011 16:06:11 IST
+
+Package: oempdk_dev (2.7.0); urgency = medium
+
+Abstract:
+	Add PDK_UpdateFaultLEDStatus hook for SSI Compute Blade.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: Kevin Cheng (kevincheng@ami.com.tw) Tue, 09 Aug 2011 11:51:14 CST
+
+Package: oempdk_dev (2.6.0); urgency = medium
+
+Abstract:
+	Add Operational State support for SSI Compute Blade.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: Kevin Cheng (kevincheng@ami.com.tw) Tue, 05 Jul 2011 20:51:01 CST
+
+Package: oempdk_dev (2.5.0); urgency = medium
+
+Abstract:
+	Add SSI Commands for SSI Compute Blade support.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: Kevin Cheng (kevincheng@ami.com.tw) Sat, 11 Jun 2011 22:21:42 EDT
+
+Package: oempdk_dev (2.4.0); urgency = low
+
+Abstract:
+	Changing the Essential Field to NO
+
+Files Modified: spx/INFO
+
+--Submitter: Suresh V (sureshv@amiindia.co.in) Thu, 02 Jun 2011 16:03:29 IST
+
+Package: oempdk_dev (2.3.0); urgency = medium
+
+Abstract:
+	Proper AMI License Added
+
+Files Modified: spx/LICENSES/LICENSE.AMI
+
+--Submitter: Samvinesh Christopher (vineshc@ami.com) Fri, 13 May 2011 15:21:42 EDT
+
+Package: oempdk_dev (2.2.0); urgency = low
+
+Abstract:
+	Add parameter to pass ForceIdentify value in PDK_CHASSISIDENTIFY handler.
+Let pdk handler can distinguish between ForceIdentify and IdentifyInterval 255.
+
+Files Modified: data/PDKHW.h
+
+--Submitter: cindychen (cindychen@ami.com.tw) Tue, 26 Apr 2011 11:15:05 CST
+
+Package: oempdk_dev (2.1.0); urgency = medium
+
+Abstract:
+	Unwanted pdk prototype removed
+
+Files Modified: data/PDKHW.h
+
+--Submitter: karthiksubramaniambr (karthiksubramaniambr@amiindia.co.in) Thu, 31 Mar 2011 14:47:43 IST
+
+Package: oempdk_dev (2.0.0); urgency = medium
+
+Abstract:
+	Changes done to store all the non-volatile IPMI Configurations in INI files.
+
+Files Deleted: data/OEM_NVR.h
+
+--Submitter: Winston (winstonv@amiindia.co.in) Sat, 19 Mar 2011 17:10:34 IST
+
+Package: oempdk_dev (1.5.0); urgency = medium
+
+Abstract:
+	Unwanted pdk functions removed
+
+Files Modified: data/PDKHW.h
+
+--Submitter: karthiksubramaniambr (karthiksubramaniambr@amiindia.co.in) Wed, 09 Mar 2011 09:42:44 IST
+
+Package: oempdk_dev (1.4.0); urgency = medium
+
+Abstract:
+	Passing BoardID as an argument to get the board specific SDR file.
+
+Files Modified: data/PDKSDR.h
+
+--Submitter: muthuchamyk (muthusamyk@amiindia.co.in) Tue, 18 Jan 2011 18:58:50 IST
+
+Package: oempdk_dev (1.3.0); urgency = low
+
+Abstract:
+	Added Email formatting support For users, PEF email alert is configured using user ID  instead emailid and Added support to Attach a file to smtp email alert
+
+Files Modified: data/PDKAlert.h
+
+--Submitter: revanth (revantha@amiindia.co.in) Fri, 19 Nov 2010 23:18:10 IST
+
+Package: oempdk_dev (1.2.0); urgency = high
+
+Abstract:
+	AST build issue fixed
+
+Files Modified: data/PDKInt.h
+
+--Submitter: Anurag Bhatia (anuragb@ami.com) Thu, 14 Oct 2010 01:13:35 EDT
+
+Package: oempdk_dev (1.1.0); urgency = medium
+
+Abstract:
+	Changes done to pass BMCInst to all PDK Hooks.
+
+Files Modified: data/PDKAlert.h, data/PDKHW.h, data/PDKInt.h
+
+--Submitter: Winston (winstonv@amiindia.co.in) Mon, 11 Oct 2010 21:11:17 EDT
+
+Package: oempdk_dev (1.0.0); urgency = new
+
+Abstract:
+	This package contains the PDK Oem Header Files.
+
+Files Added: data, data/OEM_NVR.h, data/PDKAlert.h, data/PDKEEPROM.h, data/PDKHW.h, data/PDKInt.h, data/PDKSDR.h, data/PDKSEL.h, data/PDKSensor.h, spx, spx/CHANGELOG, spx/FILES, spx/INFO, spx/LICENSES, spx/LICENSES/LICENSE.AMI, spx/PACKAGES.D, spx/PACKAGES.D/oempdk_dev, spx/PACKAGES.D/oempdk_dev/DATA, spx/PACKAGES.D/oempdk_dev/SCRIPTS, spx/PACKAGES.D/oempdk_dev/SCRIPTS/dev-install, spx/RULES
+
+--Submitter: Suresh V (sureshv@amiindia.co.in) Thu, 02 Sep 2010 18:07:39 IST
+

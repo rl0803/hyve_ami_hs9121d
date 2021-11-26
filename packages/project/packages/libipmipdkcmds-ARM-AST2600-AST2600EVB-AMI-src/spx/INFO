@@ -1,0 +1,38 @@
+Source : libipmipdkcmds
+Version : 13.0.0.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : Prakash Shanmugakani (prakashs@ami.com)
+License : AMI
+Source-Location : AMI
+Source-Version : 13.0.0.0.0
+Builds : libipmipdkcmds
+Build-Depends : Crosscc, global_dev, ipmi_dev, ipmipdk_dev, libdbgout_dev, libipmihalapi_dev, libsmtp_dev, libunix_dev, oempdk_dev, rules
+Customization-Type : PDK
+Architecture : ARM
+SOC : AST2600
+PLATFORM : AST2600EVB
+OEM : AMI
+Urgency :   low
+Description : This package contains PDK commands for AST2600EVB
+.
+
+#---------------------------------------------------------------------------
+# Binary Packages follows
+# Binary package takes the following fields from source pacakage:
+# Version, SPX-Version, SPX-Format, Owner, Maintainer,License,
+# Architecture,SOC,BOARD,OEM,Urgency
+# Provides,Depends,Required ?
+# ---------------------------------------------------------------------------
+
+Package : libipmipdkcmds
+Config-Tag : IPMI PDK Commands for AST2600EVB
+Section : lib
+Group : PLATFORM
+Essential : NO
+Required : global_dev, ipmi_dev, ipmipdk_dev, libdbgout, libipmihalapi, libsmtp, libunix, oempdk_dev
+Provides : IPMI_PDKCommands
+Description : This package contanins IPMI PDK commands library for AST2600EVB platform.
+.
+
