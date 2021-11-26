@@ -64,14 +64,15 @@
 
 ## About version control of each submodule:
 - Please modify the variables of the script, to choose your favorite.
-
   For example:
-        AST2600_BRANCH="hyvecommon_dev"
-        BOOTLOADER_BRANCH="hyvecommon_dev"
-        COMMON_BRANCH="hyvecommon_dev"
-        KERNEL_BRANCH="hyvecommon_dev"
-        TARGET_BRANCH="e6de1366e4cb054171b3b7ac95ce81a576d9302b"
-        UTILITIES_VMCLI_BRANCH="hyvecommon_dev"
+
+      AST2600_BRANCH="hyvecommon_dev"
+      BOOTLOADER_BRANCH="hyvecommon_dev"
+      COMMON_BRANCH="hyvecommon_dev"
+      HYVECOMMON_BRANCH="hyvecommon_dev"
+      KERNEL_BRANCH="hyvecommon_dev"
+      TARGET_BRANCH="e6de1366e4cb054171b3b7ac95ce81a576d9302b"
+      UTILITIES_VMCLI_BRANCH="hyvecommon_dev"
 
 ## Requirements:
 - Get and install the latest released **Git SPX Plugin** version (version **v1.0-beta8.5** or **later**)
@@ -131,6 +132,7 @@ Your modification will be taken effect directly of the **packages**.
 
       ~# ./buildImage.sh
 
+- Note: Due to the new version of git-spx for using new image layout has not been released yet, so use MDSv13.3 instead. 
 
 #### The **buildSinglePackage.sh**
 - This script wraps the "git spx buildsrc" cmd to build a single package
