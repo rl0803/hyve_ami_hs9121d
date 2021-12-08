@@ -12,16 +12,16 @@ UTILITIES_VMCLI_BRANCH="hyvecommon_dev"
 
 
 # The format of mapping table:
-#       "submodule" "branch name / tag / commit hash ID " \
+#       "submodule" "branch name / tag / commit hash ID "  "VarName" \
 #
 MappingList_submodule_branch=(\
-    "packages/ast2600" "${AST2600_BRANCH}" \
-    "packages/bootloader" "${BOOTLOADER_BRANCH}" \
-    "packages/common" "${COMMON_BRANCH}" \
-    "packages/hyvecommon" "${HYVECOMMON_BRANCH}" \
-    "packages/kernel" "${KERNEL_BRANCH}" \
-    "packages/target" "${TARGET_BRANCH}" \
-    "packages/vmcli" "${UTILITIES_VMCLI_BRANCH}" \
+    "packages/ast2600" "${AST2600_BRANCH}" "AST2600_BRANCH" \
+    "packages/bootloader" "${BOOTLOADER_BRANCH}" "BOOTLOADER_BRANCH" \
+    "packages/common" "${COMMON_BRANCH}" "COMMON_BRANCH" \
+    "packages/hyvecommon" "${HYVECOMMON_BRANCH}" "HYVECOMMON_BRANCH" \
+    "packages/kernel" "${KERNEL_BRANCH}" "KERNEL_BRANCH" \
+    "packages/target" "${TARGET_BRANCH}" "TARGET_BRANCH" \
+    "packages/vmcli" "${UTILITIES_VMCLI_BRANCH}" "UTILITIES_VMCLI_BRANCH" \
 )
 
 FORCE_RESET=0
@@ -44,7 +44,10 @@ while read line;
 do
 	if echo ${line} | grep -q 'submodule' ; then
 		submodule=`echo ${line} | cut -d '"' -f 2`
-		echo "Check submodule ${submodule} ..."
+        if [ ${SHOW_COMMITID} -eq 0 ]; then
+		    echo "Check submodule ${submodule} ..."
+        fi
+
         for ((i=0;i<=${count_submodules};))
         do
             item=(${MappingList_submodule_branch[${i}]})
@@ -52,14 +55,21 @@ do
             if [ "${item}" == "${submodule}" ]; then
                 brIndex=(${i}+1)
                 branch=(${MappingList_submodule_branch[${brIndex}]})
-                echo "Find matched ${item}"
-                echo "Branch: ${branch}"
-
+                
+                if [ ${SHOW_COMMITID} -eq 0 ]; then
+                    echo "Find matched ${item}"
+                    echo "Branch: ${branch}"
+                fi
+                
                 cd ${submodule}
 
                 if [ ${SHOW_COMMITID} -eq 1 ]; then
                     commitID=`git log | head -n 1 | cut -d ' ' -f 2`
-                    echo ${commitID}
+                    
+                    varNameIndex=(${i}+2)
+                    varName=(${MappingList_submodule_branch[${varNameIndex}]})
+                    echo -e "${varName}=\"${commitID}\""
+
                     cd ${ROOT_DIR}
                     break
                 fi
@@ -95,7 +105,7 @@ do
                 cd ${ROOT_DIR}
                 break
             fi
-            i=$((${i}+2))
+            i=$((${i}+3))
         done
 	fi
 done < "${filename}"
