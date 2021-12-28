@@ -61,7 +61,7 @@
 &mdio {
 	status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_mdio1_default &pinctrl_mdio3_default &pinctrl_mdio4_default>;
+	pinctrl-0 = <&pinctrl_mdio3_default &pinctrl_mdio4_default>;
 
 	// pinctrl-0 = <	&pinctrl_mdio1_default &pinctrl_mdio2_default
 	// 		&pinctrl_mdio3_default &pinctrl_mdio4_default>;
@@ -69,9 +69,9 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	ethphy0: ethernet-phy@0 {
-		reg = <0>;
-	};
+	// ethphy0: ethernet-phy@0 {
+	// 	reg = <0>;
+	// };
 
 	// ethphy1: ethernet-phy@1 {
 	// 	reg = <0>;
@@ -86,13 +86,13 @@
 	};
 };
 
-&mac0 {
-	status = "okay";
-	phy-mode = "rgmii-rxid";
-	phy-handle = <&ethphy0>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rgmii1_default>;
-};
+// &mac0 {
+// 	status = "okay";
+// 	phy-mode = "rgmii-rxid";
+// 	phy-handle = <&ethphy0>;
+// 	pinctrl-names = "default";
+// 	pinctrl-0 = <&pinctrl_rgmii1_default>;
+// };
 
 // &mac1 {
 // 	status = "okay";
@@ -174,22 +174,6 @@
 
 };
 
-&spi2 {
-	status = "okay";
-
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi2_default &pinctrl_spi2cs1_default
-			&pinctrl_spi2cs2_default &pinctrl_spi2quad_default>;
-
-	flash@0 {
-		compatible = "spi-flash", "sst,w25q256";
-		status = "okay";
-		spi-max-frequency = <50000000>;
-		spi-tx-bus-width = <4>;
-		spi-rx-bus-width = <4>;
-	};
-
-};
 &emmc {
 	u-boot,dm-pre-reloc;
     timing-phase = <0x700ff>;
@@ -204,52 +188,10 @@
     sdhci-drive-type = <1>;
 };
 
-&sdhci {
-    timing-phase = <0xc6ffff>;
-};
-
-&sdhci_slot0 {
-    status = "okay";
-    bus-width = <4>;
-    pwr-gpios = <&gpio0 ASPEED_GPIO(V, 0) GPIO_ACTIVE_HIGH>;
-    pwr-sw-gpios = <&gpio0 ASPEED_GPIO(V, 1) GPIO_ACTIVE_HIGH>;
-    pinctrl-names = "default";
-    pinctrl-0 = <&pinctrl_sd1_default>;
-    sdhci-drive-type = <1>;
-};
-
-&sdhci_slot1 {
-    status = "okay";
-    bus-width = <4>;
-    pwr-gpios = <&gpio0 ASPEED_GPIO(V, 2) GPIO_ACTIVE_HIGH>;
-    pwr-sw-gpios = <&gpio0 ASPEED_GPIO(V, 3) GPIO_ACTIVE_HIGH>;
-    pinctrl-names = "default";
-    pinctrl-0 = <&pinctrl_sd2_default>;
-    sdhci-drive-type = <1>;
-};
-
-&i2c0 {
-        status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i2c1_default>;	
-};
-
-&i2c3 {
-        status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i2c4_default>;
-};
-
 &i2c7 {
         status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c8_default>;
-};
-
-&i2c8 {
-        status = "okay";
-        pinctrl-names = "default";
-        pinctrl-0 = <&pinctrl_i2c9_default>;
 };
 
 &display_port {
@@ -257,9 +199,9 @@
 };
 
 &scu {
-	mac0-clk-delay = <0x10 0x0a
-			  0x10 0x10
-			  0x10 0x10>;
+	// mac0-clk-delay = <0x10 0x0a
+	// 		  0x10 0x10
+	// 		  0x10 0x10>;
 	// mac1-clk-delay = <0x10 0x0a
 	// 		  0x10 0x10
 	// 		  0x10 0x10>;
@@ -271,199 +213,416 @@
 			  0x08 0x04>;
 };
 
-/* Init GPIO outout pin to default value in uboot stage.
+/* Init GPIO pin to default value in uboot stage.
    To avoid polarity confusing, use default polarity - Active High. */
 &gpio0 {
+	status = "okay";
+	// PCIE_P2_MCIO1_ALERT_N
+	pin_gpio_b0 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(B, 0) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// PCIE_P3_MCIO2_ALERT_N
+	pin_gpio_b1 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(B, 1) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// XGMI_G2_AIC1_ALERT_N
+	pin_gpio_b2 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(B, 2) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// XGMI_G3_AIC2_ALERT_N
+	pin_gpio_b3 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(B, 3) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// P0_CORETYPE_0
+	pin_gpio_b4 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(B, 4) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// P0_CORETYPE_1
+	pin_gpio_b5 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// P0_CORETYPE_2
+	pin_gpio_b6 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(B, 6) GPIO_ACTIVE_HIGH>;
+		input;
+	};
 	// FM_BACKUP_BIOS_SEL_N	
 	pin_gpio_e0 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(E, 0) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(E, 0) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// FM_BIOS_BMC_CTRL
 	pin_gpio_e1 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(E, 1) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(E, 1) GPIO_ACTIVE_HIGH>;
 		output-low;
+	};
+	// PWRGD_SYS_PWROK_BMC
+	pin_gpio_f0 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(F, 0) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// PWRGD_PS_PWROK_BMC
+	pin_gpio_f1 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(F, 1) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// FM_SRST_REQ2_N
 	pin_gpio_f2 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(F, 2) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(F, 2) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// FM_BMC_RESET_DET_N
 	pin_gpio_f3 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(F, 3) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(F, 3) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// TP_GPIOF4
+	pin_gpio_f4 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(F, 4) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// TP_GPIOF5
+	pin_gpio_f5 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(F, 5) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// BMC_CPLD_JTAG_MUX_SEL
 	pin_gpio_f6 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(F, 6) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(F, 6) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 	// FM_PWRBRK_BMC_N
 	pin_gpio_f7 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(F, 7) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(F, 7) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// BMC_OCP1_SMRST_L
 	pin_gpio_g0 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(G, 0) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(G, 0) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// FM_DP_CONN_PWR_EN_CTL
 	pin_gpio_g1 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(G, 1) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(G, 1) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 	// FP_ID_LED_N
 	pin_gpio_g2 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(G, 2) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(G, 2) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// FM_P0_CPLD_THERMTRIP_N
+	pin_gpio_g3 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(G, 3) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// FP_ID_BTN_N
 	pin_gpio_i5 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(I, 5) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(I, 5) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// BMC_CPLD_JTAG_MUX_OE
+	pin_gpio_i6 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(I, 6) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// CLK_100M_9DML0455_CLKIN_LOS_N
+	pin_gpio_i7 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(I, 7) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// RST_RSMRST_BMC_N
+	pin_gpio_j0 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(J, 0) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// P0_BMC_APML_ALERT_L
+	pin_gpio_j1 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(J, 1) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// P0_NMI_SYNC_FLOOD_L
 	pin_gpio_j4 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(J, 4) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(J, 4) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// P0_SPD_HOST_CTRL_L
+	pin_gpio_j5 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(J, 5) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// EMMC_RST_N
 	pin_gpio_j6 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(J, 6) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(J, 6) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// P0_SMERR_L
+	pin_gpio_j7 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(J, 7) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// P5V_AUX_RST_DLY
 	pin_gpio_l4 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(L, 4) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(L, 4) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 	// P3V3_AUX_RST_DLY
 	pin_gpio_l5 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(L, 5) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(L, 5) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 	// FM_BMC_ONCTL_N
 	pin_gpio_m0 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(M, 0) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(M, 0) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// P0_PWRGD
+	pin_gpio_m1 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(M, 1) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// PLTRST_BMC_IN_N
+	pin_gpio_m2 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(M, 2) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// P0_PROCHOT_N
+	pin_gpio_n0 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(N, 0) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// BMC_PLD_VR_ALERT_L
 	pin_gpio_n2 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(N, 2) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(N, 2) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// EC_BMC_AP1_RESET_N
+	pin_gpio_n4 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(N, 4) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// EC_BMC_FATAL_ERROR_N
+	pin_gpio_n5 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(N, 5) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// FM_CEC_BIOS_RESET_IN
 	pin_gpio_n6 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(N, 6) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(N, 6) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 	// FM_AUTH_COMPLETE_N
 	pin_gpio_o6 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(O, 6) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(O, 6) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// FAN_DIRECTION
+	pin_gpio_o7 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(O, 7) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_BMC_PWRBTN_IN_N
+	pin_gpio_p0 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(P, 0) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// FM_BMC_PWRBTN_OUT_N
 	pin_gpio_p1 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(P, 1) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(P, 1) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// RST_SYSTEM_BTN_IN_N
+	pin_gpio_p2 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(P, 2) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// RST_SYSRST_BTN_OUT_N
 	pin_gpio_p3 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(P, 3) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(P, 3) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// BMC_HW_HEARTBEAT_N
 	pin_gpio_p7 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(P, 7) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(P, 7) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// RST_RGMII_PHYRST_N
 	pin_gpio_s0 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(S, 0) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(S, 0) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// FM_BMC_PLD_RESERVED
 	pin_gpio_s1 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(S, 1) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(S, 1) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 	// RST_RTCRST_N
 	pin_gpio_s2 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(S, 2) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(S, 2) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// P0_HDT_SEL_0
 	pin_gpio_s3 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(S, 3) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(S, 3) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// FM_BIOS_FLASH_SEL0_N
+	pin_gpio_s4 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(S, 4) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_BIOS_FLASH_SEL1_N
+	pin_gpio_s5 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(S, 5) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// PCIE_P1_RISER_ALERT_N
+	pin_gpio_s6 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(S, 6) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// TEMP_I2C_ALERT_L
+	pin_gpio_s7 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(S, 7) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// PLD_BMC_SLP_S3_L
+	pin_gpio_v0 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(V, 0) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// PLD_BMC_SLP_S5_L
+	pin_gpio_v1 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(V, 1) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// SPD_REMOTE_SEL
 	pin_gpio_v2 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(V, 2) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(V, 2) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};	
 	// A_P3V_BAT_SCALED_EN
 	pin_gpio_v4 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(V, 4) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(V, 4) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 	// BMC_HDT_DBREQ_L
 	pin_gpio_v5 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(V, 5) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(V, 5) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// IRQ_SMB_ROT_ALRT_N
 	pin_gpio_v6 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(V, 6) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(V, 6) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// PSU_SMB_ALERT_N
+	pin_gpio_v7 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(V, 7) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// BMC_SYS_STATUS_LED_CTRL_Y
 	pin_gpio_x1 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(X, 1) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(X, 1) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 	// BMC_SYS_STATUS_LED_CTRL_G
 	pin_gpio_x2 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(X, 2) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(X, 2) GPIO_ACTIVE_HIGH>;
 		output-low;
+	};
+	// BMC_CLKGEN_I2CMUX_RST_N
+	pin_gpio_x3 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(X, 3) GPIO_ACTIVE_HIGH>;
+		output-high;
+	};
+	// BMC_PLINK_I2CMUX_RST_N
+	pin_gpio_x4 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(X, 4) GPIO_ACTIVE_HIGH>;
+		output-high;
+	};
+	// BMC_GLINK_I2CMUX_RST_N
+	pin_gpio_x5 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(X, 5) GPIO_ACTIVE_HIGH>;
+		output-high;
 	};
 	// FM_SRST_REQ1_N
 	pin_gpio_y0 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(Y, 0) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(Y, 0) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// FM_ROT_WDRST2_N
@@ -471,20 +630,83 @@
 	//       Must remove this GPIO init setting
 	pin_gpio_y1 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(Y, 1) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(Y, 1) GPIO_ACTIVE_HIGH>;
 		output-high;
+	};
+	// P0_SMBUS_ALERT
+	pin_gpio_y2 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(Y, 2) GPIO_ACTIVE_HIGH>;
+		input;
 	};
 	// FM_BMC_EMMC_RST_N
 	pin_gpio_y3 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(Y, 3) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(Y, 3) GPIO_ACTIVE_HIGH>;
 		output-high;
 	};
 	// BMC_SYS_STATUS_LED_CTRL_R
 	pin_gpio_z1 {
 		gpio-hog;
-		gpios =  <ASPEED_GPIO(Z, 1) GPIO_ACTIVE_HIGH>;
+		gpios = <ASPEED_GPIO(Z, 1) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
 };
 
+&gpio1 {
+	status = "okay";
+	// FM_REV_BOARD_ID0
+	pin_gpio_aa0 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AA, 0) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_REV_BOARD_ID1
+	pin_gpio_aa1 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AA, 1) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_REV_BOARD_ID2
+	pin_gpio_aa2 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AA, 2) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_CEC_BIOS_AUTH_COMP
+	pin_gpio_aa7 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AA, 7) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_PLD_BMC_RESERVED
+	pin_gpio_ab0 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AB, 0) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_BMC_BOARD_SKU_ID0_N
+	pin_gpio_ab4 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AB, 4) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_BMC_BOARD_SKU_ID1_N
+	pin_gpio_ab5 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AB, 5) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_BMC_BOARD_SKU_ID2_N
+	pin_gpio_ab6 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AB, 6) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+	// FM_BMC_BOARD_SKU_ID3_N
+	pin_gpio_ab7 {
+		gpio-hog;
+		gpios = <ASPEED_GPIO(AB, 7) GPIO_ACTIVE_HIGH>;
+		input;
+	};
+};
