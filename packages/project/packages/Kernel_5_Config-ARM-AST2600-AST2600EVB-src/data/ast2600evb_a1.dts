@@ -14,9 +14,9 @@
 
 	aliases {
 		serial0 = &uart1;
-		serial1 = &uart2;
-		serial2 = &uart3;
-		serial3 = &uart4;
+		// serial1 = &uart2;
+		// serial2 = &uart3;
+		// serial3 = &uart4;
 		serial4 = &uart5;
 	};
 
@@ -50,8 +50,6 @@
 #endif				
          };
 
-
-
     iio-hwmon {
         compatible = "iio-hwmon";
         io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
@@ -59,87 +57,15 @@
                         <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>,
                         <&adc1 4>, <&adc1 5>, <&adc1 6>, <&adc1 7>;
     };
-
-	fan0: pwm-fan0 {
-		compatible = "pwm-fan";
-		pwms = <&pwm 0 40000 0>;	/* Target freq:25 kHz */
-		cooling-min-state = <0>;
-		cooling-max-state = <3>;
-		#cooling-cells = <2>;
-		cooling-levels = <0 25 128 255>;
-	};
-
-	fan1: pwm-fan1 {
-		compatible = "pwm-fan";
-		pwms = <&pwm 1 40000 0>;	/* Target freq:25 kHz */
-		cooling-min-state = <0>;
-		cooling-max-state = <3>;
-		#cooling-cells = <2>;
-		cooling-levels = <0 15 128 255>;
-	};
-
-	fan2: pwm-fan2 {
-		compatible = "pwm-fan";
-		pwms = <&pwm 2 40000 0>;	/* Target freq:25 kHz */
-		cooling-min-state = <0>;
-		cooling-max-state = <3>;
-		#cooling-cells = <2>;
-		cooling-levels = <0 15 128 255>;
-	};
-
-	fan3: pwm-fan3 {
-		compatible = "pwm-fan";
-		pwms = <&pwm 3 40000 0>;	/* Target freq:25 kHz */
-		cooling-min-state = <0>;
-		cooling-max-state = <3>;
-		#cooling-cells = <2>;
-		cooling-levels = <0 15 128 255>;
-	};
-
-	fan4: pwm-fan4 {
-		compatible = "pwm-fan";
-		pwms = <&pwm 4 40000 0>;	/* Target freq:25 kHz */
-		cooling-min-state = <0>;
-		cooling-max-state = <3>;
-		#cooling-cells = <2>;
-		cooling-levels = <0 15 128 255>;
-	};
-
-	fan5: pwm-fan5 {
-		compatible = "pwm-fan";
-		pwms = <&pwm 5 40000 0>;	/* Target freq:25 kHz */
-		cooling-min-state = <0>;
-		cooling-max-state = <3>;
-		#cooling-cells = <2>;
-		cooling-levels = <0 15 128 255>;
-	};
-
-	fan6: pwm-fan6 {
-		compatible = "pwm-fan";
-		pwms = <&pwm 6 40000 0>;	/* Target freq:25 kHz */
-		cooling-min-state = <0>;
-		cooling-max-state = <3>;
-		#cooling-cells = <2>;
-		cooling-levels = <0 15 128 255>;
-	};
-
-	fan7: pwm-fan7 {
-		compatible = "pwm-fan";
-		pwms = <&pwm 7 40000 0>;	/* Target freq:25 kHz */
-		cooling-min-state = <0>;
-		cooling-max-state = <3>;
-		#cooling-cells = <2>;
-		cooling-levels = <0 15 128 255>;
-	};
 };
 
 &syscon {
         uart-clock-high-speed;
         status = "okay";
 		
-		mac0-clk-delay = <0x10 0x0a
-				  0x10 0x10
-				  0x10 0x10>;
+		// mac0-clk-delay = <0x10 0x0a
+		// 		  0x10 0x10
+		// 		  0x10 0x10>;
 		// mac1-clk-delay = <0x10 0x0a
 		// 		  0x10 0x10
 		// 		  0x10 0x10>;
@@ -166,14 +92,6 @@
         status = "okay";
 };
 
-&peci0 {
-    status = "okay";
-};
-
-&lpc {
-    status = "okay";
-};
-
 &jtag0 {
         status = "okay";
 };
@@ -185,6 +103,12 @@
 &mctp0 {
     tx-payload-bytes= <64>;
     rx-payload-bytes= <64>;
+    status = "okay";
+};
+
+// HS9121D uses ESPI, but currently AMI doesn't follow up Aspeed
+// there should be "espi_ctrl" node in the aspeed-g6.dtsi
+&lpc {
     status = "okay";
 };
 
@@ -213,15 +137,16 @@
 	pattern-a-port = <0x80>; 
 	status = "okay"; 
 };
-// HS9121D, uses MAC3 and MAC4
-&mdio0 {
-        status = "okay";
 
-        ethphy0: ethernet-phy@0 {
-                compatible = "ethernet-phy-ieee802.3-c22";
-                reg = <0>;
-        };
-};
+// HS9121D, uses MAC3 and MAC4
+// &mdio0 {
+//         status = "okay";
+
+//         ethphy0: ethernet-phy@0 {
+//                 compatible = "ethernet-phy-ieee802.3-c22";
+//                 reg = <0>;
+//         };
+// };
 
 // &mdio1 {
 // 	status = "okay";
@@ -241,25 +166,25 @@
 	};
 };
 
-&mdio3 {
-	status = "okay";
+&mdio3 { // MAC4 (Shared NIC) 
+	status = "disabled";
 
 	ethphy3: ethernet-phy@0 {
 		compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <0>;
 	};
 };
-// HS9121D, uses MAC3 and MAC4
-&mac0 {
-        status = "okay";
 
-        phy-mode = "rgmii-rxid";
-        phy-handle = <&ethphy0>;
+// HS9121D, uses MAC3 (Dedicated NIC) and MAC4 (Shared NIC)
+// &mac0 {
+//         status = "okay";
 
-        pinctrl-names = "default";
-        pinctrl-0 = <&pinctrl_rgmii1_default>;
-};
+//         phy-mode = "rgmii-rxid";
+//         phy-handle = <&ethphy0>;
 
+//         pinctrl-names = "default";
+//         pinctrl-0 = <&pinctrl_rgmii1_default>;
+// };
 
 // &mac1 {
 // 	status = "okay";
@@ -271,18 +196,7 @@
 // 	pinctrl-0 = <&pinctrl_rgmii2_default>;
 // };
 
-#ifdef CONFIG_SPX_FEATURE_NCSI_ACTIVE_MAC3
-&mac2 {
-	status = "okay";
-
-	phy-mode = "rmii";
-	phy-handle = <&ethphy2>;
-	use-ncsi;
-	
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rmii3_default>;
-};
-#else
+// MAC3 (Dedicated NIC)
 &mac2 {
 	status = "okay";
 
@@ -292,30 +206,23 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_rgmii3_default>;
 };
-#endif
-
-#ifdef CONFIG_SPX_FEATURE_NCSI_ACTIVE_MAC4
+// MAC4 (Shared NIC)
 &mac3 {
 	status = "okay";
 
-	phy-mode = "rmii";
 	phy-handle = <&ethphy3>;
-	use-ncsi;
-	
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rmii4_default>;
-};
-#else
-&mac3 {
-	status = "okay";
 
+#if 0 //currently using AST EVB, so disable NCSI
 	phy-mode = "rgmii";
-	phy-handle = <&ethphy3>;
-
-	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_rgmii4_default>;
-};
+
+#else
+	phy-mode = "rmii";
+	// use-ncsi;
+	pinctrl-0 = <&pinctrl_rmii4_default>;
 #endif
+};
 
 &adc0 {
 	vref = <2500>;
@@ -337,10 +244,6 @@
 		&pinctrl_adc10_default &pinctrl_adc11_default
 		&pinctrl_adc12_default &pinctrl_adc13_default
 		&pinctrl_adc14_default &pinctrl_adc15_default>;
-};
-
-&sdc {
-	status = "okay";	
 };
 
 &gfx {
@@ -366,30 +269,6 @@
             &pinctrl_emmcg8_default>;
 #endif
 
-};
-
-&sdc {
-	status = "okay";
-	timing-phase = <0xc6ffff>;
-};
-
-&sdhci0 {
-    status = "okay";
-    bus-width = <4>;
-    max-frequency = <100000000>;
-    sdhci-drive-type = /bits/ 8 <3>;
-    /* SDR104/DDR50/SDR50 bits in CAPA2 is not supported */
-    sdhci-caps-mask = <0x7 0x580000>;
-    sdhci,wp-inverted;
-};
-
-&sdhci1 {
-    status = "okay";
-    bus-width = <4>;
-    max-frequency = <100000000>;
-    sdhci-drive-type = /bits/ 8 <3>;
-    sdhci-caps-mask = <0x7 0x580000>;
-    sdhci,wp-inverted;
 };
 
 #ifdef CONFIG_SPX_FEATURE_HYVE_RTC_SUPPORT
@@ -457,40 +336,11 @@
 	};
 };
 
-
-&spi2 {
-        spi-dma-write;
-        low-spi-clk-write;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi2_default &pinctrl_spi2cs1_default
-				&pinctrl_spi2cs2_default &pinctrl_qspi2_default>;
-	status = "okay";
-
-	flash@0 {
-		status = "okay";
-		m25p,fast-read;
-		label = "spi2:0";
-		spi-max-frequency = <50000000>;
-		spi-tx-bus-width = <4>;
-		spi-rx-bus-width = <4>;
-	};
-};
+// For Host UART
 &uart1 {
 	status = "okay";
 };
-
-&uart2 {
-	status = "okay";
-};
-
-&uart3 {
-	status = "okay";
-};
-
-&uart4 {
-	status = "okay";
-};
-
+// For BMC debug console
 &uart5 {
 	status = "okay";
 };
@@ -498,6 +348,7 @@
 &i3cglobal {
 	status = "okay";
 };
+
 &i3c0 {
         status = "okay";
         jdec-spd;
@@ -514,20 +365,24 @@
         };
 };
 
-&i2c0 {
+&i3c1 {
 	status = "okay";
 };
 
-&i2c1 {
+&i3c2 {
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_i3c3_default>;
 };
 
-&i2c2 {
+// HS9121D, the I2C1/I3C is for APML
+// &i2c1 {
+//    status = "okay";
+// };
+&i3c3 {
 	status = "okay";
-};
-
-&i2c3 {
-	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_i3c4_default>;
 };
 
 &i2c4 {
@@ -554,6 +409,9 @@
 	status = "okay";
 };
 
+&i2c11 {
+    status = "okay";
+};
 &i2c12 {
 	status = "okay";
 };
@@ -570,15 +428,9 @@
 	status = "okay";
 };
 
-&fsim0 {
-	status = "okay";
-};
 &sgpiom0 {
         status = "okay";
 };
-&sgpiom1 { 
-	status = "okay"; 
-}; 
 
 &hace {
         status = "okay";
@@ -586,71 +438,6 @@
 
 &acry {
         status = "okay";
-};
-
-&pwm {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_pwm0_default
-			&pinctrl_pwm1_default
-			&pinctrl_pwm2_default
-			&pinctrl_pwm3_default
-			&pinctrl_pwm4_default
-			&pinctrl_pwm5_default
-			&pinctrl_pwm6_default
-			&pinctrl_pwm7_default>;
-};
-
-&tach {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_tach0_default
-			&pinctrl_tach1_default
-			&pinctrl_tach2_default
-			&pinctrl_tach3_default
-			&pinctrl_tach4_default
-			&pinctrl_tach5_default
-			&pinctrl_tach6_default
-			&pinctrl_tach7_default>;
-	fan@0 {
-		reg = <0x00>;
-		aspeed,pulse-pr = <2>;
-	};
-
-	fan@1 {
-		reg = <0x01>;
-		aspeed,pulse-pr = <2>;
-	};
-
-	fan@2 {
-		reg = <0x02>;
-		aspeed,pulse-pr = <2>;
-	};
-
-	fan@3 {
-		reg = <0x03>;
-		aspeed,pulse-pr = <2>;
-	};
-
-	fan@4 {
-		reg = <0x04>;
-		aspeed,pulse-pr = <2>;
-	};
-
-	fan@5 {
-		reg = <0x05>;
-		aspeed,pulse-pr = <2>;
-	};
-
-	fan@6 {
-		reg = <0x06>;
-		aspeed,pulse-pr = <2>;
-	};
-
-	fan@7 {
-		reg = <0x07>;
-		aspeed,pulse-pr = <2>;
-	};
 };
 
 #ifdef CONFIG_SPX_FEATURE_USB_PORT_B_HOST_SUPPORT
