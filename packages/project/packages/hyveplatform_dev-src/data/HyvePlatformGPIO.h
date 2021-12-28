@@ -13,7 +13,11 @@
 
 /********************* Platform GPIO Pin Definition *********************/
 /*
-	Ref: HS9121D_X00_BMC GPIO_HW strap table_20211020
+	Ref: HS9121D_X00_BMC GPIO_HW strap table_20211214
+	
+	Note:
+	    Remember to search "TODO" for what must need to check with EE/CPLD team
+
 */
 
 #define IO_RGMII_BMC_R_MDC                  GPIOA0
@@ -25,10 +29,10 @@
 #define IO_SMB_BMC_PLD_SCL                  GPIOA6 // I2C-14, reserved for debug card
 #define IO_SMB_BMC_PLD_SDA                  GPIOA7
 
-#define IO_PCIE_P2_MCIO1_ALERT_N            GPIOB0 // GPIO, Input
-#define IO_PCIE_P3_MCIO2_ALERT_N            GPIOB1 // GPIO, Input
-#define IO_XGMI_G2_AIC1_ALERT_N             GPIOB2 // GPIO, Input
-#define IO_XGMI_G3_AIC2_ALERT_N             GPIOB3 // GPIO, Input
+#define IO_PCIE_P2_MCIO1_ALERT_N            GPIOB0 // GPIO, Input, From J31-E1.S
+#define IO_PCIE_P3_MCIO2_ALERT_N            GPIOB1 // GPIO, Input, From J32-E1.S
+#define IO_XGMI_G2_AIC1_ALERT_N             GPIOB2 // GPIO, Input, From J33-PCIe card
+#define IO_XGMI_G3_AIC2_ALERT_N             GPIOB3 // GPIO, Input, From J34-PCIe card
 #define IO_P0_CORETYPE_0                    GPIOB4 // GPIO, Input
 #define IO_P0_CORETYPE_1                    GPIOB5 // GPIO, Input
 #define IO_P0_CORETYPE_2                    GPIOB6 // GPIO, Input
@@ -74,10 +78,10 @@
 #define IO_FM_DP_CONN_PWR_EN_CTL            GPIOG1 // GPIO, Output, default pull Low, power enable for Display Port Connector
 #define IO_FP_ID_LED_N                      GPIOG2 // GPIO, Output
 #define IO_FM_P0_CPLD_THERMTRIP_N           GPIOG3 // GPIO, Input, CPU thermal trip signal
-#define IO_FM_BMC_BOARD_SKU_ID0_N           GPIOG4 // GPIO, Input
-#define IO_FM_BMC_BOARD_SKU_ID1_N           GPIOG5 // GPIO, Input
-#define IO_FM_BMC_BOARD_SKU_ID2_N           GPIOG6 // GPIO, Input
-#define IO_FM_BMC_BOARD_SKU_ID3_N           GPIOG7 // GPIO, Input
+#define IO_NC_GPIOG4                        GPIOG4 // No Use
+#define IO_NC_GPIOG5                        GPIOG5 // No Use
+#define IO_NC_GPIOG6                        GPIOG6 // No Use
+#define IO_NC_GPIOG7                        GPIOG7 // No Use
 
 #define IO_SGPIO_BMC_CPLD_CLK               GPIOH0
 #define IO_SGPIO_BMC_CPLD_LD                GPIOH1
@@ -93,9 +97,9 @@
 #define IO_BMC_HDT_TCK                      GPIOI2
 #define IO_BMC_HDT_TMS                      GPIOI3
 #define IO_BMC_HDT_TDI                      GPIOI4
-#define IO_FP_ID_BTN_N                      GPIOI5 // GPIO, Output
-#define IO_NC_GPIOI6                        GPIOI6 // No Use
-#define IO_NC_GPIOI7                        GPIOI7 // No Use
+#define IO_FP_ID_BTN_N                      GPIOI5 // GPIO, Input
+#define IO_BMC_CPLD_JTAG_MUX_OE             GPIOI6 // GPIO, Output, to enable the JTAG MUX, High: disable; Low: enable
+#define IO_CLK_100M_9DML0455_CLKIN_LOS_N    GPIOI7 // GPIO, Input, CLK_100M_9DML0455_CLKIN_LOS_N, to inform the BMC PCIe clock generator loss
 
 #define IO_RST_RSMRST_BMC_N                 GPIOJ0 // GPIO, Input, from CPLD
 #define IO_P0_BMC_APML_ALERT_L              GPIOJ1 // GPIO, Input, AMD APML Alert, Active Low
@@ -103,14 +107,14 @@
 #define IO_BMC_I3C4_I2C_SDA                 GPIOJ3
 #define IO_P0_NMI_SYNC_FLOOD_L              GPIOJ4 // GPIO, Output, default pull High, basically no use
 #define IO_P0_SPD_HOST_CTRL_L               GPIOJ5 // GPIO, Input, Low: to inform the BMC the owner-ship of DIMMs is CPU
-#define IO_EMMC_RST_N                       GPIOJ6 // GPIO, Output, to reset EMMC
+#define IO_EMMC_RST_N                       GPIOJ6 // GPIO, Output, to reset EMMC, this pin is reserved. currently use IO_FM_BMC_EMMC_RST_N instead
 #define IO_P0_SMERR_L                       GPIOJ7 // GPIO, Input, CPU SM error
 
 #define IO_SMB_PSU_STBY_LVC3_SCL            GPIOK0 // I2C-5, PMBUS
 #define IO_SMB_PSU_STBY_LVC3_SDA            GPIOK1
 #define IO_SMB_BMC_G_MCIO_SCL               GPIOK2 // I2C-6, SMBus for PCIe device access
 #define IO_SMB_BMC_G_MCIO_SDA               GPIOK3
-#define IO_SMB_BMC_CLKBUF_GEN_SCL           GPIOK4 // I2C-7, though the BMC can access the Clock-Gen IC but it doesn't control it. 
+#define IO_SMB_BMC_CLKBUF_GEN_SCL           GPIOK4 // I2C-7, though the BMC can access the Clock-Gen IC but it doesn't control it.
 #define IO_SMB_BMC_CLKBUF_GEN_SDA           GPIOK5
 #define IO_SMB_TEMP_FRU_SCL                 GPIOK6 // I2C-8
 #define IO_SMB_TEMP_FRU_SDA                 GPIOK7
@@ -155,9 +159,9 @@
 #define IO_FM_BMC_PWRBTN_OUT_N              GPIOP1 // GPIO, Output, pass the button signal to the CPLD
 #define IO_RST_SYSTEM_BTN_IN_N              GPIOP2 // GPIO, Input
 #define IO_RST_SYSRST_BTN_OUT_N             GPIOP3 // GPIO, Output, pass the button signal to the CPLD
-#define IO_FM_REV_BOARD_ID0                 GPIOP4 // GPIO, Input
-#define IO_FM_REV_BOARD_ID1                 GPIOP5 // GPIO, Input
-#define IO_FM_REV_BOARD_ID2                 GPIOP6 // GPIO, Input
+#define IO_NC_GPIOP4                        GPIOP4 // No Use
+#define IO_NC_GPIOP5                        GPIOP5 // No Use
+#define IO_NC_GPIOP6                        GPIOP6 // No Use
 #define IO_BMC_HW_HEARTBEAT_N               GPIOP7 // GPIO, Output
 
 #define IO_RESERVED_GPIOQ0                  GPIOQ0 // Reserved
@@ -226,23 +230,23 @@
 #define IO_NC_GPIOX0                        GPIOX0 // No Use
 #define IO_BMC_SYS_STATUS_LED_CTRL_Y        GPIOX1 // GPIO, Output, Yellow LED
 #define IO_BMC_SYS_STATUS_LED_CTRL_G        GPIOX2 // GPIO, Output, Green LED
-#define IO_NC_GPIOX3                        GPIOX3 // No Use
-#define IO_NC_GPIOX4                        GPIOX4 // No Use
-#define IO_NC_GPIOX5                        GPIOX5 // No Use
+#define IO_BMC_CLKGEN_I2CMUX_RST_N          GPIOX3 // GPIO, Output, BMC_CLKGEN_I2CMUX_RST_N, the reset pin for MUX-PCA9546
+#define IO_BMC_PLINK_I2CMUX_RST_N           GPIOX4 // GPIO, Output, BMC_PLINK_I2CMUX_RST_N,  the reset pin for MUX-PCA9548
+#define IO_BMC_GLINK_I2CMUX_RST_N           GPIOX5 // GPIO, Output, BMC_GLINK_I2CMUX_RST_N,  the reset pin for MUX-PCA9546
 #define IO_NC_GPIOX6                        GPIOX6 // No Use
 #define IO_NC_GPIOX7                        GPIOX7 // No Use
 
 #define IO_FM_SRST_REQ1_N                   GPIOY0 // GPIO, Output, send the BMC reset event to the ROT, kind of like IO_FM_ROT_WDRST2_N
 #define IO_FM_ROT_WDRST2_N                  GPIOY1 // Output, if enable WDT2, send the WDT reset event signal to the ROT
 #define IO_P0_SMBUS_ALERT                   GPIOY2 // GPIO, Input, CPU SMBus Alert
-#define IO_FM_BMC_EMMC_RST_N                GPIOY3 // GPIO, Output, to reset the EMMC
+#define IO_FM_BMC_EMMC_RST_N                GPIOY3 // GPIO, Output, to reset the EMMC, Note: the volt of this signal pin will be converted to 1.8V
 #define IO_SPI_BMC_BOOT_IO2                 GPIOY4
 #define IO_SPI_BMC_BOOT_IO3                 GPIOY5
 #define IO_PU_SPI_BMC_BOOT_ABR              GPIOY6
 #define IO_PU_SPI_BMC_BOOT_WP_N             GPIOY7
 
 #define IO_NC_GPIOZ0                        GPIOZ0 // No Use
-#define IO_BMC_SYS_STATUS_LED_CTRL_R        GPIOZ1 // GPIO, Output, Red LED
+#define IO_BMC_SYS_STATUS_LED_CTRL_R        GPIOZ1 // GPIO, Output, Red LED, TODO: need to check this pin can drive High with external Pull-Down 2K R
 #define IO_PU_SPI1WP_N                      GPIOZ2
 #define IO_PU_GPIOZ3_SPI1_CLK               GPIOZ3
 #define IO_PU_GPIOZ4_SPI1_MOSI              GPIOZ4
@@ -250,23 +254,23 @@
 #define IO_PU_GPIOZ6_SPI1_D2                GPIOZ6
 #define IO_PU_GPIOZ7_SPI1_D3                GPIOZ7
 
-#define IO_RESERVED_GPIO18A0                GPIO18A0 // Reserved
-#define IO_RESERVED_GPIO18A1                GPIO18A1 // Reserved
-#define IO_RESERVED_GPIO18A2                GPIO18A2 // Reserved
+#define IO_FM_REV_BOARD_ID0                 GPIO18A0 // GPIO, Input
+#define IO_FM_REV_BOARD_ID1                 GPIO18A1 // GPIO, Input
+#define IO_FM_REV_BOARD_ID2                 GPIO18A2 // GPIO, Input
 #define IO_RESERVED_GPIO18A3                GPIO18A3 // Reserved
 #define IO_RESERVED_GPIO18A4                GPIO18A4 // Reserved
 #define IO_RESERVED_GPIO18A5                GPIO18A5 // Reserved
 #define IO_RESERVED_GPIO18A6                GPIO18A6 // Reserved
-#define IO_RESERVED_GPIO18A7                GPIO18A7 // Reserved
+#define IO_FM_CEC_BIOS_AUTH_COMP            GPIO18A7 // GPIO, Input, ROT informs the BMC that BIOS FW auth completed
 
-#define IO_RESERVED_GPIO18B0                GPIO18B0 // Reserved
+#define IO_FM_PLD_BMC_RESERVED              GPIO18B0 /// GPIO, Input, Reserved
 #define IO_RESERVED_GPIO18B1                GPIO18B1 // Reserved
 #define IO_RESERVED_GPIO18B2                GPIO18B2 // Reserved
 #define IO_RESERVED_GPIO18B3                GPIO18B3 // Reserved
-#define IO_RESERVED_GPIO18B4                GPIO18B4 // Reserved
-#define IO_RESERVED_GPIO18B5                GPIO18B5 // Reserved
-#define IO_RESERVED_GPIO18B6                GPIO18B6 // Reserved
-#define IO_RESERVED_GPIO18B7                GPIO18B7 // Reserved
+#define IO_FM_BMC_BOARD_SKU_ID0_N           GPIO18B4 // GPIO, Input
+#define IO_FM_BMC_BOARD_SKU_ID1_N           GPIO18B5 // GPIO, Input
+#define IO_FM_BMC_BOARD_SKU_ID2_N           GPIO18B6 // GPIO, Input
+#define IO_FM_BMC_BOARD_SKU_ID3_N           GPIO18B7 // GPIO, Input
 
 #define IO_RESERVED_GPIO18C0                GPIO18C0 // Reserved
 #define IO_RESERVED_GPIO18C1                GPIO18C1 // Reserved
