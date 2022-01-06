@@ -1,0 +1,7 @@
+Package:
+    sys_base_ex-src
+    Version :   13.17.15.9.0
+Reason:
+    To enable flash console tools
+Note:
+    This is for EVT HW verification, will be removed

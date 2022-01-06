@@ -1,0 +1,40 @@
+#!/bin/sh
+
+CORE_FEATURES="/etc/core_features"
+
+# Check if the bond config file has the specificed bond interface name
+case "$IFACE" in
+#Bond with Vlan 
+  bond*.*)
+	BOND_DEV=`echo $IFACE | awk -F. '{ print $1 }'`	
+  ;;
+#Normal Bond Device
+  bond*)	
+	BOND_DEV=$IFACE
+  ;;
+  *)
+    exit 0
+  ;;
+esac
+
+[ -f /sys/class/net/$BOND_DEV/bonding/slaves ] || exit 0
+
+ifconfig $BOND_DEV down >/dev/null 2>&1
+
+SLAVES=`cat /sys/class/net/$BOND_DEV/bonding/slaves`
+for iface in $SLAVES
+do
+     echo -$iface > /sys/class/net/$BOND_DEV/bonding/slaves 2>/dev/null 
+done
+echo -$BOND_DEV  > /sys/class/net/bonding_masters 2>/dev/null
+
+echo "Bond device $BOND_DEV removed"
+
+#Re-enable NCSI, to avoid NCSI link status error
+grep -q "CONFIG_SPX_FEATURE_NCSI_DEVICE_SUPPORT" $CORE_FEATURES  #checking for NCSI support enable or not 
+if [ $? -eq 0 ];
+then
+echo 1 > /proc/sys/ractrends/ncsi/ReEnable
+fi
+
+exit 0

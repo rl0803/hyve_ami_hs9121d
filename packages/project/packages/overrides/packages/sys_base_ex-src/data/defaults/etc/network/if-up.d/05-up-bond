@@ -1,0 +1,66 @@
+#!/bin/sh
+
+#
+#Format of the Bond Configuration File
+#BondName slave1,slave2...slaveN Mode Miimon
+#
+
+BOND_CONFIG_FILE=/etc/network/bond.conf
+BOND_SLAVE_FILE=/conf/activeslave.conf
+
+
+# Check if bond information is found
+[ -f $BOND_CONFIG_FILE ] || exit 0
+
+
+# Check if the bond config file has the specificed bond interface name
+case "$IFACE" in
+#Bond with Vlan 
+  bond*.*)
+	BOND_DEV=`echo $IFACE | awk -F. '{ print $1 }'`	
+	grep $BOND_DEV $BOND_CONFIG_FILE >/dev/null 2>&1  || exit 0
+	;;
+#Normal Bond Device
+  bond*)	
+	BOND_DEV=$IFACE
+	grep $BOND_DEV $BOND_CONFIG_FILE >/dev/null 2>&1  || exit 0
+ 	;;
+  *)
+    exit 0
+  ;;
+esac
+
+# Check the bond device is up or not.
+# If bond device was up, we don't need configure it again.
+if grep $BOND_DEV /sys/class/net/bonding_masters >/dev/null; then
+    echo "$BOND_DEV has been found in the bonding_masters."
+else
+    echo "$BOND_DEV not found in the bonding_masters."
+	exit 0
+fi
+
+# Parse the Configuration
+BONDCFG=`grep $BOND_DEV $BOND_CONFIG_FILE`
+SLAVES=`echo $BONDCFG | awk '{ print $2 }'`
+MODE=`echo $BONDCFG | awk '{ print $3 }'`
+
+
+# Parse the Configuration
+SLAVECFG=`grep $BOND_DEV $BOND_SLAVE_FILE`
+SLAVE1=`echo $SLAVECFG | awk '{ print $2 }'`
+SLAVE=`echo $SLAVE1 | sed 's/,/ /g' `
+
+ACTIVE_SLAVE=/sys/class/net/$BOND_DEV/bonding/active_slave
+SLAVE2=`cat $ACTIVE_SLAVE`
+
+for iface in `echo $SLAVES | sed 's/,/ /g' `
+do
+    if [ $SLAVE != $SLAVE2 ]; then
+        if [ $MODE == 1 ]; then
+            echo "Bond : Active slave has changed, Setting back to $SLAVE"
+            ifenslave -c $BOND_DEV $SLAVE
+        fi
+    fi
+done
+echo "Done."
+exit 0
