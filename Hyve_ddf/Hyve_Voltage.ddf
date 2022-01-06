@@ -54,48 +54,25 @@
 	<code>
 	</code>
 
-
 	<!-- Read Voltage reading -->
 	<read>
 	{
-
-		if ($(CPU_PRESENT) != 0xFF)
-		{
-			if (HyvePlatform_CheckCPUPresent($(CPU_PRESENT)) == 0)
-			{
-				phal->status_code = HAL_ERR_READ;
-				return -1;
-			}
-		}
-		
 		$(VOLT).read (phal );
 
-		if((*phal->pbyte) >= $(ID_STR)_retry_MAX_Threshold)
-		{           
-			if($(RETRY_COUNT) > $(ID_STR)_retry )
-			{
+		if (((*phal->pbyte) >= $(ID_STR)_retry_MAX_Threshold) ||
+			($(ID_STR)_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if ($(RETRY_COUNT) > $(ID_STR)_retry) {
 				*phal->pbyte = $(ID_STR)_previous_value;
 				++$(ID_STR)_retry;
 			}
-		}
-		else if($(ID_STR)_retry_MIN_Threshold  >= (*phal->pbyte))
-		{
-			if($(RETRY_COUNT) > $(ID_STR)_retry )
-			{
-				*phal->pbyte = $(ID_STR)_previous_value;
-				++$(ID_STR)_retry; 
-			}		
-		}
-		else
-		{
+		} else {
 			$(ID_STR)_previous_value = *phal->pbyte;
 			$(ID_STR)_retry = 0;
 		}
-
 		return 0;
 	}		
 	</read>
-
 
 	<!-- Voltage sensor SDR record -->
 	<sdr>
@@ -532,14 +509,4 @@
 		<type>byte</type>
 		<default>3</default>
 	</config>
-	<config>
-		<var>CPU_PRESENT</var>
-		<name>CPU present check(0 base)</name>
-		<desc>CPU present check(0 base)</desc>
-		<value>cpulist</value>
-		<type>id_list</type>
-		<default>NONE</default>
-	</config>
 </device>
-
-

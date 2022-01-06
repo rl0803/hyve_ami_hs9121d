@@ -30,7 +30,7 @@
 	static INT8U $(ID_STR)_retry_MIN_Threshold;
 	static INT8U $(ID_STR)_retry = 0;
 
-	/* Temp sensor Properties */
+	/* Generic sensor Properties */
 
 	SensorProp_T $(this).properties = {  
 		$(MONITOR_INTERVAL),
