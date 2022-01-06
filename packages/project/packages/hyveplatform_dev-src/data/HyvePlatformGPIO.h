@@ -13,7 +13,7 @@
 
 /********************* Platform GPIO Pin Definition *********************/
 /*
-	Ref: HS9121D_X00_BMC GPIO_HW strap table_20211214
+	Ref: HS9121D_X00_BMC GPIO_HW strap table_20211229
 	
 	Note:
 	    Remember to search "TODO" for what must need to check with EE/CPLD team
@@ -192,8 +192,8 @@
 #define IO_TEMP_I2C_ALERT_L                 GPIOS7 // GPIO, Input, Alert from thermal sensors, need to send I2C cmd to check which one sent
 
 #define IO_P12V_STBY_SCALED                 GPIOT0 // ADC-0, Standby 12V
-#define IO_P12V_SCALED                      GPIOT1 // ADC-1, power supply 12V
-#define IO_P3V3_SCALED                      GPIOT2 // ADC-2, power supply 3.3V
+#define IO_P12V_SCALED                      GPIOT1 // ADC-1, power distribution board 12V
+#define IO_P3V3_SCALED                      GPIOT2 // ADC-2, power distribution board 3.3V
 #define IO_P3V3_STBY_SCALED                 GPIOT3 // ADC-3, Standby 3.3V
 #define IO_P0_VDD_33_DUAL_SCALED            GPIOT4 // ADC-4, CPU VDD 3.3V
 #define IO_P5V_AUX_SCALED                   GPIOT5 // ADC-5, AUX 5V
@@ -205,8 +205,8 @@
 #define IO_P0_VDD_SOC_RUN_SCALED            GPIOU2 // ADC-10, CPU VDDCR_SOC
 #define IO_P0_VDD_CORE_0_SCALED             GPIOU3 // ADC-11, CPU VDDCR_CPU0
 #define IO_P0_VDD_CORE_1_SCALED             GPIOU4 // ADC-12, CPU VDDCR_CPU1
-#define IO_NC_GPIOU5                        GPIOU5 // No Use
-#define IO_NC_GPIOU6                        GPIOU6 // No Use
+#define IO_P12V_AUX_SCALED                  GPIOU5 // ADC-13, AUX 12V
+#define IO_P3V3_AUX_SCALED                  GPIOU6 // ADC-14, AUX 3V3 , Note: currently EE doesn't implement the circuit
 #define IO_NC_GPIOU7                        GPIOU7 // No Use
 
 #define IO_PLD_BMC_SLP_S3_L                 GPIOV0 // GPIO, Input, the CPLD informs the CPU S3 state to the BMC
