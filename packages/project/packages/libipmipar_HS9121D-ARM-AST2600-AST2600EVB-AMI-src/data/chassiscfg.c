@@ -39,7 +39,7 @@ ChassisConfig_LoadFile(char *File, ChassisConfig_T *data)
 
 	data->SysRestartCause = IniGetUInt(ini, "ChassisConfiguration", "SysRestartCause", 0x0);
 
-	data->PowerRestorePolicy = IniGetUInt(ini, "ChassisConfiguration", "PowerRestorePolicy", 0x0);
+	data->PowerRestorePolicy = IniGetUInt(ini, "ChassisConfiguration", "PowerRestorePolicy", 0x2);
 
 	data->ChassisPowerState.PowerState = IniGetUInt(ini, "ChassisConfiguration/ChassisPowerState", "PowerState", (0x2 << 5) | (0x0 << 4) | (0x0 << 3) | \
 		    (0x0 << 2) | (0x0 << 1) | 0x1);

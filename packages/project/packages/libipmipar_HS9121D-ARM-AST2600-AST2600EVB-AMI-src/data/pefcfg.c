@@ -1007,564 +1007,204 @@ PEFConfig_LoadFile(char *File, PEFConfig_T *data)
 
 	data->AlertStringEntry[0].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/0", "EventFilterSel", 0);
 	data->AlertStringEntry[0].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/0", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[0].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/0", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[0].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[0].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/0", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[0].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[0].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/0", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[0].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[0].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/0", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[0].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/0", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[0].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/0", "AlertString/2", ""), 16);
 	data->AlertStringEntry[1].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/1", "EventFilterSel", 0);
 	data->AlertStringEntry[1].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/1", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[1].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/1", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[1].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[1].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/1", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[1].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[1].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/1", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[1].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[1].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/1", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[1].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/1", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[1].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/1", "AlertString/2", ""), 16);
 	data->AlertStringEntry[2].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/2", "EventFilterSel", 0);
 	data->AlertStringEntry[2].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/2", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[2].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/2", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[2].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[2].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/2", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[2].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[2].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/2", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[2].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[2].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/2", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[2].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/2", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[2].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/2", "AlertString/2", ""), 16);
 	data->AlertStringEntry[3].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/3", "EventFilterSel", 0);
 	data->AlertStringEntry[3].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/3", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[3].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/3", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[3].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[3].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/3", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[3].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[3].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/3", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[3].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[3].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/3", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[3].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/3", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[3].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/3", "AlertString/2", ""), 16);
 	data->AlertStringEntry[4].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/4", "EventFilterSel", 0);
 	data->AlertStringEntry[4].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/4", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[4].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/4", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[4].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[4].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/4", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[4].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[4].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/4", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[4].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[4].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/4", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[4].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/4", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[4].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/4", "AlertString/2", ""), 16);
 	data->AlertStringEntry[5].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/5", "EventFilterSel", 0);
 	data->AlertStringEntry[5].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/5", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[5].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/5", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[5].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[5].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/5", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[5].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[5].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/5", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[5].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[5].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/5", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[5].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/5", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[5].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/5", "AlertString/2", ""), 16);
 	data->AlertStringEntry[6].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/6", "EventFilterSel", 0);
 	data->AlertStringEntry[6].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/6", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[6].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/6", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[6].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[6].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/6", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[6].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[6].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/6", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[6].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[6].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/6", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[6].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/6", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[6].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/6", "AlertString/2", ""), 16);
 	data->AlertStringEntry[7].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/7", "EventFilterSel", 0);
 	data->AlertStringEntry[7].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/7", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[7].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/7", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[7].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[7].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/7", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[7].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[7].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/7", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[7].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[7].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/7", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[7].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/7", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[7].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/7", "AlertString/2", ""), 16);
 	data->AlertStringEntry[8].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/8", "EventFilterSel", 0);
 	data->AlertStringEntry[8].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/8", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[8].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/8", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[8].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[8].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/8", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[8].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[8].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/8", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[8].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[8].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/8", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[8].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/8", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[8].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/8", "AlertString/2", ""), 16);
 	data->AlertStringEntry[9].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/9", "EventFilterSel", 0);
 	data->AlertStringEntry[9].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/9", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[9].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/9", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[9].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[9].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/9", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[9].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[9].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/9", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[9].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[9].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/9", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[9].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/9", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[9].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/9", "AlertString/2", ""), 16);
 	data->AlertStringEntry[10].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/10", "EventFilterSel", 0);
 	data->AlertStringEntry[10].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/10", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[10].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/10", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[10].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[10].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/10", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[10].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[10].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/10", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[10].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[10].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/10", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[10].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/10", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[10].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/10", "AlertString/2", ""), 16);
 	data->AlertStringEntry[11].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/11", "EventFilterSel", 0);
 	data->AlertStringEntry[11].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/11", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[11].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/11", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[11].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[11].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/11", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[11].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[11].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/11", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[11].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[11].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/11", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[11].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/11", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[11].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/11", "AlertString/2", ""), 16);
 	data->AlertStringEntry[12].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/12", "EventFilterSel", 0);
 	data->AlertStringEntry[12].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/12", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[12].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/12", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[12].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[12].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/12", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[12].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[12].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/12", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[12].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[12].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/12", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[12].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/12", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[12].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/12", "AlertString/2", ""), 16);
 	data->AlertStringEntry[13].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/13", "EventFilterSel", 0);
 	data->AlertStringEntry[13].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/13", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[13].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/13", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[13].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[13].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/13", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[13].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[13].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/13", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[13].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[13].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/13", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[13].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/13", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[13].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/13", "AlertString/2", ""), 16);
 	data->AlertStringEntry[14].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/14", "EventFilterSel", 0);
 	data->AlertStringEntry[14].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/14", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[14].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/14", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[14].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[14].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/14", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[14].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[14].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/14", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[14].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[14].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/14", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[14].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/14", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[14].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/14", "AlertString/2", ""), 16);
 	data->AlertStringEntry[15].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/15", "EventFilterSel", 0);
 	data->AlertStringEntry[15].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/15", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[15].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/15", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[15].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[15].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/15", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[15].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[15].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/15", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[15].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[15].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/15", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[15].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/15", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[15].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/15", "AlertString/2", ""), 16);
 	data->AlertStringEntry[16].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/16", "EventFilterSel", 0);
 	data->AlertStringEntry[16].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/16", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[16].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/16", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[16].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[16].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/16", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[16].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[16].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/16", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[16].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[16].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/16", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[16].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/16", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[16].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/16", "AlertString/2", ""), 16);
 	data->AlertStringEntry[17].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/17", "EventFilterSel", 0);
 	data->AlertStringEntry[17].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/17", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[17].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/17", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[17].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[17].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/17", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[17].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[17].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/17", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[17].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[17].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/17", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[17].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/17", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[17].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/17", "AlertString/2", ""), 16);
 	data->AlertStringEntry[18].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/18", "EventFilterSel", 0);
 	data->AlertStringEntry[18].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/18", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[18].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/18", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[18].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[18].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/18", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[18].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[18].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/18", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[18].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[18].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/18", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[18].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/18", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[18].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/18", "AlertString/2", ""), 16);
 	data->AlertStringEntry[19].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/19", "EventFilterSel", 0);
 	data->AlertStringEntry[19].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/19", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[19].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/19", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[19].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[19].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/19", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[19].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[19].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/19", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[19].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[19].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/19", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[19].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/19", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[19].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/19", "AlertString/2", ""), 16);
 	data->AlertStringEntry[20].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/20", "EventFilterSel", 0);
 	data->AlertStringEntry[20].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/20", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[20].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/20", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[20].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[20].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/20", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[20].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[20].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/20", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[20].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[20].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/20", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[20].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/20", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[20].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/20", "AlertString/2", ""), 16);
 	data->AlertStringEntry[21].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/21", "EventFilterSel", 0);
 	data->AlertStringEntry[21].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/21", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[21].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/21", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[21].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[21].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/21", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[21].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[21].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/21", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[21].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[21].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/21", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[21].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/21", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[21].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/21", "AlertString/2", ""), 16);
 	data->AlertStringEntry[22].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/22", "EventFilterSel", 0);
 	data->AlertStringEntry[22].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/22", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[22].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/22", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[22].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[22].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/22", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[22].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[22].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/22", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[22].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[22].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/22", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[22].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/22", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[22].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/22", "AlertString/2", ""), 16);
 	data->AlertStringEntry[23].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/23", "EventFilterSel", 0);
 	data->AlertStringEntry[23].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/23", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[23].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/23", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[23].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[23].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/23", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[23].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[23].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/23", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[23].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[23].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/23", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[23].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/23", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[23].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/23", "AlertString/2", ""), 16);
 	data->AlertStringEntry[24].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/24", "EventFilterSel", 0);
 	data->AlertStringEntry[24].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/24", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[24].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/24", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[24].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[24].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/24", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[24].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[24].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/24", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[24].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[24].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/24", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[24].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/24", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[24].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/24", "AlertString/2", ""), 16);
 	data->AlertStringEntry[25].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/25", "EventFilterSel", 0);
 	data->AlertStringEntry[25].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/25", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[25].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/25", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[25].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[25].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/25", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[25].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[25].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/25", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[25].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[25].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/25", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[25].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/25", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[25].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/25", "AlertString/2", ""), 16);
 	data->AlertStringEntry[26].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/26", "EventFilterSel", 0);
 	data->AlertStringEntry[26].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/26", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[26].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/26", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[26].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[26].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/26", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[26].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[26].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/26", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[26].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[26].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/26", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[26].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/26", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[26].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/26", "AlertString/2", ""), 16);
 	data->AlertStringEntry[27].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/27", "EventFilterSel", 0);
 	data->AlertStringEntry[27].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/27", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[27].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/27", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[27].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[27].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/27", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[27].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[27].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/27", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[27].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[27].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/27", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[27].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/27", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[27].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/27", "AlertString/2", ""), 16);
 	data->AlertStringEntry[28].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/28", "EventFilterSel", 0);
 	data->AlertStringEntry[28].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/28", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[28].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/28", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[28].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[28].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/28", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[28].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[28].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/28", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[28].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[28].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/28", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[28].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/28", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[28].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/28", "AlertString/2", ""), 16);
 	data->AlertStringEntry[29].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/29", "EventFilterSel", 0);
 	data->AlertStringEntry[29].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/29", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[29].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/29", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[29].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[29].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/29", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[29].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[29].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/29", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[29].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[29].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/29", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[29].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/29", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[29].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/29", "AlertString/2", ""), 16);
 	data->AlertStringEntry[30].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/30", "EventFilterSel", 0);
 	data->AlertStringEntry[30].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/30", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[30].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/30", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[30].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[30].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/30", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[30].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[30].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/30", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[30].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[30].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/30", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[30].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/30", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[30].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/30", "AlertString/2", ""), 16);
 	data->AlertStringEntry[31].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/31", "EventFilterSel", 0);
 	data->AlertStringEntry[31].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/31", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[31].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/31", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[31].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[31].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/31", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[31].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[31].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/31", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[31].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[31].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/31", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[31].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/31", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[31].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/31", "AlertString/2", ""), 16);
 	data->AlertStringEntry[32].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/32", "EventFilterSel", 0);
 	data->AlertStringEntry[32].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/32", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[32].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/32", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[32].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[32].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/32", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[32].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[32].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/32", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[32].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[32].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/32", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[32].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/32", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[32].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/32", "AlertString/2", ""), 16);
 	data->AlertStringEntry[33].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/33", "EventFilterSel", 0);
 	data->AlertStringEntry[33].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/33", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[33].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/33", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[33].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[33].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/33", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[33].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[33].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/33", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[33].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[33].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/33", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[33].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/33", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[33].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/33", "AlertString/2", ""), 16);
 	data->AlertStringEntry[34].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/34", "EventFilterSel", 0);
 	data->AlertStringEntry[34].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/34", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[34].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/34", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[34].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[34].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/34", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[34].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[34].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/34", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[34].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[34].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/34", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[34].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/34", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[34].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/34", "AlertString/2", ""), 16);
 	data->AlertStringEntry[35].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/35", "EventFilterSel", 0);
 	data->AlertStringEntry[35].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/35", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[35].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/35", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[35].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[35].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/35", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[35].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[35].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/35", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[35].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[35].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/35", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[35].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/35", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[35].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/35", "AlertString/2", ""), 16);
 	data->AlertStringEntry[36].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/36", "EventFilterSel", 0);
 	data->AlertStringEntry[36].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/36", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[36].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/36", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[36].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[36].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/36", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[36].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[36].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/36", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[36].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[36].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/36", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[36].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/36", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[36].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/36", "AlertString/2", ""), 16);
 	data->AlertStringEntry[37].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/37", "EventFilterSel", 0);
 	data->AlertStringEntry[37].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/37", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[37].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/37", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[37].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[37].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/37", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[37].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[37].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/37", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[37].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[37].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/37", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[37].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/37", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[37].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/37", "AlertString/2", ""), 16);
 	data->AlertStringEntry[38].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/38", "EventFilterSel", 0);
 	data->AlertStringEntry[38].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/38", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[38].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/38", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[38].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[38].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/38", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[38].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[38].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/38", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[38].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[38].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/38", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[38].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/38", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[38].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/38", "AlertString/2", ""), 16);
 	data->AlertStringEntry[39].EventFilterSel = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/39", "EventFilterSel", 0);
 	data->AlertStringEntry[39].AlertStringSet = IniGetUInt(ini, "PEFConfigurationInformation/AlertStringEntry/39", "AlertStringSet", 0);
-	len = strncpy((char*)data->AlertStringEntry[39].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/39", "AlertString/0", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[39].AlertString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[39].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/39", "AlertString/1", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[39].AlertString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->AlertStringEntry[39].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/39", "AlertString/2", ""), 16);
-	if (len >= (int)sizeof(data->AlertStringEntry[39].AlertString[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->AlertStringEntry[39].AlertString[0], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/39", "AlertString/0", ""), 16);
+	strncpy((char*)data->AlertStringEntry[39].AlertString[1], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/39", "AlertString/1", ""), 16);
+	strncpy((char*)data->AlertStringEntry[39].AlertString[2], IniGetStr(ini, "PEFConfigurationInformation/AlertStringEntry/39", "AlertString/2", ""), 16);
 
 	data->OEMParams[0] = IniGetUInt(ini, "PEFConfigurationInformation", "OEMParams/0", 0);
 	data->OEMParams[1] = IniGetUInt(ini, "PEFConfigurationInformation", "OEMParams/1", 0);

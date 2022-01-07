@@ -39,180 +39,84 @@ EncUserPswd_LoadFile(char *File, BMCInfo_t *data)
 		return -1;
 
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[0].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/0", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[0].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[0].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/0", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[0].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/0", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[0].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[0].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/0", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[0].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/0", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[1].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/1", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[1].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[1].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/1", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[1].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/1", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[1].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[1].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/1", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[1].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/1", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[2].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/2", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[2].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[2].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/2", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[2].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/2", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[2].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[2].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/2", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[2].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/2", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[3].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/3", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[3].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[3].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/3", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[3].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/3", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[3].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[3].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/3", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[3].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/3", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[4].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/4", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[4].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[4].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/4", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[4].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/4", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[4].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[4].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/4", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[4].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/4", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[5].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/5", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[5].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[5].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/5", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[5].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/5", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[5].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[5].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/5", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[5].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/5", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[6].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/6", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[6].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[6].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/6", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[6].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/6", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[6].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[6].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/6", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[6].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/6", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[7].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/7", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[7].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[7].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/7", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[7].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/7", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[7].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[7].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/7", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[7].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/7", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[8].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/8", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[8].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[8].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/8", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[8].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/8", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[8].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[8].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/8", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[8].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/8", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[9].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/9", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[9].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[9].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/9", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[9].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/9", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[9].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[9].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/9", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[9].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/9", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[10].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/10", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[10].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[10].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/10", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[10].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/10", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[10].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[10].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/10", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[10].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/10", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[11].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/11", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[11].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[11].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/11", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[11].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/11", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[11].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[11].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/11", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[11].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/11", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[12].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/12", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[12].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[12].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/12", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[12].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/12", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[12].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[12].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/12", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[12].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/12", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[13].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/13", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[13].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[13].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/13", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[13].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/13", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[13].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[13].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/13", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[13].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/13", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[14].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/14", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[14].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[14].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/14", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[14].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/14", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[14].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[14].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/14", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[14].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/14", "passwdenc_len", 0);
 	if(g_corefeatures.backward_compatibility_userpswd_encryption == ENABLED) {
-	len = strncpy((char*)data->EncryptedUserInfo[15].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/15", "EncryptedPswd", ""), 256);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[15].EncryptedPswd)) {
-		printf("Buffer overflow");
+	strncpy((char*)data->EncryptedUserInfo[15].EncryptedPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/15", "EncryptedPswd", ""), 256);
 	}
-	}
-	len = strncpy((char*)data->EncryptedUserInfo[15].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/15", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedUserInfo[15].EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedUserInfo[15].EncryptedHexPswd, IniGetStr(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/15", "EncryptedHexPswd", ""), 512);
 	data->EncryptedUserInfo[15].passwdenc_len = IniGetUInt(ini, "EncryptedUserPswdConfig/EncryptedUserInfo/15", "passwdenc_len", 0);
 
 	IniCloseFile(ini);

@@ -64,157 +64,49 @@ SMTPConfig4_LoadFile(char *File, Smtp_Config_T *data)
 	data->IP6_ServerAddr[14] = IniGetUInt(ini, "SMTPLAN4Configuration", "IP6_ServerAddr/14", 0x0);
 	data->IP6_ServerAddr[15] = IniGetUInt(ini, "SMTPLAN4Configuration", "IP6_ServerAddr/15", 0x0);
 
-	len = strncpy((char*)data->UserName, IniGetStr(ini, "SMTPLAN4Configuration", "UserName", ""), 65);
-	if (len >= (int)sizeof(data->UserName)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->UserName, IniGetStr(ini, "SMTPLAN4Configuration", "UserName", ""), 65);
 
-	len = strncpy((char*)data->Passwd, IniGetStr(ini, "SMTPLAN4Configuration", "Passwd", ""), 256);
-	if (len >= (int)sizeof(data->Passwd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->Passwd, IniGetStr(ini, "SMTPLAN4Configuration", "Passwd", ""), 256);
 
 	data->NoofDestinations = IniGetUInt(ini, "SMTPLAN4Configuration", "NoofDestinations", 15);
 
-	len = strncpy((char*)data->Subject[0], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/0", ""), 32);
-	if (len >= (int)sizeof(data->Subject[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[1], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/1", ""), 32);
-	if (len >= (int)sizeof(data->Subject[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[2], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/2", ""), 32);
-	if (len >= (int)sizeof(data->Subject[2])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[3], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/3", ""), 32);
-	if (len >= (int)sizeof(data->Subject[3])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[4], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/4", ""), 32);
-	if (len >= (int)sizeof(data->Subject[4])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[5], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/5", ""), 32);
-	if (len >= (int)sizeof(data->Subject[5])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[6], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/6", ""), 32);
-	if (len >= (int)sizeof(data->Subject[6])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[7], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/7", ""), 32);
-	if (len >= (int)sizeof(data->Subject[7])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[8], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/8", ""), 32);
-	if (len >= (int)sizeof(data->Subject[8])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[9], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/9", ""), 32);
-	if (len >= (int)sizeof(data->Subject[9])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[10], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/10", ""), 32);
-	if (len >= (int)sizeof(data->Subject[10])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[11], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/11", ""), 32);
-	if (len >= (int)sizeof(data->Subject[11])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[12], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/12", ""), 32);
-	if (len >= (int)sizeof(data->Subject[12])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[13], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/13", ""), 32);
-	if (len >= (int)sizeof(data->Subject[13])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[14], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/14", ""), 32);
-	if (len >= (int)sizeof(data->Subject[14])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Subject[15], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/15", ""), 32);
-	if (len >= (int)sizeof(data->Subject[15])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->Subject[0], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/0", ""), 32);
+	strncpy((char*)data->Subject[1], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/1", ""), 32);
+	strncpy((char*)data->Subject[2], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/2", ""), 32);
+	strncpy((char*)data->Subject[3], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/3", ""), 32);
+	strncpy((char*)data->Subject[4], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/4", ""), 32);
+	strncpy((char*)data->Subject[5], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/5", ""), 32);
+	strncpy((char*)data->Subject[6], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/6", ""), 32);
+	strncpy((char*)data->Subject[7], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/7", ""), 32);
+	strncpy((char*)data->Subject[8], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/8", ""), 32);
+	strncpy((char*)data->Subject[9], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/9", ""), 32);
+	strncpy((char*)data->Subject[10], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/10", ""), 32);
+	strncpy((char*)data->Subject[11], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/11", ""), 32);
+	strncpy((char*)data->Subject[12], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/12", ""), 32);
+	strncpy((char*)data->Subject[13], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/13", ""), 32);
+	strncpy((char*)data->Subject[14], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/14", ""), 32);
+	strncpy((char*)data->Subject[15], IniGetStr(ini, "SMTPLAN4Configuration", "Subject/15", ""), 32);
 
-	len = strncpy((char*)data->Msg[0], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/0", ""), 64);
-	if (len >= (int)sizeof(data->Msg[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[1], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/1", ""), 64);
-	if (len >= (int)sizeof(data->Msg[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[2], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/2", ""), 64);
-	if (len >= (int)sizeof(data->Msg[2])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[3], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/3", ""), 64);
-	if (len >= (int)sizeof(data->Msg[3])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[4], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/4", ""), 64);
-	if (len >= (int)sizeof(data->Msg[4])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[5], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/5", ""), 64);
-	if (len >= (int)sizeof(data->Msg[5])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[6], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/6", ""), 64);
-	if (len >= (int)sizeof(data->Msg[6])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[7], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/7", ""), 64);
-	if (len >= (int)sizeof(data->Msg[7])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[8], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/8", ""), 64);
-	if (len >= (int)sizeof(data->Msg[8])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[9], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/9", ""), 64);
-	if (len >= (int)sizeof(data->Msg[9])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[10], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/10", ""), 64);
-	if (len >= (int)sizeof(data->Msg[10])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[11], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/11", ""), 64);
-	if (len >= (int)sizeof(data->Msg[11])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[12], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/12", ""), 64);
-	if (len >= (int)sizeof(data->Msg[12])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[13], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/13", ""), 64);
-	if (len >= (int)sizeof(data->Msg[13])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[14], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/14", ""), 64);
-	if (len >= (int)sizeof(data->Msg[14])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->Msg[15], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/15", ""), 64);
-	if (len >= (int)sizeof(data->Msg[15])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->Msg[0], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/0", ""), 64);
+	strncpy((char*)data->Msg[1], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/1", ""), 64);
+	strncpy((char*)data->Msg[2], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/2", ""), 64);
+	strncpy((char*)data->Msg[3], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/3", ""), 64);
+	strncpy((char*)data->Msg[4], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/4", ""), 64);
+	strncpy((char*)data->Msg[5], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/5", ""), 64);
+	strncpy((char*)data->Msg[6], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/6", ""), 64);
+	strncpy((char*)data->Msg[7], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/7", ""), 64);
+	strncpy((char*)data->Msg[8], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/8", ""), 64);
+	strncpy((char*)data->Msg[9], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/9", ""), 64);
+	strncpy((char*)data->Msg[10], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/10", ""), 64);
+	strncpy((char*)data->Msg[11], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/11", ""), 64);
+	strncpy((char*)data->Msg[12], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/12", ""), 64);
+	strncpy((char*)data->Msg[13], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/13", ""), 64);
+	strncpy((char*)data->Msg[14], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/14", ""), 64);
+	strncpy((char*)data->Msg[15], IniGetStr(ini, "SMTPLAN4Configuration", "Msg/15", ""), 64);
 
-	len = strncpy((char*)data->SenderAddr, IniGetStr(ini, "SMTPLAN4Configuration", "SenderAddr", ""), 64);
-	if (len >= (int)sizeof(data->SenderAddr)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->SenderAddr, IniGetStr(ini, "SMTPLAN4Configuration", "SenderAddr", ""), 64);
 
-	len = strncpy((char*)data->Servername, IniGetStr(ini, "SMTPLAN4Configuration", "Servername", ""), 32);
-	if (len >= (int)sizeof(data->Servername)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->Servername, IniGetStr(ini, "SMTPLAN4Configuration", "Servername", ""), 32);
 
 	data->SmtpPort = IniGetUInt(ini, "SMTPLAN4Configuration", "SmtpPort", 25);
 
@@ -263,39 +155,21 @@ SMTPConfig4_LoadFile(char *File, Smtp_Config_T *data)
 	data->IP6_Server2Addr[14] = IniGetUInt(ini, "SMTPLAN4Configuration", "IP6_Server2Addr/14", 0x0);
 	data->IP6_Server2Addr[15] = IniGetUInt(ini, "SMTPLAN4Configuration", "IP6_Server2Addr/15", 0x0);
 
-	len = strncpy((char*)data->UserName2, IniGetStr(ini, "SMTPLAN4Configuration", "UserName2", ""), 65);
-	if (len >= (int)sizeof(data->UserName2)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->UserName2, IniGetStr(ini, "SMTPLAN4Configuration", "UserName2", ""), 65);
 
-	len = strncpy((char*)data->Passwd2, IniGetStr(ini, "SMTPLAN4Configuration", "Passwd2", ""), 256);
-	if (len >= (int)sizeof(data->Passwd2)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->Passwd2, IniGetStr(ini, "SMTPLAN4Configuration", "Passwd2", ""), 256);
 
-	len = strncpy((char*)data->Sender2Addr, IniGetStr(ini, "SMTPLAN4Configuration", "Sender2Addr", ""), 64);
-	if (len >= (int)sizeof(data->Sender2Addr)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->Sender2Addr, IniGetStr(ini, "SMTPLAN4Configuration", "Sender2Addr", ""), 64);
 
-	len = strncpy((char*)data->Server2name, IniGetStr(ini, "SMTPLAN4Configuration", "Server2name", ""), 32);
-	if (len >= (int)sizeof(data->Server2name)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->Server2name, IniGetStr(ini, "SMTPLAN4Configuration", "Server2name", ""), 32);
 
 	data->Smtp2Port = IniGetUInt(ini, "SMTPLAN4Configuration", "Smtp2Port", 25);
 
 	data->Smtp2SecurePort = IniGetUInt(ini, "SMTPLAN4Configuration", "Smtp2SecurePort", 465);
 
-	len = strncpy((char*)data->EncryptedHexPswd, IniGetStr(ini, "SMTPLAN4Configuration", "EncryptedHexPswd", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedHexPswd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedHexPswd, IniGetStr(ini, "SMTPLAN4Configuration", "EncryptedHexPswd", ""), 512);
 
-	len = strncpy((char*)data->EncryptedHexPswd2, IniGetStr(ini, "SMTPLAN4Configuration", "EncryptedHexPswd2", ""), 512);
-	if (len >= (int)sizeof(data->EncryptedHexPswd2)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->EncryptedHexPswd2, IniGetStr(ini, "SMTPLAN4Configuration", "EncryptedHexPswd2", ""), 512);
 
 	data->EnableSTARTTLSSupport = IniGetUInt(ini, "SMTPLAN4Configuration", "EnableSTARTTLSSupport", 0x0);
 

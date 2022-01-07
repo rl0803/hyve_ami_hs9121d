@@ -106,10 +106,7 @@ LANConfig3_LoadFile(char *File, LANConfig_T *data)
 	data->BackupGatewayMACAddr[4] = IniGetUInt(ini, "LAN3ConfigParams", "BackupGatewayMACAddr/4", 0x0);
 	data->BackupGatewayMACAddr[5] = IniGetUInt(ini, "LAN3ConfigParams", "BackupGatewayMACAddr/5", 0x0);
 
-	len = strncpy((char*)data->CommunityStr, IniGetStr(ini, "LAN3ConfigParams", "CommunityStr", "AMI"), 18);
-	if (len >= (int)sizeof(data->CommunityStr)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->CommunityStr, IniGetStr(ini, "LAN3ConfigParams", "CommunityStr", "AMI"), 18);
 
 	data->NumDest = IniGetUInt(ini, "LAN3ConfigParams", "NumDest", 15);
 

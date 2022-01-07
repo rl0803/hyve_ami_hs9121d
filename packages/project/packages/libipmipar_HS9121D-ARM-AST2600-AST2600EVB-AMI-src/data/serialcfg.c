@@ -77,44 +77,20 @@ SMConfig_LoadFile(char *File, SMConfig_T *data)
 	data->RingTime.RingDuration = IniGetUInt(ini, "SerialCfgParams/RingTime", "RingDuration", 0);
 	data->RingTime.RingDeadTime = IniGetUInt(ini, "SerialCfgParams/RingTime", "RingDeadTime", 0);
 
-	len = strncpy((char*)data->ModemInitString[0], IniGetStr(ini, "SerialCfgParams", "ModemInitString/0", ""), 16);
-	if (len >= (int)sizeof(data->ModemInitString[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->ModemInitString[1], IniGetStr(ini, "SerialCfgParams", "ModemInitString/1", ""), 16);
-	if (len >= (int)sizeof(data->ModemInitString[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->ModemInitString[2], IniGetStr(ini, "SerialCfgParams", "ModemInitString/2", ""), 16);
-	if (len >= (int)sizeof(data->ModemInitString[2])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->ModemInitString[3], IniGetStr(ini, "SerialCfgParams", "ModemInitString/3", ""), 16);
-	if (len >= (int)sizeof(data->ModemInitString[3])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->ModemInitString[0], IniGetStr(ini, "SerialCfgParams", "ModemInitString/0", ""), 16);
+	strncpy((char*)data->ModemInitString[1], IniGetStr(ini, "SerialCfgParams", "ModemInitString/1", ""), 16);
+	strncpy((char*)data->ModemInitString[2], IniGetStr(ini, "SerialCfgParams", "ModemInitString/2", ""), 16);
+	strncpy((char*)data->ModemInitString[3], IniGetStr(ini, "SerialCfgParams", "ModemInitString/3", ""), 16);
 
-	len = strncpy((char*)data->ModemEscapeSeq, IniGetStr(ini, "SerialCfgParams", "ModemEscapeSeq", ""), 6);
-	if (len >= (int)sizeof(data->ModemEscapeSeq)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->ModemEscapeSeq, IniGetStr(ini, "SerialCfgParams", "ModemEscapeSeq", ""), 6);
 
-	len = strncpy((char*)data->ModemHangup, IniGetStr(ini, "SerialCfgParams", "ModemHangup", "ATH"), 9);
-	if (len >= (int)sizeof(data->ModemHangup)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->ModemHangup, IniGetStr(ini, "SerialCfgParams", "ModemHangup", "ATH"), 9);
 
-	len = strncpy((char*)data->ModemDialCmd, IniGetStr(ini, "SerialCfgParams", "ModemDialCmd", "ATDT"), 9);
-	if (len >= (int)sizeof(data->ModemDialCmd)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->ModemDialCmd, IniGetStr(ini, "SerialCfgParams", "ModemDialCmd", "ATDT"), 9);
 
 	data->PageBlockOut = IniGetUInt(ini, "SerialCfgParams", "PageBlockOut", 0);
 
-	len = strncpy((char*)data->CommunityString, IniGetStr(ini, "SerialCfgParams", "CommunityString", ""), 19);
-	if (len >= (int)sizeof(data->CommunityString)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->CommunityString, IniGetStr(ini, "SerialCfgParams", "CommunityString", ""), 19);
 
 	data->TotalAlertDest = IniGetUInt(ini, "SerialCfgParams", "TotalAlertDest", 5);
 
@@ -154,66 +130,21 @@ SMConfig_LoadFile(char *File, SMConfig_T *data)
 
 	data->TotalDialStr = IniGetUInt(ini, "SerialCfgParams", "TotalDialStr", 5);
 
-	len = strncpy((char*)data->DestDialStrings[0][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/0/0", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[0][0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[0][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/0/1", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[0][1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[0][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/0/2", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[0][2])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[1][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/1/0", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[1][0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[1][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/1/1", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[1][1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[1][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/1/2", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[1][2])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[2][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/2/0", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[2][0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[2][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/2/1", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[2][1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[2][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/2/2", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[2][2])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[3][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/3/0", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[3][0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[3][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/3/1", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[3][1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[3][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/3/2", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[3][2])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[4][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/4/0", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[4][0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[4][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/4/1", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[4][1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->DestDialStrings[4][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/4/2", ""), 16);
-	if (len >= (int)sizeof(data->DestDialStrings[4][2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->DestDialStrings[0][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/0/0", ""), 16);
+	strncpy((char*)data->DestDialStrings[0][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/0/1", ""), 16);
+	strncpy((char*)data->DestDialStrings[0][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/0/2", ""), 16);
+	strncpy((char*)data->DestDialStrings[1][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/1/0", ""), 16);
+	strncpy((char*)data->DestDialStrings[1][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/1/1", ""), 16);
+	strncpy((char*)data->DestDialStrings[1][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/1/2", ""), 16);
+	strncpy((char*)data->DestDialStrings[2][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/2/0", ""), 16);
+	strncpy((char*)data->DestDialStrings[2][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/2/1", ""), 16);
+	strncpy((char*)data->DestDialStrings[2][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/2/2", ""), 16);
+	strncpy((char*)data->DestDialStrings[3][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/3/0", ""), 16);
+	strncpy((char*)data->DestDialStrings[3][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/3/1", ""), 16);
+	strncpy((char*)data->DestDialStrings[3][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/3/2", ""), 16);
+	strncpy((char*)data->DestDialStrings[4][0], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/4/0", ""), 16);
+	strncpy((char*)data->DestDialStrings[4][1], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/4/1", ""), 16);
+	strncpy((char*)data->DestDialStrings[4][2], IniGetStr(ini, "SerialCfgParams", "DestDialStrings/4/2", ""), 16);
 
 	data->TotalDestIP = IniGetUInt(ini, "SerialCfgParams", "TotalDestIP", 5);
 
@@ -244,37 +175,16 @@ SMConfig_LoadFile(char *File, SMConfig_T *data)
 	data->TAPAccountSelector[1] = IniGetUInt(ini, "SerialCfgParams", "TAPAccountSelector/1", (0 << 4) | 0);
 	data->TAPAccountSelector[2] = IniGetUInt(ini, "SerialCfgParams", "TAPAccountSelector/2", (0 << 4) | 0);
 
-	len = strncpy((char*)data->TAPPasswd[0], IniGetStr(ini, "SerialCfgParams", "TAPPasswd/0", ""), 8);
-	if (len >= (int)sizeof(data->TAPPasswd[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->TAPPasswd[1], IniGetStr(ini, "SerialCfgParams", "TAPPasswd/1", ""), 8);
-	if (len >= (int)sizeof(data->TAPPasswd[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->TAPPasswd[2], IniGetStr(ini, "SerialCfgParams", "TAPPasswd/2", ""), 8);
-	if (len >= (int)sizeof(data->TAPPasswd[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->TAPPasswd[0], IniGetStr(ini, "SerialCfgParams", "TAPPasswd/0", ""), 8);
+	strncpy((char*)data->TAPPasswd[1], IniGetStr(ini, "SerialCfgParams", "TAPPasswd/1", ""), 8);
+	strncpy((char*)data->TAPPasswd[2], IniGetStr(ini, "SerialCfgParams", "TAPPasswd/2", ""), 8);
 
-	len = strncpy((char*)data->TAPPagerIDStrings[0], IniGetStr(ini, "SerialCfgParams", "TAPPagerIDStrings/0", ""), 14);
-	if (len >= (int)sizeof(data->TAPPagerIDStrings[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->TAPPagerIDStrings[1], IniGetStr(ini, "SerialCfgParams", "TAPPagerIDStrings/1", ""), 14);
-	if (len >= (int)sizeof(data->TAPPagerIDStrings[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->TAPPagerIDStrings[2], IniGetStr(ini, "SerialCfgParams", "TAPPagerIDStrings/2", ""), 14);
-	if (len >= (int)sizeof(data->TAPPagerIDStrings[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->TAPPagerIDStrings[0], IniGetStr(ini, "SerialCfgParams", "TAPPagerIDStrings/0", ""), 14);
+	strncpy((char*)data->TAPPagerIDStrings[1], IniGetStr(ini, "SerialCfgParams", "TAPPagerIDStrings/1", ""), 14);
+	strncpy((char*)data->TAPPagerIDStrings[2], IniGetStr(ini, "SerialCfgParams", "TAPPagerIDStrings/2", ""), 14);
 
 	data->TAPServiceSettings[0].TAPConfirmation = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/0", "TAPConfirmation", 0x0);
-	len = strncpy((char*)data->TAPServiceSettings[0].TAPServiceTypeChars, IniGetStr(ini, "SerialCfgParams/TAPServiceSettings/0", "TAPServiceTypeChars", ""), 3);
-	if (len >= (int)sizeof(data->TAPServiceSettings[0].TAPServiceTypeChars)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->TAPServiceSettings[0].TAPServiceTypeChars, IniGetStr(ini, "SerialCfgParams/TAPServiceSettings/0", "TAPServiceTypeChars", ""), 3);
 	data->TAPServiceSettings[0].TAPCtrlESCMask = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/0", "TAPCtrlESCMask", 0xffff);
 	data->TAPServiceSettings[0].TimeOutParam1 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/0", "TimeOutParam1", (0 << 4) | 0);
 	data->TAPServiceSettings[0].TimeOutParam2 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/0", "TimeOutParam2", (0 << 4) | 0);
@@ -282,10 +192,7 @@ SMConfig_LoadFile(char *File, SMConfig_T *data)
 	data->TAPServiceSettings[0].RetryParam1 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/0", "RetryParam1", (0 << 4) | 0);
 	data->TAPServiceSettings[0].RetryParam2 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/0", "RetryParam2", (0 << 4) | 0);
 	data->TAPServiceSettings[1].TAPConfirmation = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/1", "TAPConfirmation", 0);
-	len = strncpy((char*)data->TAPServiceSettings[1].TAPServiceTypeChars, IniGetStr(ini, "SerialCfgParams/TAPServiceSettings/1", "TAPServiceTypeChars", ""), 3);
-	if (len >= (int)sizeof(data->TAPServiceSettings[1].TAPServiceTypeChars)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->TAPServiceSettings[1].TAPServiceTypeChars, IniGetStr(ini, "SerialCfgParams/TAPServiceSettings/1", "TAPServiceTypeChars", ""), 3);
 	data->TAPServiceSettings[1].TAPCtrlESCMask = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/1", "TAPCtrlESCMask", 0);
 	data->TAPServiceSettings[1].TimeOutParam1 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/1", "TimeOutParam1", 0);
 	data->TAPServiceSettings[1].TimeOutParam2 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/1", "TimeOutParam2", 0);
@@ -293,10 +200,7 @@ SMConfig_LoadFile(char *File, SMConfig_T *data)
 	data->TAPServiceSettings[1].RetryParam1 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/1", "RetryParam1", 0);
 	data->TAPServiceSettings[1].RetryParam2 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/1", "RetryParam2", 0);
 	data->TAPServiceSettings[2].TAPConfirmation = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/2", "TAPConfirmation", 0);
-	len = strncpy((char*)data->TAPServiceSettings[2].TAPServiceTypeChars, IniGetStr(ini, "SerialCfgParams/TAPServiceSettings/2", "TAPServiceTypeChars", ""), 3);
-	if (len >= (int)sizeof(data->TAPServiceSettings[2].TAPServiceTypeChars)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->TAPServiceSettings[2].TAPServiceTypeChars, IniGetStr(ini, "SerialCfgParams/TAPServiceSettings/2", "TAPServiceTypeChars", ""), 3);
 	data->TAPServiceSettings[2].TAPCtrlESCMask = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/2", "TAPCtrlESCMask", 0);
 	data->TAPServiceSettings[2].TimeOutParam1 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/2", "TimeOutParam1", 0);
 	data->TAPServiceSettings[2].TimeOutParam2 = IniGetUInt(ini, "SerialCfgParams/TAPServiceSettings/2", "TimeOutParam2", 0);
@@ -318,10 +222,7 @@ SMConfig_LoadFile(char *File, SMConfig_T *data)
 
 	data->PPPLinkAuth = IniGetUInt(ini, "SerialCfgParams", "PPPLinkAuth", 0x0);
 
-	len = strncpy((char*)data->CHAPName, IniGetStr(ini, "SerialCfgParams", "CHAPName", ""), 16);
-	if (len >= (int)sizeof(data->CHAPName)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->CHAPName, IniGetStr(ini, "SerialCfgParams", "CHAPName", ""), 16);
 
 	data->PPPACCM.ReceiveACCM = IniGetUInt(ini, "SerialCfgParams/PPPACCM", "ReceiveACCM", 0);
 	data->PPPACCM.TransmitACCM = IniGetUInt(ini, "SerialCfgParams/PPPACCM", "TransmitACCM", 0);
@@ -347,44 +248,17 @@ SMConfig_LoadFile(char *File, SMConfig_T *data)
 	data->PPPAccIPAddress[2][2] = IniGetUInt(ini, "SerialCfgParams", "PPPAccIPAddress/2/2", 0);
 	data->PPPAccIPAddress[2][3] = IniGetUInt(ini, "SerialCfgParams", "PPPAccIPAddress/2/3", 0);
 
-	len = strncpy((char*)data->PPPAccUserNames[0], IniGetStr(ini, "SerialCfgParams", "PPPAccUserNames/0", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserNames[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->PPPAccUserNames[1], IniGetStr(ini, "SerialCfgParams", "PPPAccUserNames/1", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserNames[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->PPPAccUserNames[2], IniGetStr(ini, "SerialCfgParams", "PPPAccUserNames/2", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserNames[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->PPPAccUserNames[0], IniGetStr(ini, "SerialCfgParams", "PPPAccUserNames/0", ""), 17);
+	strncpy((char*)data->PPPAccUserNames[1], IniGetStr(ini, "SerialCfgParams", "PPPAccUserNames/1", ""), 17);
+	strncpy((char*)data->PPPAccUserNames[2], IniGetStr(ini, "SerialCfgParams", "PPPAccUserNames/2", ""), 17);
 
-	len = strncpy((char*)data->PPPAccUserDomain[0], IniGetStr(ini, "SerialCfgParams", "PPPAccUserDomain/0", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserDomain[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->PPPAccUserDomain[1], IniGetStr(ini, "SerialCfgParams", "PPPAccUserDomain/1", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserDomain[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->PPPAccUserDomain[2], IniGetStr(ini, "SerialCfgParams", "PPPAccUserDomain/2", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserDomain[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->PPPAccUserDomain[0], IniGetStr(ini, "SerialCfgParams", "PPPAccUserDomain/0", ""), 17);
+	strncpy((char*)data->PPPAccUserDomain[1], IniGetStr(ini, "SerialCfgParams", "PPPAccUserDomain/1", ""), 17);
+	strncpy((char*)data->PPPAccUserDomain[2], IniGetStr(ini, "SerialCfgParams", "PPPAccUserDomain/2", ""), 17);
 
-	len = strncpy((char*)data->PPPAccUserPasswd[0], IniGetStr(ini, "SerialCfgParams", "PPPAccUserPasswd/0", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserPasswd[0])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->PPPAccUserPasswd[1], IniGetStr(ini, "SerialCfgParams", "PPPAccUserPasswd/1", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserPasswd[1])) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->PPPAccUserPasswd[2], IniGetStr(ini, "SerialCfgParams", "PPPAccUserPasswd/2", ""), 17);
-	if (len >= (int)sizeof(data->PPPAccUserPasswd[2])) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->PPPAccUserPasswd[0], IniGetStr(ini, "SerialCfgParams", "PPPAccUserPasswd/0", ""), 17);
+	strncpy((char*)data->PPPAccUserPasswd[1], IniGetStr(ini, "SerialCfgParams", "PPPAccUserPasswd/1", ""), 17);
+	strncpy((char*)data->PPPAccUserPasswd[2], IniGetStr(ini, "SerialCfgParams", "PPPAccUserPasswd/2", ""), 17);
 
 	data->PPPAccAuthSettings[0] = IniGetUInt(ini, "SerialCfgParams", "PPPAccAuthSettings/0", 0x0);
 	data->PPPAccAuthSettings[1] = IniGetUInt(ini, "SerialCfgParams", "PPPAccAuthSettings/1", 0x0);

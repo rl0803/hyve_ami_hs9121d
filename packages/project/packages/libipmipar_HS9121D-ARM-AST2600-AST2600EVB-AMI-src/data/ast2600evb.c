@@ -186,24 +186,274 @@ int dev_hyvepsureadings_0x3fh_1_32_write        (hal_t *phal);
 int dev_hyvepsureadings_0x3fh_1_32_init_device  (hal_t *phal);
 int dev_hyvepsureadings_0x3fh_1_32_read_device  (hal_t *phal);
 int dev_hyvepsureadings_0x3fh_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x40h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x40h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x40h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x40h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x40h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x40h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x41h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x41h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x41h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x41h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x41h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x41h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x42h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x42h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x42h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x42h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x42h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x42h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x43h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x43h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x43h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x43h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x43h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x43h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x44h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x44h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x44h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x44h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x44h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x44h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x45h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x45h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x45h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x45h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x45h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x45h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x46h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x46h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x46h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x46h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x46h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x46h_1_32_write_device (hal_t *phal);
+int dev_hyve_nc_0x47h_1_32_init         (hal_t *phal);
+int dev_hyve_nc_0x47h_1_32_read         (hal_t *phal);
+int dev_hyve_nc_0x47h_1_32_write        (hal_t *phal);
+int dev_hyve_nc_0x47h_1_32_init_device  (hal_t *phal);
+int dev_hyve_nc_0x47h_1_32_read_device  (hal_t *phal);
+int dev_hyve_nc_0x47h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x48h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x48h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x48h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x48h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x48h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x48h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x49h_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x49h_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x49h_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x49h_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x49h_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x49h_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x4ah_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x4ah_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x4ah_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x4ah_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x4ah_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x4ah_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x4bh_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x4bh_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x4bh_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x4bh_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x4bh_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x4bh_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x4ch_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x4ch_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x4ch_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x4ch_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x4ch_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x4ch_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x4dh_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x4dh_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x4dh_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x4dh_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x4dh_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x4dh_1_32_write_device (hal_t *phal);
+int dev_hyve_voltage_0x4eh_1_32_init         (hal_t *phal);
+int dev_hyve_voltage_0x4eh_1_32_read         (hal_t *phal);
+int dev_hyve_voltage_0x4eh_1_32_write        (hal_t *phal);
+int dev_hyve_voltage_0x4eh_1_32_init_device  (hal_t *phal);
+int dev_hyve_voltage_0x4eh_1_32_read_device  (hal_t *phal);
+int dev_hyve_voltage_0x4eh_1_32_write_device (hal_t *phal);
+int dev_ast_adc_9_init         (hal_t *phal);
+int dev_ast_adc_9_read         (hal_t *phal);
+int dev_ast_adc_9_write        (hal_t *phal);
+int dev_ast_adc_9_init_device  (hal_t *phal);
+int dev_ast_adc_9_read_device  (hal_t *phal);
+int dev_ast_adc_9_write_device (hal_t *phal);
+int dev_ast_adc_9_avin_read (hal_t *phal);
+int dev_ast_adc_9_avin_init (hal_t *phal);
+int dev_ast_adc_8_init         (hal_t *phal);
+int dev_ast_adc_8_read         (hal_t *phal);
+int dev_ast_adc_8_write        (hal_t *phal);
+int dev_ast_adc_8_init_device  (hal_t *phal);
+int dev_ast_adc_8_read_device  (hal_t *phal);
+int dev_ast_adc_8_write_device (hal_t *phal);
+int dev_ast_adc_8_avin_read (hal_t *phal);
+int dev_ast_adc_8_avin_init (hal_t *phal);
+int dev_ast_adc_5_init         (hal_t *phal);
+int dev_ast_adc_5_read         (hal_t *phal);
+int dev_ast_adc_5_write        (hal_t *phal);
+int dev_ast_adc_5_init_device  (hal_t *phal);
+int dev_ast_adc_5_read_device  (hal_t *phal);
+int dev_ast_adc_5_write_device (hal_t *phal);
+int dev_ast_adc_5_avin_read (hal_t *phal);
+int dev_ast_adc_5_avin_init (hal_t *phal);
+int dev_ast_adc_4_init         (hal_t *phal);
+int dev_ast_adc_4_read         (hal_t *phal);
+int dev_ast_adc_4_write        (hal_t *phal);
+int dev_ast_adc_4_init_device  (hal_t *phal);
+int dev_ast_adc_4_read_device  (hal_t *phal);
+int dev_ast_adc_4_write_device (hal_t *phal);
+int dev_ast_adc_4_avin_read (hal_t *phal);
+int dev_ast_adc_4_avin_init (hal_t *phal);
+int dev_ast_adc_6_init         (hal_t *phal);
+int dev_ast_adc_6_read         (hal_t *phal);
+int dev_ast_adc_6_write        (hal_t *phal);
+int dev_ast_adc_6_init_device  (hal_t *phal);
+int dev_ast_adc_6_read_device  (hal_t *phal);
+int dev_ast_adc_6_write_device (hal_t *phal);
+int dev_ast_adc_6_avin_read (hal_t *phal);
+int dev_ast_adc_6_avin_init (hal_t *phal);
 int dev_ast2600_init         (hal_t *phal);
 int dev_ast2600_read         (hal_t *phal);
 int dev_ast2600_write        (hal_t *phal);
 int dev_ast2600_init_device  (hal_t *phal);
 int dev_ast2600_read_device  (hal_t *phal);
 int dev_ast2600_write_device (hal_t *phal);
+int dev_ast_adc_3_init         (hal_t *phal);
+int dev_ast_adc_3_read         (hal_t *phal);
+int dev_ast_adc_3_write        (hal_t *phal);
+int dev_ast_adc_3_init_device  (hal_t *phal);
+int dev_ast_adc_3_read_device  (hal_t *phal);
+int dev_ast_adc_3_write_device (hal_t *phal);
+int dev_ast_adc_3_avin_read (hal_t *phal);
+int dev_ast_adc_3_avin_init (hal_t *phal);
+int dev_ast_adc_10_init         (hal_t *phal);
+int dev_ast_adc_10_read         (hal_t *phal);
+int dev_ast_adc_10_write        (hal_t *phal);
+int dev_ast_adc_10_init_device  (hal_t *phal);
+int dev_ast_adc_10_read_device  (hal_t *phal);
+int dev_ast_adc_10_write_device (hal_t *phal);
+int dev_ast_adc_10_avin_read (hal_t *phal);
+int dev_ast_adc_10_avin_init (hal_t *phal);
+int dev_ast_adc_2_init         (hal_t *phal);
+int dev_ast_adc_2_read         (hal_t *phal);
+int dev_ast_adc_2_write        (hal_t *phal);
+int dev_ast_adc_2_init_device  (hal_t *phal);
+int dev_ast_adc_2_read_device  (hal_t *phal);
+int dev_ast_adc_2_write_device (hal_t *phal);
+int dev_ast_adc_2_avin_read (hal_t *phal);
+int dev_ast_adc_2_avin_init (hal_t *phal);
 int dev_mb_fru_init         (hal_t *phal);
 int dev_mb_fru_read         (hal_t *phal);
 int dev_mb_fru_write        (hal_t *phal);
 int dev_mb_fru_init_device  (hal_t *phal);
 int dev_mb_fru_read_device  (hal_t *phal);
 int dev_mb_fru_write_device (hal_t *phal);
+int dev_ast_adc0_init         (hal_t *phal);
+int dev_ast_adc0_read         (hal_t *phal);
+int dev_ast_adc0_write        (hal_t *phal);
+int dev_ast_adc0_init_device  (hal_t *phal);
+int dev_ast_adc0_read_device  (hal_t *phal);
+int dev_ast_adc0_write_device (hal_t *phal);
+int dev_ast_adc0_avin_read (hal_t *phal);
+int dev_ast_adc0_avin_init (hal_t *phal);
+int dev_ast_adc_12_init         (hal_t *phal);
+int dev_ast_adc_12_read         (hal_t *phal);
+int dev_ast_adc_12_write        (hal_t *phal);
+int dev_ast_adc_12_init_device  (hal_t *phal);
+int dev_ast_adc_12_read_device  (hal_t *phal);
+int dev_ast_adc_12_write_device (hal_t *phal);
+int dev_ast_adc_12_avin_read (hal_t *phal);
+int dev_ast_adc_12_avin_init (hal_t *phal);
+int dev_ast_adc_11_init         (hal_t *phal);
+int dev_ast_adc_11_read         (hal_t *phal);
+int dev_ast_adc_11_write        (hal_t *phal);
+int dev_ast_adc_11_init_device  (hal_t *phal);
+int dev_ast_adc_11_read_device  (hal_t *phal);
+int dev_ast_adc_11_write_device (hal_t *phal);
+int dev_ast_adc_11_avin_read (hal_t *phal);
+int dev_ast_adc_11_avin_init (hal_t *phal);
+int dev_ast_adc_13_init         (hal_t *phal);
+int dev_ast_adc_13_read         (hal_t *phal);
+int dev_ast_adc_13_write        (hal_t *phal);
+int dev_ast_adc_13_init_device  (hal_t *phal);
+int dev_ast_adc_13_read_device  (hal_t *phal);
+int dev_ast_adc_13_write_device (hal_t *phal);
+int dev_ast_adc_13_avin_read (hal_t *phal);
+int dev_ast_adc_13_avin_init (hal_t *phal);
+int dev_ast_adc1_init         (hal_t *phal);
+int dev_ast_adc1_read         (hal_t *phal);
+int dev_ast_adc1_write        (hal_t *phal);
+int dev_ast_adc1_init_device  (hal_t *phal);
+int dev_ast_adc1_read_device  (hal_t *phal);
+int dev_ast_adc1_write_device (hal_t *phal);
+int dev_ast_adc1_avin_read (hal_t *phal);
+int dev_ast_adc1_avin_init (hal_t *phal);
+int dev_pmbus_alert_init         (hal_t *phal);
+int dev_pmbus_alert_read         (hal_t *phal);
+int dev_pmbus_alert_write        (hal_t *phal);
+int dev_pmbus_alert_init_device  (hal_t *phal);
+int dev_pmbus_alert_read_device  (hal_t *phal);
+int dev_pmbus_alert_write_device (hal_t *phal);
+int dev_ast_adc14_init         (hal_t *phal);
+int dev_ast_adc14_read         (hal_t *phal);
+int dev_ast_adc14_write        (hal_t *phal);
+int dev_ast_adc14_init_device  (hal_t *phal);
+int dev_ast_adc14_read_device  (hal_t *phal);
+int dev_ast_adc14_write_device (hal_t *phal);
+int dev_ast_adc14_avin_read (hal_t *phal);
+int dev_ast_adc14_avin_init (hal_t *phal);
 
 
 /**
  * Exported Defintions 
  **/
 
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
+/* Export Code for AVIN pin */
+
+		
 
 
 	
@@ -490,6 +740,305 @@ int dev_mb_fru_write_device (hal_t *phal);
     
               
     
+	
+
+	static INT8U VOLT_P12V_previous_value = 0xc5;
+	static INT8U VOLT_P12V_retry_MAX_Threshold;
+	static INT8U VOLT_P12V_retry_MIN_Threshold;
+	static INT8U VOLT_P12V_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x40h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_PDBP12V_previous_value = 0xc5;
+	static INT8U VOLT_PDBP12V_retry_MAX_Threshold;
+	static INT8U VOLT_PDBP12V_retry_MIN_Threshold;
+	static INT8U VOLT_PDBP12V_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x41h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_PDBP3V3_previous_value = 0xc5;
+	static INT8U VOLT_PDBP3V3_retry_MAX_Threshold;
+	static INT8U VOLT_PDBP3V3_retry_MIN_Threshold;
+	static INT8U VOLT_PDBP3V3_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x42h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_P3V3_previous_value = 0xc5;
+	static INT8U VOLT_P3V3_retry_MAX_Threshold;
+	static INT8U VOLT_P3V3_retry_MIN_Threshold;
+	static INT8U VOLT_P3V3_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x43h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_P0VDD3V3_previous_value = 0xc5;
+	static INT8U VOLT_P0VDD3V3_retry_MAX_Threshold;
+	static INT8U VOLT_P0VDD3V3_retry_MIN_Threshold;
+	static INT8U VOLT_P0VDD3V3_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x44h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VAUX_P5V_previous_value = 0xc0;
+	static INT8U VAUX_P5V_retry_MAX_Threshold;
+	static INT8U VAUX_P5V_retry_MIN_Threshold;
+	static INT8U VAUX_P5V_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x45h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_P0VDD1V8_previous_value = 0xc5;
+	static INT8U VOLT_P0VDD1V8_retry_MAX_Threshold;
+	static INT8U VOLT_P0VDD1V8_retry_MIN_Threshold;
+	static INT8U VOLT_P0VDD1V8_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x46h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+	static INT8U VOLT_BATP3V_previous_value = 0x80;
+	static INT8U VOLT_BATP3V_retry_MAX_Threshold;
+	static INT8U VOLT_BATP3V_retry_MIN_Threshold;
+	static INT8U VOLT_BATP3V_retry = 0;
+
+	/* Temp sensor Properties */
+
+	SensorProp_T dev_hyve_nc_0x47h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		0,
+		0,
+		
+	};
+
+	          
+	
+	
+
+	static INT8U VOLT_P0VDD1V1_previous_value = 0x90;
+	static INT8U VOLT_P0VDD1V1_retry_MAX_Threshold;
+	static INT8U VOLT_P0VDD1V1_retry_MIN_Threshold;
+	static INT8U VOLT_P0VDD1V1_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x48h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_P0VDDIO_previous_value = 0xc5;
+	static INT8U VOLT_P0VDDIO_retry_MAX_Threshold;
+	static INT8U VOLT_P0VDDIO_retry_MIN_Threshold;
+	static INT8U VOLT_P0VDDIO_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x49h_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_P0VDDSOC_previous_value = 0xc5;
+	static INT8U VOLT_P0VDDSOC_retry_MAX_Threshold;
+	static INT8U VOLT_P0VDDSOC_retry_MIN_Threshold;
+	static INT8U VOLT_P0VDDSOC_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x4ah_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_P0VDDCORE0_previous_value = 0xc5;
+	static INT8U VOLT_P0VDDCORE0_retry_MAX_Threshold;
+	static INT8U VOLT_P0VDDCORE0_retry_MIN_Threshold;
+	static INT8U VOLT_P0VDDCORE0_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x4bh_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VOLT_P0VDDCORE1_previous_value = 0xc5;
+	static INT8U VOLT_P0VDDCORE1_retry_MAX_Threshold;
+	static INT8U VOLT_P0VDDCORE1_retry_MIN_Threshold;
+	static INT8U VOLT_P0VDDCORE1_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x4ch_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VAUX_P12V_previous_value = 0xc5;
+	static INT8U VAUX_P12V_retry_MAX_Threshold;
+	static INT8U VAUX_P12V_retry_MIN_Threshold;
+	static INT8U VAUX_P12V_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x4dh_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
+	
+
+	static INT8U VAUX_P3V3_previous_value = 0xc5;
+	static INT8U VAUX_P3V3_retry_MAX_Threshold;
+	static INT8U VAUX_P3V3_retry_MIN_Threshold;
+	static INT8U VAUX_P3V3_retry = 0;
+
+	/* Voltage sensor Properties */
+
+	SensorProp_T dev_hyve_voltage_0x4eh_1_32_properties = {  
+		1,
+		0x1,
+		DUMMY_NORMAL_VALUE,
+		1,
+		3,
+		
+	};
+
+	
+	
          	
      
              
@@ -506,13 +1055,44 @@ int dev_mb_fru_write_device (hal_t *phal);
                        
                        
     
+         	
+     
+             
+            
+                 
+             SensorProp_T dev_pmbus_alert_properties = {  
+                             0,
+                             0,
+                             0,
+                             0,
+                             0,
+
+                       };
+                       
+                       
+    
 
 
 /* Total No of Sensors Available */
-const int  g_total_sensors =  16;
+const int  g_total_sensors =  31;
 
 long long g_sensor_platform_tbl [] = 
 {
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
 		0xffffffffffffffff,
 		0xffffffffffffffff,
 		0xffffffffffffffff,
@@ -707,14 +1287,179 @@ device_tbl_t g_sensor_tbl [] =
 		&dev_hyvepsureadings_0x3fh_1_32_properties,
 		sizeof(dev_hyvepsureadings_0x3fh_1_32_properties),
 	}, 
+	{ 
+		0,
+		((0x1 & 0x03) << 8) | 0x40,
+		0xffff,
+		dev_hyve_voltage_0x40h_1_32_read,
+		dev_hyve_voltage_0x40h_1_32_write,
+		dev_hyve_voltage_0x40h_1_32_init,
+		&dev_hyve_voltage_0x40h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x40h_1_32_properties),
+	}, 
+	{ 
+		1,
+		((0x1 & 0x03) << 8) | 0x41,
+		0xffff,
+		dev_hyve_voltage_0x41h_1_32_read,
+		dev_hyve_voltage_0x41h_1_32_write,
+		dev_hyve_voltage_0x41h_1_32_init,
+		&dev_hyve_voltage_0x41h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x41h_1_32_properties),
+	}, 
+	{ 
+		2,
+		((0x1 & 0x03) << 8) | 0x42,
+		0xffff,
+		dev_hyve_voltage_0x42h_1_32_read,
+		dev_hyve_voltage_0x42h_1_32_write,
+		dev_hyve_voltage_0x42h_1_32_init,
+		&dev_hyve_voltage_0x42h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x42h_1_32_properties),
+	}, 
+	{ 
+		3,
+		((0x1 & 0x03) << 8) | 0x43,
+		0xffff,
+		dev_hyve_voltage_0x43h_1_32_read,
+		dev_hyve_voltage_0x43h_1_32_write,
+		dev_hyve_voltage_0x43h_1_32_init,
+		&dev_hyve_voltage_0x43h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x43h_1_32_properties),
+	}, 
+	{ 
+		4,
+		((0x1 & 0x03) << 8) | 0x44,
+		0xffff,
+		dev_hyve_voltage_0x44h_1_32_read,
+		dev_hyve_voltage_0x44h_1_32_write,
+		dev_hyve_voltage_0x44h_1_32_init,
+		&dev_hyve_voltage_0x44h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x44h_1_32_properties),
+	}, 
+	{ 
+		5,
+		((0x1 & 0x03) << 8) | 0x45,
+		0xffff,
+		dev_hyve_voltage_0x45h_1_32_read,
+		dev_hyve_voltage_0x45h_1_32_write,
+		dev_hyve_voltage_0x45h_1_32_init,
+		&dev_hyve_voltage_0x45h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x45h_1_32_properties),
+	}, 
+	{ 
+		6,
+		((0x1 & 0x03) << 8) | 0x46,
+		0xffff,
+		dev_hyve_voltage_0x46h_1_32_read,
+		dev_hyve_voltage_0x46h_1_32_write,
+		dev_hyve_voltage_0x46h_1_32_init,
+		&dev_hyve_voltage_0x46h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x46h_1_32_properties),
+	}, 
+	{ 
+		0,
+		((0x01 & 0x03) << 8) | 0x47,
+		0xffff,
+		dev_hyve_nc_0x47h_1_32_read,
+		dev_hyve_nc_0x47h_1_32_write,
+		dev_hyve_nc_0x47h_1_32_init,
+		&dev_hyve_nc_0x47h_1_32_properties,
+		sizeof(dev_hyve_nc_0x47h_1_32_properties),
+	}, 
+	{ 
+		7,
+		((0x1 & 0x03) << 8) | 0x48,
+		0xffff,
+		dev_hyve_voltage_0x48h_1_32_read,
+		dev_hyve_voltage_0x48h_1_32_write,
+		dev_hyve_voltage_0x48h_1_32_init,
+		&dev_hyve_voltage_0x48h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x48h_1_32_properties),
+	}, 
+	{ 
+		8,
+		((0x1 & 0x03) << 8) | 0x49,
+		0xffff,
+		dev_hyve_voltage_0x49h_1_32_read,
+		dev_hyve_voltage_0x49h_1_32_write,
+		dev_hyve_voltage_0x49h_1_32_init,
+		&dev_hyve_voltage_0x49h_1_32_properties,
+		sizeof(dev_hyve_voltage_0x49h_1_32_properties),
+	}, 
+	{ 
+		9,
+		((0x1 & 0x03) << 8) | 0x4a,
+		0xffff,
+		dev_hyve_voltage_0x4ah_1_32_read,
+		dev_hyve_voltage_0x4ah_1_32_write,
+		dev_hyve_voltage_0x4ah_1_32_init,
+		&dev_hyve_voltage_0x4ah_1_32_properties,
+		sizeof(dev_hyve_voltage_0x4ah_1_32_properties),
+	}, 
+	{ 
+		10,
+		((0x1 & 0x03) << 8) | 0x4b,
+		0xffff,
+		dev_hyve_voltage_0x4bh_1_32_read,
+		dev_hyve_voltage_0x4bh_1_32_write,
+		dev_hyve_voltage_0x4bh_1_32_init,
+		&dev_hyve_voltage_0x4bh_1_32_properties,
+		sizeof(dev_hyve_voltage_0x4bh_1_32_properties),
+	}, 
+	{ 
+		11,
+		((0x1 & 0x03) << 8) | 0x4c,
+		0xffff,
+		dev_hyve_voltage_0x4ch_1_32_read,
+		dev_hyve_voltage_0x4ch_1_32_write,
+		dev_hyve_voltage_0x4ch_1_32_init,
+		&dev_hyve_voltage_0x4ch_1_32_properties,
+		sizeof(dev_hyve_voltage_0x4ch_1_32_properties),
+	}, 
+	{ 
+		12,
+		((0x1 & 0x03) << 8) | 0x4d,
+		0xffff,
+		dev_hyve_voltage_0x4dh_1_32_read,
+		dev_hyve_voltage_0x4dh_1_32_write,
+		dev_hyve_voltage_0x4dh_1_32_init,
+		&dev_hyve_voltage_0x4dh_1_32_properties,
+		sizeof(dev_hyve_voltage_0x4dh_1_32_properties),
+	}, 
+	{ 
+		13,
+		((0x1 & 0x03) << 8) | 0x4e,
+		0xffff,
+		dev_hyve_voltage_0x4eh_1_32_read,
+		dev_hyve_voltage_0x4eh_1_32_write,
+		dev_hyve_voltage_0x4eh_1_32_init,
+		&dev_hyve_voltage_0x4eh_1_32_properties,
+		sizeof(dev_hyve_voltage_0x4eh_1_32_properties),
+	}, 
 };
 
 
 /* Total No of Devices */
-const int g_total_devices = 2;
+const int g_total_devices = 17;
 
 long long g_device_platform_tbl[] = 
 {
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
+		0xffffffffffffffff,
 		0xffffffffffffffff,
 		0xffffffffffffffff,
 };
@@ -739,9 +1484,89 @@ device_tbl_t g_device_tbl [] =
 		0,
 		0xFFFF,
 		0xFFFF,
+		dev_ast_adc_9_read,
+		dev_ast_adc_9_write,
+		dev_ast_adc_9_init,
+		0,
+		0,
+	}, 
+	{
+		1,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_8_read,
+		dev_ast_adc_8_write,
+		dev_ast_adc_8_init,
+		0,
+		0,
+	}, 
+	{
+		2,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_5_read,
+		dev_ast_adc_5_write,
+		dev_ast_adc_5_init,
+		0,
+		0,
+	}, 
+	{
+		3,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_4_read,
+		dev_ast_adc_4_write,
+		dev_ast_adc_4_init,
+		0,
+		0,
+	}, 
+	{
+		4,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_6_read,
+		dev_ast_adc_6_write,
+		dev_ast_adc_6_init,
+		0,
+		0,
+	}, 
+	{
+		0,
+		0xFFFF,
+		0xFFFF,
 		dev_ast2600_read,
 		dev_ast2600_write,
 		dev_ast2600_init,
+		0,
+		0,
+	}, 
+	{
+		5,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_3_read,
+		dev_ast_adc_3_write,
+		dev_ast_adc_3_init,
+		0,
+		0,
+	}, 
+	{
+		6,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_10_read,
+		dev_ast_adc_10_write,
+		dev_ast_adc_10_init,
+		0,
+		0,
+	}, 
+	{
+		7,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_2_read,
+		dev_ast_adc_2_write,
+		dev_ast_adc_2_init,
 		0,
 		0,
 	}, 
@@ -754,6 +1579,76 @@ device_tbl_t g_device_tbl [] =
 		dev_mb_fru_init,
 		&dev_mb_fru_properties,
 		sizeof(dev_mb_fru_properties),
+	}, 
+	{
+		8,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc0_read,
+		dev_ast_adc0_write,
+		dev_ast_adc0_init,
+		0,
+		0,
+	}, 
+	{
+		9,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_12_read,
+		dev_ast_adc_12_write,
+		dev_ast_adc_12_init,
+		0,
+		0,
+	}, 
+	{
+		10,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_11_read,
+		dev_ast_adc_11_write,
+		dev_ast_adc_11_init,
+		0,
+		0,
+	}, 
+	{
+		11,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc_13_read,
+		dev_ast_adc_13_write,
+		dev_ast_adc_13_init,
+		0,
+		0,
+	}, 
+	{
+		12,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc1_read,
+		dev_ast_adc1_write,
+		dev_ast_adc1_init,
+		0,
+		0,
+	}, 
+	{
+		0,
+		0xFFFF,
+		0xffff,
+		dev_pmbus_alert_read,
+		dev_pmbus_alert_write,
+		dev_pmbus_alert_init,
+		&dev_pmbus_alert_properties,
+		sizeof(dev_pmbus_alert_properties),
+	}, 
+	{
+		13,
+		0xFFFF,
+		0xFFFF,
+		dev_ast_adc14_read,
+		dev_ast_adc14_write,
+		dev_ast_adc14_init,
+		0,
+		0,
 	}, 
 };
 
@@ -781,10 +1676,40 @@ const phal_hndlr_t g_init_tbl [] =
 	dev_hyvepsureadings_0x3dh_1_32_init,
 	dev_hyvepsureadings_0x3eh_1_32_init,
 	dev_hyvepsureadings_0x3fh_1_32_init,
+	dev_hyve_voltage_0x40h_1_32_init,
+	dev_hyve_voltage_0x41h_1_32_init,
+	dev_hyve_voltage_0x42h_1_32_init,
+	dev_hyve_voltage_0x43h_1_32_init,
+	dev_hyve_voltage_0x44h_1_32_init,
+	dev_hyve_voltage_0x45h_1_32_init,
+	dev_hyve_voltage_0x46h_1_32_init,
+	dev_hyve_nc_0x47h_1_32_init,
+	dev_hyve_voltage_0x48h_1_32_init,
+	dev_hyve_voltage_0x49h_1_32_init,
+	dev_hyve_voltage_0x4ah_1_32_init,
+	dev_hyve_voltage_0x4bh_1_32_init,
+	dev_hyve_voltage_0x4ch_1_32_init,
+	dev_hyve_voltage_0x4dh_1_32_init,
+	dev_hyve_voltage_0x4eh_1_32_init,
 
 
+	dev_ast_adc_9_init,
+	dev_ast_adc_8_init,
+	dev_ast_adc_5_init,
+	dev_ast_adc_4_init,
+	dev_ast_adc_6_init,
 	dev_ast2600_init,
+	dev_ast_adc_3_init,
+	dev_ast_adc_10_init,
+	dev_ast_adc_2_init,
 	dev_mb_fru_init,
+	dev_ast_adc0_init,
+	dev_ast_adc_12_init,
+	dev_ast_adc_11_init,
+	dev_ast_adc_13_init,
+	dev_ast_adc1_init,
+	dev_pmbus_alert_init,
+	dev_ast_adc14_init,
 };
 
 /* *INDENT-ON* */
@@ -2631,6 +3556,2201 @@ dev_hyvepsureadings_0x3fh_1_32_write_device (hal_t *phal) /* @source: File - Hyv
 
 
 /*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P12V: dev_hyve_voltage_0x40h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x40h_1_32_init  - Init API for the device dev_hyve_voltage_0x40h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x40h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x40h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x40h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x40h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x40h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P12V_retry_MAX_Threshold = 0xce;
+		VOLT_P12V_retry_MIN_Threshold = 0xa4;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x40h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x40h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x40h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x40h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x40h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x40h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x40h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x40h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x40h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x40h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x40h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc0_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P12V_retry_MAX_Threshold) ||
+			(VOLT_P12V_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P12V_retry) {
+				*phal->pbyte = VOLT_P12V_previous_value;
+				++VOLT_P12V_retry;
+			}
+		} else {
+			VOLT_P12V_previous_value = *phal->pbyte;
+			VOLT_P12V_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x40h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x40h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x40h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_PDBP12V: dev_hyve_voltage_0x41h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x41h_1_32_init  - Init API for the device dev_hyve_voltage_0x41h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x41h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x41h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x41h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x41h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x41h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_PDBP12V_retry_MAX_Threshold = 0xce;
+		VOLT_PDBP12V_retry_MIN_Threshold = 0xa4;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x41h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x41h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x41h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x41h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x41h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x41h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x41h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x41h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x41h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x41h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x41h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc1_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_PDBP12V_retry_MAX_Threshold) ||
+			(VOLT_PDBP12V_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_PDBP12V_retry) {
+				*phal->pbyte = VOLT_PDBP12V_previous_value;
+				++VOLT_PDBP12V_retry;
+			}
+		} else {
+			VOLT_PDBP12V_previous_value = *phal->pbyte;
+			VOLT_PDBP12V_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x41h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x41h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x41h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_PDBP3V3: dev_hyve_voltage_0x42h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x42h_1_32_init  - Init API for the device dev_hyve_voltage_0x42h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x42h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x42h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x42h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x42h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x42h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_PDBP3V3_retry_MAX_Threshold = 0xcf;
+		VOLT_PDBP3V3_retry_MIN_Threshold = 0xb1;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x42h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x42h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x42h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x42h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x42h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x42h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x42h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x42h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x42h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x42h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x42h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_2_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_PDBP3V3_retry_MAX_Threshold) ||
+			(VOLT_PDBP3V3_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_PDBP3V3_retry) {
+				*phal->pbyte = VOLT_PDBP3V3_previous_value;
+				++VOLT_PDBP3V3_retry;
+			}
+		} else {
+			VOLT_PDBP3V3_previous_value = *phal->pbyte;
+			VOLT_PDBP3V3_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x42h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x42h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x42h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P3V3: dev_hyve_voltage_0x43h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x43h_1_32_init  - Init API for the device dev_hyve_voltage_0x43h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x43h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x43h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x43h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x43h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x43h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P3V3_retry_MAX_Threshold = 0xcf;
+		VOLT_P3V3_retry_MIN_Threshold = 0xb1;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x43h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x43h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x43h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x43h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x43h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x43h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x43h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x43h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x43h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x43h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x43h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_3_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P3V3_retry_MAX_Threshold) ||
+			(VOLT_P3V3_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P3V3_retry) {
+				*phal->pbyte = VOLT_P3V3_previous_value;
+				++VOLT_P3V3_retry;
+			}
+		} else {
+			VOLT_P3V3_previous_value = *phal->pbyte;
+			VOLT_P3V3_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x43h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x43h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x43h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P0VDD3V3: dev_hyve_voltage_0x44h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x44h_1_32_init  - Init API for the device dev_hyve_voltage_0x44h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x44h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x44h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x44h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x44h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x44h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P0VDD3V3_retry_MAX_Threshold = 0xcf;
+		VOLT_P0VDD3V3_retry_MIN_Threshold = 0xb1;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x44h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x44h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x44h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x44h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x44h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x44h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x44h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x44h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x44h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x44h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x44h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_4_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P0VDD3V3_retry_MAX_Threshold) ||
+			(VOLT_P0VDD3V3_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P0VDD3V3_retry) {
+				*phal->pbyte = VOLT_P0VDD3V3_previous_value;
+				++VOLT_P0VDD3V3_retry;
+			}
+		} else {
+			VOLT_P0VDD3V3_previous_value = *phal->pbyte;
+			VOLT_P0VDD3V3_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x44h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x44h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x44h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VAUX_P5V: dev_hyve_voltage_0x45h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x45h_1_32_init  - Init API for the device dev_hyve_voltage_0x45h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x45h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x45h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x45h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x45h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x45h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VAUX_P5V_retry_MAX_Threshold = 0xcd;
+		VAUX_P5V_retry_MIN_Threshold = 0xb1;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x45h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x45h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x45h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x45h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x45h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x45h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x45h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x45h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x45h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x45h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x45h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_5_avin_read (phal );
+
+		if (((*phal->pbyte) >= VAUX_P5V_retry_MAX_Threshold) ||
+			(VAUX_P5V_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VAUX_P5V_retry) {
+				*phal->pbyte = VAUX_P5V_previous_value;
+				++VAUX_P5V_retry;
+			}
+		} else {
+			VAUX_P5V_previous_value = *phal->pbyte;
+			VAUX_P5V_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x45h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x45h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x45h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P0VDD1V8: dev_hyve_voltage_0x46h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x46h_1_32_init  - Init API for the device dev_hyve_voltage_0x46h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x46h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x46h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x46h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x46h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x46h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P0VDD1V8_retry_MAX_Threshold = 0xdd;
+		VOLT_P0VDD1V8_retry_MIN_Threshold = 0xb3;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x46h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x46h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x46h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x46h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x46h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x46h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x46h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x46h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x46h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x46h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x46h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_6_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P0VDD1V8_retry_MAX_Threshold) ||
+			(VOLT_P0VDD1V8_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P0VDD1V8_retry) {
+				*phal->pbyte = VOLT_P0VDD1V8_previous_value;
+				++VOLT_P0VDD1V8_retry;
+			}
+		} else {
+			VOLT_P0VDD1V8_previous_value = *phal->pbyte;
+			VOLT_P0VDD1V8_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x46h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x46h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x46h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_NC [VOLT_BATP3V: dev_hyve_nc_0x47h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_nc_0x47h_1_32_init  - Init API for the device dev_hyve_nc_0x47h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_nc_0x47h_1_32_init (hal_t *phal)
+{
+	dev_hyve_nc_0x47h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_NC.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_nc_0x47h_1_32_init_device  - Initialize the device dev_hyve_nc_0x47h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_nc_0x47h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_BATP3V_retry_MAX_Threshold = 0xa1;
+		VOLT_BATP3V_retry_MIN_Threshold = 0x75;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_nc_0x47h_1_32_read  - Read API for the sensor dev_hyve_nc_0x47h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_nc_0x47h_1_32_read (hal_t *phal)
+{
+	dev_hyve_nc_0x47h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_nc_0x47h_1_32_write  - Write API of  the sensor dev_hyve_nc_0x47h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_nc_0x47h_1_32_write (hal_t *phal)
+{
+	dev_hyve_nc_0x47h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_nc_0x47h_1_32_read_device  - Read Function of  the sensor dev_hyve_nc_0x47h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_nc_0x47h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 52 */
+	{
+		HyveMonitor_GetReadingValBySensorNum(0x47, 0x1, phal);
+
+		if (((*phal->pbyte) >= VOLT_BATP3V_retry_MAX_Threshold) ||
+			(VOLT_BATP3V_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_BATP3V_retry) {
+				*phal->pbyte = VOLT_BATP3V_previous_value;
+				++VOLT_BATP3V_retry;
+			}
+		} else {
+			VOLT_BATP3V_previous_value = *phal->pbyte;
+			VOLT_BATP3V_retry = 0;
+		}
+		return 0;
+	}
+	
+/**
+ *  dev_hyve_nc_0x47h_1_32_write_device  - Write Function of  the sensor dev_hyve_nc_0x47h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_nc_0x47h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P0VDD1V1: dev_hyve_voltage_0x48h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x48h_1_32_init  - Init API for the device dev_hyve_voltage_0x48h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x48h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x48h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x48h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x48h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x48h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P0VDD1V1_retry_MAX_Threshold = 0xaa;
+		VOLT_P0VDD1V1_retry_MIN_Threshold = 0x56;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x48h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x48h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x48h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x48h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x48h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x48h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x48h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x48h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x48h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x48h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x48h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_8_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P0VDD1V1_retry_MAX_Threshold) ||
+			(VOLT_P0VDD1V1_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P0VDD1V1_retry) {
+				*phal->pbyte = VOLT_P0VDD1V1_previous_value;
+				++VOLT_P0VDD1V1_retry;
+			}
+		} else {
+			VOLT_P0VDD1V1_previous_value = *phal->pbyte;
+			VOLT_P0VDD1V1_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x48h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x48h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x48h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P0VDDIO: dev_hyve_voltage_0x49h_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x49h_1_32_init  - Init API for the device dev_hyve_voltage_0x49h_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x49h_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x49h_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x49h_1_32_init_device  - Initialize the device dev_hyve_voltage_0x49h_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x49h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P0VDDIO_retry_MAX_Threshold = 0xdd;
+		VOLT_P0VDDIO_retry_MIN_Threshold = 0xb3;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x49h_1_32_read  - Read API for the sensor dev_hyve_voltage_0x49h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x49h_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x49h_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x49h_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x49h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x49h_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x49h_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x49h_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x49h_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x49h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_9_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P0VDDIO_retry_MAX_Threshold) ||
+			(VOLT_P0VDDIO_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P0VDDIO_retry) {
+				*phal->pbyte = VOLT_P0VDDIO_previous_value;
+				++VOLT_P0VDDIO_retry;
+			}
+		} else {
+			VOLT_P0VDDIO_previous_value = *phal->pbyte;
+			VOLT_P0VDDIO_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x49h_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x49h_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x49h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P0VDDSOC: dev_hyve_voltage_0x4ah_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x4ah_1_32_init  - Init API for the device dev_hyve_voltage_0x4ah_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4ah_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x4ah_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x4ah_1_32_init_device  - Initialize the device dev_hyve_voltage_0x4ah_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4ah_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P0VDDSOC_retry_MAX_Threshold = 0xdd;
+		VOLT_P0VDDSOC_retry_MIN_Threshold = 0xb3;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x4ah_1_32_read  - Read API for the sensor dev_hyve_voltage_0x4ah_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4ah_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x4ah_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4ah_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x4ah_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4ah_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x4ah_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4ah_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x4ah_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4ah_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_10_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P0VDDSOC_retry_MAX_Threshold) ||
+			(VOLT_P0VDDSOC_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P0VDDSOC_retry) {
+				*phal->pbyte = VOLT_P0VDDSOC_previous_value;
+				++VOLT_P0VDDSOC_retry;
+			}
+		} else {
+			VOLT_P0VDDSOC_previous_value = *phal->pbyte;
+			VOLT_P0VDDSOC_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x4ah_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x4ah_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4ah_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P0VDDCORE0: dev_hyve_voltage_0x4bh_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x4bh_1_32_init  - Init API for the device dev_hyve_voltage_0x4bh_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4bh_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x4bh_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x4bh_1_32_init_device  - Initialize the device dev_hyve_voltage_0x4bh_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4bh_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P0VDDCORE0_retry_MAX_Threshold = 0xdd;
+		VOLT_P0VDDCORE0_retry_MIN_Threshold = 0xb3;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x4bh_1_32_read  - Read API for the sensor dev_hyve_voltage_0x4bh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4bh_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x4bh_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4bh_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x4bh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4bh_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x4bh_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4bh_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x4bh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4bh_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_11_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P0VDDCORE0_retry_MAX_Threshold) ||
+			(VOLT_P0VDDCORE0_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P0VDDCORE0_retry) {
+				*phal->pbyte = VOLT_P0VDDCORE0_previous_value;
+				++VOLT_P0VDDCORE0_retry;
+			}
+		} else {
+			VOLT_P0VDDCORE0_previous_value = *phal->pbyte;
+			VOLT_P0VDDCORE0_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x4bh_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x4bh_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4bh_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VOLT_P0VDDCORE1: dev_hyve_voltage_0x4ch_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x4ch_1_32_init  - Init API for the device dev_hyve_voltage_0x4ch_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4ch_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x4ch_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x4ch_1_32_init_device  - Initialize the device dev_hyve_voltage_0x4ch_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4ch_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VOLT_P0VDDCORE1_retry_MAX_Threshold = 0xdd;
+		VOLT_P0VDDCORE1_retry_MIN_Threshold = 0xb3;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x4ch_1_32_read  - Read API for the sensor dev_hyve_voltage_0x4ch_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4ch_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x4ch_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4ch_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x4ch_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4ch_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x4ch_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4ch_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x4ch_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4ch_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_12_avin_read (phal );
+
+		if (((*phal->pbyte) >= VOLT_P0VDDCORE1_retry_MAX_Threshold) ||
+			(VOLT_P0VDDCORE1_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VOLT_P0VDDCORE1_retry) {
+				*phal->pbyte = VOLT_P0VDDCORE1_previous_value;
+				++VOLT_P0VDDCORE1_retry;
+			}
+		} else {
+			VOLT_P0VDDCORE1_previous_value = *phal->pbyte;
+			VOLT_P0VDDCORE1_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x4ch_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x4ch_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4ch_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VAUX_P12V: dev_hyve_voltage_0x4dh_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x4dh_1_32_init  - Init API for the device dev_hyve_voltage_0x4dh_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4dh_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x4dh_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x4dh_1_32_init_device  - Initialize the device dev_hyve_voltage_0x4dh_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4dh_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VAUX_P12V_retry_MAX_Threshold = 0xce;
+		VAUX_P12V_retry_MIN_Threshold = 0xa4;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x4dh_1_32_read  - Read API for the sensor dev_hyve_voltage_0x4dh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4dh_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x4dh_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4dh_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x4dh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4dh_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x4dh_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4dh_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x4dh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4dh_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc_13_avin_read (phal );
+
+		if (((*phal->pbyte) >= VAUX_P12V_retry_MAX_Threshold) ||
+			(VAUX_P12V_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VAUX_P12V_retry) {
+				*phal->pbyte = VAUX_P12V_previous_value;
+				++VAUX_P12V_retry;
+			}
+		} else {
+			VAUX_P12V_previous_value = *phal->pbyte;
+			VAUX_P12V_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x4dh_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x4dh_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4dh_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device Hyve_Voltage [VAUX_P3V3: dev_hyve_voltage_0x4eh_1_32] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_hyve_voltage_0x4eh_1_32_init  - Init API for the device dev_hyve_voltage_0x4eh_1_32
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4eh_1_32_init (hal_t *phal)
+{
+	dev_hyve_voltage_0x4eh_1_32_init_device (phal); 
+	return 0;
+}
+
+/* @source: File - Hyve_Voltage.ddf Line - 7 */
+	
+/**
+ *  dev_hyve_voltage_0x4eh_1_32_init_device  - Initialize the device dev_hyve_voltage_0x4eh_1_32
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4eh_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
+	{
+		UN_USED(phal);
+		VAUX_P3V3_retry_MAX_Threshold = 0xcf;
+		VAUX_P3V3_retry_MIN_Threshold = 0xb1;
+		return 0;
+	}    
+	
+
+/**
+ *  dev_hyve_voltage_0x4eh_1_32_read  - Read API for the sensor dev_hyve_voltage_0x4eh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4eh_1_32_read (hal_t *phal)
+{
+	dev_hyve_voltage_0x4eh_1_32_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4eh_1_32_write  - Write API of  the sensor dev_hyve_voltage_0x4eh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_hyve_voltage_0x4eh_1_32_write (hal_t *phal)
+{
+	dev_hyve_voltage_0x4eh_1_32_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_hyve_voltage_0x4eh_1_32_read_device  - Read Function of  the sensor dev_hyve_voltage_0x4eh_1_32
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4eh_1_32_read_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 59 */
+	{
+		dev_ast_adc14_avin_read (phal );
+
+		if (((*phal->pbyte) >= VAUX_P3V3_retry_MAX_Threshold) ||
+			(VAUX_P3V3_retry_MIN_Threshold >= (*phal->pbyte)))
+		{
+			if (3 > VAUX_P3V3_retry) {
+				*phal->pbyte = VAUX_P3V3_previous_value;
+				++VAUX_P3V3_retry;
+			}
+		} else {
+			VAUX_P3V3_previous_value = *phal->pbyte;
+			VAUX_P3V3_retry = 0;
+		}
+		return 0;
+	}		
+	
+/**
+ *  dev_hyve_voltage_0x4eh_1_32_write_device  - Write Function of  the sensor dev_hyve_voltage_0x4eh_1_32
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_hyve_voltage_0x4eh_1_32_write_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 20 */
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_9: dev_ast_adc_9] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_9_init  - Init API for the device dev_ast_adc_9
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_9_init (hal_t *phal)
+{
+	dev_ast_adc_9_init_device (phal); 
+	dev_ast_adc_9_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_9_read  - Read API for the device dev_ast_adc_9
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_9_read (hal_t *phal)
+{
+	dev_ast_adc_9_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_9_write  - Write API of  the device dev_ast_adc_9
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_9_write (hal_t *phal)
+{
+	dev_ast_adc_9_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_9_init_device  - Initialize the device dev_ast_adc_9
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_9_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_9_read_device  - Read Function of  the device dev_ast_adc_9
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_9_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_9_write_device  - Write Function of  the device dev_ast_adc_9
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_9_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_9_avin] ------*/
+/**
+ *  dev_ast_adc_9_avin_init  - Initialize the device dev_ast_adc_9_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_9_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_9_avin_read - read Function of  the device dev_ast_adc_9_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_9_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 9;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_8: dev_ast_adc_8] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_8_init  - Init API for the device dev_ast_adc_8
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_8_init (hal_t *phal)
+{
+	dev_ast_adc_8_init_device (phal); 
+	dev_ast_adc_8_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_8_read  - Read API for the device dev_ast_adc_8
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_8_read (hal_t *phal)
+{
+	dev_ast_adc_8_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_8_write  - Write API of  the device dev_ast_adc_8
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_8_write (hal_t *phal)
+{
+	dev_ast_adc_8_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_8_init_device  - Initialize the device dev_ast_adc_8
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_8_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_8_read_device  - Read Function of  the device dev_ast_adc_8
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_8_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_8_write_device  - Write Function of  the device dev_ast_adc_8
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_8_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_8_avin] ------*/
+/**
+ *  dev_ast_adc_8_avin_init  - Initialize the device dev_ast_adc_8_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_8_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_8_avin_read - read Function of  the device dev_ast_adc_8_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_8_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 8;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_5: dev_ast_adc_5] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_5_init  - Init API for the device dev_ast_adc_5
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_5_init (hal_t *phal)
+{
+	dev_ast_adc_5_init_device (phal); 
+	dev_ast_adc_5_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_5_read  - Read API for the device dev_ast_adc_5
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_5_read (hal_t *phal)
+{
+	dev_ast_adc_5_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_5_write  - Write API of  the device dev_ast_adc_5
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_5_write (hal_t *phal)
+{
+	dev_ast_adc_5_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_5_init_device  - Initialize the device dev_ast_adc_5
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_5_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_5_read_device  - Read Function of  the device dev_ast_adc_5
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_5_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_5_write_device  - Write Function of  the device dev_ast_adc_5
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_5_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_5_avin] ------*/
+/**
+ *  dev_ast_adc_5_avin_init  - Initialize the device dev_ast_adc_5_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_5_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_5_avin_read - read Function of  the device dev_ast_adc_5_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_5_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 5;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_4: dev_ast_adc_4] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_4_init  - Init API for the device dev_ast_adc_4
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_4_init (hal_t *phal)
+{
+	dev_ast_adc_4_init_device (phal); 
+	dev_ast_adc_4_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_4_read  - Read API for the device dev_ast_adc_4
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_4_read (hal_t *phal)
+{
+	dev_ast_adc_4_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_4_write  - Write API of  the device dev_ast_adc_4
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_4_write (hal_t *phal)
+{
+	dev_ast_adc_4_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_4_init_device  - Initialize the device dev_ast_adc_4
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_4_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_4_read_device  - Read Function of  the device dev_ast_adc_4
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_4_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_4_write_device  - Write Function of  the device dev_ast_adc_4
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_4_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_4_avin] ------*/
+/**
+ *  dev_ast_adc_4_avin_init  - Initialize the device dev_ast_adc_4_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_4_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_4_avin_read - read Function of  the device dev_ast_adc_4_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_4_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 4;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_6: dev_ast_adc_6] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_6_init  - Init API for the device dev_ast_adc_6
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_6_init (hal_t *phal)
+{
+	dev_ast_adc_6_init_device (phal); 
+	dev_ast_adc_6_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_6_read  - Read API for the device dev_ast_adc_6
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_6_read (hal_t *phal)
+{
+	dev_ast_adc_6_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_6_write  - Write API of  the device dev_ast_adc_6
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_6_write (hal_t *phal)
+{
+	dev_ast_adc_6_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_6_init_device  - Initialize the device dev_ast_adc_6
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_6_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_6_read_device  - Read Function of  the device dev_ast_adc_6
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_6_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_6_write_device  - Write Function of  the device dev_ast_adc_6
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_6_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_6_avin] ------*/
+/**
+ *  dev_ast_adc_6_avin_init  - Initialize the device dev_ast_adc_6_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_6_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_6_avin_read - read Function of  the device dev_ast_adc_6_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_6_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 6;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
 /* Functions for device Hyve_AST2600 [AST2600: dev_ast2600] */
 /*-------------------------------------------------------------*/
 
@@ -2714,6 +5834,405 @@ dev_ast2600_write_device (hal_t *phal) /* @source: File - Hyve_AST2600.ddf Line 
 		return 0;
 	}
 	
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_3: dev_ast_adc_3] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_3_init  - Init API for the device dev_ast_adc_3
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_3_init (hal_t *phal)
+{
+	dev_ast_adc_3_init_device (phal); 
+	dev_ast_adc_3_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_3_read  - Read API for the device dev_ast_adc_3
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_3_read (hal_t *phal)
+{
+	dev_ast_adc_3_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_3_write  - Write API of  the device dev_ast_adc_3
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_3_write (hal_t *phal)
+{
+	dev_ast_adc_3_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_3_init_device  - Initialize the device dev_ast_adc_3
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_3_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_3_read_device  - Read Function of  the device dev_ast_adc_3
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_3_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_3_write_device  - Write Function of  the device dev_ast_adc_3
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_3_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_3_avin] ------*/
+/**
+ *  dev_ast_adc_3_avin_init  - Initialize the device dev_ast_adc_3_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_3_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_3_avin_read - read Function of  the device dev_ast_adc_3_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_3_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 3;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_10: dev_ast_adc_10] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_10_init  - Init API for the device dev_ast_adc_10
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_10_init (hal_t *phal)
+{
+	dev_ast_adc_10_init_device (phal); 
+	dev_ast_adc_10_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_10_read  - Read API for the device dev_ast_adc_10
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_10_read (hal_t *phal)
+{
+	dev_ast_adc_10_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_10_write  - Write API of  the device dev_ast_adc_10
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_10_write (hal_t *phal)
+{
+	dev_ast_adc_10_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_10_init_device  - Initialize the device dev_ast_adc_10
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_10_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_10_read_device  - Read Function of  the device dev_ast_adc_10
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_10_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_10_write_device  - Write Function of  the device dev_ast_adc_10
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_10_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_10_avin] ------*/
+/**
+ *  dev_ast_adc_10_avin_init  - Initialize the device dev_ast_adc_10_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_10_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_10_avin_read - read Function of  the device dev_ast_adc_10_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_10_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 10;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_2: dev_ast_adc_2] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_2_init  - Init API for the device dev_ast_adc_2
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_2_init (hal_t *phal)
+{
+	dev_ast_adc_2_init_device (phal); 
+	dev_ast_adc_2_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_2_read  - Read API for the device dev_ast_adc_2
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_2_read (hal_t *phal)
+{
+	dev_ast_adc_2_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_2_write  - Write API of  the device dev_ast_adc_2
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_2_write (hal_t *phal)
+{
+	dev_ast_adc_2_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_2_init_device  - Initialize the device dev_ast_adc_2
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_2_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_2_read_device  - Read Function of  the device dev_ast_adc_2
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_2_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_2_write_device  - Write Function of  the device dev_ast_adc_2
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_2_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_2_avin] ------*/
+/**
+ *  dev_ast_adc_2_avin_init  - Initialize the device dev_ast_adc_2_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_2_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_2_avin_read - read Function of  the device dev_ast_adc_2_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_2_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 2;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
 
 
 
@@ -2803,6 +6322,894 @@ dev_mb_fru_write_device (hal_t *phal) /* @source: File - FRU Device.ddf Line - 8
         return 0;
     }
     
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC0: dev_ast_adc0] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc0_init  - Init API for the device dev_ast_adc0
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc0_init (hal_t *phal)
+{
+	dev_ast_adc0_init_device (phal); 
+	dev_ast_adc0_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc0_read  - Read API for the device dev_ast_adc0
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc0_read (hal_t *phal)
+{
+	dev_ast_adc0_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc0_write  - Write API of  the device dev_ast_adc0
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc0_write (hal_t *phal)
+{
+	dev_ast_adc0_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc0_init_device  - Initialize the device dev_ast_adc0
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc0_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc0_read_device  - Read Function of  the device dev_ast_adc0
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc0_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc0_write_device  - Write Function of  the device dev_ast_adc0
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc0_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc0_avin] ------*/
+/**
+ *  dev_ast_adc0_avin_init  - Initialize the device dev_ast_adc0_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc0_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc0_avin_read - read Function of  the device dev_ast_adc0_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc0_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 0;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_12: dev_ast_adc_12] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_12_init  - Init API for the device dev_ast_adc_12
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_12_init (hal_t *phal)
+{
+	dev_ast_adc_12_init_device (phal); 
+	dev_ast_adc_12_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_12_read  - Read API for the device dev_ast_adc_12
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_12_read (hal_t *phal)
+{
+	dev_ast_adc_12_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_12_write  - Write API of  the device dev_ast_adc_12
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_12_write (hal_t *phal)
+{
+	dev_ast_adc_12_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_12_init_device  - Initialize the device dev_ast_adc_12
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_12_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_12_read_device  - Read Function of  the device dev_ast_adc_12
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_12_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_12_write_device  - Write Function of  the device dev_ast_adc_12
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_12_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_12_avin] ------*/
+/**
+ *  dev_ast_adc_12_avin_init  - Initialize the device dev_ast_adc_12_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_12_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_12_avin_read - read Function of  the device dev_ast_adc_12_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_12_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 12;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_11: dev_ast_adc_11] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_11_init  - Init API for the device dev_ast_adc_11
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_11_init (hal_t *phal)
+{
+	dev_ast_adc_11_init_device (phal); 
+	dev_ast_adc_11_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_11_read  - Read API for the device dev_ast_adc_11
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_11_read (hal_t *phal)
+{
+	dev_ast_adc_11_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_11_write  - Write API of  the device dev_ast_adc_11
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_11_write (hal_t *phal)
+{
+	dev_ast_adc_11_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_11_init_device  - Initialize the device dev_ast_adc_11
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_11_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_11_read_device  - Read Function of  the device dev_ast_adc_11
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_11_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_11_write_device  - Write Function of  the device dev_ast_adc_11
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_11_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_11_avin] ------*/
+/**
+ *  dev_ast_adc_11_avin_init  - Initialize the device dev_ast_adc_11_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_11_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_11_avin_read - read Function of  the device dev_ast_adc_11_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_11_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 11;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC_13: dev_ast_adc_13] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc_13_init  - Init API for the device dev_ast_adc_13
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_13_init (hal_t *phal)
+{
+	dev_ast_adc_13_init_device (phal); 
+	dev_ast_adc_13_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc_13_read  - Read API for the device dev_ast_adc_13
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_13_read (hal_t *phal)
+{
+	dev_ast_adc_13_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_13_write  - Write API of  the device dev_ast_adc_13
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_13_write (hal_t *phal)
+{
+	dev_ast_adc_13_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc_13_init_device  - Initialize the device dev_ast_adc_13
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_13_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_13_read_device  - Read Function of  the device dev_ast_adc_13
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_13_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc_13_write_device  - Write Function of  the device dev_ast_adc_13
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_13_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc_13_avin] ------*/
+/**
+ *  dev_ast_adc_13_avin_init  - Initialize the device dev_ast_adc_13_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc_13_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc_13_avin_read - read Function of  the device dev_ast_adc_13_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc_13_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 13;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC1: dev_ast_adc1] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc1_init  - Init API for the device dev_ast_adc1
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc1_init (hal_t *phal)
+{
+	dev_ast_adc1_init_device (phal); 
+	dev_ast_adc1_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc1_read  - Read API for the device dev_ast_adc1
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc1_read (hal_t *phal)
+{
+	dev_ast_adc1_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc1_write  - Write API of  the device dev_ast_adc1
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc1_write (hal_t *phal)
+{
+	dev_ast_adc1_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc1_init_device  - Initialize the device dev_ast_adc1
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc1_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc1_read_device  - Read Function of  the device dev_ast_adc1
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc1_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc1_write_device  - Write Function of  the device dev_ast_adc1
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc1_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc1_avin] ------*/
+/**
+ *  dev_ast_adc1_avin_init  - Initialize the device dev_ast_adc1_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc1_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc1_avin_read - read Function of  the device dev_ast_adc1_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc1_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 1;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device EventRecord [PMBUS_ALERT: dev_pmbus_alert] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_pmbus_alert_init  - Init API for the device dev_pmbus_alert
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_pmbus_alert_init (hal_t *phal)
+{
+	dev_pmbus_alert_init_device (phal); 
+	return 0;
+}
+
+/**
+ *  dev_pmbus_alert_read  - Read API for the device dev_pmbus_alert
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_pmbus_alert_read (hal_t *phal)
+{
+	dev_pmbus_alert_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_pmbus_alert_write  - Write API of  the device dev_pmbus_alert
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_pmbus_alert_write (hal_t *phal)
+{
+	dev_pmbus_alert_write_device  (phal); 
+	return 0 ;
+}
+
+/* @source: File - EventRecord.ddf Line - 19 */
+        
+            
+    
+    
+/**
+ *  dev_pmbus_alert_init_device  - Initialize the device dev_pmbus_alert
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_pmbus_alert_init_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
+    {
+            UN_USED(phal);
+            return 0;
+    }
+    
+/**
+ *  dev_pmbus_alert_read_device  - Read Function of  the device dev_pmbus_alert
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_pmbus_alert_read_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
+    {
+            UN_USED(phal);
+            return 0;
+    }
+    
+/**
+ *  dev_pmbus_alert_write_device  - Write Function of  the device dev_pmbus_alert
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_pmbus_alert_write_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
+    {
+            UN_USED(phal);
+            return 0;
+    }
+    
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device AST_ADC [AST_ADC14: dev_ast_adc14] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_ast_adc14_init  - Init API for the device dev_ast_adc14
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc14_init (hal_t *phal)
+{
+	dev_ast_adc14_init_device (phal); 
+	dev_ast_adc14_avin_init ( phal );
+	return 0;
+}
+
+/**
+ *  dev_ast_adc14_read  - Read API for the device dev_ast_adc14
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc14_read (hal_t *phal)
+{
+	dev_ast_adc14_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc14_write  - Write API of  the device dev_ast_adc14
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc14_write (hal_t *phal)
+{
+	dev_ast_adc14_write_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_ast_adc14_init_device  - Initialize the device dev_ast_adc14
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc14_init_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc14_read_device  - Read Function of  the device dev_ast_adc14
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc14_read_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+/**
+ *  dev_ast_adc14_write_device  - Write Function of  the device dev_ast_adc14
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc14_write_device (hal_t *phal) /* @source: File - Hyve_AST_ADC.ddf Line - 7 */
+	{
+		UN_USED(phal);
+		return 0;
+	}
+	
+
+/*------- Functions for Pin  AVIN[dev_ast_adc14_avin] ------*/
+/**
+ *  dev_ast_adc14_avin_init  - Initialize the device dev_ast_adc14_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_ast_adc14_avin_init (hal_t *phal) 
+		{
+			UN_USED(phal);
+			return 0;
+		}
+		
+/**
+ *  dev_ast_adc14_avin_read - read Function of  the device dev_ast_adc14_avin
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_ast_adc14_avin_read (hal_t *phal)
+
+		{
+			
+			/**
+			* phal->adc.channel has the channel number to read
+			* phal->pbyte[0] will have bytes read.
+			**/
+			
+			/* read channel 0 */
+			phal->adc.channel = 14;
+			phal->adc.raw = 0;
+			
+			/* perform device read */
+			phal->func     = HAL_DEVICE_READ;
+			
+			adc_read ( phal );
+			*phal->pword = *phal->pword>>2; //shift 2 bit to 8 bit
+
+			return 0 ;
+			
+		}
+		
+
+
 
 
 

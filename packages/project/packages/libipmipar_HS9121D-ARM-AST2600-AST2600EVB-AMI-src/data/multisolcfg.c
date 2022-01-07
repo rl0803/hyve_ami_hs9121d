@@ -37,62 +37,20 @@ MultiSolConfig_LoadFile(char *File, MultiSolConfig_T *data)
 	if (ini == NULL)
 		return -1;
 
-	len = strncpy((char*)data->MultiSolTblEntry[0].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/0", "sol_ifc_port", "/dev/ttyS0"), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[0].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[1].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/1", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[1].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[2].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/2", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[2].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[3].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/3", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[3].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[4].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/4", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[4].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[5].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/5", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[5].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[6].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/6", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[6].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[7].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/7", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[7].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[8].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/8", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[8].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[9].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/9", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[9].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[10].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/10", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[10].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[11].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/11", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[11].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[12].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/12", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[12].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
-	len = strncpy((char*)data->MultiSolTblEntry[13].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/13", "sol_ifc_port", ""), 16);
-	if (len >= (int)sizeof(data->MultiSolTblEntry[13].sol_ifc_port)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->MultiSolTblEntry[0].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/0", "sol_ifc_port", "/dev/ttyS0"), 16);
+	strncpy((char*)data->MultiSolTblEntry[1].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/1", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[2].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/2", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[3].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/3", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[4].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/4", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[5].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/5", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[6].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/6", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[7].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/7", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[8].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/8", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[9].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/9", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[10].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/10", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[11].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/11", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[12].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/12", "sol_ifc_port", ""), 16);
+	strncpy((char*)data->MultiSolTblEntry[13].sol_ifc_port, IniGetStr(ini, "MultiSOLConfigurationInformation/MultiSolTblEntry/13", "sol_ifc_port", ""), 16);
 
 	IniCloseFile(ini);
 	return 0;

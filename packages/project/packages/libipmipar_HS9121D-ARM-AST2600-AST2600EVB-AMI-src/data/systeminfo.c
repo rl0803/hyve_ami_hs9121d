@@ -40,24 +40,15 @@ SystemInfo_LoadFile(char *File, SystemInfoConfig_T *data)
 
 	data->SysFWVersion.TypeOfEncoding = IniGetUInt(ini, "SystemInfoConfigs/SysFWVersion", "TypeOfEncoding", 0x0);
 	data->SysFWVersion.StringLength = IniGetUInt(ini, "SystemInfoConfigs/SysFWVersion", "StringLength", 0xa);
-	len = strncpy((char*)data->SysFWVersion.SysFWVersionName, IniGetStr(ini, "SystemInfoConfigs/SysFWVersion", "SysFWVersionName", "Version1.0"), 254);
-	if (len >= (int)sizeof(data->SysFWVersion.SysFWVersionName)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->SysFWVersion.SysFWVersionName, IniGetStr(ini, "SystemInfoConfigs/SysFWVersion", "SysFWVersionName", "Version1.0"), 254);
 
 	data->SysName.TypeOfEncoding_Sys_Name = IniGetUInt(ini, "SystemInfoConfigs/SysName", "TypeOfEncoding_Sys_Name", 0x0);
 	data->SysName.StringLength_Sys_Name = IniGetUInt(ini, "SystemInfoConfigs/SysName", "StringLength_Sys_Name", 0x9);
-	len = strncpy((char*)data->SysName.SystemName, IniGetStr(ini, "SystemInfoConfigs/SysName", "SystemName", "RMManager"), 254);
-	if (len >= (int)sizeof(data->SysName.SystemName)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->SysName.SystemName, IniGetStr(ini, "SystemInfoConfigs/SysName", "SystemName", "RMManager"), 254);
 
 	data->PrimaryOSName.TypeOfEncoding_PrimaryOSName = IniGetUInt(ini, "SystemInfoConfigs/PrimaryOSName", "TypeOfEncoding_PrimaryOSName", 0x0);
 	data->PrimaryOSName.StringLength_PrimaryOSName = IniGetUInt(ini, "SystemInfoConfigs/PrimaryOSName", "StringLength_PrimaryOSName", 0xd);
-	len = strncpy((char*)data->PrimaryOSName.PrimaryOperatingSystemName, IniGetStr(ini, "SystemInfoConfigs/PrimaryOSName", "PrimaryOperatingSystemName", "SUSEServer1.0"), 254);
-	if (len >= (int)sizeof(data->PrimaryOSName.PrimaryOperatingSystemName)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->PrimaryOSName.PrimaryOperatingSystemName, IniGetStr(ini, "SystemInfoConfigs/PrimaryOSName", "PrimaryOperatingSystemName", "SUSEServer1.0"), 254);
 
 	IniCloseFile(ini);
 	return 0;

@@ -38,10 +38,7 @@ MiscConfig_LoadFile(char *File, MiscConfig_T *data)
 	if (ini == NULL)
 		return -1;
 
-	len = strncpy((char*)data->SyslogHostname, IniGetStr(ini, "MISCCfg", "SyslogHostname", "0.0.0.0"), 64);
-	if (len >= (int)sizeof(data->SyslogHostname)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->SyslogHostname, IniGetStr(ini, "MISCCfg", "SyslogHostname", "0.0.0.0"), 64);
 
 	data->SyslogPort = IniGetUInt(ini, "MISCCfg", "SyslogPort", 0);
 
@@ -49,10 +46,7 @@ MiscConfig_LoadFile(char *File, MiscConfig_T *data)
 
 	data->SnmpPort = IniGetUInt(ini, "MISCCfg", "SnmpPort", 0);
 
-	len = strncpy((char*)data->TimeZone, IniGetStr(ini, "MISCCfg", "TimeZone", "America/New_York"), 64);
-	if (len >= (int)sizeof(data->TimeZone)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->TimeZone, IniGetStr(ini, "MISCCfg", "TimeZone", "America/New_York"), 64);
 
 	IniCloseFile(ini);
 	return 0;

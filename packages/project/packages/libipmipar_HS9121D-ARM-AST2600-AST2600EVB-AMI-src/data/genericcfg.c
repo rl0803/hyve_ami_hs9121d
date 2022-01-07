@@ -44,10 +44,7 @@ Generic_LoadFile(char *File, GENConfig_T *data)
 
 	data->SDREraseTime = IniGetUInt(ini, "GenericConfig", "SDREraseTime", 0);
 
-	len = strncpy((char*)data->TimeZone, IniGetStr(ini, "GenericConfig", "TimeZone", "GMT+0"), 64);
-	if (len >= (int)sizeof(data->TimeZone)) {
-		printf("Buffer overflow");
-	}
+	strncpy((char*)data->TimeZone, IniGetStr(ini, "GenericConfig", "TimeZone", "GMT+0"), 64);
 
 	IniCloseFile(ini);
 	return 0;
