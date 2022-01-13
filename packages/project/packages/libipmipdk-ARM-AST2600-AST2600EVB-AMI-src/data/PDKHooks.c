@@ -952,9 +952,7 @@ PDK_ChassisTimerCB (int BMCInst)
 void
 PDK_TimerTask (int BMCInst)
 {
-	if (0) {
-		BMCInst = BMCInst;
-	}
+	if (0) { BMCInst = BMCInst; }
 
 	// Count the platform global jiffy
 	// This var is only written here, so no need to protect it
@@ -1341,12 +1339,11 @@ extern int  PDK_TerminalCmd             (INT8U* pReq, INT8U  ReqLen,
  *----------------------------------------------------------------------*/
 int PDK_GetMfgProdID (INT8U* MfgID, INT16U* ProdID, int BMCInst)
 {
-    *ProdID = AST2500EVB_PLATFORMID;
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameters  */
-	MfgID=MfgID;
-    }
+    if (0) { BMCInst = BMCInst; }
+    // The MfgID is a pointer to a 3-byte array
+    *((INT16U*)MfgID) = PLATFORM_MANUFACTURE_ID;
+    MfgID[2] = (PLATFORM_MANUFACTURE_ID >> 16);
+    *ProdID = PLATFORM_PRODUCT_ID;
     return 0;
 }
 
