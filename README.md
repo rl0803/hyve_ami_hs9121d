@@ -163,3 +163,28 @@ Your modification will be taken effect directly of the **packages**.
 #### Note:
 - If you using MDS to do your work, please remember to sync your change to the **packages** folder.
 
+## How to sync/merge AMI upstream to each common submodule
+- Step 1. Enter the submodule directory
+
+      ~# cd packages/bootloader/
+
+- Step 2. Add git remote repos of the AMI git URL
+
+      ~# git remote add -t LTS-v13 AMI_PURE https://git.ami.com.tw/core/lts/spx-13/core/bootloader
+
+- Step 3. Fetch the change
+
+      ~# git fetch AMI_PURE
+
+- Step 4. Merge the target commit ID of the AMI remote repos
+
+      ~# git merge 24b2bfd4ee94492105cd3e4c63ef101d6e7cc535
+
+      Note:
+        - Please remember to modify the commit tile
+          E.g., [Hyve] Sync AMI, branch - LTS-v13
+        - Please make sure fixing all conflict before you commit
+
+- Step 5. Push the change to our Bitbucket
+
+      ~# git push
