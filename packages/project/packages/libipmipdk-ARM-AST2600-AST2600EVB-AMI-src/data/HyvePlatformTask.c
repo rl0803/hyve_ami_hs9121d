@@ -251,7 +251,53 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             {
             case HyvePlatformMsgQ_TEST:
             	break;
-            
+
+            case HyvePlatformIRQMsgQ_SysPwrGood:
+            	/*
+            	API_InitPowerOnTick
+
+            			gHostBootUpTime = 0;
+            			HyveExt_BIOS_Status(VALUE_CLEAN, 0);
+            			
+            			// BMC should clear & stop WDT while user DC off before POST END 
+            			PostPendTask(PEND_OP_SET_TRIGGER_TYPE, (INT8U *)&TriggerCmd,sizeof(TriggerCmdArg_T),1,BMCInst);
+            			
+            	*/
+            	break;
+
+            case HyvePlatformIRQMsgQ_CPU_ThermalTrip:
+            	printf("IRQMsgQ_CPU_ThermalTrip, data: %u\n", msg.msgData);
+            	if (msg.msgData) {
+            		// TODO
+            		// Check the CPU temp
+            		
+            		// Record SEL
+            	} else {
+            		// De-asset??
+            	}
+            	break;
+
+            case HyvePlatformIRQMsgQ_CPU_PROCHOT:
+            	printf("IRQMsgQ_CPU_PROCHOT, data: %u\n", msg.msgData);
+            	if (msg.msgData) {
+            		// TODO
+            		// Check the CPU temp
+            		
+            		// Record SEL
+            	} else {
+            		// De-asset??
+            	}
+            	break;
+
+            case HyvePlatformIRQMsgQ_FP_ID_Button:
+            	printf("IRQMsgQ_Button, data: %u\n", msg.msgData);
+            	if (msg.msgData) {
+            		// Turn On
+            	} else {
+            		// Turn Off
+            	}
+            	break;
+
             case HyvePlatformIRQMsgQ_PowerButton:
             	printf("IRQMsgQ_Button, data: %u\n", msg.msgData);
             	if (msg.msgData) {
@@ -261,7 +307,7 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             		Platform_HostPowerOff(BMCInst);
             	}
             	break;
-            	
+
             case HyvePlatformIRQMsgQ_ResetButton:
             	printf("IRQMsgQ_Button, data: %u\n", msg.msgData);
             	if (msg.msgData) {
@@ -271,6 +317,18 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             		Platform_HostPowerOff(BMCInst);
             	}
             	break;
+ 
+            case HyvePlatformIRQMsgQ_PMBus_ALERT:
+            	if (HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PSU,
+        				SENSOR_NUM_PMBUS_ALERT,
+        				(msg.msgData | EVENT_TYPE_SENSOR_SPECIFIC_6F),
+        				EVENT_POWER_SUPPLY_FAILURE_DETECTED, 0xFF, 0xFF, BMCInst) < 0) {
+        			printf("[%s] Error in recoding SEL\n", __func__);
+        		}
+            	// Because the PSU status sensor will record more detail SEL, here just record a very general one
+        		break;
+            
+            
             default:
             	break;
             }
@@ -342,7 +400,9 @@ int HyvePlatformPT_BackupFRU(HyvePlatformPendTask_T* pTask)
 	static INT8U retry = 0;
 
 	// Currently only consider MB FRU (FRU ID 0)
-	if ((HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE) < 0) && (++retry < 3)) {
+	if (((HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE) < 0) ||
+			(HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_FLASH) < 0)) &&
+			(++retry < 3)) {
 		pTask->timeout = 1;
 		pTask->jiffy = HYFEPLATFORM_JIFFY;
 		return -1;

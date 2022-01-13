@@ -10,6 +10,7 @@
 
 
 extern void* HyvePlatform_PSUTask(void* pArg);
+extern INT8U HyvePlatform_Is_PSU_PwrGood();
 
 
 #endif

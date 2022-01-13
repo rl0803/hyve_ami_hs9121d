@@ -19,7 +19,8 @@
 #include "HyveCommon.h"
 
 
-
+/********************* Global variable definitions *********************/
+INT8U g_Is_PSUPwrGood = FALSE; // This variable can only be set by HyvePlatform_Is_PSU_PwrGood or IRQhndlr_PWRGD_PSU_PWROK
 
 
 void* HyvePlatform_PSUTask(void* pArg)
@@ -74,3 +75,23 @@ void* HyvePlatform_PSUTask(void* pArg)
 	} // end while
 	OS_DELETE_THREAD();
 }
+
+/*-----------------------------------------------------------------
+ * @fn	HyvePlatform_Is_PSU_PwrGood
+ * @brief	To check GPIO pin - power good of the PSU
+ *
+ * @param None
+ *
+ * @return    1 - power good asserted
+ *            0 - otherwise
+ *-----------------------------------------------------------------*/
+INT8U HyvePlatform_Is_PSU_PwrGood()
+{
+	int ret = 0;
+
+	if ((ret = HyveExt_GPIO_Get_Data(IO_PWRGD_PS_PWROK_BMC)) < 0) { ret = 0; }
+	g_Is_PSUPwrGood = (ret & 0x01);
+	return HYVEPLATFORM_PSU_PWRGOOD;
+}
+
+

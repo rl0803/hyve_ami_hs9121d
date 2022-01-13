@@ -20,5 +20,15 @@
 
 
 
+INT8U HyvePlatformFan_GetFanDir()
+{
+	int ret = 0;
 
-
+	if ((ret = HyveExt_GPIO_Get_Data(IO_FAN_DIRECTION)) < 0) {
+		return PlatformFanDir_Unkonwn;
+	}
+	if (HYVE_GPIO_DATA_HIGH == ret) {
+		return PlatformFanDir_In;
+	}
+	return PlatformFanDir_Out;
+}

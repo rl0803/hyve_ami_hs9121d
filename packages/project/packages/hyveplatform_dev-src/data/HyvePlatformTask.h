@@ -15,8 +15,15 @@ typedef enum {
 	HyvePlatformMsgQ_TEST = 0,
 	
 /* IRQ Message Type */
+	HyvePlatformIRQMsgQ_SysPwrGood,
+	HyvePlatformIRQMsgQ_CPU_ThermalTrip,
+	HyvePlatformIRQMsgQ_CPU_PROCHOT,
+	HyvePlatformIRQMsgQ_FP_ID_Button,
+	HyvePlatformIRQMsgQ_APML_ALERT,
 	HyvePlatformIRQMsgQ_PowerButton,
 	HyvePlatformIRQMsgQ_ResetButton,
+	HyvePlatformIRQMsgQ_PMBus_ALERT,
+	HyvePlatformIRQMsgQ_SMBus_ALERT,
 } HyvePlatformMsgQ_Type;
 
 typedef enum {

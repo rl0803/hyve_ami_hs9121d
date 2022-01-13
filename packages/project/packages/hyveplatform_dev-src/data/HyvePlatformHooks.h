@@ -37,7 +37,13 @@ Hyve Platform Hook Function Definition Steps:
  */
 
 
+extern void HyvePlatform_BIOS_Status_Callback(const INT8U status);
+extern int HyvePlatform_PrepareBIOSFlash(INT8U targetBIOS);
+extern int HyvePlatform_AfterBIOSFlash(INT8U updateRes);
 
+#define HYVEPLATFORM_BIOS_FLASHSELECT								HyvePlatform_BIOS_FlashSelect
+#define HYVEPLATFORM_PREPARE_BIOSFLASH								HyvePlatform_PrepareBIOSFlash
+#define HYVEPLATFORM_AFTER_BIOSFLASH								HyvePlatform_AfterBIOSFlash
 
 
 #endif
