@@ -9,46 +9,46 @@
 #include "../../../../../../include/projdef.h"
 
 / {
-	model = "AST2600 EVB";
-	compatible = "aspeed,ast2600";
+    model = "AST2600 EVB";
+    compatible = "aspeed,ast2600";
 
-	aliases {
-		serial0 = &uart1;
-		// serial1 = &uart2;
-		// serial2 = &uart3;
-		// serial3 = &uart4;
-		serial4 = &uart5;
-	};
+    aliases {
+        serial0 = &uart1;
+        // serial1 = &uart2;
+        // serial2 = &uart3;
+        // serial3 = &uart4;
+        serial4 = &uart5;
+    };
 
-	chosen {
-		bootargs = "console=ttyS4,115200n8";
-	};
+    chosen {
+        bootargs = "console=ttyS4,115200n8";
+    };
 
-	memory@80000000 {
-		device_type = "memory";
-		reg = <0x80000000 0x80000000>;
-	};
-        reserved-memory {
-                #address-cells = <1>;
-                #size-cells = <1>;
-                ranges;
+    memory@80000000 {
+        device_type = "memory";
+        reg = <0x80000000 0x80000000>;
+    };
+    reserved-memory {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges;
 
-                gfx_memory: framebuffer {
-                        size = <0x01000000>;
-                        alignment = <0x01000000>;
-                        compatible = "shared-dma-pool";
-                        reusable;
-                };
+        gfx_memory: framebuffer {
+            size = <0x01000000>;
+            alignment = <0x01000000>;
+            compatible = "shared-dma-pool";
+            reusable;
+        };
 #if defined(CONFIG_SPX_FEATURE_VIDEO_RVAS)
-                linux,cma {
-			            size = <0x4000000>; //64MB
-			            alignment = <0x01000000>;
-			            compatible = "shared-dma-pool";
-			            reusable;
-			            linux,cma-default;
-                };
-#endif				
-         };
+        linux,cma {
+            size = <0x4000000>; //64MB
+            alignment = <0x01000000>;
+            compatible = "shared-dma-pool";
+            reusable;
+            linux,cma-default;
+        };
+#endif              
+    };
 
     iio-hwmon {
         compatible = "iio-hwmon";
@@ -62,42 +62,42 @@
 &syscon {
         uart-clock-high-speed;
         status = "okay";
-		
-		// mac0-clk-delay = <0x10 0x0a
-		// 		  0x10 0x10
-		// 		  0x10 0x10>;
-		// mac1-clk-delay = <0x10 0x0a
-		// 		  0x10 0x10
-		// 		  0x10 0x10>;
-		mac2-clk-delay = <0x08 0x04
-				  0x08 0x04
-				  0x08 0x04>;
-		mac3-clk-delay = <0x08 0x04
-				  0x08 0x04
-				  0x08 0x04>;		
+        
+        // mac0-clk-delay = <0x10 0x0a
+        //        0x10 0x10
+        //        0x10 0x10>;
+        // mac1-clk-delay = <0x10 0x0a
+        //        0x10 0x10
+        //        0x10 0x10>;
+        mac2-clk-delay = <0x08 0x04
+                  0x08 0x04
+                  0x08 0x04>;
+        mac3-clk-delay = <0x08 0x04
+                  0x08 0x04
+                  0x08 0x04>;       
 };
 
 &kcs1 {
-        kcs_addr = <0xCA0>;
-        status = "okay";
+    kcs_addr = <0xCA0>;
+    status = "okay";
 };
 
 &kcs2 {
-        kcs_addr = <0xCA8>;
-        status = "okay";
+    kcs_addr = <0xCA8>;
+    status = "okay";
 };
 
 &kcs3 {
-        kcs_addr = <0xCA2>;
-        status = "okay";
+    kcs_addr = <0xCA2>;
+    status = "okay";
 };
 
 &jtag0 {
-        status = "okay";
+    status = "okay";
 };
 
 &jtag1 {
-        status = "okay";
+    status = "okay";
 };
 
 &mctp0 {
@@ -106,36 +106,45 @@
     status = "okay";
 };
 
-// HS9121D uses ESPI, but currently AMI doesn't follow up Aspeed
-// there should be "espi_ctrl" node in the aspeed-g6.dtsi
-&lpc {
+&espi_ctrl {
     status = "okay";
+    
+    perif,memcyc-src-addr = <0x98000000>;
+    perif,memcyc-size = <0x10000>;
+    perif,dma-mode;
+    
+    oob,dma-mode;
+    oob,dma-tx-desc-num = <0x2>;
+    oob,dma-rx-desc-num = <0x8>;
+    
+    flash,dma-mode;
+    flash,safs-mode = <0x2>;
 };
 
 &lpc_reset {
-        status = "okay";
+    status = "okay";
 };
 
 &lpc_sio {
-        status = "okay";
+    status = "okay";
 };
 
 &lpc_snoop {
-        snoop-ports = <0x80>;
-        status = "okay";
+    snoop-ports = <0x80>;
+    status = "okay";
 };
 
 &lpc_pcc { 
-	rec-mode = <0x1>; 
-	port-addr = <0x80>; 
-	port-addr-hbits-select = <0x1>; 
-	port-addr-xbits = <0x1>; 
-	pattern-a-en; 
-	pattern-a = <0x41424344>; 
-	pattern-a-len = <0x4>; 
-	pattern-a-write = <0x1>; 
-	pattern-a-port = <0x80>; 
-	status = "okay"; 
+    rec-mode = <0x1>; 
+    port-addr = <0x80>; 
+    port-addr-hbits-select = <0x1>; 
+    port-addr-xbits = <0x1>; 
+    pattern-a-en; 
+    pattern-a = <0x41424344>; 
+    pattern-a-len = <0x4>; 
+    pattern-a-write = <0x1>; 
+    pattern-a-port = <0x80>; 
+    status = "okay"; 
 };
 
 // HS9121D, uses MAC3 and MAC4
@@ -149,30 +158,30 @@
 // };
 
 // &mdio1 {
-// 	status = "okay";
+//  status = "okay";
 
-// 	ethphy1: ethernet-phy@0 {
-// 		compatible = "ethernet-phy-ieee802.3-c22";
-// 		reg = <0>;
-// 	};
+//  ethphy1: ethernet-phy@0 {
+//      compatible = "ethernet-phy-ieee802.3-c22";
+//      reg = <0>;
+//  };
 // };
 
 &mdio2 {
-	status = "okay";
+    status = "okay";
 
-	ethphy2: ethernet-phy@0 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <0>;
-	};
+    ethphy2: ethernet-phy@0 {
+        compatible = "ethernet-phy-ieee802.3-c22";
+        reg = <0>;
+    };
 };
 
 &mdio3 { // MAC4 (Shared NIC) 
-	status = "disabled";
+    status = "disabled";
 
-	ethphy3: ethernet-phy@0 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <0>;
-	};
+    ethphy3: ethernet-phy@0 {
+        compatible = "ethernet-phy-ieee802.3-c22";
+        reg = <0>;
+    };
 };
 
 // HS9121D, uses MAC3 (Dedicated NIC) and MAC4 (Shared NIC)
@@ -187,73 +196,73 @@
 // };
 
 // &mac1 {
-// 	status = "okay";
+//  status = "okay";
 
-// 	phy-mode = "rgmii-rxid";
-// 	phy-handle = <&ethphy1>;
+//  phy-mode = "rgmii-rxid";
+//  phy-handle = <&ethphy1>;
 
-// 	pinctrl-names = "default";
-// 	pinctrl-0 = <&pinctrl_rgmii2_default>;
+//  pinctrl-names = "default";
+//  pinctrl-0 = <&pinctrl_rgmii2_default>;
 // };
 
 // MAC3 (Dedicated NIC)
 &mac2 {
-	status = "okay";
+    status = "okay";
 
-	phy-mode = "rgmii";
-	phy-handle = <&ethphy2>;
-	
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rgmii3_default>;
+    phy-mode = "rgmii";
+    phy-handle = <&ethphy2>;
+    
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_rgmii3_default>;
 };
 // MAC4 (Shared NIC)
 &mac3 {
-	status = "okay";
+    status = "okay";
 
-	phy-handle = <&ethphy3>;
-	pinctrl-names = "default";
+    phy-handle = <&ethphy3>;
+    pinctrl-names = "default";
 
 #if 0 //currently using AST EVB, so disable NCSI
-	phy-mode = "rgmii";
-	pinctrl-0 = <&pinctrl_rgmii4_default>;
+    phy-mode = "rgmii";
+    pinctrl-0 = <&pinctrl_rgmii4_default>;
 
 #else
-	phy-mode = "rmii";
-	// use-ncsi;
-	pinctrl-0 = <&pinctrl_rmii4_default>;
+    phy-mode = "rmii";
+    // use-ncsi;
+    pinctrl-0 = <&pinctrl_rmii4_default>;
 #endif
 };
 
 &adc0 {
-	vref = <2500>;
-	status = "okay";
+    vref = <2500>;
+    status = "okay";
 
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
-		&pinctrl_adc2_default &pinctrl_adc3_default
-		&pinctrl_adc4_default &pinctrl_adc5_default
-		&pinctrl_adc6_default &pinctrl_adc7_default>;
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
+        &pinctrl_adc2_default &pinctrl_adc3_default
+        &pinctrl_adc4_default &pinctrl_adc5_default
+        &pinctrl_adc6_default &pinctrl_adc7_default>;
 };
 
 &adc1 {
-	vref = <2500>;
-	status = "okay";
+    vref = <2500>;
+    status = "okay";
 
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_adc8_default &pinctrl_adc9_default
-		&pinctrl_adc10_default &pinctrl_adc11_default
-		&pinctrl_adc12_default &pinctrl_adc13_default
-		&pinctrl_adc14_default &pinctrl_adc15_default>;
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_adc8_default &pinctrl_adc9_default
+        &pinctrl_adc10_default &pinctrl_adc11_default
+        &pinctrl_adc12_default &pinctrl_adc13_default
+        &pinctrl_adc14_default &pinctrl_adc15_default>;
 };
 
 &gfx {
-        status = "okay";
-        memory-region = <&gfx_memory>;
+    status = "okay";
+    memory-region = <&gfx_memory>;
 };
 
 &emmc_controller {
-	status = "okay";
-	timing-phase = <0x300FF>;
+    status = "okay";
+    timing-phase = <0x300FF>;
 };
 
 &emmc {
@@ -273,80 +282,100 @@
 
 #ifdef CONFIG_SPX_FEATURE_HYVE_RTC_SUPPORT
 &rtc {
-	status = "okay";
+    status = "okay";
 };
 #endif
+
+#if 1 // For A2 chip
 
 &fmc {
-	spi-dma-write;
-	low-spi-clk-write;
-	status = "okay";
-	flash0:flash@0 {
-		status = "okay";
-		m25p,fast-read;
-		label = "bmc";
-		spi-max-frequency = <50000000>;
-#ifdef CONFIG_SPX_FEATURE_DEDICATED_SPI_FLASH_BANK
-		reg = <0>;
-#else		
-	        partitions {
-	            compatible = "ami,spx-fmh";
-	        };
-#endif	
-	};
-	flash1:flash@1 {
-		status = "okay";
-		m25p,fast-read;
-		spi-max-frequency = <50000000>;
-		spi-bus-width = <4>;
-#ifdef CONFIG_SPX_FEATURE_DEDICATED_SPI_FLASH_BANK
-		label = "bmc";
-		reg = <1>;
-#else
-		label = "fmc0:1";
-#endif				
-	};
-};
-#ifdef CONFIG_SPX_FEATURE_DEDICATED_SPI_FLASH_BANK
-&mtdconcat {
-	status="okay";
-	devices=<&flash0 &flash1>;
- 	label = "bmc";
-	partitions {
-           compatible = "ami,spx-fmh";
+    spi-dma-write;
+    low-spi-clk-write;
+    status = "okay";
+    num-cs = <2>;
+
+    flash0: flash@0 {
+        status = "okay";
+        m25p,fast-read;
+        label = "bmc";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <1>;
+        spi-rx-bus-width = <4>;
+        reg= <0>;
+        partitions {
+            compatible = "ami,spx-fmh";
+        };
+    };
+    flash1: flash@1 {
+        status = "okay";
+        m25p,fast-read;
+        label = "bmc2";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <1>;
+        spi-rx-bus-width = <4>;
+        reg = <1>;
+    }; 
 };
 
+#else // For A3 chip
+&fmc {
+    fmc-spi-user-mode;
+    status = "okay";
+    num-cs = <2>;
+
+    flash0: flash@0 {
+        status = "okay";
+        m25p,fast-read;
+        label = "bmc";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <4>;
+        spi-rx-bus-width = <4>;
+        reg= <0>;
+        partitions {
+            compatible = "ami,spx-fmh";
+        };
+    };
+    flash1: flash@1 {
+        status = "okay";
+        m25p,fast-read;
+        label = "bmc2";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <4>;
+        spi-rx-bus-width = <4>;
+        reg = <1>;
+    };
 };
 #endif
-&spi1 {
-        spi-dma-write;
-        low-spi-clk-write;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi1_default &pinctrl_spi1cs1_default
-				&pinctrl_qspi1_default>;
-	status = "okay";
 
-	flash@0 {
-		status = "okay";
-		m25p,fast-read;
-		label = "pnor";
-		spi-max-frequency = <50000000>;
-		spi-tx-bus-width = <4>;
-		spi-rx-bus-width = <4>;		
-	};
+&spi1 {
+    spi-dma-write;
+    low-spi-clk-write;
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_spi1_default &pinctrl_spi1cs1_default
+                &pinctrl_qspi1_default>;
+    status = "okay";
+
+    flash@0 {
+        status = "okay";
+        m25p,fast-read;
+        label = "pnor";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <4>;
+        spi-rx-bus-width = <4>;     
+    };
 };
 
 // For Host UART
 &uart1 {
-	status = "okay";
+    status = "okay";
 };
 // For BMC debug console
 &uart5 {
-	status = "okay";
+    status = "okay";
 };
 
 &i3cglobal {
-	status = "okay";
+    status = "okay";
 };
 
 &i3c0 {
@@ -366,13 +395,13 @@
 };
 
 &i3c1 {
-	status = "okay";
+    status = "okay";
 };
 
 &i3c2 {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i3c3_default>;
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_i3c3_default>;
 };
 
 // HS9121D, the I2C1/I3C is for APML
@@ -380,52 +409,52 @@
 //    status = "okay";
 // };
 &i3c3 {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i3c4_default>;
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_i3c4_default>;
 };
 
 &i2c4 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c5 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c6 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c7 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c8 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c9 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c11 {
     status = "okay";
 };
 &i2c12 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c13 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c14 {
-	status = "okay";
+    status = "okay";
 };
 
 &i2c15 {
-	status = "okay";
+    status = "okay";
 };
 
 &sgpiom0 {
@@ -442,11 +471,11 @@
 
 #ifdef CONFIG_SPX_FEATURE_USB_PORT_B_HOST_SUPPORT
 &ehci1 {
-	status = "okay";
+    status = "okay";
 };
 
 &uhci {
-	status = "okay";
+    status = "okay";
 };
 #endif
 
@@ -463,20 +492,20 @@
 #endif
 
 &gpio0 {
-	/* Enable GPIO input debounce.
+    /* Enable GPIO input debounce.
        To avoid polarity confusing, use default polarity - Active High. */
-	pin_gpio_p0 {
-		gpios =  <ASPEED_GPIO(P, 0) GPIO_ACTIVE_HIGH>; 
-		input;
-		line-name = "IO_FM_BMC_PWRBTN_IN_N";
-		ami,debounce-interval = <1000>; // 1 ms
-	};
-	pin_gpio_p2 {
-		gpios =  <ASPEED_GPIO(P, 2) GPIO_ACTIVE_HIGH>; 
-		input;
-		line-name = "IO_RST_SYSTEM_BTN_IN_N";
-		ami,debounce-interval = <1000>; // 1 ms
-	};
+    pin_gpio_p0 {
+        gpios =  <ASPEED_GPIO(P, 0) GPIO_ACTIVE_HIGH>; 
+        input;
+        line-name = "IO_FM_BMC_PWRBTN_IN_N";
+        ami,debounce-interval = <1000>; // 1 ms
+    };
+    pin_gpio_p2 {
+        gpios =  <ASPEED_GPIO(P, 2) GPIO_ACTIVE_HIGH>; 
+        input;
+        line-name = "IO_RST_SYSTEM_BTN_IN_N";
+        ami,debounce-interval = <1000>; // 1 ms
+    };
 };
 
 #include "legacy.dtsi" /* For Legacy AMI Drivers */
