@@ -1,3 +1,37 @@
+Package: sys_base_ex (13.17.19.0.0); urgency = high
+
+Abstract:
+	
+
+
+--Submitter: jcchiu (jcchiu)() 2021-12-23T01:22:25+00:00
+
+Package: sys_base_ex (13.17.18.0.0); urgency = high
+
+Abstract:
+	
+
+
+--Submitter: jcchiu (jcchiu)() 2021-12-22T04:34:46+00:00
+
+Package: sys_base_ex (13.17.17.0.0); urgency = high
+
+Abstract:
+	specif MMC capacity to allow more partitions (changjunk@kang.us.megatrends.com)
+
+Files Modified: spx/P.CONFIG
+
+--Submitter: jcchiu (jcchiu)() 2021-12-12T14:12:56+00:00
+
+Package: sys_base_ex (13.17.16.0.0); urgency = low
+
+Abstract:
+	Fix EIP642854, Can't ping domain to outside network. (kennywu@ami.com.tw)
+
+Files Modified: spx/RULES.D/files.lst
+
+--Submitter: jcchiu (jcchiu)() 2021-12-02T08:52:34+00:00
+
 Package: sys_base_ex (13.17.15.0.0); urgency = high
 
 Abstract:
