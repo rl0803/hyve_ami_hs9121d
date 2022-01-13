@@ -42,10 +42,33 @@
 int
 PDK_PlatformSetupLED (int BMCInst)
 {
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
-    }    
+	int ret = 0;
+	IndicatorInfo_T PlatformLEDMap[MAX_LED_NUM] = {
+		{
+			TRUE, // Enable;
+			PLATFORM_LED_BMC_HEARTBEAT, // LEDNum;
+			LED_PATTERN_SLOW_BLINK, // Pattern;
+			0, // NumSec;
+			0, // CurBit;
+			0, // Count;
+		},
+		{
+			FALSE,
+			PLATFORM_LED_IDENTIFY,
+			LED_PATTERN_OFF,
+			0,
+			0,
+			0,
+		},
+	};
+
+	LOCK_BMC_SHARED_MEM_RET(BMCInst, ret);
+	if (ret < 0) {
+		printf("[Error] %s: Unable to get the mutex\n", __func__);
+		return ret;
+	}
+	_fmemcpy ((BMC_GET_SHARED_MEM (BMCInst)->LEDInfo), &PlatformLEDMap, (MAX_LED_NUM * sizeof(IndicatorInfo_T)));
+	UNLOCK_BMC_SHARED_MEM(BMCInst);   
     return 0;
 }
 
@@ -59,64 +82,10 @@ PDK_PlatformSetupLED (int BMCInst)
 void
 PDK_GlowLED (INT8U LEDNum, INT8U n, int BMCInst)
 {
-	  INT8U SlaveAddr,BusNo;
-	  ssize_t read_count,write_count;
-	  char Read_Buf[1024],Write_Buf[1024];
-	  char BusName[64];
-	  BMCSharedMem_T*  hBMCSharedMem;
-	  IndicatorInfo_T  *LEDInfo;
-	  BMCInfo_t *pBMCInfo = (BMCInfo_t *)&g_BMCInfo[BMCInst];
-
-	  memset(BusName,0,sizeof(BusName));
-	  memset(Read_Buf,0,1024);
-	  memset(Write_Buf,0,1024);
-
-
-	  if (LEDNum >= MAX_LED_NUM)
-	    return;
-
-	  hBMCSharedMem = BMC_GET_SHARED_MEM(BMCInst);
-
-	  LOCK_BMC_SHARED_MEM(BMCInst);
-
-	  LEDInfo = (IndicatorInfo_T*)&((BMCSharedMem_T*)hBMCSharedMem)->LEDInfo[LEDNum];
-
-
-	  if(n != 0)
-	  {
-	    if(LEDInfo->NumSec != 0)
-	      Write_Buf[0] = 0xFE;
-	    else
-	      Write_Buf[0] = 0xFF;
-	  }
-	  else
-	    Write_Buf[0] = 0xFF;
-
-	  if(pBMCInfo->Msghndlr.ChassisIdentifyForce == TRUE)
-	  {
-	    LEDInfo->NumSec = 0xFF;
-	    LEDInfo->Enable = 1;
-	    LEDInfo->Count = 0;
-	  }
-
-	  UNLOCK_BMC_SHARED_MEM(BMCInst);
-
-	  SlaveAddr = 0x70;
-	  BusNo = 0x01;
-	  read_count = write_count = 1;
-	  snprintf(BusName,sizeof(BusName),"/dev/i2c%d",BusNo);
-
-
-
-	  if(g_HALI2CHandle[HAL_I2C_RW] != NULL)
-	  {
-	    if(0 > ((int(*)(char *,u8,u8 *,u8 *,size_t,size_t))g_HALI2CHandle[HAL_I2C_RW]) (BusName,(SlaveAddr >> 1),(u8 *)&Write_Buf[0],
-	                              (u8 *)&Read_Buf[0],write_count,read_count))
-	    {
-	      /* Erron in reading */
-	      return;
-	    }
-	  }
+	if (0) { BMCInst = BMCInst; }
+	if (HyvePlatform_LED_Control(LEDNum, Hyve_VALUE_SET, &n) < 0) {
+		printf("[Error] %s: failed to turn %s the LED(%u)\n", __func__, (n ? "on" : "off"), LEDNum);
+	}
 }
 
 /*--------------------------------------------------------------------

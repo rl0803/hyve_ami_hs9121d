@@ -620,39 +620,17 @@ PDK_SMIInterruptChassis (int BMCInst)
 void
 PDK_ChassisIdentify (INT8U Force, INT8U Timeout, int BMCInst)
 {
-	 void *dl_handle = NULL;
-	  INT8U (*dl_func)(INT8U,INT16U,INT16U,int);
-    	  if(0)
-    	  {
-              Force=Force;  /*  -Wextra, fix for unused parameter  */
-    	  }
+	INT16U Pattern = LED_PATTERN_OFF;
 
-	  dl_handle = NULL;
-	  dl_handle = dlopen("/usr/local/lib/libipmistack.so", RTLD_LAZY);
-	  if(NULL == dl_handle)
-	  {
-	    IPMI_ERROR("Error in loading libipmistack library %s\n",dlerror());
-	    return;
-	  }
-	  dl_func =  dlsym(dl_handle,"GlowLED");
-	  if(NULL == dl_func)
-	  {
-	    IPMI_ERROR("Error in getting symbol %s \n", dlerror());
-	    dlclose(dl_handle);
-	    return;
-	  }
-
-	  if(Timeout != 0)
-	    dl_func(0,0xFF,Timeout,BMCInst);
-	  else
-	    dl_func(0,0,Timeout,BMCInst);
-
-	if(dl_handle)
-	{
-		dlclose(dl_handle);
-		dl_handle = NULL;
+	if (Force) {
+		// Keep LED On
+		Pattern = LED_PATTERN_ON;
+		Timeout = 0;
+	} else if (Timeout) {
+		// Set LED blinking for a specified time interval.
+		Pattern = LED_PATTERN_SLOW_BLINK;
 	}
-    return;
+	API_GlowLED(PLATFORM_LED_IDENTIFY, Pattern, Timeout, BMCInst);
 }
 
 /*---------------------------------------------------------------------
@@ -683,6 +661,8 @@ PDK_FPEnable (INT8U FPEnable,int BMCInst)
  *			0 PS_GOOD is not asserted.
  * 
  * Note:
+ *     Usually we use Sys Power Good instead of PSU Power Good
+ * 
  *     HS9121D, if the platform supports ROT,
  *     then the Host power on sequence is different from traditional one.
  *     
@@ -694,14 +674,17 @@ PDK_FPEnable (INT8U FPEnable,int BMCInst)
  *         --> check verify result --> set inform CPLD GPIO pin
  *
  *--------------------------------------------------------------------*/
-int
-PDK_GetPSGood (int BMCInst)
+int PDK_GetPSGood (int BMCInst)
 {
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
-    }
-    return g_Is_DCPowerOn;
+	int ret = 0;
+
+	if (0) { BMCInst = BMCInst; }
+	
+	if ((ret = HyveExt_GPIO_Get_Data(IO_PWRGD_SYS_PWROK_BMC)) > -1) {
+		g_Is_DCPowerOn = ret;
+	}
+
+    return HYVEPLATFORM_SYS_PWRGOOD;
 }
 
 /*------------------------------------------------------------------------
@@ -1037,10 +1020,8 @@ PDK_GenerateBeep (INT8U IsOn, int BMCInst)
 void
 PDK_ClearCMOS (int BMCInst)
 {
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
-    }
+	if (0) { BMCInst = BMCInst; }
+//	HyvePlatform_Reset_CMOS();
     return;
 }
 
