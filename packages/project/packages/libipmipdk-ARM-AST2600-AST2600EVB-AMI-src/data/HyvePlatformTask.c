@@ -131,6 +131,8 @@ static void* HyvePlatform_GenericTask(void* pArg)
 		.tv_sec = HyvePlatform_TASK_INTERVAL_GENERIC,
 		.tv_usec = 0
     };
+    INT16U countUpdateTime = 1; // To trigger it at first time
+
 
 	if (0) { pArg = pArg;};
 
@@ -163,7 +165,16 @@ static void* HyvePlatform_GenericTask(void* pArg)
         			}
         		}
         	}
-
+        	// Update the last time stamp and sync the system time to RTC per hour
+            if (!(HYFEPLATFORM_JIFFY % countUpdateTime)) {
+    			if (HyveExt_SetLastTimeStamp() < 0) {
+    				printf("Error in HyveExt_SetLastTimeStamp\n");
+    				countUpdateTime = 1; // later retry
+    			} else {
+    				countUpdateTime = 3600;
+    				HyveExt_SetBmcTimeToRTC();
+    			}
+            }
 //-- Routine Work
         	timeout.tv_sec = HyvePlatform_TASK_INTERVAL_GENERIC;
             continue;
