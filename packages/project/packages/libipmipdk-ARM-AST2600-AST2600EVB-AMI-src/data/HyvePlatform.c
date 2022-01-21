@@ -18,14 +18,10 @@
 
 
 
-#define REG_WDT_RESET_MASK1			(0x1E78501C)
-#define REG_WDT_RESET_MASK2			(0x1E785020)
-
 /********************* Global variable definitions *********************/
 int gHyvePlatformSkuID = PLATFORM_DEFAULT;
 /* The platform global time-tick per second */
 UINT32 g_HyvePlatformJiffy = 0;
-INT8U g_IsBMC_ACPowerOn = FALSE;
 INT8U g_Is_DCPowerOn = FALSE; // This variable can only be set by PDK_GetPSGood or IRQhndlr_PWRGD_SYS_PWROK
 
 
@@ -50,12 +46,10 @@ static void HyvePlatform_InitSKUID(const char* idStr)
  *
  * @return  none
  *-----------------------------------------------------------------*/
-static void HyvePlatform_InitPlatformID(int BMCInst)
+static void HyvePlatform_InitPlatformID()
 {
 	char tmpPlatformID[MAX_PLATFORMID_SIZE] = {0};
 	int ret = 0;
-
-	if (0) { BMCInst = BMCInst; }
 
 	/* Get the default built-in platform ID string */
 	ret = HyveExt_GetDefaultPlatformID(tmpPlatformID, sizeof(tmpPlatformID));
@@ -102,16 +96,21 @@ static void HyvePlatform_InitPlatformID(int BMCInst)
 
 static void HyvePlatform_InitChip()
 {
-	INT32U regValue = 0;
+	INT32U regValue = 0, i = 0;
+	// Usually use the WDT1 ~ WDT3
+	INT32U wdts[] = { REG_WDT1_BASE, REG_WDT2_BASE, REG_WDT3_BASE };
 
 	// Disable HW Heart Beat LED
 	regValue = HYVE_BIT(31);
-	HyveExt_BMC_RegSCU(Hyve_RegOp_ClearBits, 0x69C, &regValue);	
-	// Disable WDT Reset GPIO controller 1 and 2 
-	regValue = HYVE_BIT(24);
-	HyveExt_BMC_Register(Hyve_RegOp_ClearBits, REG_WDT_RESET_MASK1, &regValue);
-	regValue = HYVE_BIT(9);
-	HyveExt_BMC_Register(Hyve_RegOp_ClearBits, REG_WDT_RESET_MASK2, &regValue);
+	HyveExt_BMC_RegSCU(Hyve_RegOp_ClearBits, 0x69C, &regValue);
+
+	// Disable WDT Reset GPIO controller 1 and 2
+	for (i = 0; i < HYVE_ARRAYSIZE(wdts); i++) {
+		regValue = HYVE_BIT(24);
+		HyveExt_BMC_Register(Hyve_RegOp_ClearBits, (wdts[i] + REG_WDT_OFFSET_RESET_MASK1), &regValue);
+		regValue = HYVE_BIT(9);
+		HyveExt_BMC_Register(Hyve_RegOp_ClearBits, (wdts[i] + REG_WDT_OFFSET_RESET_MASK2), &regValue);
+	}
 }
 
 static int HyvePlatform_InitFRU()
@@ -160,40 +159,21 @@ static int HyvePlatform_InitFRU()
  *-----------------------------------------------------------------*/
 int HyvePlatform_Init()
 {
-	int BMCInst = 1;
-
-	
 	printf("[INFO] - Run %s\n", __func__);
 	HyvePlatform_InitChip();
 	HyveExt_MutexInit();
-
-	// Check BMC AC lost
-	if (1 == HyveExt_Is_BMC_ACLost()) {
-		time_t timestamp = 0;
-		if (HyveExt_GetLastTimeStamp((INT32U*)&timestamp) < 0) {
-			printf("[INFO] Error in getting Last Time Stamp\n");
-			// If fail getting the last time-stamp
-			// then use the current time minus 120 seconds as the last time-stamp
-			timestamp = time(NULL) - 120;
-		}
-		printf("[INFO] BMC AC lost detected, last time stamp: %s\n", ctime(&timestamp));
-		// Record AC lost event
-		HyveExt_LogEvent(timestamp, BMC_GEN_ID, BMC_SENSOR_LUN00, SENSOR_TYPE_POWERUNIT, SENSOR_NUM_PWRUNIT_STATUS,
-				EVENT_TYPE_SENSOR_SPECIFIC_6F, EVENT_POWERUNIT_ACLOST, 0xFF, 0xFF, BMCInst);
-		// Set the flag, for PDK_IsACPowerOn using
-		g_IsBMC_ACPowerOn = TRUE;
-	}
 
 	if (HyvePlatform_InitFRU() < 0 ) {
 		printf("[INFO] Error in creating MB FRU cache\n");
 	}
 	// Recognize this platform
-	HyvePlatform_InitPlatformID(BMCInst);
+	HyvePlatform_InitPlatformID();
 
 
-
-
-
+	
+	
+	
+	
 /*--------------Test Code--------------------*/	
 	
 	
