@@ -89,7 +89,7 @@ void IRQhndlr_PLTRST_BMC_IN_N(IPMI_INTInfo_T *IntInfo);
 // From ROT
 void IRQhndlr_EC_BMC_AP1_RESET_N(IPMI_INTInfo_T *IntInfo);
 void IRQhndlr_EC_BMC_FATAL_ERROR_N(IPMI_INTInfo_T *IntInfo);
-
+void IRQhndlr_FM_CEC_BIOS_AUTH_COMP(IPMI_INTInfo_T *IntInfo);
 
 
 void PDK_SensorInterruptHandler (IPMI_INTInfo_T *IntInfo)
@@ -133,6 +133,7 @@ IPMI_INTInfo_T m_IntInfo [] =
     
     { IRQhndlr_EC_BMC_AP1_RESET_N, IO_EC_BMC_AP1_RESET_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
     { IRQhndlr_EC_BMC_FATAL_ERROR_N, IO_EC_BMC_FATAL_ERROR_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_FM_CEC_BIOS_AUTH_COMP, IO_FM_CEC_BIOS_AUTH_COMP, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
 
     { IRQhndlr_PWRBTN_IN_N, IO_FM_BMC_PWRBTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, FALLING_EDGE, 0, 0, 0 ,0 },
     { IRQhndlr_RST_SYSTEM_BTN_IN_N, IO_RST_SYSTEM_BTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, FALLING_EDGE, 0, 0, 0 ,0 },
@@ -489,11 +490,19 @@ void IRQhndlr_SPD_HOST_CTRL_L(IPMI_INTInfo_T *IntInfo)
 
 void IRQhndlr_EC_BMC_AP1_RESET_N(IPMI_INTInfo_T *IntInfo)
 {
+	// Can use the FM_CEC_BIOS_AUTH_COMP instead
 	if (!IntInfo) { return; }
 	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
 }
 
 void IRQhndlr_EC_BMC_FATAL_ERROR_N(IPMI_INTInfo_T *IntInfo)
+{
+	// Can use the FM_CEC_BIOS_AUTH_COMP instead
+	if (!IntInfo) { return; }
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+}
+
+void IRQhndlr_FM_CEC_BIOS_AUTH_COMP(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
 	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
