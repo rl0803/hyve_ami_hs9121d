@@ -16,7 +16,16 @@ PATH=/sbin:/bin:/usr/bin:/usr/sbin
 
 # With default (01-01-1970)/proc/stat/btime is set to 0
 # Many programs does not like it. So setting to some non default date
-date "2000-01-01 00:00:00"
+# date "2000-01-01 00:00:00" # Hyve
+
+# Hyve--
+# Only when the current year less than 2000, set the system date to default
+curDate=`date`
+curYear="${curDate##* }"
+if [ ${curYear} -lt 2000 ]; then
+	date "2022-01-01 00:00:00"
+fi
+# --Hyve
 
 mount -t proc /dev/proc /proc
 #mount -t sysfs /sys
