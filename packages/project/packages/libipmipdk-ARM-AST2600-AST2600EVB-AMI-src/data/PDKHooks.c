@@ -325,6 +325,7 @@ int PDK_GetLANConfigurations(LANIFCConfig_T *LanIfcConfig,int BMCInst)
     return 0;
 }
 
+#if 0 // Move to libhyvecommon
 /*-----------------------------------------------------------------
  * @fn PDK_BeforeCreatingTasks
  *
@@ -358,6 +359,7 @@ PDK_AfterCreatingTasks (int BMCInst)
     HyvePlatform_TaskInit(BMCInst);
     return 0;
 }
+#endif
 
 /*-----------------------------------------------------------------
  * @fn PDK_OnTaskStartup
@@ -1283,6 +1285,7 @@ PDK_AfterSoftOffChassis (int BMCInst)
     return;
 }
 
+#if 0// Move to libhyvecommon-src/data/HyvePDKHooks.c
 /*---------------------------------------------------------------------
  * @fn PDK_OnACPIStateChange
  *
@@ -1302,6 +1305,7 @@ PDK_OnACPIStateChange (int CurrentState, int BMCInst)
     }
     return;
 }
+#endif
 
 /*----------------------------------------------------------------------
  * @fn PDK_TerminalCmd

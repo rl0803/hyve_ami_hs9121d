@@ -251,6 +251,7 @@ PDK_OnSystemEventDetected (INT32U State, int BMCInst)
     return 0;
 }
 
+#if 0 // Move to libhyvecommon
 /*---------------------------------------------------------------------------
 * @fn PDK_IsACPowerOn
 *
@@ -264,9 +265,9 @@ bool PDK_IsACPowerOn(int BMCInst)
 	{
 		BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
 	}
-	printf("[Alan] g_IsBMC_ACPowerOn: %d\n", g_IsBMC_ACPowerOn);
 	return g_IsBMC_ACPowerOn;
 }
+#endif
 
 static void ChassisPowerControl(INT8U gpio_pin, INT8U delay)
 {
