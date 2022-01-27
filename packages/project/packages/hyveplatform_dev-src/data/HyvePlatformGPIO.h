@@ -146,6 +146,12 @@
 #define IO_FM_CEC_BIOS_RESET_IN             GPION6 // GPIO, Output, to inform the ROT to do the BIOS FW auth
 #define IO_NC_GPION7                        GPION7 // No Use
 
+/* Note:
+	By HW design, the EC_BMC_AP1_RESET_N and the EC_BMC_FATAL_ERROR_N pin are also passed to the CPLD
+	then the CPLD 'OR' theses 2 signal and inform the BMC by FM_CEC_BIOS_AUTH_COMP pin
+	So the BMC only need to care the FM_CEC_BIOS_AUTH_COMP pin and can ignore the EC_BMC_AP1_RESET_N and the EC_BMC_FATAL_ERROR_N pin
+*/
+
 #define IO_NC_GPIOO0                        GPIOO0 // No Use
 #define IO_NC_GPIOO1                        GPIOO1 // No Use
 #define IO_NC_GPIOO2                        GPIOO2 // No Use

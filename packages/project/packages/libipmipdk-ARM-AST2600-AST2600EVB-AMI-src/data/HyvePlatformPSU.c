@@ -91,7 +91,7 @@ INT8U HyvePlatform_Is_PSU_PwrGood()
 
 	if ((ret = HyveExt_GPIO_Get_Data(IO_PWRGD_PS_PWROK_BMC)) < 0) { ret = 0; }
 	g_Is_PSUPwrGood = (ret & 0x01);
-	return HYVEPLATFORM_PSU_PWRGOOD;
+	return HYVEPLATFORM_IS_PSU_PWRGOOD;
 }
 
 

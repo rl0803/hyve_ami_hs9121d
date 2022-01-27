@@ -147,6 +147,16 @@ static int HyvePlatform_InitFRU()
 	return 0;
 }
 
+static int HyvePlatform_InitSKUSensorSupport()
+{
+//	INT8U sensorCount = 0, i = 0;
+//	HyvePlatformTMP75Sensor_T *ExtBdTMP75Sensors = HyvePlatform_Get_ExtBoardTMP75Sensors(&sensorCount);
+
+//	if (PLATFORM_HS9121Dxxx == HYVEPLATFORM_SKU)
+
+	return 0;
+}
+
 /*-----------------------------------------------------------------
  * @fn HyvePlatform_Init
  * @brief	To do platform specific init procedure,
@@ -168,8 +178,7 @@ int HyvePlatform_Init()
 	}
 	// Recognize this platform
 	HyvePlatform_InitPlatformID();
-
-
+	HyvePlatform_InitSKUSensorSupport();
 	
 	
 	
@@ -388,7 +397,6 @@ int HyvePlatform_DisplayPortPwrControl(const INT8U op, INT8U* pIs_enable)
  *-----------------------------------------------------------------*/
 int HyvePlatform_BoardSKUID(INT8U *pBoardSKUID)
 {
-
 	INT8U i = 0, gpios[] = { IO_FM_BMC_BOARD_SKU_ID0_N, IO_FM_BMC_BOARD_SKU_ID1_N,
 						IO_FM_BMC_BOARD_SKU_ID2_N, IO_FM_BMC_BOARD_SKU_ID3_N };
 
@@ -413,7 +421,6 @@ int HyvePlatform_BoardSKUID(INT8U *pBoardSKUID)
  *-----------------------------------------------------------------*/
 int HyvePlatform_BoardID(INT8U *pBoardID)
 {
-
 	INT8U i = 0, gpios[] = { IO_FM_REV_BOARD_ID0, IO_FM_REV_BOARD_ID1, IO_FM_REV_BOARD_ID2 };
 
 	if (!pBoardID) { return -1; }
@@ -468,15 +475,20 @@ int HyvePlatform_LED_Control(const INT8U ledIndex, const INT8U op, INT8U* pIs_en
 }
 
 /*-----------------------------------------------------------------
- * @fn HyvePlatform_CPU_NMI_SYNC_FLOOD
+ * @fn HyvePlatform_TriggerHostCPU_NMI_SYNC_FLOOD
  * @brief	To send the NMI signal to the CPU
  *
  * @param None
  *
  * @return    0 - if success
  *           -1 - otherwise
+ *  
+ *  Note:
+		11.5.6    NMI_SYNC_FLOOD_L
+		Platform can generate an NMI or SYNCFLOOD by asserting NMI_SYNC_FLOOD_L signal either
+		via a switch or BMC controller on the motherboard. Implementation of this feature is system specific
  *-----------------------------------------------------------------*/
-int HyvePlatform_CPU_NMI_SYNC_FLOOD()
+int HyvePlatform_TriggerHostCPU_NMI_SYNC_FLOOD()
 {
 	int retryCount = 3;
 
@@ -559,15 +571,15 @@ int HyvePlatform_Reset_PwrAUX_IC(const INT8U auxIndex)
 }
 
 /*-----------------------------------------------------------------
- * @fn HyvePlatform_BMC_Ready
- * @brief	To set the BMC ready
+ * @fn HyvePlatform_SetBMCReady
+ * @brief	To set the BMC ready GPIO pin
  *
  * @param None
  *
  * @return    0 - if success
  *           -1 - otherwise
  *-----------------------------------------------------------------*/
-int HyvePlatform_BMC_Ready()
+int HyvePlatform_SetBMCReady()
 {
 	int retryCount = 3;
 
@@ -586,7 +598,7 @@ int HyvePlatform_BMC_Ready()
 
 /*-----------------------------------------------------------------
  * @fn HyvePlatform_Reset_CMOS
- * @brief	To reset the EMMC
+ * @brief	To reset the CMOS
  *
  * @param None
  *
@@ -619,7 +631,7 @@ int HyvePlatform_Reset_CMOS()
  * @brief	To set the HDT source selection
  *
  * @param[in]               op  - The operation: SET, GET
- * @param[in/out]  pFlashIndex  - The INT8U pointer to input/output the BIOS flash index
+ * @param[in/out]  pHDTIndex  - The INT8U pointer to input/output the HDT index
  *
  * @return    0 - if success
  *           -1 - otherwise

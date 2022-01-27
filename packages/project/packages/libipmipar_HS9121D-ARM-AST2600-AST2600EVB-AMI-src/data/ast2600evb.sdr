@@ -7,7 +7,7 @@
             /* RECORD KEY BYTES*/
             .db 0x20          /* Device access addres             */
             .db 0x0            /* FRU Device IU                    */
-            .db 0x87           /* Channel number                   */
+            .db 0x80           /* Channel number                   */
             .db 0x0              /* Channel number                   */
             /* RECORD BODY BYTES*/
             .db 0x00                    /* Reserved                         */
@@ -1679,3 +1679,2418 @@
             .db 0xc0 + sizeof"PMBUS_ALERT"/* ID String Type / Length Code     */
             .db "PMBUS_ALERT"
     
+
+        /* SDR Record Header */
+            .dw 0x23               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "FW_Change" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x1                  /* Sensor Owner LUN                 */
+            .db 0x1        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x6               /* Entity ID                        */
+            .db 0x1             /* Entity Instance                  */
+            .db 0x2b             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"FW_Change"/* ID String Type / Length Code     */
+            .db "FW_Change"
+    
+
+        /* SDR Record Header */
+            .dw 0x24               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "ACPI_Status" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x1                  /* Sensor Owner LUN                 */
+            .db 0x2        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x7               /* Entity ID                        */
+            .db 0x1             /* Entity Instance                  */
+            .db 0x22             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"ACPI_Status"/* ID String Type / Length Code     */
+            .db "ACPI_Status"
+    
+
+        /* SDR Record Header */
+            .dw 0x25               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "Watchdog2" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x1                  /* Sensor Owner LUN                 */
+            .db 0x3        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x6               /* Entity ID                        */
+            .db 0x2             /* Entity Instance                  */
+            .db 0x23             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"Watchdog2"/* ID String Type / Length Code     */
+            .db "Watchdog2"
+    
+
+        /* SDR Record Header */
+            .dw 0x26               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "I2C_BusHang" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x1                  /* Sensor Owner LUN                 */
+            .db 0x4        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x24               /* Entity ID                        */
+            .db 0x0             /* Entity Instance                  */
+            .db 0x13             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"I2C_BusHang"/* ID String Type / Length Code     */
+            .db "I2C_BusHang"
+    
+
+        /* SDR Record Header */
+            .dw 0x27               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "SYS_Restart" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x1                  /* Sensor Owner LUN                 */
+            .db 0x5        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x6               /* Entity ID                        */
+            .db 0x3             /* Entity Instance                  */
+            .db 0x1d             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"SYS_Restart"/* ID String Type / Length Code     */
+            .db "SYS_Restart"
+    
+
+        /* SDR Record Header */
+            .dw 0x28               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "POWER_UNIT" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x1                  /* Sensor Owner LUN                 */
+            .db 0x6        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x15               /* Entity ID                        */
+            .db 0x0             /* Entity Instance                  */
+            .db 0x9             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"POWER_UNIT"/* ID String Type / Length Code     */
+            .db "POWER_UNIT"
+    
+
+        /* SDR Record Header */
+            .dw 0x29               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "BMC_RESET" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x1                  /* Sensor Owner LUN                 */
+            .db 0x7        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x6               /* Entity ID                        */
+            .db 0x4             /* Entity Instance                  */
+            .db 0x28             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"BMC_RESET"/* ID String Type / Length Code     */
+            .db "BMC_RESET"
+    
+
+        /* SDR Record Header */
+            .dw 0x2a               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "SEL_STATUS" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x1                  /* Sensor Owner LUN                 */
+            .db 0x8        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x6               /* Entity ID                        */
+            .db 0x5             /* Entity Instance                  */
+            .db 0x10             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"SEL_STATUS"/* ID String Type / Length Code     */
+            .db "SEL_STATUS"
+    
+
+		/* SDR Record Header */
+		.dw 0x2b                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_1"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x50               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x2                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_1"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_1"
+		
+
+		/* SDR Record Header */
+		.dw 0x2c                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_2"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x51               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x3                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_2"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_2"
+		
+
+		/* SDR Record Header */
+		.dw 0x2d                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x52               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x4                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_0"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_0"
+		
+
+		/* SDR Record Header */
+		.dw 0x2e                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_1"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x53               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x5                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_1"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_1"
+		
+
+		/* SDR Record Header */
+		.dw 0x2f                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_3"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x55               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x7                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_3"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_3"
+		
+
+		/* SDR Record Header */
+		.dw 0x30                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_4"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x56               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x8                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_4"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_4"
+		
+
+		/* SDR Record Header */
+		.dw 0x31                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_5"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x57               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x9                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_5"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_5"
+		
+
+		/* SDR Record Header */
+		.dw 0x32                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_2"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x54               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x6                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_2"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_2"
+		
+
+		/* SDR Record Header */
+		.dw 0x33                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMA0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x5d               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0xf                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMA0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMA0"
+		
+
+		/* SDR Record Header */
+		.dw 0x34                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_7"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x59               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0xb                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_7"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_7"
+		
+
+		/* SDR Record Header */
+		.dw 0x35                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMB0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x5e               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x10                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMB0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMB0"
+		
+
+		/* SDR Record Header */
+		.dw 0x36                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_8"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x5a               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0xc                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_8"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_8"
+		
+
+		/* SDR Record Header */
+		.dw 0x37                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_CPU0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x5b               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0xd                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_CPU0"   /* ID String Type / Length Code     */
+		.db "TEMP_CPU0"
+		
+
+		/* SDR Record Header */
+		.dw 0x38                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMD0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x60               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x12                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMD0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMD0"
+		
+
+		/* SDR Record Header */
+		.dw 0x39                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMC0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x5f               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x11                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMC0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMC0"
+		
+
+		/* SDR Record Header */
+		.dw 0x3a                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MB_3_6"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x58               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0xa                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MB_3_6"   /* ID String Type / Length Code     */
+		.db "TEMP_MB_3_6"
+		
+
+		/* SDR Record Header */
+		.dw 0x3b                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMF0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x62               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x14                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMF0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMF0"
+		
+
+		/* SDR Record Header */
+		.dw 0x3c                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMG0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x63               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x15                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMG0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMG0"
+		
+
+		/* SDR Record Header */
+		.dw 0x3d                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMME0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x61               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x13                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMME0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMME0"
+		
+
+		/* SDR Record Header */
+		.dw 0x3e                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMI0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x65               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x17                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMI0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMI0"
+		
+
+		/* SDR Record Header */
+		.dw 0x3f                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMJ0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x66               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x18                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMJ0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMJ0"
+		
+
+		/* SDR Record Header */
+		.dw 0x40                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMH0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x64               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x16                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMH0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMH0"
+		
+
+		/* SDR Record Header */
+		.dw 0x41                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMML0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x68               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x1a                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMML0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMML0"
+		
+
+		/* SDR Record Header */
+		.dw 0x42                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_DIMMK0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x67               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x19                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_DIMMK0"   /* ID String Type / Length Code     */
+		.db "TEMP_DIMMK0"
+		
+
+		/* SDR Record Header */
+		.dw 0x43                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "PWR_CPU0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x5c               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0xe                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x8                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x0               /* Lower Threshold Reading Mask     */
+		.dw 0x0               /* Upper Threshold Reading Mask     */
+		.dw 0x0               /* Settable/Readable Threshold Mask */
+		.db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 6                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0x0  & 0x3F)   /* B, Accuracy  */
+		.db ((0x0 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x10          /* Nominal Reading                  */
+		.db 0xff              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x0           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "PWR_CPU0"   /* ID String Type / Length Code     */
+		.db "PWR_CPU0"
+		
+
+		/* SDR Record Header */
+		.dw 0x44                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_P0SOCVR0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x69               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x1b                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_P0SOCVR0"   /* ID String Type / Length Code     */
+		.db "TEMP_P0SOCVR0"
+		
+
+		/* SDR Record Header */
+		.dw 0x45                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_P0V11VR0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x6a               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x1c                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_P0V11VR0"   /* ID String Type / Length Code     */
+		.db "TEMP_P0V11VR0"
+		
+
+		/* SDR Record Header */
+		.dw 0x46                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_P0IOVR0"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x6b               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x1d                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_P0IOVR0"   /* ID String Type / Length Code     */
+		.db "TEMP_P0IOVR0"
+		
+
+		/* SDR Record Header */
+		.dw 0x47                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "PWR_P0SOCVR0POUT"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x6c               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x1e                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x8                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x0               /* Lower Threshold Reading Mask     */
+		.dw 0x0               /* Upper Threshold Reading Mask     */
+		.dw 0x0               /* Settable/Readable Threshold Mask */
+		.db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 6                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0x0  & 0x3F)   /* B, Accuracy  */
+		.db ((0x0 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x10          /* Nominal Reading                  */
+		.db 0xff              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x0           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "PWR_P0SOCVR0POUT"   /* ID String Type / Length Code     */
+		.db "PWR_P0SOCVR0POUT"
+		
+
+		/* SDR Record Header */
+		.dw 0x48                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "PWR_P0V11VR0POUT"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x6d               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x1f                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x8                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x0               /* Lower Threshold Reading Mask     */
+		.dw 0x0               /* Upper Threshold Reading Mask     */
+		.dw 0x0               /* Settable/Readable Threshold Mask */
+		.db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 6                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0x0  & 0x3F)   /* B, Accuracy  */
+		.db ((0x0 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x10          /* Nominal Reading                  */
+		.db 0xff              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x0           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "PWR_P0V11VR0POUT"   /* ID String Type / Length Code     */
+		.db "PWR_P0V11VR0POUT"
+		
+
+		/* SDR Record Header */
+		.dw 0x49                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "PWR_P0IOVR0POUT"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x6e               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x7                   /* Entity ID                        */
+		.db 0x20                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x8                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x0               /* Lower Threshold Reading Mask     */
+		.dw 0x0               /* Upper Threshold Reading Mask     */
+		.dw 0x0               /* Settable/Readable Threshold Mask */
+		.db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 6                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0x0  & 0x3F)   /* B, Accuracy  */
+		.db ((0x0 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x10          /* Nominal Reading                  */
+		.db 0xff              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x0           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "PWR_P0IOVR0POUT"   /* ID String Type / Length Code     */
+		.db "PWR_P0IOVR0POUT"
+		
+
+        /* SDR Record Header */
+        .dw 0x4a                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan0"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x70               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x1                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x1 & 0xFF         /* M                                */
+        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0xf              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan0"   /* ID String Type / Length Code     */
+        .db "TACH_Fan0"
+        
+
+        /* SDR Record Header */
+        .dw 0x4b                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan1"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x71               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x2                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x1 & 0xFF         /* M                                */
+        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0xf              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan1"   /* ID String Type / Length Code     */
+        .db "TACH_Fan1"
+        
+
+        /* SDR Record Header */
+        .dw 0x4c                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan3"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x73               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x4                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x1 & 0xFF         /* M                                */
+        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0xf              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan3"   /* ID String Type / Length Code     */
+        .db "TACH_Fan3"
+        
+
+        /* SDR Record Header */
+        .dw 0x4d                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan2"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x72               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x3                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x1 & 0xFF         /* M                                */
+        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0xf              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan2"   /* ID String Type / Length Code     */
+        .db "TACH_Fan2"
+        
+
+        /* SDR Record Header */
+        .dw 0x4e                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan5"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x75               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x6                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x1 & 0xFF         /* M                                */
+        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0xf              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan5"   /* ID String Type / Length Code     */
+        .db "TACH_Fan5"
+        
+
+        /* SDR Record Header */
+        .dw 0x4f                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan4"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x74               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x5                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x1 & 0xFF         /* M                                */
+        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0xf              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan4"   /* ID String Type / Length Code     */
+        .db "TACH_Fan4"
+        
+
+        /* SDR Record Header */
+        .dw 0x50                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan6"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x76               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x7                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x1 & 0xFF         /* M                                */
+        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0xf              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan6"   /* ID String Type / Length Code     */
+        .db "TACH_Fan6"
+        
+
+        /* SDR Record Header */
+        .dw 0x51                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan7"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x77               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x8                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x1 & 0xFF         /* M                                */
+        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0xf              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan7"   /* ID String Type / Length Code     */
+        .db "TACH_Fan7"
+        
+
+        /* SDR Record Header */
+            .dw 0x52               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x11                    /* Record Type                      */
+            .db 11 + sizeof "FanBoard_FRU" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20          /* Device access addres             */
+            .db 0x1            /* FRU Device IU                    */
+            .db 0x80           /* Channel number                   */
+            .db 0x0              /* Channel number                   */
+            /* RECORD BODY BYTES*/
+            .db 0x00                    /* Reserved                         */
+            .db 0xe          /* Device Type codes                */
+            .db 0x2 /* Device Type modifier codes       */
+            .db 0x1d               /* Entity ID                        */
+            .db 0x0             /* Entity Instance                  */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"FanBoard_FRU"/* ID String Type / Length Code     */
+            .db "FanBoard_FRU"
+        
+
+        /* SDR Record Header */
+            .dw 0x53               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x11                    /* Record Type                      */
+            .db 11 + sizeof "FP_FRU" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20          /* Device access addres             */
+            .db 0x2            /* FRU Device IU                    */
+            .db 0x80           /* Channel number                   */
+            .db 0x0              /* Channel number                   */
+            /* RECORD BODY BYTES*/
+            .db 0x00                    /* Reserved                         */
+            .db 0xe          /* Device Type codes                */
+            .db 0x2 /* Device Type modifier codes       */
+            .db 0xc               /* Entity ID                        */
+            .db 0x0             /* Entity Instance                  */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"FP_FRU"/* ID String Type / Length Code     */
+            .db "FP_FRU"
+        
+
+        /* SDR Record Header */
+            .dw 0x54               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x11                    /* Record Type                      */
+            .db 11 + sizeof "MP_FRU" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20          /* Device access addres             */
+            .db 0x3            /* FRU Device IU                    */
+            .db 0x80           /* Channel number                   */
+            .db 0x0              /* Channel number                   */
+            /* RECORD BODY BYTES*/
+            .db 0x00                    /* Reserved                         */
+            .db 0xe          /* Device Type codes                */
+            .db 0x2 /* Device Type modifier codes       */
+            .db 0xd               /* Entity ID                        */
+            .db 0x0             /* Entity Instance                  */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"MP_FRU"/* ID String Type / Length Code     */
+            .db "MP_FRU"
+        
+
+		/* SDR Record Header */
+		.dw 0x55                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_FP"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x79               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0xc                   /* Entity ID                        */
+		.db 0x1                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_FP"   /* ID String Type / Length Code     */
+		.db "TEMP_FP"
+		
+
+		/* SDR Record Header */
+		.dw 0x56                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_MP"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x7a               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0xd                   /* Entity ID                        */
+		.db 0x1                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_MP"   /* ID String Type / Length Code     */
+		.db "TEMP_MP"
+		
+
+		/* SDR Record Header */
+		.dw 0x57                   /* Record ID                        */
+		.db 0x51                  /* SDR Version                      */
+		.db 0x01                        /* Record Type                      */
+		.db 43 + sizeof "TEMP_FAN_BOARD"     /* Record Length = 43+ string length*/
+
+		/* Record Key Bytes*/
+		.db 0x20                   /* Sensor Owner ID                  */
+		.db 0x1                      /* Sensor Owner LUN                 */
+		.db 0x78               /* Sensor Number                    */
+
+		/* Record Body Bytes*/
+		.db 0x1d                   /* Entity ID                        */
+		.db 0x9                 /* Entity Instance                  */
+		.db 0x7f                 /* Sensor Initialization            */
+		.db 0x68                 /* Sensor Capabilities              */
+        .db 0x1                 /* Sensor Type                      */
+        .db 0x1                /* Event / Reading Type             */
+		.dw 0x200               /* Lower Threshold Reading Mask     */
+		.dw 0x2200               /* Upper Threshold Reading Mask     */
+		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+		.db 1                /* Sensor Units 2 - Base Unit       */
+		.db 0                   /* Sensor Units 3 - Modifier Unit   */
+		.db 0x0                   /* Linearization                    */
+		.db 0x1 & 0xFF         /* M                                */ 
+		.db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x0 & 0xFF         /* B                                */
+		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+		.db 0x7                      /* Analog Characteristics Flags     */
+		.db 0x32          /* Nominal Reading                  */
+		.db 0x64              /* Normal Maximum                   */
+		.db 0x0              /* Normal Minimum                   */
+		.db 0xff                  /* Sensor Maximum Reading           */
+		.db 0x0                  /* Sensor Minimum Reading           */
+		.db 0x0    /* Upper Non-Recoverable Threshold  */
+		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x0    /* Lower Non-Recoverable Threshold  */
+		.db 0x0           /* Lower Critical Threshold         */
+		.db 0x0       /* Lower Non-Critical Threshold     */
+		.db 0x0     /* Positive - threshold Hysteresis value*/
+		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                         /* Reserved                         */
+		.db 0x0                      /* OEM                              */
+		.db 0xc0 + sizeof "TEMP_FAN_BOARD"   /* ID String Type / Length Code     */
+		.db "TEMP_FAN_BOARD"
+		

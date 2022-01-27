@@ -130,7 +130,7 @@ IPMI_INTInfo_T m_IntInfo [] =
 
     { IRQhndlr_RST_RSMRST_BMC_N, IO_RST_RSMRST_BMC_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
     { IRQhndlr_PLTRST_BMC_IN_N, IO_PLTRST_BMC_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    
+
     { IRQhndlr_EC_BMC_AP1_RESET_N, IO_EC_BMC_AP1_RESET_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
     { IRQhndlr_EC_BMC_FATAL_ERROR_N, IO_EC_BMC_FATAL_ERROR_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
     { IRQhndlr_FM_CEC_BIOS_AUTH_COMP, IO_FM_CEC_BIOS_AUTH_COMP, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
@@ -146,7 +146,7 @@ IPMI_INTInfo_T m_IntInfo [] =
 
     { IRQhndlr_PMBusALERT_N, IO_PSU_SMB_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
     { IRQhndlr_SMBUS_ALERT, IO_P0_SMBUS_ALERT, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-
+    
 };
 
 int m_IntInfoCount = (sizeof(m_IntInfo)/sizeof(m_IntInfo[0]));
@@ -375,7 +375,7 @@ void IRQhndlr_PWRGD_SYS_PWROK(IPMI_INTInfo_T *IntInfo)
 
 	g_Is_DCPowerOn = (IntInfo->reading_on_assertion & 0x01);
 	msg.msgType = HyvePlatformIRQMsgQ_SysPwrGood;
-	msg.msgData = HYVEPLATFORM_SYS_PWRGOOD;
+	msg.msgData = HYVEPLATFORM_IS_SYS_PWRGOOD;
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
 		printf("%s: Error in posting IRQ signal(%u)\n", __func__, IntInfo->reading_on_assertion);
 	}
@@ -394,7 +394,7 @@ void IRQhndlr_PWRGD_CPU_PWROK(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
 
-	g_Is_PSUPwrGood = (IntInfo->reading_on_assertion & 0x01);
+	g_Is_CPUPwrGood = (IntInfo->reading_on_assertion & 0x01);
 }
 
 void IRQhndlr_CPU_THERMAL_TRIP_N(IPMI_INTInfo_T *IntInfo)
@@ -485,8 +485,6 @@ void IRQhndlr_SPD_HOST_CTRL_L(IPMI_INTInfo_T *IntInfo)
 	// Low: to inform the BMC the owner-ship of DIMMs is CPU
 	g_Is_DIMM_Ready = (IntInfo->reading_on_assertion & 0x01);
 }
-
-
 
 void IRQhndlr_EC_BMC_AP1_RESET_N(IPMI_INTInfo_T *IntInfo)
 {

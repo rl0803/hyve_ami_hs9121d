@@ -46,4 +46,6 @@ extern int HyvePlatform_AfterBIOSFlash(INT8U updateRes);
 #define HYVEPLATFORM_AFTER_BIOSFLASH								HyvePlatform_AfterBIOSFlash
 
 
+#define HYVEPLATFORM_AFTERCREATINGTASKS								HyvePlatform_TaskInit
+
 #endif
