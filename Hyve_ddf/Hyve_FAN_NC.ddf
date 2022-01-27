@@ -8,14 +8,20 @@
 	<init>
 	{
 		UN_USED(phal);
+		$(ID_STR)_retry_MIN_Threshold = $(NOMINAL_MIN);
 		return 0;
 	}
 	</init>
 
+	<write>
+	{
+		UN_USED(phal);
+		return 0;
+	}    
+	</write>
 
 	<define>    
 	<![CDATA[
-
 	static INT8U $(ID_STR)_previous_value = $(NOMINAL_READING);
 	static INT8U $(ID_STR)_retry_MIN_Threshold = $(NOMINAL_MIN);
 	static INT8U $(ID_STR)_retry = 0;
@@ -34,27 +40,22 @@
 	</define>   
 
 
-	<!-- Read Fan reading -->
+	<!-- Extended Fan sensor reading -->
 	<read>
 	{
-		
-		//$(TACH).read (phal );
-		if($(ID_STR)_retry_MIN_Threshold  >= (*phal->pbyte))
-		{
-			if($(RETRY_COUNT) > $(ID_STR)_retry )
-			{
+		HyveMonitor_Get_FanTach($(FAN_NUMBER), $(SENSOR_NUM), $(SENSOR_LUN), phal);
+
+		if ($(ID_STR)_retry_MIN_Threshold >= (*phal->pbyte)) {
+			if ($(RETRY_COUNT) > $(ID_STR)_retry) {
 				*phal->pbyte = $(ID_STR)_previous_value;
 				++$(ID_STR)_retry;
 			}
-		}
-		else
-		{
+		} else {
 			$(ID_STR)_previous_value = *phal->pbyte;
 			$(ID_STR)_retry = 0;
-		}        
+		}
 		return 0;
-		
-	}    
+	}
 	</read>
 
 	<!-- Fan sensor SDR record -->
@@ -328,6 +329,14 @@
 		<default>0</default>
 	</config>
 	<config>
+        <var>SENSOR_LUN</var>
+        <name>Sensor Owner LUN</name>
+        <desc>Sensor Owner LUN</desc>
+        <type>option_list</type>
+        <default>0x00</default>
+        <option>0x00,0x01</option>
+    </config>
+	<config>
 		<var>ID_STR</var>
 		<name>Sensor Name</name>
 		<desc>Set the name of this device</desc>
@@ -485,4 +494,11 @@
 		<type>byte</type>
 		<default>3</default>
 	</config>
+    <config>
+        <var>FAN_NUMBER</var>
+        <name>Fan Number</name>
+        <desc>Index Of Fan</desc>
+        <type>byte</type>
+        <default>0x0</default>
+    </config>
 </device>
