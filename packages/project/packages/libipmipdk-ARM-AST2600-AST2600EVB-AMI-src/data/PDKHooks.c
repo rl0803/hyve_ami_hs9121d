@@ -1702,33 +1702,42 @@ void PDK_ProcessOEMRecord(INT8U* OEMRec, int BMCInst)
 
 void PDK_AfterSDRInit(INT8U BMCInst)
 {
-
-    /* How to Access All SDR Records? */
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
-    }
+	/* Test Code: for dynamic sensor mechanism */
 #if 0
-    int i;
+    extern  _FAR_ INT16U  SDR_DeleteSDR (INT16U ReservationID, INT16U RecID,int BMCInst);
+
     _FAR_ BMCInfo_t* pBMCInfo = &g_BMCInfo[BMCInst];
-    _FAR_ SDRRecHdr_T*      pSDRRecord;
-    pSDRRecord = SDR_GetFirstSDRRec (BMCInst);
-    for (i=0; i < pBMCInfo->SDRConfig.SDRRAM->NumRecords && pSDRRecord != NULL; i++)
-    {
-        printf ("SDR TYPE : %x\n", pSDRRecord->Type);
-        switch (pSDRRecord->Type)
-        {
-        case FULL_SDR_REC:
-            break;
-        case COMPACT_SDR_REC:
-            break;
-        default:
-            break;
+	_FAR_ SDRRecHdr_T *pSDRRecHdr = SDR_GetFirstSDRRec(BMCInst);
+
+	printf ("[Alan] %s \n",__func__);
+
+	while (pSDRRecHdr) {
+		if (FULL_SDR_REC == pSDRRecHdr->Type) {
+			_FAR_ FullSensorRec_T *pFullRec = (_FAR_ FullSensorRec_T*)pSDRRecHdr;
+			// Check the OwnerID
+			if (pFullRec->OwnerID == pBMCInfo->IpmiConfig.BMCSlaveAddr) {
+				// Find the Temp sensor
+				if (IPMI_SENSOR_TEMP_TYPE == pFullRec->SensorType) {
+					// Test remove a SDR rec
+					if (HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MP) == (HYVE_LUN_NUM(pFullRec->OwnerLUN, pFullRec->SensorNum))) {
+						int LockRet = -1;
+					    OS_THREAD_MUTEX_ACQUIRE_LOCK(&pBMCInfo->SDRConfig.SDRMutex, LockRet);
+					    if (LockRet < 0) { continue; }
+
+					    pBMCInfo->SDRConfig.ReservationID = 0x01;
+					    if(INVALID_RECORD_ID == SDR_DeleteSDR(pBMCInfo->SDRConfig.ReservationID, pSDRRecHdr->ID, BMCInst)) {
+					    	printf ("[Alan] %s Unable to delete SDR ID 0x%x  SDRError: 0x%x\n",
+					    			__func__, pSDRRecHdr->ID, pBMCInfo->SDRConfig.SDRError);
         }
-        pSDRRecord = SDR_GetNextSDRRec (pSDRRecord,BMCInst);
+					    pBMCInfo->SDRConfig.ReservationID = 0x00;
+					    OS_THREAD_MUTEX_RELEASE(&pBMCInfo->SDRConfig.SDRMutex);
     }
+				}
+			}
+		}
+		pSDRRecHdr = SDR_GetNextSDRRec(pSDRRecHdr, BMCInst);
+	} // end of while
 #endif
-    return;
 }
 
 

@@ -66,7 +66,7 @@ I2C-13: FP(front panel), MP(Middle panel), Hyve debug card and CPLD
 I2C-14: CPLD
 I2C-15: ROT
 
-/* I3C Bus, 0 based, 8-bit address
+I3C Bus, 0 based, 8-bit address
 I3C-0: DIMM A0 ~ F0
 I3C-1: DIMM G0 ~ L0
 */

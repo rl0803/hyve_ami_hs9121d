@@ -16,7 +16,8 @@
 #include "EINTR_wrappers.h"
 #include "flashlib.h"
 #include "PDKHW.h"
-
+#include "SensorAPI.h"
+#include "SDRFunc.h"
 
 #include "HyveCommon.h"
 
@@ -37,6 +38,45 @@ typedef struct {
 	INT8U	retryCount;
 	INT16U	reading;
 } HYVE_PACKED HyveSensorReadArrt_T;
+
+typedef enum {
+	SensorIndex_3V3Bat = 0,
+	SensorIndex_TEMP_MB_1,
+	SensorIndex_TEMP_MB_2,
+	SensorIndex_TEMP_MB_3_0,
+	SensorIndex_TEMP_MB_3_1,
+	SensorIndex_TEMP_MB_3_2,
+	SensorIndex_TEMP_MB_3_3,
+	SensorIndex_TEMP_MB_3_4,
+	SensorIndex_TEMP_MB_3_5,
+	SensorIndex_TEMP_MB_3_6,
+	SensorIndex_TEMP_MB_3_7,
+	SensorIndex_TEMP_MB_3_8,
+	SensorIndex_TEMP_CPU0,
+	SensorIndex_PWR_CPU0,
+	SensorIndex_TEMP_DIMMA0,
+	SensorIndex_TEMP_DIMMB0,
+	SensorIndex_TEMP_DIMMC0,
+	SensorIndex_TEMP_DIMMD0,	
+	SensorIndex_TEMP_DIMME0,
+	SensorIndex_TEMP_DIMMF0,
+	SensorIndex_TEMP_DIMMG0,
+	SensorIndex_TEMP_DIMMH0,		
+	SensorIndex_TEMP_DIMMI0,
+	SensorIndex_TEMP_DIMMJ0,
+	SensorIndex_TEMP_DIMMK0,
+	SensorIndex_TEMP_DIMML0,
+	SensorIndex_TEMP_P0SOCVR0,
+	SensorIndex_TTEMP_P0V11VR0,
+	SensorIndex_TEMP_P0IOVR0,
+	SensorIndex_PWR_P0SOCVR0POUT,
+	SensorIndex_PWR_P0V11VR0POUT,
+	SensorIndex_PWR_P0IOVR0POUT,
+	SensorIndex_TEMP_FAN_BOARD,
+	SensorIndex_TEMP_FP,
+	SensorIndex_TEMP_MP,
+	SensorReadArrtIndex_MAX
+} HyvePlatformSensorReadArrtIndex;
 
 static const INT16U g_sensorIndexTable[SensorReadArrtIndex_MAX] = {
 		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_VOLT_BATP3V),
@@ -94,13 +134,13 @@ static INT32U g_HostPwrOnCount = 0;
  *
  * @return    The pointer of HyvePlatformTMP75Sensor_T
  *-----------------------------------------------------------------*/
-HyvePlatformTMP75Sensor_T* HyvePlatform_Get_ExtBoardTMP75Sensors(INT8U* pCount)
+static HyvePlatformTMP75Sensor_T* HyvePlatform_Get_ExtBoardTMP75Sensors(INT8U* pCount)
 {
-	static HyvePlatformTMP75Sensor_T TMP75Sensors = {
+	static HyvePlatformTMP75Sensor_T TMP75Sensors[] = {
 			// sensorIndex               enable  is_standby   i2cBus                 i2cAddr
-			{ SensorIndex_TEMP_FAN_BOARD, TRUE, TRUE, HYFEPLATFORM_SMBUS_FAN_BOARD, HYFEPLATFORM_ADDR_FAN_BOARD_TEMP },
-			{ SensorIndex_TEMP_FP, TRUE, TRUE, HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD, HYFEPLATFORM_ADDR_FP_TEMP},
-			{ SensorIndex_TEMP_MP, TRUE, TRUE, HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD, HYFEPLATFORM_ADDR_MP_TEMP},
+			{ SensorIndex_TEMP_FAN_BOARD,	FALSE,	TRUE, 		HYFEPLATFORM_SMBUS_FAN_BOARD,			HYFEPLATFORM_ADDR_FAN_BOARD_TEMP },
+			{ SensorIndex_TEMP_FP,			FALSE,	TRUE,		HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD,	HYFEPLATFORM_ADDR_FP_TEMP},
+			{ SensorIndex_TEMP_MP,			FALSE,	TRUE,		HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD,	HYFEPLATFORM_ADDR_MP_TEMP},
 	};
 	*pCount = HYVE_ARRAYSIZE(TMP75Sensors);
 	return TMP75Sensors;
@@ -389,8 +429,8 @@ static void HyvePlatform_Sensor_VR(int BMCInst)
 				}
 				dataBuff = 0;
 				// Read VR Power Out
-				if ((ret = HyveExt_Send_PMBus_CMD(HYFEPLATFORM_SMBUS_CPU_VR, VRAddrs[index], CMD_PSU_READ_POUT,
-											HYVE_PSU_CMD_R, SENSOR_READ_RETRY_COUNT, (INT8U*)dataBuff)) < 0) {
+				if (HyveExt_Send_PMBus_CMD(HYFEPLATFORM_SMBUS_CPU_VR, VRAddrs[index], CMD_PSU_READ_POUT,
+											HYVE_PSU_CMD_R, SENSOR_READ_RETRY_COUNT, (INT8U*)dataBuff) < 0) {
 					if (g_SensorReadArrt[sensorIndex2].retryCount > SENSOR_READ_RETRY_COUNT) {
 						g_SensorReadArrt[sensorIndex2].status  = HAL_ERR_READ;
 					} else {
@@ -447,6 +487,42 @@ static void HyvePlatform_Sensor_ExtBoard_Temp()
 	}
 }
 
+static void HyvePlatform_SensorInit(int BMCInst)
+{
+	_FAR_ BMCInfo_t *pBMCInfo = &g_BMCInfo[BMCInst];
+	_FAR_ SDRRecHdr_T *pSDRRecHdr = NULL;
+	INT8U sensorCount_TMP75 = 0, i = 0;
+	HyvePlatformTMP75Sensor_T *ExtBdTMP75Sensors = HyvePlatform_Get_ExtBoardTMP75Sensors(&sensorCount_TMP75);
+
+	pSDRRecHdr = SDR_GetFirstSDRRec(BMCInst);
+
+	while (pSDRRecHdr) {
+		if (FULL_SDR_REC == pSDRRecHdr->Type) {
+			_FAR_ FullSensorRec_T *pFullRec = (_FAR_ FullSensorRec_T*)pSDRRecHdr;
+			// Check the OwnerID
+			if (pFullRec->OwnerID == pBMCInfo->IpmiConfig.BMCSlaveAddr) {
+				// Find the Temp sensor
+				if (IPMI_SENSOR_TEMP_TYPE == pFullRec->SensorType) {
+					// Check if the platform SDR has the supported sensors
+					if (ExtBdTMP75Sensors) {
+						for (i = 0; i < sensorCount_TMP75; i++) {
+							if ((!ExtBdTMP75Sensors[i].enable) &&
+									(HYVE_LUN_NUM(pFullRec->OwnerLUN, pFullRec->SensorNum) ==
+										g_sensorIndexTable[ExtBdTMP75Sensors[i].sensorIndex])) {
+								ExtBdTMP75Sensors[i].enable = TRUE;
+								printf("[%s] Find the %s sensor (0x%x), LUN: 0x%x  \n",
+										__func__, pFullRec->IDStr, pFullRec->SensorNum, pFullRec->OwnerLUN);
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+		pSDRRecHdr = SDR_GetNextSDRRec(pSDRRecHdr, BMCInst);
+	} // end of while
+}
+
 /*-----------------------------------------------------------------
  * @fn HyvePlatform_SensorMonitor
  * @brief	The platform sensor monitor.
@@ -468,6 +544,8 @@ void* HyvePlatform_SensorMonitor(void* pArg)
 	for (i = 0; i < HYVE_ARRAYSIZE(g_SensorReadArrt); i++) {
 		g_SensorReadArrt[i].status = HAL_ERR_NONE;
 	}
+
+	HyvePlatform_SensorInit(BMCInst);
 
 	while (1) {
 		if (IsCardInFlashMode()) {
@@ -506,7 +584,6 @@ void* HyvePlatform_SensorMonitor(void* pArg)
 void* HyvePlatform_SensorMonitor2(void* pArg)
 {
 	int BMCInst = (int)pArg;
-	INT16U i = 0;
 	
 	if (0) { BMCInst = BMCInst; }
 	

@@ -147,16 +147,6 @@ static int HyvePlatform_InitFRU()
 	return 0;
 }
 
-static int HyvePlatform_InitSKUSensorSupport()
-{
-//	INT8U sensorCount = 0, i = 0;
-//	HyvePlatformTMP75Sensor_T *ExtBdTMP75Sensors = HyvePlatform_Get_ExtBoardTMP75Sensors(&sensorCount);
-
-//	if (PLATFORM_HS9121Dxxx == HYVEPLATFORM_SKU)
-
-	return 0;
-}
-
 /*-----------------------------------------------------------------
  * @fn HyvePlatform_Init
  * @brief	To do platform specific init procedure,
@@ -178,7 +168,6 @@ int HyvePlatform_Init()
 	}
 	// Recognize this platform
 	HyvePlatform_InitPlatformID();
-	HyvePlatform_InitSKUSensorSupport();
 	
 	
 	
