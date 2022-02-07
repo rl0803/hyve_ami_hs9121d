@@ -1358,10 +1358,10 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 	
-	static INT8U TEMP_MB_1_previous_value = 0x32;
-	static INT8U TEMP_MB_1_retry_MAX_Threshold;
-	static INT8U TEMP_MB_1_retry_MIN_Threshold;
-	static INT8U TEMP_MB_1_retry = 0;
+	static INT8U TEMP_Inlet_previous_value = 0x32;
+	static INT8U TEMP_Inlet_retry_MAX_Threshold;
+	static INT8U TEMP_Inlet_retry_MIN_Threshold;
+	static INT8U TEMP_Inlet_retry = 0;
 
 	/* Temp sensor Properties */
 
@@ -1377,10 +1377,10 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	          
 	
 	
-	static INT8U TEMP_MB_2_previous_value = 0x32;
-	static INT8U TEMP_MB_2_retry_MAX_Threshold;
-	static INT8U TEMP_MB_2_retry_MIN_Threshold;
-	static INT8U TEMP_MB_2_retry = 0;
+	static INT8U TEMP_Outlet_previous_value = 0x32;
+	static INT8U TEMP_Outlet_retry_MAX_Threshold;
+	static INT8U TEMP_Outlet_retry_MIN_Threshold;
+	static INT8U TEMP_Outlet_retry = 0;
 
 	/* Temp sensor Properties */
 
@@ -6998,7 +6998,7 @@ dev_hyve_voltage_0x4eh_1_32_write_device (hal_t *phal) /* @source: File - Hyve_V
 
 
 /*-------------------------------------------------------------*/
-/* Functions for device Hyve_NC [TEMP_MB_1: dev_hyve_nc_0x50h_1_32] */
+/* Functions for device Hyve_NC [TEMP_Inlet: dev_hyve_nc_0x50h_1_32] */
 /*-------------------------------------------------------------*/
 
 /**
@@ -7026,8 +7026,8 @@ int
 dev_hyve_nc_0x50h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		TEMP_MB_1_retry_MAX_Threshold = 0x64;
-		TEMP_MB_1_retry_MIN_Threshold = 0x0;
+		TEMP_Inlet_retry_MAX_Threshold = 0x64;
+		TEMP_Inlet_retry_MIN_Threshold = 0x0;
 		return 0;
 	}    
 	
@@ -7069,16 +7069,16 @@ dev_hyve_nc_0x50h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_NC.ddf 
 	{
 		HyveMonitor_GetReadingValBySensorNum(0x50, 0x1, phal);
 
-		if (((*phal->pbyte) >= TEMP_MB_1_retry_MAX_Threshold) ||
-			(TEMP_MB_1_retry_MIN_Threshold >= (*phal->pbyte)))
+		if (((*phal->pbyte) >= TEMP_Inlet_retry_MAX_Threshold) ||
+			(TEMP_Inlet_retry_MIN_Threshold >= (*phal->pbyte)))
 		{
-			if (3 > TEMP_MB_1_retry) {
-				*phal->pbyte = TEMP_MB_1_previous_value;
-				++TEMP_MB_1_retry;
+			if (3 > TEMP_Inlet_retry) {
+				*phal->pbyte = TEMP_Inlet_previous_value;
+				++TEMP_Inlet_retry;
 			}
 		} else {
-			TEMP_MB_1_previous_value = *phal->pbyte;
-			TEMP_MB_1_retry = 0;
+			TEMP_Inlet_previous_value = *phal->pbyte;
+			TEMP_Inlet_retry = 0;
 		}
 		return 0;
 	}
@@ -7100,7 +7100,7 @@ dev_hyve_nc_0x50h_1_32_write_device (hal_t *phal) /* @source: File - Hyve_NC.ddf
 
 
 /*-------------------------------------------------------------*/
-/* Functions for device Hyve_NC [TEMP_MB_2: dev_hyve_nc_0x51h_1_32] */
+/* Functions for device Hyve_NC [TEMP_Outlet: dev_hyve_nc_0x51h_1_32] */
 /*-------------------------------------------------------------*/
 
 /**
@@ -7128,8 +7128,8 @@ int
 dev_hyve_nc_0x51h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		TEMP_MB_2_retry_MAX_Threshold = 0x64;
-		TEMP_MB_2_retry_MIN_Threshold = 0x0;
+		TEMP_Outlet_retry_MAX_Threshold = 0x64;
+		TEMP_Outlet_retry_MIN_Threshold = 0x0;
 		return 0;
 	}    
 	
@@ -7171,16 +7171,16 @@ dev_hyve_nc_0x51h_1_32_read_device (hal_t *phal) /* @source: File - Hyve_NC.ddf 
 	{
 		HyveMonitor_GetReadingValBySensorNum(0x51, 0x1, phal);
 
-		if (((*phal->pbyte) >= TEMP_MB_2_retry_MAX_Threshold) ||
-			(TEMP_MB_2_retry_MIN_Threshold >= (*phal->pbyte)))
+		if (((*phal->pbyte) >= TEMP_Outlet_retry_MAX_Threshold) ||
+			(TEMP_Outlet_retry_MIN_Threshold >= (*phal->pbyte)))
 		{
-			if (3 > TEMP_MB_2_retry) {
-				*phal->pbyte = TEMP_MB_2_previous_value;
-				++TEMP_MB_2_retry;
+			if (3 > TEMP_Outlet_retry) {
+				*phal->pbyte = TEMP_Outlet_previous_value;
+				++TEMP_Outlet_retry;
 			}
 		} else {
-			TEMP_MB_2_previous_value = *phal->pbyte;
-			TEMP_MB_2_retry = 0;
+			TEMP_Outlet_previous_value = *phal->pbyte;
+			TEMP_Outlet_retry = 0;
 		}
 		return 0;
 	}

@@ -1852,7 +1852,7 @@
 		.dw 0x2b                   /* Record ID                        */
 		.db 0x51                  /* SDR Version                      */
 		.db 0x01                        /* Record Type                      */
-		.db 43 + sizeof "TEMP_MB_1"     /* Record Length = 43+ string length*/
+		.db 43 + sizeof "TEMP_Inlet"     /* Record Length = 43+ string length*/
 
 		/* Record Key Bytes*/
 		.db 0x20                   /* Sensor Owner ID                  */
@@ -1896,15 +1896,15 @@
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
-		.db 0xc0 + sizeof "TEMP_MB_1"   /* ID String Type / Length Code     */
-		.db "TEMP_MB_1"
+		.db 0xc0 + sizeof "TEMP_Inlet"   /* ID String Type / Length Code     */
+		.db "TEMP_Inlet"
 		
 
 		/* SDR Record Header */
 		.dw 0x2c                   /* Record ID                        */
 		.db 0x51                  /* SDR Version                      */
 		.db 0x01                        /* Record Type                      */
-		.db 43 + sizeof "TEMP_MB_2"     /* Record Length = 43+ string length*/
+		.db 43 + sizeof "TEMP_Outlet"     /* Record Length = 43+ string length*/
 
 		/* Record Key Bytes*/
 		.db 0x20                   /* Sensor Owner ID                  */
@@ -1948,8 +1948,8 @@
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
-		.db 0xc0 + sizeof "TEMP_MB_2"   /* ID String Type / Length Code     */
-		.db "TEMP_MB_2"
+		.db 0xc0 + sizeof "TEMP_Outlet"   /* ID String Type / Length Code     */
+		.db "TEMP_Outlet"
 		
 
 		/* SDR Record Header */
