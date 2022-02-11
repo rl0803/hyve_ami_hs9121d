@@ -43,7 +43,7 @@
 	<!-- Extended Fan sensor reading -->
 	<read>
 	{
-		HyveMonitor_Get_FanTach($(FAN_NUMBER), $(SENSOR_NUM), $(SENSOR_LUN), phal);
+		HyveMonitor_Get_FanTach($(FAN_NUMBER), $(TACH_INDEX), $(SENSOR_NUM), $(SENSOR_LUN), phal);
 
 		if ($(ID_STR)_retry_MIN_Threshold >= (*phal->pbyte)) {
 			if ($(RETRY_COUNT) > $(ID_STR)_retry) {
@@ -500,5 +500,13 @@
         <desc>Index Of Fan</desc>
         <type>byte</type>
         <default>0x0</default>
+    </config>
+    <config>
+        <var>TACH_INDEX</var>
+        <name>Tach Index</name>
+        <desc>Tach Index Of Fan</desc>
+        <type>option_list</type>
+        <default>0x00</default>
+        <option>0x00,0x01</option>
     </config>
 </device>
