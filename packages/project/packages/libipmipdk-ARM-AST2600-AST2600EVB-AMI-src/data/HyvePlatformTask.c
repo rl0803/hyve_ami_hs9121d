@@ -372,27 +372,6 @@ void HyvePlatform_IRQDeferHandlerStart(int BMCInst)
 
 void HyvePlatform_FanCtrlTaskStart(int BMCInst)
 {
-	HYVE_KEYWORDS(ambSensors, "AMB", "Outlet");
-	HYVE_KEYWORDSLIST(listKW_amb,
-					HYVE_KEYWORDSLIST_PUT(ambSensors));
-
-	HYVE_KEYWORDS(curve0, "CPU");
-	HYVE_KEYWORDS(curve1, "DIMM");
-	HYVE_KEYWORDS(curve2, "OCP", "CARD");
-	HYVE_KEYWORDS(curve3, "NVMe", "SSD");
-	HYVE_KEYWORDSLIST(listKW_curves, 
-					HYVE_KEYWORDSLIST_PUT(curve0),
-					HYVE_KEYWORDSLIST_PUT(curve1),
-					HYVE_KEYWORDSLIST_PUT(curve2),
-					HYVE_KEYWORDSLIST_PUT(curve3));
-
-	if (HyveFSC_Init(BMCInst, listKW_amb, listKW_curves) < 0) {
-		if (HyveFSC_SetAllFanDuty(FULL_FANDUTY) < 0) {
-			printf("[%s]: Error in setting all fan full duty\n", __func__);
-		}
-	}
-	// Even if FSC_Init failed, we still can launch the FSC task
-	// to allow a user can control fan speed via IPMI OEM cmds
 	OS_CREATE_THREAD(HyveFSC_FanCtrlTask, (void*)BMCInst, NULL);
 }
 

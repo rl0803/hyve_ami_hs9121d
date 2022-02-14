@@ -1702,6 +1702,7 @@ void PDK_ProcessOEMRecord(INT8U* OEMRec, int BMCInst)
 
 void PDK_AfterSDRInit(INT8U BMCInst)
 {
+	if (0) { BMCInst = BMCInst;}
 	/* Test Code: for dynamic sensor mechanism */
 #if 0
     extern  _FAR_ INT16U  SDR_DeleteSDR (INT16U ReservationID, INT16U RecID,int BMCInst);

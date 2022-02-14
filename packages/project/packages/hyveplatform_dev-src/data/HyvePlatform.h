@@ -60,8 +60,8 @@ I2C-7: MB FRU, Temp sensor
 I2C-8: CPU VR
 I2C-9: OCP, Riser
 
-I2C-11: Fan HW monitor, tach??
-I2C-12: Fan board
+I2C-11: Fan HW monitor, on-board Fan(4 fans) control
+I2C-12: Fan board, 3 fans, can support up to 8 fans
 I2C-13: FP(front panel), MP(Middle panel), Hyve debug card and CPLD
 I2C-14: CPLD
 I2C-15: ROT

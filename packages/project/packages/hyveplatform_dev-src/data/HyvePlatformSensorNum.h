@@ -115,29 +115,38 @@ About BUTTON, currently doesn't know how to define it
 #define SENSOR_NUM_PWR_P0IOVR0POUT								(0x6E) // CPU VDDIO VR // P0_VDD_VDDIO_RUN
 
 // Fan
-#define SENSOR_NUM_TACH_Fan0									(0x70)
-#define SENSOR_NUM_TACH_Fan1									(0x71)
-#define SENSOR_NUM_TACH_Fan2									(0x72)
-#define SENSOR_NUM_TACH_Fan3									(0x73)
-#define SENSOR_NUM_TACH_Fan4									(0x74)
-#define SENSOR_NUM_TACH_Fan5									(0x75)
-#define SENSOR_NUM_TACH_Fan6									(0x76)
-#define SENSOR_NUM_TACH_Fan7									(0x77)
+#define SENSOR_NUM_TACH_Fan0_0									(0x70)
+#define SENSOR_NUM_TACH_Fan0_1									(0x71)
+#define SENSOR_NUM_TACH_Fan1_0									(0x72)
+#define SENSOR_NUM_TACH_Fan1_1									(0x73)
+#define SENSOR_NUM_TACH_Fan2_0									(0x74)
+#define SENSOR_NUM_TACH_Fan2_1									(0x75)
+#define SENSOR_NUM_TACH_Fan3_0									(0x76)
+#define SENSOR_NUM_TACH_Fan3_1									(0x77)
 
-#define SENSOR_NUM_TEMP_FAN_BOARD								(0x78)
+#define SENSOR_NUM_TACH_Fan4_0									(0x78)
+#define SENSOR_NUM_TACH_Fan4_1									(0x79)
+#define SENSOR_NUM_TACH_Fan5_0									(0x7A)
+#define SENSOR_NUM_TACH_Fan5_1									(0x7B)
+#define SENSOR_NUM_TACH_Fan6_0									(0x7C)
+#define SENSOR_NUM_TACH_Fan6_1									(0x7D)
+// Becasue the extended fan board can support up to 8 dual-fans(16 tach)
+// Reserved sensor number 0x7E ~ 0x87
+
+#define SENSOR_NUM_TEMP_FAN_BOARD								(0x88)
 
 // Front panel
-#define SENSOR_NUM_TEMP_FP										(0x79)
+#define SENSOR_NUM_TEMP_FP										(0x89)
 
 // Middle panel
-#define SENSOR_NUM_TEMP_MP										(0x7A)
+#define SENSOR_NUM_TEMP_MP										(0x8A)
 
 // OCP NIC card
-#define SENSOR_NUM_TEMP_OCP0									(0x7B)
-#define SENSOR_NUM_TEMP_OCP1									(0x7C)
+#define SENSOR_NUM_TEMP_OCP0									(0x8B)
+#define SENSOR_NUM_TEMP_OCP1									(0x8C)
 
 // Riser card
-#define SENSOR_NUM_TEMP_RISER0									(0x7D)
+#define SENSOR_NUM_TEMP_RISER0									(0x8D)
 
 // NVMe
 

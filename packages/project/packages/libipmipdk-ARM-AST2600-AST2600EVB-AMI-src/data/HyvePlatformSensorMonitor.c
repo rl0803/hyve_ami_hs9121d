@@ -365,7 +365,7 @@ static void HyvePlatform_Sensor_DIMM(int BMCInst)
 			}
 			// Read DIMM temp
 			for (index = 0; index < HYVE_MAX_HOST_DIMM_NUM; index++) {
-				INT16U rData = 0;
+//				INT16U rData = 0;
 
 				if (busDIMMNum == index) {
 					// Change to another bus
