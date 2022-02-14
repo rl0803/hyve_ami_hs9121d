@@ -3464,7 +3464,7 @@
         .dw 0x4a                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "TACH_Fan0"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "TACH_Fan0_0"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3485,8 +3485,8 @@
         .db 18                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
         .db 0x0                   /* Linearization                    */
-        .db 0x1 & 0xFF         /* M                                */
-        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
         .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
@@ -3494,7 +3494,7 @@
         .db 0x0                      /* Analog Characteristics Flags     */
         .db 0x0          /* Nominal Reading                  */
         .db 0xff              /* Normal Maximum                   */
-        .db 0xf              /* Normal Minimum                   */
+        .db 0x0              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0    /* Upper Non-Recoverable Threshold  */
@@ -3508,20 +3508,72 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "TACH_Fan0"   /* ID String Type / Length Code     */
-        .db "TACH_Fan0"
+        .db 0xc0 + sizeof "TACH_Fan0_0"   /* ID String Type / Length Code     */
+        .db "TACH_Fan0_0"
         
 
         /* SDR Record Header */
         .dw 0x4b                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "TACH_Fan1"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "TACH_Fan0_1"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
         .db 0x1                      /* Sensor Owner LUN                 */
         .db 0x71               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x1                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan0_1"   /* ID String Type / Length Code     */
+        .db "TACH_Fan0_1"
+        
+
+        /* SDR Record Header */
+        .dw 0x4c                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan1_1"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x73               /* Sensor Number                    */
 
         /* Record Body Bytes*/
         .db 0x1d                   /* Entity ID                        */
@@ -3537,8 +3589,8 @@
         .db 18                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
         .db 0x0                   /* Linearization                    */
-        .db 0x1 & 0xFF         /* M                                */
-        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
         .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
@@ -3546,7 +3598,7 @@
         .db 0x0                      /* Analog Characteristics Flags     */
         .db 0x0          /* Nominal Reading                  */
         .db 0xff              /* Normal Maximum                   */
-        .db 0xf              /* Normal Minimum                   */
+        .db 0x0              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0    /* Upper Non-Recoverable Threshold  */
@@ -3560,24 +3612,24 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "TACH_Fan1"   /* ID String Type / Length Code     */
-        .db "TACH_Fan1"
+        .db 0xc0 + sizeof "TACH_Fan1_1"   /* ID String Type / Length Code     */
+        .db "TACH_Fan1_1"
         
 
         /* SDR Record Header */
-        .dw 0x4c                   /* Record ID                        */
+        .dw 0x4d                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "TACH_Fan3"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "TACH_Fan1_0"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
         .db 0x1                      /* Sensor Owner LUN                 */
-        .db 0x73               /* Sensor Number                    */
+        .db 0x72               /* Sensor Number                    */
 
         /* Record Body Bytes*/
         .db 0x1d                   /* Entity ID                        */
-        .db 0x4                 /* Entity Instance                  */
+        .db 0x2                 /* Entity Instance                  */
         .db 0x7f                 /* Sensor Initialization            */
         .db 0x68                 /* Sensor Capabilities              */
         .db 0x04                        /* Sensor Type                      */
@@ -3589,8 +3641,8 @@
         .db 18                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
         .db 0x0                   /* Linearization                    */
-        .db 0x1 & 0xFF         /* M                                */
-        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
         .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
@@ -3598,7 +3650,7 @@
         .db 0x0                      /* Analog Characteristics Flags     */
         .db 0x0          /* Nominal Reading                  */
         .db 0xff              /* Normal Maximum                   */
-        .db 0xf              /* Normal Minimum                   */
+        .db 0x0              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0    /* Upper Non-Recoverable Threshold  */
@@ -3612,20 +3664,20 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "TACH_Fan3"   /* ID String Type / Length Code     */
-        .db "TACH_Fan3"
+        .db 0xc0 + sizeof "TACH_Fan1_0"   /* ID String Type / Length Code     */
+        .db "TACH_Fan1_0"
         
 
         /* SDR Record Header */
-        .dw 0x4d                   /* Record ID                        */
+        .dw 0x4e                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "TACH_Fan2"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "TACH_Fan2_1"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
         .db 0x1                      /* Sensor Owner LUN                 */
-        .db 0x72               /* Sensor Number                    */
+        .db 0x75               /* Sensor Number                    */
 
         /* Record Body Bytes*/
         .db 0x1d                   /* Entity ID                        */
@@ -3641,8 +3693,8 @@
         .db 18                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
         .db 0x0                   /* Linearization                    */
-        .db 0x1 & 0xFF         /* M                                */
-        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
         .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
@@ -3650,7 +3702,7 @@
         .db 0x0                      /* Analog Characteristics Flags     */
         .db 0x0          /* Nominal Reading                  */
         .db 0xff              /* Normal Maximum                   */
-        .db 0xf              /* Normal Minimum                   */
+        .db 0x0              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0    /* Upper Non-Recoverable Threshold  */
@@ -3664,67 +3716,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "TACH_Fan2"   /* ID String Type / Length Code     */
-        .db "TACH_Fan2"
-        
-
-        /* SDR Record Header */
-        .dw 0x4e                   /* Record ID                        */
-        .db 0x51                  /* SDR Version                      */
-        .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "TACH_Fan5"     /* Record Length = 43+ string length*/
-
-        /* Record Key Bytes*/
-        .db 0x20                   /* Sensor Owner ID                  */
-        .db 0x1                      /* Sensor Owner LUN                 */
-        .db 0x75               /* Sensor Number                    */
-
-        /* Record Body Bytes*/
-        .db 0x1d                   /* Entity ID                        */
-        .db 0x6                 /* Entity Instance                  */
-        .db 0x7f                 /* Sensor Initialization            */
-        .db 0x68                 /* Sensor Capabilities              */
-        .db 0x04                        /* Sensor Type                      */
-        .db 0x01                        /* Event / Reading Type             */
-        .dw 0x2004               /* Lower Threshold Reading Mask     */
-        .dw 0x4               /* Upper Threshold Reading Mask     */
-        .dw 0x202               /* Settable/Readable Threshold Mask */
-        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
-        .db 18                /* Sensor Units 2 - Base Unit       */
-        .db 0                   /* Sensor Units 3 - Modifier Unit   */
-        .db 0x0                   /* Linearization                    */
-        .db 0x1 & 0xFF         /* M                                */
-        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
-        .db 0x0 & 0xFF         /* B                                */
-        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
-        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
-        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
-        .db 0x0                      /* Analog Characteristics Flags     */
-        .db 0x0          /* Nominal Reading                  */
-        .db 0xff              /* Normal Maximum                   */
-        .db 0xf              /* Normal Minimum                   */
-        .db 0xff                  /* Sensor Maximum Reading           */
-        .db 0x0                  /* Sensor Minimum Reading           */
-        .db 0    /* Upper Non-Recoverable Threshold  */
-        .db 0           /* Upper Critical Threshold         */
-        .db 0       /* Upper Non-Critical Threshold     */
-        .db 0    /* Lower Non-Recoverable Threshold  */
-        .db 0x5           /* Lower Critical Threshold         */
-        .db 0       /* Lower Non-Critical Threshold     */
-        .db 0x2      /* Positive - threshold Hysteresis value*/ 
-        .db 0x2      /* Negative - threshold Hysteresis value*/
-        .db 0x0                         /* Reserved                         */
-        .db 0x0                         /* Reserved                         */
-        .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "TACH_Fan5"   /* ID String Type / Length Code     */
-        .db "TACH_Fan5"
+        .db 0xc0 + sizeof "TACH_Fan2_1"   /* ID String Type / Length Code     */
+        .db "TACH_Fan2_1"
         
 
         /* SDR Record Header */
         .dw 0x4f                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "TACH_Fan4"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "TACH_Fan2_0"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3733,7 +3733,7 @@
 
         /* Record Body Bytes*/
         .db 0x1d                   /* Entity ID                        */
-        .db 0x5                 /* Entity Instance                  */
+        .db 0x3                 /* Entity Instance                  */
         .db 0x7f                 /* Sensor Initialization            */
         .db 0x68                 /* Sensor Capabilities              */
         .db 0x04                        /* Sensor Type                      */
@@ -3745,8 +3745,8 @@
         .db 18                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
         .db 0x0                   /* Linearization                    */
-        .db 0x1 & 0xFF         /* M                                */
-        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
         .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
@@ -3754,7 +3754,7 @@
         .db 0x0                      /* Analog Characteristics Flags     */
         .db 0x0          /* Nominal Reading                  */
         .db 0xff              /* Normal Maximum                   */
-        .db 0xf              /* Normal Minimum                   */
+        .db 0x0              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0    /* Upper Non-Recoverable Threshold  */
@@ -3768,15 +3768,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "TACH_Fan4"   /* ID String Type / Length Code     */
-        .db "TACH_Fan4"
+        .db 0xc0 + sizeof "TACH_Fan2_0"   /* ID String Type / Length Code     */
+        .db "TACH_Fan2_0"
         
 
         /* SDR Record Header */
         .dw 0x50                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "TACH_Fan6"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "TACH_Fan3_0"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3785,7 +3785,7 @@
 
         /* Record Body Bytes*/
         .db 0x1d                   /* Entity ID                        */
-        .db 0x7                 /* Entity Instance                  */
+        .db 0x4                 /* Entity Instance                  */
         .db 0x7f                 /* Sensor Initialization            */
         .db 0x68                 /* Sensor Capabilities              */
         .db 0x04                        /* Sensor Type                      */
@@ -3797,8 +3797,8 @@
         .db 18                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
         .db 0x0                   /* Linearization                    */
-        .db 0x1 & 0xFF         /* M                                */
-        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
         .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
@@ -3806,7 +3806,7 @@
         .db 0x0                      /* Analog Characteristics Flags     */
         .db 0x0          /* Nominal Reading                  */
         .db 0xff              /* Normal Maximum                   */
-        .db 0xf              /* Normal Minimum                   */
+        .db 0x0              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0    /* Upper Non-Recoverable Threshold  */
@@ -3820,15 +3820,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "TACH_Fan6"   /* ID String Type / Length Code     */
-        .db "TACH_Fan6"
+        .db 0xc0 + sizeof "TACH_Fan3_0"   /* ID String Type / Length Code     */
+        .db "TACH_Fan3_0"
         
 
         /* SDR Record Header */
         .dw 0x51                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "TACH_Fan7"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "TACH_Fan3_1"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3837,7 +3837,7 @@
 
         /* Record Body Bytes*/
         .db 0x1d                   /* Entity ID                        */
-        .db 0x8                 /* Entity Instance                  */
+        .db 0x4                 /* Entity Instance                  */
         .db 0x7f                 /* Sensor Initialization            */
         .db 0x68                 /* Sensor Capabilities              */
         .db 0x04                        /* Sensor Type                      */
@@ -3849,8 +3849,8 @@
         .db 18                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
         .db 0x0                   /* Linearization                    */
-        .db 0x1 & 0xFF         /* M                                */
-        .db ((0x1 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
         .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
@@ -3858,7 +3858,7 @@
         .db 0x0                      /* Analog Characteristics Flags     */
         .db 0x0          /* Nominal Reading                  */
         .db 0xff              /* Normal Maximum                   */
-        .db 0xf              /* Normal Minimum                   */
+        .db 0x0              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0    /* Upper Non-Recoverable Threshold  */
@@ -3872,8 +3872,8 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "TACH_Fan7"   /* ID String Type / Length Code     */
-        .db "TACH_Fan7"
+        .db 0xc0 + sizeof "TACH_Fan3_1"   /* ID String Type / Length Code     */
+        .db "TACH_Fan3_1"
         
 
         /* SDR Record Header */
@@ -3948,7 +3948,7 @@
 		/* Record Key Bytes*/
 		.db 0x20                   /* Sensor Owner ID                  */
 		.db 0x1                      /* Sensor Owner LUN                 */
-		.db 0x79               /* Sensor Number                    */
+		.db 0x89               /* Sensor Number                    */
 
 		/* Record Body Bytes*/
 		.db 0xc                   /* Entity ID                        */
@@ -4000,7 +4000,7 @@
 		/* Record Key Bytes*/
 		.db 0x20                   /* Sensor Owner ID                  */
 		.db 0x1                      /* Sensor Owner LUN                 */
-		.db 0x7a               /* Sensor Number                    */
+		.db 0x8a               /* Sensor Number                    */
 
 		/* Record Body Bytes*/
 		.db 0xd                   /* Entity ID                        */
@@ -4052,11 +4052,11 @@
 		/* Record Key Bytes*/
 		.db 0x20                   /* Sensor Owner ID                  */
 		.db 0x1                      /* Sensor Owner LUN                 */
-		.db 0x78               /* Sensor Number                    */
+		.db 0x88               /* Sensor Number                    */
 
 		/* Record Body Bytes*/
 		.db 0x1d                   /* Entity ID                        */
-		.db 0x9                 /* Entity Instance                  */
+		.db 0x8                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
         .db 0x1                 /* Sensor Type                      */
@@ -4094,3 +4094,315 @@
 		.db 0xc0 + sizeof "TEMP_FAN_BOARD"   /* ID String Type / Length Code     */
 		.db "TEMP_FAN_BOARD"
 		
+
+        /* SDR Record Header */
+        .dw 0x58                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan6_1"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x7d               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x7                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan6_1"   /* ID String Type / Length Code     */
+        .db "TACH_Fan6_1"
+        
+
+        /* SDR Record Header */
+        .dw 0x59                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan5_1"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x7b               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x6                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan5_1"   /* ID String Type / Length Code     */
+        .db "TACH_Fan5_1"
+        
+
+        /* SDR Record Header */
+        .dw 0x5a                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan4_1"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x79               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x5                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan4_1"   /* ID String Type / Length Code     */
+        .db "TACH_Fan4_1"
+        
+
+        /* SDR Record Header */
+        .dw 0x5b                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan6_0"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x7c               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x7                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan6_0"   /* ID String Type / Length Code     */
+        .db "TACH_Fan6_0"
+        
+
+        /* SDR Record Header */
+        .dw 0x5c                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan4_0"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x78               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x5                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan4_0"   /* ID String Type / Length Code     */
+        .db "TACH_Fan4_0"
+        
+
+        /* SDR Record Header */
+        .dw 0x5d                   /* Record ID                        */
+        .db 0x51                  /* SDR Version                      */
+        .db 0x01                        /* Record Type                      */
+        .db 43 + sizeof "TACH_Fan5_0"     /* Record Length = 43+ string length*/
+
+        /* Record Key Bytes*/
+        .db 0x20                   /* Sensor Owner ID                  */
+        .db 0x1                      /* Sensor Owner LUN                 */
+        .db 0x7a               /* Sensor Number                    */
+
+        /* Record Body Bytes*/
+        .db 0x1d                   /* Entity ID                        */
+        .db 0x6                 /* Entity Instance                  */
+        .db 0x7f                 /* Sensor Initialization            */
+        .db 0x68                 /* Sensor Capabilities              */
+        .db 0x04                        /* Sensor Type                      */
+        .db 0x01                        /* Event / Reading Type             */
+        .dw 0x2004               /* Lower Threshold Reading Mask     */
+        .dw 0x4               /* Upper Threshold Reading Mask     */
+        .dw 0x202               /* Settable/Readable Threshold Mask */
+        .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
+        .db 18                /* Sensor Units 2 - Base Unit       */
+        .db 0                   /* Sensor Units 3 - Modifier Unit   */
+        .db 0x0                   /* Linearization                    */
+        .db 0x87 & 0xFF         /* M                                */
+        .db ((0x87 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+        .db 0x0 & 0xFF         /* B                                */
+        .db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
+        .db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
+        .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db 0x0                      /* Analog Characteristics Flags     */
+        .db 0x0          /* Nominal Reading                  */
+        .db 0xff              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x0                  /* Sensor Minimum Reading           */
+        .db 0    /* Upper Non-Recoverable Threshold  */
+        .db 0           /* Upper Critical Threshold         */
+        .db 0       /* Upper Non-Critical Threshold     */
+        .db 0    /* Lower Non-Recoverable Threshold  */
+        .db 0x5           /* Lower Critical Threshold         */
+        .db 0       /* Lower Non-Critical Threshold     */
+        .db 0x2      /* Positive - threshold Hysteresis value*/ 
+        .db 0x2      /* Negative - threshold Hysteresis value*/
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                         /* Reserved                         */
+        .db 0x0                      /* OEM                              */
+        .db 0xc0 + sizeof "TACH_Fan5_0"   /* ID String Type / Length Code     */
+        .db "TACH_Fan5_0"
+        

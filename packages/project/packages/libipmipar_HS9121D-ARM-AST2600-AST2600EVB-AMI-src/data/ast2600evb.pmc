@@ -13643,7 +13643,7 @@
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>TACH_Fan0</name>
+	<name>TACH_Fan0_0</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0x70</value>
@@ -13654,7 +13654,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>TACH_Fan0</value>
+		<value>TACH_Fan0_0</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -13678,7 +13678,7 @@
 	</config>
 	<config>
 		<variable>M_VAL</variable>
-		<value>0x1</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>R_EXP</variable>
@@ -13694,7 +13694,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xf</value>
+		<value>0x0</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -13740,10 +13740,14 @@
 		<variable>FAN_NUMBER</variable>
 		<value>0</value>
 	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x00</value>
+	</config>
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>TACH_Fan0 [1]</name>
+		<name>TACH_Fan0_0 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -13857,12 +13861,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>TACH_Fan0</name>
+	<name>TACH_Fan0_0</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>TACH_Fan1</name>
+	<name>TACH_Fan0_1</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0x71</value>
@@ -13873,7 +13877,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>TACH_Fan1</value>
+		<value>TACH_Fan0_1</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -13897,7 +13901,7 @@
 	</config>
 	<config>
 		<variable>M_VAL</variable>
-		<value>0x1</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>R_EXP</variable>
@@ -13913,7 +13917,230 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xf</value>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>LWR_T_MASK</variable>
+		<value>0x2004</value>
+	</config>
+	<config>
+		<variable>UPR_T_MASK</variable>
+		<value>0x4</value>
+	</config>
+	<config>
+		<variable>S_R_T_MASK</variable>
+		<value>0x202</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_CRITICAL</variable>
+		<value>0x5</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>RETRY_COUNT</variable>
+		<value>3</value>
+	</config>
+	<config>
+		<variable>FAN_NUMBER</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x01</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>TACH_Fan0_1 [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x01</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x1d</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SEN_INIT</variable>
+			<value>0x7f</value>
+		</config>
+		<config>
+			<variable>SEN_CAPS</variable>
+			<value>0x68</value>
+		</config>
+		<config>
+			<variable>ANALOG_FORMAT</variable>
+			<value>Unsigned</value>
+		</config>
+		<config>
+			<variable>RATE_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>MOD_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>PERCENT</variable>
+			<value>NO</value>
+		</config>
+		<config>
+			<variable>BASE_UNIT</variable>
+			<value>18</value>
+		</config>
+		<config>
+			<variable>UNIT_3</variable>
+			<value>0</value>
+		</config>
+		<config>
+			<variable>LINEAR</variable>
+			<value>Linear</value>
+		</config>
+		<config>
+			<variable>TOLERENCE</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>B_VAL</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACCURACY</variable>
+			<value>0xc2</value>
+		</config>
+		<config>
+			<variable>ACCURACY_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SENSOR_DIR</variable>
+			<value>Unspecified</value>
+		</config>
+		<config>
+			<variable>B_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACF</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SEN_MAX</variable>
+			<value>0xff</value>
+		</config>
+		<config>
+			<variable>SEN_MIN</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>POSITIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>NEGATIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x353</topleft_x>
+		<topleft_y>0x20c</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>TACH_Fan0_1</name>
+</device_connection>
+<device>
+	<dev_name>HyveFan_NC</dev_name>
+	<dev_class>Sensor</dev_class>
+	<name>TACH_Fan1_0</name>
+	<config>
+		<variable>SENSOR_NUM</variable>
+		<value>0x72</value>
+	</config>
+	<config>
+		<variable>SENSOR_LUN</variable>
+		<value>0x01</value>
+	</config>
+	<config>
+		<variable>ID_STR</variable>
+		<value>TACH_Fan1_0</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>MONITOR_INTERVAL</variable>
+		<value>1</value>
+	</config>
+	<config>
+		<variable>MONITOR_STATE</variable>
+		<value>DoNotMontiorOnStandby</value>
+	</config>
+	<config>
+		<variable>M_VAL</variable>
+		<value>0x87</value>
+	</config>
+	<config>
+		<variable>R_EXP</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MAX</variable>
+		<value>0xff</value>
+	</config>
+	<config>
+		<variable>NOMINAL_READING</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MIN</variable>
+		<value>0x0</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -13959,10 +14186,14 @@
 		<variable>FAN_NUMBER</variable>
 		<value>1</value>
 	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x00</value>
+	</config>
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>TACH_Fan1 [1]</name>
+		<name>TACH_Fan1_0 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -14070,21 +14301,21 @@
 	</sdr>
 	<device_glyph>
 		<topleft_x>0x353</topleft_x>
-		<topleft_y>0x20c</topleft_y>
+		<topleft_y>0x21c</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>TACH_Fan1</name>
+	<name>TACH_Fan1_0</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>TACH_Fan2</name>
+	<name>TACH_Fan1_1</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x72</value>
+		<value>0x73</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -14092,7 +14323,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>TACH_Fan2</value>
+		<value>TACH_Fan1_1</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -14116,7 +14347,7 @@
 	</config>
 	<config>
 		<variable>M_VAL</variable>
-		<value>0x1</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>R_EXP</variable>
@@ -14132,7 +14363,230 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xf</value>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>LWR_T_MASK</variable>
+		<value>0x2004</value>
+	</config>
+	<config>
+		<variable>UPR_T_MASK</variable>
+		<value>0x4</value>
+	</config>
+	<config>
+		<variable>S_R_T_MASK</variable>
+		<value>0x202</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_CRITICAL</variable>
+		<value>0x5</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>RETRY_COUNT</variable>
+		<value>3</value>
+	</config>
+	<config>
+		<variable>FAN_NUMBER</variable>
+		<value>1</value>
+	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x01</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>TACH_Fan1_1 [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x01</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x1d</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>SEN_INIT</variable>
+			<value>0x7f</value>
+		</config>
+		<config>
+			<variable>SEN_CAPS</variable>
+			<value>0x68</value>
+		</config>
+		<config>
+			<variable>ANALOG_FORMAT</variable>
+			<value>Unsigned</value>
+		</config>
+		<config>
+			<variable>RATE_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>MOD_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>PERCENT</variable>
+			<value>NO</value>
+		</config>
+		<config>
+			<variable>BASE_UNIT</variable>
+			<value>18</value>
+		</config>
+		<config>
+			<variable>UNIT_3</variable>
+			<value>0</value>
+		</config>
+		<config>
+			<variable>LINEAR</variable>
+			<value>Linear</value>
+		</config>
+		<config>
+			<variable>TOLERENCE</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>B_VAL</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACCURACY</variable>
+			<value>0xc2</value>
+		</config>
+		<config>
+			<variable>ACCURACY_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SENSOR_DIR</variable>
+			<value>Unspecified</value>
+		</config>
+		<config>
+			<variable>B_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACF</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SEN_MAX</variable>
+			<value>0xff</value>
+		</config>
+		<config>
+			<variable>SEN_MIN</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>POSITIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>NEGATIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x353</topleft_x>
+		<topleft_y>0x22c</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>TACH_Fan1_1</name>
+</device_connection>
+<device>
+	<dev_name>HyveFan_NC</dev_name>
+	<dev_class>Sensor</dev_class>
+	<name>TACH_Fan2_0</name>
+	<config>
+		<variable>SENSOR_NUM</variable>
+		<value>0x74</value>
+	</config>
+	<config>
+		<variable>SENSOR_LUN</variable>
+		<value>0x01</value>
+	</config>
+	<config>
+		<variable>ID_STR</variable>
+		<value>TACH_Fan2_0</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>MONITOR_INTERVAL</variable>
+		<value>1</value>
+	</config>
+	<config>
+		<variable>MONITOR_STATE</variable>
+		<value>DoNotMontiorOnStandby</value>
+	</config>
+	<config>
+		<variable>M_VAL</variable>
+		<value>0x87</value>
+	</config>
+	<config>
+		<variable>R_EXP</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MAX</variable>
+		<value>0xff</value>
+	</config>
+	<config>
+		<variable>NOMINAL_READING</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MIN</variable>
+		<value>0x0</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -14178,10 +14632,14 @@
 		<variable>FAN_NUMBER</variable>
 		<value>2</value>
 	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x00</value>
+	</config>
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>TACH_Fan2 [1]</name>
+		<name>TACH_Fan2_0 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -14289,21 +14747,21 @@
 	</sdr>
 	<device_glyph>
 		<topleft_x>0x353</topleft_x>
-		<topleft_y>0x21c</topleft_y>
+		<topleft_y>0x23c</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>TACH_Fan2</name>
+	<name>TACH_Fan2_0</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>TACH_Fan3</name>
+	<name>TACH_Fan2_1</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x73</value>
+		<value>0x75</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -14311,7 +14769,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>TACH_Fan3</value>
+		<value>TACH_Fan2_1</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -14335,7 +14793,7 @@
 	</config>
 	<config>
 		<variable>M_VAL</variable>
-		<value>0x1</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>R_EXP</variable>
@@ -14351,7 +14809,230 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xf</value>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>LWR_T_MASK</variable>
+		<value>0x2004</value>
+	</config>
+	<config>
+		<variable>UPR_T_MASK</variable>
+		<value>0x4</value>
+	</config>
+	<config>
+		<variable>S_R_T_MASK</variable>
+		<value>0x202</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_CRITICAL</variable>
+		<value>0x5</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>RETRY_COUNT</variable>
+		<value>3</value>
+	</config>
+	<config>
+		<variable>FAN_NUMBER</variable>
+		<value>2</value>
+	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x01</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>TACH_Fan2_1 [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x01</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x1d</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x3</value>
+		</config>
+		<config>
+			<variable>SEN_INIT</variable>
+			<value>0x7f</value>
+		</config>
+		<config>
+			<variable>SEN_CAPS</variable>
+			<value>0x68</value>
+		</config>
+		<config>
+			<variable>ANALOG_FORMAT</variable>
+			<value>Unsigned</value>
+		</config>
+		<config>
+			<variable>RATE_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>MOD_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>PERCENT</variable>
+			<value>NO</value>
+		</config>
+		<config>
+			<variable>BASE_UNIT</variable>
+			<value>18</value>
+		</config>
+		<config>
+			<variable>UNIT_3</variable>
+			<value>0</value>
+		</config>
+		<config>
+			<variable>LINEAR</variable>
+			<value>Linear</value>
+		</config>
+		<config>
+			<variable>TOLERENCE</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>B_VAL</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACCURACY</variable>
+			<value>0xc2</value>
+		</config>
+		<config>
+			<variable>ACCURACY_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SENSOR_DIR</variable>
+			<value>Unspecified</value>
+		</config>
+		<config>
+			<variable>B_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACF</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SEN_MAX</variable>
+			<value>0xff</value>
+		</config>
+		<config>
+			<variable>SEN_MIN</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>POSITIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>NEGATIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x353</topleft_x>
+		<topleft_y>0x24c</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>TACH_Fan2_1</name>
+</device_connection>
+<device>
+	<dev_name>HyveFan_NC</dev_name>
+	<dev_class>Sensor</dev_class>
+	<name>TACH_Fan3_0</name>
+	<config>
+		<variable>SENSOR_NUM</variable>
+		<value>0x76</value>
+	</config>
+	<config>
+		<variable>SENSOR_LUN</variable>
+		<value>0x01</value>
+	</config>
+	<config>
+		<variable>ID_STR</variable>
+		<value>TACH_Fan3_0</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>MONITOR_INTERVAL</variable>
+		<value>1</value>
+	</config>
+	<config>
+		<variable>MONITOR_STATE</variable>
+		<value>DoNotMontiorOnStandby</value>
+	</config>
+	<config>
+		<variable>M_VAL</variable>
+		<value>0x87</value>
+	</config>
+	<config>
+		<variable>R_EXP</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MAX</variable>
+		<value>0xff</value>
+	</config>
+	<config>
+		<variable>NOMINAL_READING</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MIN</variable>
+		<value>0x0</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -14397,10 +15078,14 @@
 		<variable>FAN_NUMBER</variable>
 		<value>3</value>
 	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x00</value>
+	</config>
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>TACH_Fan3 [1]</name>
+		<name>TACH_Fan3_0 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -14508,21 +15193,21 @@
 	</sdr>
 	<device_glyph>
 		<topleft_x>0x353</topleft_x>
-		<topleft_y>0x22c</topleft_y>
+		<topleft_y>0x25c</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>TACH_Fan3</name>
+	<name>TACH_Fan3_0</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>TACH_Fan4</name>
+	<name>TACH_Fan3_1</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x74</value>
+		<value>0x77</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -14530,7 +15215,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>TACH_Fan4</value>
+		<value>TACH_Fan3_1</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -14554,7 +15239,7 @@
 	</config>
 	<config>
 		<variable>M_VAL</variable>
-		<value>0x1</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>R_EXP</variable>
@@ -14570,7 +15255,230 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xf</value>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>LWR_T_MASK</variable>
+		<value>0x2004</value>
+	</config>
+	<config>
+		<variable>UPR_T_MASK</variable>
+		<value>0x4</value>
+	</config>
+	<config>
+		<variable>S_R_T_MASK</variable>
+		<value>0x202</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_CRITICAL</variable>
+		<value>0x5</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>RETRY_COUNT</variable>
+		<value>3</value>
+	</config>
+	<config>
+		<variable>FAN_NUMBER</variable>
+		<value>3</value>
+	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x01</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>TACH_Fan3_1 [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x01</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x1d</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x4</value>
+		</config>
+		<config>
+			<variable>SEN_INIT</variable>
+			<value>0x7f</value>
+		</config>
+		<config>
+			<variable>SEN_CAPS</variable>
+			<value>0x68</value>
+		</config>
+		<config>
+			<variable>ANALOG_FORMAT</variable>
+			<value>Unsigned</value>
+		</config>
+		<config>
+			<variable>RATE_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>MOD_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>PERCENT</variable>
+			<value>NO</value>
+		</config>
+		<config>
+			<variable>BASE_UNIT</variable>
+			<value>18</value>
+		</config>
+		<config>
+			<variable>UNIT_3</variable>
+			<value>0</value>
+		</config>
+		<config>
+			<variable>LINEAR</variable>
+			<value>Linear</value>
+		</config>
+		<config>
+			<variable>TOLERENCE</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>B_VAL</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACCURACY</variable>
+			<value>0xc2</value>
+		</config>
+		<config>
+			<variable>ACCURACY_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SENSOR_DIR</variable>
+			<value>Unspecified</value>
+		</config>
+		<config>
+			<variable>B_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACF</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SEN_MAX</variable>
+			<value>0xff</value>
+		</config>
+		<config>
+			<variable>SEN_MIN</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>POSITIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>NEGATIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x353</topleft_x>
+		<topleft_y>0x26c</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>TACH_Fan3_1</name>
+</device_connection>
+<device>
+	<dev_name>HyveFan_NC</dev_name>
+	<dev_class>Sensor</dev_class>
+	<name>TACH_Fan4_0</name>
+	<config>
+		<variable>SENSOR_NUM</variable>
+		<value>0x78</value>
+	</config>
+	<config>
+		<variable>SENSOR_LUN</variable>
+		<value>0x01</value>
+	</config>
+	<config>
+		<variable>ID_STR</variable>
+		<value>TACH_Fan4_0</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>MONITOR_INTERVAL</variable>
+		<value>1</value>
+	</config>
+	<config>
+		<variable>MONITOR_STATE</variable>
+		<value>DoNotMontiorOnStandby</value>
+	</config>
+	<config>
+		<variable>M_VAL</variable>
+		<value>0x87</value>
+	</config>
+	<config>
+		<variable>R_EXP</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MAX</variable>
+		<value>0xff</value>
+	</config>
+	<config>
+		<variable>NOMINAL_READING</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MIN</variable>
+		<value>0x0</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -14616,10 +15524,14 @@
 		<variable>FAN_NUMBER</variable>
 		<value>4</value>
 	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x00</value>
+	</config>
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>TACH_Fan4 [1]</name>
+		<name>TACH_Fan4_0 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -14727,21 +15639,21 @@
 	</sdr>
 	<device_glyph>
 		<topleft_x>0x353</topleft_x>
-		<topleft_y>0x23c</topleft_y>
+		<topleft_y>0x28a</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>TACH_Fan4</name>
+	<name>TACH_Fan4_0</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>TACH_Fan5</name>
+	<name>TACH_Fan4_1</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x75</value>
+		<value>0x79</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -14749,7 +15661,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>TACH_Fan5</value>
+		<value>TACH_Fan4_1</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -14773,7 +15685,7 @@
 	</config>
 	<config>
 		<variable>M_VAL</variable>
-		<value>0x1</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>R_EXP</variable>
@@ -14789,7 +15701,230 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xf</value>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>LWR_T_MASK</variable>
+		<value>0x2004</value>
+	</config>
+	<config>
+		<variable>UPR_T_MASK</variable>
+		<value>0x4</value>
+	</config>
+	<config>
+		<variable>S_R_T_MASK</variable>
+		<value>0x202</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_CRITICAL</variable>
+		<value>0x5</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>RETRY_COUNT</variable>
+		<value>3</value>
+	</config>
+	<config>
+		<variable>FAN_NUMBER</variable>
+		<value>4</value>
+	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x01</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>TACH_Fan4_1 [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x01</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x1d</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x5</value>
+		</config>
+		<config>
+			<variable>SEN_INIT</variable>
+			<value>0x7f</value>
+		</config>
+		<config>
+			<variable>SEN_CAPS</variable>
+			<value>0x68</value>
+		</config>
+		<config>
+			<variable>ANALOG_FORMAT</variable>
+			<value>Unsigned</value>
+		</config>
+		<config>
+			<variable>RATE_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>MOD_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>PERCENT</variable>
+			<value>NO</value>
+		</config>
+		<config>
+			<variable>BASE_UNIT</variable>
+			<value>18</value>
+		</config>
+		<config>
+			<variable>UNIT_3</variable>
+			<value>0</value>
+		</config>
+		<config>
+			<variable>LINEAR</variable>
+			<value>Linear</value>
+		</config>
+		<config>
+			<variable>TOLERENCE</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>B_VAL</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACCURACY</variable>
+			<value>0xc2</value>
+		</config>
+		<config>
+			<variable>ACCURACY_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SENSOR_DIR</variable>
+			<value>Unspecified</value>
+		</config>
+		<config>
+			<variable>B_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACF</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SEN_MAX</variable>
+			<value>0xff</value>
+		</config>
+		<config>
+			<variable>SEN_MIN</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>POSITIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>NEGATIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x353</topleft_x>
+		<topleft_y>0x29a</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>TACH_Fan4_1</name>
+</device_connection>
+<device>
+	<dev_name>HyveFan_NC</dev_name>
+	<dev_class>Sensor</dev_class>
+	<name>TACH_Fan5_0</name>
+	<config>
+		<variable>SENSOR_NUM</variable>
+		<value>0x7a</value>
+	</config>
+	<config>
+		<variable>SENSOR_LUN</variable>
+		<value>0x01</value>
+	</config>
+	<config>
+		<variable>ID_STR</variable>
+		<value>TACH_Fan5_0</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>MONITOR_INTERVAL</variable>
+		<value>1</value>
+	</config>
+	<config>
+		<variable>MONITOR_STATE</variable>
+		<value>DoNotMontiorOnStandby</value>
+	</config>
+	<config>
+		<variable>M_VAL</variable>
+		<value>0x87</value>
+	</config>
+	<config>
+		<variable>R_EXP</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MAX</variable>
+		<value>0xff</value>
+	</config>
+	<config>
+		<variable>NOMINAL_READING</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MIN</variable>
+		<value>0x0</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -14835,10 +15970,14 @@
 		<variable>FAN_NUMBER</variable>
 		<value>5</value>
 	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x00</value>
+	</config>
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>TACH_Fan5 [1]</name>
+		<name>TACH_Fan5_0 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -14946,21 +16085,21 @@
 	</sdr>
 	<device_glyph>
 		<topleft_x>0x353</topleft_x>
-		<topleft_y>0x24c</topleft_y>
+		<topleft_y>0x2aa</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>TACH_Fan5</name>
+	<name>TACH_Fan5_0</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>TACH_Fan6</name>
+	<name>TACH_Fan5_1</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x76</value>
+		<value>0x7b</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -14968,7 +16107,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>TACH_Fan6</value>
+		<value>TACH_Fan5_1</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -14992,7 +16131,7 @@
 	</config>
 	<config>
 		<variable>M_VAL</variable>
-		<value>0x1</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>R_EXP</variable>
@@ -15008,7 +16147,230 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xf</value>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>LWR_T_MASK</variable>
+		<value>0x2004</value>
+	</config>
+	<config>
+		<variable>UPR_T_MASK</variable>
+		<value>0x4</value>
+	</config>
+	<config>
+		<variable>S_R_T_MASK</variable>
+		<value>0x202</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>UPPER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_CRITICAL</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>LOWER_CRITICAL</variable>
+		<value>0x5</value>
+	</config>
+	<config>
+		<variable>LOWER_NON_RECOVERABLE</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>RETRY_COUNT</variable>
+		<value>3</value>
+	</config>
+	<config>
+		<variable>FAN_NUMBER</variable>
+		<value>5</value>
+	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x01</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>TACH_Fan5_1 [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x01</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x1d</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>SEN_INIT</variable>
+			<value>0x7f</value>
+		</config>
+		<config>
+			<variable>SEN_CAPS</variable>
+			<value>0x68</value>
+		</config>
+		<config>
+			<variable>ANALOG_FORMAT</variable>
+			<value>Unsigned</value>
+		</config>
+		<config>
+			<variable>RATE_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>MOD_UNIT</variable>
+			<value>None</value>
+		</config>
+		<config>
+			<variable>PERCENT</variable>
+			<value>NO</value>
+		</config>
+		<config>
+			<variable>BASE_UNIT</variable>
+			<value>18</value>
+		</config>
+		<config>
+			<variable>UNIT_3</variable>
+			<value>0</value>
+		</config>
+		<config>
+			<variable>LINEAR</variable>
+			<value>Linear</value>
+		</config>
+		<config>
+			<variable>TOLERENCE</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>B_VAL</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACCURACY</variable>
+			<value>0xc2</value>
+		</config>
+		<config>
+			<variable>ACCURACY_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SENSOR_DIR</variable>
+			<value>Unspecified</value>
+		</config>
+		<config>
+			<variable>B_EXP</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ACF</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SEN_MAX</variable>
+			<value>0xff</value>
+		</config>
+		<config>
+			<variable>SEN_MIN</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>POSITIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>NEGATIVE_HYSTERISIS</variable>
+			<value>0x2</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x353</topleft_x>
+		<topleft_y>0x2ba</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>TACH_Fan5_1</name>
+</device_connection>
+<device>
+	<dev_name>HyveFan_NC</dev_name>
+	<dev_class>Sensor</dev_class>
+	<name>TACH_Fan6_0</name>
+	<config>
+		<variable>SENSOR_NUM</variable>
+		<value>0x7c</value>
+	</config>
+	<config>
+		<variable>SENSOR_LUN</variable>
+		<value>0x01</value>
+	</config>
+	<config>
+		<variable>ID_STR</variable>
+		<value>TACH_Fan6_0</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>MONITOR_INTERVAL</variable>
+		<value>1</value>
+	</config>
+	<config>
+		<variable>MONITOR_STATE</variable>
+		<value>DoNotMontiorOnStandby</value>
+	</config>
+	<config>
+		<variable>M_VAL</variable>
+		<value>0x87</value>
+	</config>
+	<config>
+		<variable>R_EXP</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MAX</variable>
+		<value>0xff</value>
+	</config>
+	<config>
+		<variable>NOMINAL_READING</variable>
+		<value>0x0</value>
+	</config>
+	<config>
+		<variable>NOMINAL_MIN</variable>
+		<value>0x0</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -15054,10 +16416,14 @@
 		<variable>FAN_NUMBER</variable>
 		<value>6</value>
 	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x00</value>
+	</config>
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>TACH_Fan6 [1]</name>
+		<name>TACH_Fan6_0 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -15165,21 +16531,21 @@
 	</sdr>
 	<device_glyph>
 		<topleft_x>0x353</topleft_x>
-		<topleft_y>0x25c</topleft_y>
+		<topleft_y>0x2ca</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>TACH_Fan6</name>
+	<name>TACH_Fan6_0</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>TACH_Fan7</name>
+	<name>TACH_Fan6_1</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x77</value>
+		<value>0x7d</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -15187,7 +16553,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>TACH_Fan7</value>
+		<value>TACH_Fan6_1</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -15211,7 +16577,7 @@
 	</config>
 	<config>
 		<variable>M_VAL</variable>
-		<value>0x1</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>R_EXP</variable>
@@ -15227,7 +16593,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xf</value>
+		<value>0x0</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -15271,12 +16637,16 @@
 	</config>
 	<config>
 		<variable>FAN_NUMBER</variable>
-		<value>7</value>
+		<value>6</value>
+	</config>
+	<config>
+		<variable>TACH_INDEX</variable>
+		<value>0x01</value>
 	</config>
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>TACH_Fan7 [1]</name>
+		<name>TACH_Fan6_1 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -15295,7 +16665,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x8</value>
+			<value>0x7</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -15384,13 +16754,13 @@
 	</sdr>
 	<device_glyph>
 		<topleft_x>0x353</topleft_x>
-		<topleft_y>0x26c</topleft_y>
+		<topleft_y>0x2da</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>TACH_Fan7</name>
+	<name>TACH_Fan6_1</name>
 </device_connection>
 <device>
 	<dev_name>Hyve_NC</dev_name>
@@ -15398,7 +16768,7 @@
 	<name>TEMP_FAN_BOARD</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x78</value>
+		<value>0x88</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -15490,7 +16860,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x9</value>
+			<value>0x8</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -15606,8 +16976,8 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x352</topleft_x>
-		<topleft_y>0x286</topleft_y>
+		<topleft_x>0x41b</topleft_x>
+		<topleft_y>0x15f</topleft_y>
 		<width>0x96</width>
 		<height>0x10</height>
 	</device_glyph>
@@ -15621,7 +16991,7 @@
 	<name>TEMP_FP</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x79</value>
+		<value>0x89</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -15829,8 +17199,8 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x351</topleft_x>
-		<topleft_y>0x296</topleft_y>
+		<topleft_x>0x41a</topleft_x>
+		<topleft_y>0x16f</topleft_y>
 		<width>0x96</width>
 		<height>0x10</height>
 	</device_glyph>
@@ -15844,7 +17214,7 @@
 	<name>TEMP_MP</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
-		<value>0x7a</value>
+		<value>0x8a</value>
 	</config>
 	<config>
 		<variable>SENSOR_LUN</variable>
@@ -16052,8 +17422,8 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x351</topleft_x>
-		<topleft_y>0x2a7</topleft_y>
+		<topleft_x>0x41a</topleft_x>
+		<topleft_y>0x180</topleft_y>
 		<width>0x96</width>
 		<height>0x10</height>
 	</device_glyph>
@@ -17619,20 +18989,26 @@
 	<item>PWR_P0SOCVR0POUT</item>
 	<item>PWR_P0V11VR0POUT</item>
 	<item>PWR_P0IOVR0POUT</item>
-	<item>TACH_Fan0</item>
-	<item>TACH_Fan1</item>
-	<item>TACH_Fan3</item>
-	<item>TACH_Fan2</item>
-	<item>TACH_Fan5</item>
-	<item>TACH_Fan4</item>
-	<item>TACH_Fan6</item>
-	<item>TACH_Fan7</item>
+	<item>TACH_Fan0_0</item>
+	<item>TACH_Fan0_1</item>
+	<item>TACH_Fan1_1</item>
+	<item>TACH_Fan1_0</item>
+	<item>TACH_Fan2_1</item>
+	<item>TACH_Fan2_0</item>
+	<item>TACH_Fan3_0</item>
+	<item>TACH_Fan3_1</item>
 	<item>FanBoard_FRU</item>
 	<item>FP_FRU</item>
 	<item>MP_FRU</item>
 	<item>TEMP_FP</item>
 	<item>TEMP_MP</item>
 	<item>TEMP_FAN_BOARD</item>
+	<item>TACH_Fan6_1</item>
+	<item>TACH_Fan5_1</item>
+	<item>TACH_Fan4_1</item>
+	<item>TACH_Fan6_0</item>
+	<item>TACH_Fan4_0</item>
+	<item>TACH_Fan5_0</item>
 </sdrorder>
 	</devcfg>
 <module>
