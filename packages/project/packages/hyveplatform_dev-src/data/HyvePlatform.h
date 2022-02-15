@@ -47,28 +47,41 @@ typedef enum {
 
 
 /********************* Define platform configurations *********************/
-#define HYFEPLATFORM_MB_FRU_ID							(0)
-#define HYVE_FRU_FILE_SIZE								(256) //currently for EVB
+#define HYFEPLATFORM_MB_FRU_ID									(0)
+#define HYFEPLATFORM_FANBOARD_FRU_ID							(1)
+#define HYFEPLATFORM_FRONTPANEL_FRU_ID							(2)
+#define HYFEPLATFORM_MIDPANEL_FRU_ID							(3)
+
+/*
+ * MB EEPROM (AT24CM01) layout
+
+      Offset       Number of bytes
+-------------------------------
+ 0x0000 ~ 0x01FF   ( 512 Bytes): MB FRU
+ 0x0200 ~ 0x09FF   (2048 Bytes): Reserved for BIOS using
+ 0x0A00 ~ 0x0A07   (   8 Bytes): last time stamp
+ 0x0A08 ~ 0x0A27   (  32 Bytes): BMC 4 MAC addresses
+ 0x0A50 ~                      : FSC config
 
 
-/* I2C Bus, 0 based, 8-bit address
-I2C-1: APML (May use I3C-3)
-I2C-4: PMBUS
-I2C-5: SMBus for PCIe device access
-I2C-6: For BMC to access the Clock-Gen IC but BMC doesn't control it.
-I2C-7: MB FRU, Temp sensor
-I2C-8: CPU VR
-I2C-9: OCP, Riser
+ * I2C Bus, 0 based, 8-bit address
+	I2C-1: APML (May use I3C-3)
+	I2C-4: PMBUS
+	I2C-5: SMBus for PCIe device access
+	I2C-6: For BMC to access the Clock-Gen IC but BMC doesn't control it.
+	I2C-7: MB FRU, Temp sensor
+	I2C-8: CPU VR
+	I2C-9: OCP, Riser
 
-I2C-11: Fan HW monitor, on-board Fan(4 fans) control
-I2C-12: Fan board, 3 fans, can support up to 8 fans
-I2C-13: FP(front panel), MP(Middle panel), Hyve debug card and CPLD
-I2C-14: CPLD
-I2C-15: ROT
+	I2C-11: Fan HW monitor, on-board Fan(4 fans) control
+	I2C-12: Fan board, 3 fans, can support up to 8 fans
+	I2C-13: FP(front panel), MP(Middle panel), Hyve debug card and CPLD
+	I2C-14: CPLD
+	I2C-15: ROT
 
-I3C Bus, 0 based, 8-bit address
-I3C-0: DIMM A0 ~ F0
-I3C-1: DIMM G0 ~ L0
+ * I3C Bus, 0 based, 8-bit address
+	I3C-0: DIMM A0 ~ F0
+	I3C-1: DIMM G0 ~ L0
 */
 
 #define HYFEPLATFORM_SPD_BUS_DIMM_AF					(0)	// I3C-0
