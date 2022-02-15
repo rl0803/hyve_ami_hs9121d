@@ -47,9 +47,11 @@
 snprintf(filename,FRU_FILE_NAME_LEN,"%s%d/%s",NV_DIR_PATH,Instance,"FRU.bin")
 
 
-FRUAccess_T g_FruTbl [] = 
-{
-    {0,  0xA0, 1}
+FRUAccess_T g_FruTbl[] = {
+    { HYFEPLATFORM_MB_FRU_ID,			EEPROM_I2C_ADDR, 1 },
+    { HYFEPLATFORM_FANBOARD_FRU_ID,		HYFEPLATFORM_ADDR_FAN_BOARD_FRU, 1 },
+    { HYFEPLATFORM_FRONTPANEL_FRU_ID,	HYFEPLATFORM_ADDR_FP_FRU, 1 },
+    { HYFEPLATFORM_MIDPANEL_FRU_ID,		HYFEPLATFORM_ADDR_MP_FRU, 1 }
 };
 
 
@@ -167,88 +169,39 @@ static FRUInfo_T* GetFRUInfo (INT8U DeviceID, int BMCInst)
 
 static int ReadFRUDevice (FRUInfo_T* pFRUInfo, INT16U Offset, INT8U Len, INT8U* pData, int BMCInst)
 {
+    if (0) {  BMCInst = BMCInst; }
 
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
-    }
     switch (pFRUInfo->Type)
     {
-        case FRU_TYPE_NVR:
-        {
-            return  API_ReadNVR (pFRUInfo->NVRFile, Offset, Len, pData);
-            break;
-        }
+	case FRU_TYPE_NVR:
+		return  API_ReadNVR (pFRUInfo->NVRFile, Offset, Len, pData);
 
-        case FRU_TYPE_EEPROM:
-        	return  READ_EEPROM (pFRUInfo->DeviceType, pFRUInfo->BusNumber, pFRUInfo->SlaveAddr, pData,
-                                                 pFRUInfo->Offset + Offset, Len);
-            break;
-        
+	case FRU_TYPE_EEPROM:
+		return HyveFRU_ReadFRU(Offset, Len, pFRUInfo->DeviceID, HYVE_STORETYPE_EEPROM, pData);
+
     default:
         IPMI_WARNING ("PDKFRU.c : FRU Type not supported\n");
-        return 0;
+        break;
     }
 
     return 0;
 }
 
-// Alan, temporarily for ast-EVB
-
-static int dummy_WriteFRUDevice(INT8U* fruData, INT16U Offset, INT8U Len)
-{
-	char fruFile[128] = {0};
-	int wLen = 0, fd = -1;
-
-	// Check if the /conf/Hyveconf/BackupFRU dir exists
-	if (HyveExt_HyveConf_mkdir(HVYE_PATH_DIR_BACKUPFRU) < 0) { return -1; }
-
-	HYVE_FRU_BKFRU_PATH(fruFile, sizeof(fruFile), 0);
-
-//	printf("%s: Offset: %u, Len: %u\n", __func__, Offset, Len);
-
-	fd = open(fruFile, O_RDWR);	
-	if (fd < 0) {
-		printf("%s: error in opening %s\n", __func__, fruFile);
-		return -1;
-	}
-	lseek(fd, Offset, SEEK_SET);
-	wLen = write(fd, fruData, Len);
-	close(fd);
-
-	if (Len != wLen) {
-		printf("%s: error in writing %s\n", __func__, fruFile);
-		return -1;
-	}
-
-	return wLen;
-}
-
 static int WriteFRUDevice (FRUInfo_T* pFRUInfo, INT16U Offset, INT8U Len, INT8U* pData, int BMCInst)
 {
+    if (0) {  BMCInst = BMCInst; }
 
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
-    }
     switch (pFRUInfo->Type)
     {
-        case FRU_TYPE_NVR:
-        {
-            return  API_WriteNVR (pFRUInfo->NVRFile, Offset, Len, pData);
-            break;
-        }
+	case FRU_TYPE_NVR:
+		return  API_WriteNVR (pFRUInfo->NVRFile, Offset, Len, pData);
 
-        case FRU_TYPE_EEPROM:
-// Alan, temporarily for ast-EVB
-        	return dummy_WriteFRUDevice(pData, pFRUInfo->Offset + Offset, Len);
-//            return  WRITE_EEPROM (pFRUInfo->DeviceType, pFRUInfo->BusNumber, pFRUInfo->SlaveAddr, pData,
-//                                                    pFRUInfo->Offset + Offset, Len);
-            break;
+	case FRU_TYPE_EEPROM:
+		return HyvePlatform_WriteFRU(pFRUInfo->DeviceID, Offset, Len, pData);
 
-        default:
-            IPMI_WARNING ("PDKFRU.c : FRU Type not supported\n");
-            return 0;
+	default:
+		IPMI_WARNING ("PDKFRU.c : FRU Type not supported\n");
+		break;
     }
 
     return 0;
@@ -256,23 +209,16 @@ static int WriteFRUDevice (FRUInfo_T* pFRUInfo, INT16U Offset, INT8U Len, INT8U*
 
 static inline int HyvePlatformReadBKFRU(const INT8U fruID, const INT16U offset, const INT16U countToRead, INT8U* pData)
 {
-    // Currently only support MB FRU
-	if (fruID) { return -1; }
-    
 	// If backup FRU action is in process then return
 	if (HyvePlatform_Is_PendTaskSet(HyvePlatformPT_BACKUPFRU)) {
 //		printf("HyvePlatformPT_BACKUPFRU is running\n");
 		return -1;
 	}
-
 	return HyveFRU_ReadFRU(offset, countToRead, fruID, HYVE_STORETYPE_CACHE, pData);
 }
 
 static inline void HyvePlatformWriteBKFRU(const INT8U fruID)
 {
-	// Currently only support MB FRU
-	if (fruID) { return; }   
-	
 	if (!HyvePlatform_Is_PendTaskSet(HyvePlatformPT_BACKUPFRU)) {
 		HyvePlatform_SetPendTask(HyvePlatformPT_BACKUPFRU, 1, fruID);
 	}
@@ -365,7 +311,7 @@ PDK_ReadFRUData (_NEAR_ INT8U* pReq, INT8U ReqLen, _NEAR_ INT8U* pRes, int BMCIn
 
     pFRUReadRes->CompletionCode  =  CC_NORMAL;
 
-    // If the FRU ID is in the backFRU list, try to read the cache one first
+    // Try to read the cache one first
     retval = HyvePlatformReadBKFRU(pFRUReadReq->FRUDeviceID, Offset,
     						pFRUReadReq->CountToRead, (INT8U*)(pFRUReadRes + 1));
 

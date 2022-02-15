@@ -21,6 +21,7 @@
 #include "HyvePlatformPreserveConf.h"
 #include "HyvePlatformCPLD.h"
 #include "HyvePlatformROT.h"
+#include "HyvePlatformFRU.h"
 
 
 /********************* Define platform ID and name string *********************/
@@ -47,11 +48,6 @@ typedef enum {
 
 
 /********************* Define platform configurations *********************/
-#define HYFEPLATFORM_MB_FRU_ID									(0)
-#define HYFEPLATFORM_FANBOARD_FRU_ID							(1)
-#define HYFEPLATFORM_FRONTPANEL_FRU_ID							(2)
-#define HYFEPLATFORM_MIDPANEL_FRU_ID							(3)
-
 /*
  * MB EEPROM (AT24CM01) layout
 

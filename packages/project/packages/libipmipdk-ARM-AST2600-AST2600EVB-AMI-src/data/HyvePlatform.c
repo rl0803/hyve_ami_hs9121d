@@ -203,7 +203,8 @@ int HyvePlatform_Init()
 	
 
 
-	INT8U offset = CONFIG_SPX_FEATURE_I2C_EEPROM_MAC2ADDR_OFFSET, readData[6] = {0};
+	INT16U offset = CONFIG_SPX_FEATURE_I2C_EEPROM_MAC2ADDR_OFFSET;
+	INT8U readData[6] = {0};
 	if (HyveExt_ReadEEPROM(offset, readData, 6) < 0) {
 		printf("Error in HyveExt_ReadEEPROM\n");
 	} else {
