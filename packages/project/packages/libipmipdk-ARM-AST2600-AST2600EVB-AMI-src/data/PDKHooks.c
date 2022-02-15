@@ -1700,19 +1700,39 @@ void PDK_ProcessOEMRecord(INT8U* OEMRec, int BMCInst)
     return;
 }
 
+#if DYNAMIC_SENSOR
+extern  _FAR_ INT16U  SDR_DeleteSDR (INT16U ReservationID, INT16U RecID,int BMCInst);
+static int _DeleteSDR(INT16U sdrRecID, INT8U BMCInst)
+{
+	int ret = -1;
+	_FAR_ BMCInfo_t *pBMCInfo = &g_BMCInfo[BMCInst];
+	
+    OS_THREAD_MUTEX_ACQUIRE_LOCK(&pBMCInfo->SDRConfig.SDRMutex, ret);
+    if (ret < 0) { return ret; }
+
+    pBMCInfo->SDRConfig.ReservationID = 0x01;
+    if(INVALID_RECORD_ID == SDR_DeleteSDR(pBMCInfo->SDRConfig.ReservationID, sdrRecID, BMCInst)) {
+    	printf ("%s: Unable to delete SDR ID 0x%x  SDRError: 0x%x\n",
+    									__func__, sdrRecID, pBMCInfo->SDRConfig.SDRError);
+    	ret = -1;
+    }
+    pBMCInfo->SDRConfig.ReservationID = 0x00;
+    OS_THREAD_MUTEX_RELEASE(&pBMCInfo->SDRConfig.SDRMutex);
+    return ret;
+}
+#endif
+
 void PDK_AfterSDRInit(INT8U BMCInst)
 {
 	if (0) { BMCInst = BMCInst;}
-	/* Test Code: for dynamic sensor mechanism */
-#if 0
-    extern  _FAR_ INT16U  SDR_DeleteSDR (INT16U ReservationID, INT16U RecID,int BMCInst);
 
-    _FAR_ BMCInfo_t* pBMCInfo = &g_BMCInfo[BMCInst];
+	/* Test Code: for dynamic sensor mechanism */
+#if DYNAMIC_SENSOR
+
 	_FAR_ SDRRecHdr_T *pSDRRecHdr = SDR_GetFirstSDRRec(BMCInst);
 
-	printf ("[Alan] %s \n",__func__);
-
 	while (pSDRRecHdr) {
+
 		if (FULL_SDR_REC == pSDRRecHdr->Type) {
 			_FAR_ FullSensorRec_T *pFullRec = (_FAR_ FullSensorRec_T*)pSDRRecHdr;
 			// Check the OwnerID
@@ -1720,22 +1740,22 @@ void PDK_AfterSDRInit(INT8U BMCInst)
 				// Find the Temp sensor
 				if (IPMI_SENSOR_TEMP_TYPE == pFullRec->SensorType) {
 					// Test remove a SDR rec
-					if (HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MP) == (HYVE_LUN_NUM(pFullRec->OwnerLUN, pFullRec->SensorNum))) {
-						int LockRet = -1;
-					    OS_THREAD_MUTEX_ACQUIRE_LOCK(&pBMCInfo->SDRConfig.SDRMutex, LockRet);
-					    if (LockRet < 0) { continue; }
-
-					    pBMCInfo->SDRConfig.ReservationID = 0x01;
-					    if(INVALID_RECORD_ID == SDR_DeleteSDR(pBMCInfo->SDRConfig.ReservationID, pSDRRecHdr->ID, BMCInst)) {
-					    	printf ("[Alan] %s Unable to delete SDR ID 0x%x  SDRError: 0x%x\n",
-					    			__func__, pSDRRecHdr->ID, pBMCInfo->SDRConfig.SDRError);
-        }
-					    pBMCInfo->SDRConfig.ReservationID = 0x00;
-					    OS_THREAD_MUTEX_RELEASE(&pBMCInfo->SDRConfig.SDRMutex);
-    }
+					if (HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MP) ==
+							(HYVE_LUN_NUM(pFullRec->OwnerLUN, pFullRec->SensorNum))) {
+//					    _DeleteSDR(pSDRRecHdr->ID, BMCInst);
+					}
 				}
 			}
 		}
+		// Test Remove FRU SDR
+		if (FRU_DEVICE_LOCATOR_SDR_REC == pSDRRecHdr->Type) {
+			FRUDevLocatorRec_T *pFruRec = (_FAR_ FRUDevLocatorRec_T*)pSDRRecHdr;
+
+			if (pFruRec->FRUIDSlaveAddr == 0x02) {
+//			    _DeleteSDR(pSDRRecHdr->ID, BMCInst);
+			}
+		}
+
 		pSDRRecHdr = SDR_GetNextSDRRec(pSDRRecHdr, BMCInst);
 	} // end of while
 #endif
