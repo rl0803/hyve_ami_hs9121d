@@ -74,6 +74,13 @@
       TARGET_BRANCH="e6de1366e4cb054171b3b7ac95ce81a576d9302b"
       UTILITIES_VMCLI_BRANCH="hyvecommon_dev"
 
+- **Note**:
+  Some submodules may be failed in clone,
+  which have a large binary file, e.g., package/target,
+  Please commit the submodule ID, if you update the submodule.
+  For example,
+  https://bitbucket.hyvedesignsolutions.com/projects/H13/repos/hs9121d/commits/f7ba8ddcc98f49e4244c8e2f526941655810695e#packages/target
+
 ## Requirements:
 - Get and install the latest released **Git SPX Plugin** version (version **v1.0-beta8.5** or **later**)
   
