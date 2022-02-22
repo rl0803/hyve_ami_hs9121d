@@ -153,7 +153,12 @@ typedef enum {
 	PLATFORM_LED_MAX_Index
 } HyvePlatformLEDIndex;
 
-
+/********** Platform Button Map Number Definition **********/
+typedef enum {
+	PLATFORM_BUTTON_POWER = 0,
+	PLATFORM_BUTTON_RESET,
+	PLATFORM_BUTTON_MAX_Index
+} HyvePlatformButtonIndex;
 
 
 /********************* Export platform global variables *********************/
@@ -207,6 +212,7 @@ extern int HyvePlatform_Init();
 extern int HyvePlatform_TaskInit(int BMCInst);
 
 /********************* Platform Peripheral Control Functions *********************/
+extern int HyvePlatform_ButtonProxy(const INT8U gpioNum, const INT32U delay, INT8U retryCount);
 extern int HyvePlatform_BIOS_FlashSelect(const INT8U op, INT8U* pFlashIndex);
 extern int HyvePlatform_BIOS_FlashAccessControl(const INT8U op, INT8U* pIs_enable);
 extern int HyvePlatform_Reset_OCP_NIC_SMBus();

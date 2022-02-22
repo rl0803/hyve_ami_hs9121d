@@ -202,42 +202,7 @@ int HyvePlatformCPLD_Inform_FwAuthComplete(const INT8U op, INT8U* pIs_asserted)
 	return 0;
 }
 
-/*-----------------------------------------------------------------
- * @fn HyvePlatformCPLD_Button
- * @brief	To pass the button signal to the CPLD
- *
- * @param[in]               op  - The operation: SET, GET
- * @param[in/out]  pIs_pressed  - The INT8U pointer to input/output the flag of the button status
- *
- * @return    0 - if success
- *           -1 - otherwise
- *-----------------------------------------------------------------*/
-int HyvePlatformCPLD_Button(const INT8U button,const INT8U op, INT8U* pIs_pressed)
-{
-	int ret = 0;
-	const INT16U buttontPins[Button_MAX] = {
-			IO_FM_BMC_PWRBTN_OUT_N, IO_RST_SYSRST_BTN_OUT_N
-	};
 
-	if ((button >= Button_MAX) || (!pIs_pressed)) { return -1; }
-
-	if (Hyve_VALUE_SET == op) {
-		if (TRUE == *pIs_pressed) {
-			ret = HyveExt_GPIO_Set_Data_Low(buttontPins[button]);
-		} else {
-			ret = HyveExt_GPIO_Set_Data_High(buttontPins[button]);
-		}
-		return ret < 0 ? -1 : 0;
-	}
-	// Get currently status
-	if ((ret = HyveExt_GPIO_Get_Data(buttontPins[button])) < 0) { return ret; }
-	if (HYVE_GPIO_DATA_LOW == ret) {
-		*pIs_pressed = TRUE;
-	} else {
-		*pIs_pressed = FALSE;
-	}
-	return 0;
-}
 
 
 

@@ -44,8 +44,8 @@ extern int HyvePlatform_AfterBIOSFlash(INT8U updateRes);
 #define HYVEPLATFORM_BIOS_FLASHSELECT								HyvePlatform_BIOS_FlashSelect
 #define HYVEPLATFORM_PREPARE_BIOSFLASH								HyvePlatform_PrepareBIOSFlash
 #define HYVEPLATFORM_AFTER_BIOSFLASH								HyvePlatform_AfterBIOSFlash
-
-
+#define HYVEPLATFORM_CLAER_CMOS										HyvePlatform_Reset_CMOS
+#define HYVEPLATFORM_LED_CONTROL(ledIndex, enable)					HyvePlatform_LED_Control((ledIndex), Hyve_VALUE_SET, &(enable))
 #define HYVEPLATFORM_AFTERCREATINGTASKS								HyvePlatform_TaskInit
 
 #endif

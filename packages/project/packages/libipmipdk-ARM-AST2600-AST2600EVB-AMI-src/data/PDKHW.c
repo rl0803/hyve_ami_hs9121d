@@ -48,10 +48,7 @@
 #include "gpioifc.h"
 
 
-#define GPIO_BMC_RSTBTN_OUT_N 175  //GPIOV7
-#define GPIO_BMC_PWBTN_OUT_N 174  //GPIOV6
-#define GPIO_SLP_S3_N 173         //GPIOV5
-#define GPIO_PS_PWROK 172         //GPIOV4
+
 
 #define IO1	1
 #define IO2 2
@@ -84,12 +81,10 @@
 
 
 
-extern int g_SMItoutEnable;
-extern int g_SMItoutInterval;
-extern int g_lpcreset;
-int g_chassisCtrlCmdStatus = 0;
-int g_UIDStatus=0;
 
+
+
+#if 0 // Unused
 /*-----------------------------------------------------------------
  * @fn chassis_telco_log
  * @brief Chassis log sent to TELCO helper package
@@ -109,6 +104,8 @@ void telco_chassis_alert(int BMCInst, INT8U Action, INT8U result)
 		dlclose(telco_helper);
 	}
 }
+#endif
+
 /*----------------------------------------------------------------------------
  * @fn PDK_PlatformInit
  *
@@ -136,15 +133,15 @@ PDK_PlatformInit (void)
 int
 PDK_ColdResetBMC (int BMCInst)
 {
-	 int pendStatus = PEND_STATUS_COMPLETED;
-	 
-  pendStatus = GetPendStatus(PEND_OP_DELAYED_COLD_RESET);
-  
-  if(pendStatus == PEND_STATUS_PENDING) return pendStatus;
-  	
-// TODO: BMC reset event
-  SetPendStatus(PEND_OP_DELAYED_COLD_RESET,PEND_STATUS_PENDING);
-  PostPendTask(PEND_OP_DELAYED_COLD_RESET,NULL,0,0,BMCInst);	
+	int pendStatus = PEND_STATUS_COMPLETED;
+
+	pendStatus = GetPendStatus(PEND_OP_DELAYED_COLD_RESET);
+
+	if(pendStatus == PEND_STATUS_PENDING) return pendStatus;
+
+	// TODO: BMC reset event
+	SetPendStatus(PEND_OP_DELAYED_COLD_RESET,PEND_STATUS_PENDING);
+	PostPendTask(PEND_OP_DELAYED_COLD_RESET,NULL,0,0,BMCInst);	
 	
  	//reboot (LINUX_REBOOT_CMD_RESTART);
 	return 0;
@@ -269,32 +266,6 @@ bool PDK_IsACPowerOn(int BMCInst)
 }
 #endif
 
-static void ChassisPowerControl(INT8U gpio_pin, INT8U delay)
-{
-	// TODO:
-	if (0) {
-		u8 val = 0;
-		hal_t hal;
-	
-		hal.func = HAL_SET_GPIO_DIR;
-		hal.pwrite_buf = &val;
-		val = 1;    // Set Power Button Pin direction as Output.
-		hal.gpio.pin = gpio_pin;
-		gpio_write(&hal);
-	
-		val = 0;
-		hal.func = HAL_DEVICE_WRITE;
-		gpio_write(&hal);
-	
-		sleep(delay);
-	
-		val = 1;
-		hal.func = HAL_DEVICE_WRITE;
-		gpio_write(&hal);
-	}
-}
-
-
 /*---------------------------------------------------------------------------
  * @fn PDK_PowerOnChassis
  *
@@ -316,43 +287,39 @@ static void ChassisPowerControl(INT8U gpio_pin, INT8U delay)
 int 
 PDK_PowerOnChassis (int BMCInst)
 {
-	// TODO: Alan, just set the flag
-	g_Is_DCPowerOn = TRUE;
-	
-	///////////////////////////////////////////////////
-
-    if((PDK_GetPSGood(BMCInst)) == 0)
-    {
-        if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 || IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-        {
-            telco_chassis_alert(BMCInst,CHASSIS_POWER_ON,CMD_FAIL);
-        }
-    }
-    else
-    {    
-        if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 || IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-        {
-            telco_chassis_alert(BMCInst,CHASSIS_POWER_ON,CMD_PASS);
-        }
-    }
-
 	printf("POWER ON CHASSIS\n");
+	// TODO: Currently the delay time is unknown 
+    if (HyvePlatform_ButtonProxy(IO_FM_BMC_PWRBTN_OUT_N, 1000000000 /* 1 sec */, 1) < 0) {
+    	printf("POWER ON CHASSIS FAILED!\n");
+    	return -1;
+    }
 
-    if(g_corefeatures.ssi_support == ENABLED)
-    {
+    // If Not support ROT, wait a while and check the power status
+    sleep(2);
+    if (!PDK_GetPSGood(BMCInst)) {
+    	printf("POWER ON CHASSIS FAILED!\n");
+    	return -1;
+    }
+
+#if 0 // Unused
+    if (IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
+    		IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1) {
+    	if (HYVEPLATFORM_IS_SYS_PWRGOOD)) {
+    		telco_chassis_alert(BMCInst, CHASSIS_POWER_ON, CMD_PASS);
+    	} else {
+    		telco_chassis_alert(BMCInst, CHASSIS_POWER_ON, CMD_FAIL);
+    	}
+    }
+#endif
+    if (g_corefeatures.ssi_support == ENABLED) {
         /* Do queue Operational State condition. */
-        if (g_SSIHandle[SSICB_QUEUECOND] != NULL)
-        {
+        if (g_SSIHandle[SSICB_QUEUECOND] != NULL) {
            ((STATUS(*)(INT8U, INT8U, INT8U, int))g_SSIHandle[SSICB_QUEUECOND]) (DEFAULT_FRU_DEV_ID, COND_POWER_ON, 1, BMCInst);
         }
 
         LOCK_BMC_SHARED_MEM(BMCInst);
         BMC_GET_SHARED_MEM(BMCInst)->PowerActionInProgress = FALSE;
         UNLOCK_BMC_SHARED_MEM(BMCInst);
-    }
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
     }
     return 0;
 }
@@ -368,66 +335,34 @@ PDK_PowerOnChassis (int BMCInst)
 int
 PDK_PowerOffChassis (int BMCInst)
 {
-
-	// TODO: Alan, just set the flag
-	g_Is_DCPowerOn = FALSE;
-	
-	///////////////////////////////////////////////////
-#if 0
-	/** AMI DC and AC cycle stress test begin **/	
-    u8 retry = 0, ChassisOFFFlag = 0, delay = 5;
-
-    while((PDK_GetPSGood(BMCInst))==1)
-    {
-        if ((retry < 3) && ((PDK_GetPSGood(BMCInst)) != 0))
-        {
-            ChassisPowerControl(GPIO_BMC_PWBTN_OUT_N, delay);
-            sleep(2);
-        }
-        else
-        {
-            if(delay <= 8)
-            {
-                delay++;
-                ChassisPowerControl(GPIO_BMC_PWBTN_OUT_N, delay);
-                sleep(2);
-            }
-            else
-            {
-                break;
-            }
-        }
-        if((PDK_GetPSGood(BMCInst)) == 0)
-        {
-            ChassisOFFFlag = 1;
-            break;
-        }
-        retry++;
-    }
-	/** test end**/
-
-    if((retry > 5) && (!ChassisOFFFlag))
-    {
-        if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1|| IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-        {
-            telco_chassis_alert(BMCInst,CHASSIS_POWER_OFF,CMD_FAIL);
-        }
-    }
-    else
-    {
-        if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1|| IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-        {
-            telco_chassis_alert(BMCInst,CHASSIS_POWER_OFF,CMD_PASS);
-        }
-    }
+	char retryCount = 1;
 
 	printf("POWER OFF CHASSIS\n");
 
-    if(g_corefeatures.ssi_support == ENABLED)
-    {
+	do {
+		// TODO: Currently the delay time is unknown 
+		HyvePlatform_ButtonProxy(IO_FM_BMC_PWRBTN_OUT_N, 2000000000 /* 2 sec */, 0);
+	} while ((retryCount-- > 0) && PDK_GetPSGood(BMCInst));
+
+	if (PDK_GetPSGood(BMCInst)) {
+    	printf("POWER OFF CHASSIS FAILED!\n");
+    	return -1;
+    }
+
+#if 0 // Unused
+    if (IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
+    		IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1) {
+    	if (HYVEPLATFORM_IS_SYS_PWRGOOD) {
+    		telco_chassis_alert(BMCInst,CHASSIS_POWER_OFF,CMD_FAIL);
+    	} else {
+    		telco_chassis_alert(BMCInst,CHASSIS_POWER_OFF,CMD_PASS);
+    	}
+    }
+#endif
+
+    if (g_corefeatures.ssi_support == ENABLED) {
         /* Do queue Operational State condition. */
-        if (g_SSIHandle[SSICB_QUEUECOND] != NULL)
-        {
+        if (g_SSIHandle[SSICB_QUEUECOND] != NULL) {
             ((STATUS(*)(INT8U, INT8U, INT8U, int))g_SSIHandle[SSICB_QUEUECOND]) (DEFAULT_FRU_DEV_ID, COND_POWER_ON, 0, BMCInst);
         }
 
@@ -435,55 +370,31 @@ PDK_PowerOffChassis (int BMCInst)
         BMC_GET_SHARED_MEM(BMCInst)->PowerActionInProgress = FALSE;
         UNLOCK_BMC_SHARED_MEM(BMCInst);
     }
-#endif
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
-    }
     return 0;
 }
-
 
 void
 PDK_SoftOffChassis (int BMCInst)
 {
-    u8 val;
-    hal_t hal;
-
-    //  Below code is to power off
-    val = 0;
-    hal.func = HAL_DEVICE_WRITE;
-    hal.pwrite_buf = &val;
-    hal.gpio.pin = GPIO_BMC_PWBTN_OUT_N;
-    gpio_write(&hal);
-    sleep(5);
-    val = 1;
-    gpio_write(&hal);
-
     printf("SOFT POWER OFF CHASSIS\n");
 
-    if((PDK_GetPSGood(BMCInst)) != 0)
-    {
-        if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1|| IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-        {
-            telco_chassis_alert(BMCInst,CHASSIS_POWER_OFF,CMD_FAIL);
-        }
-    }
-    else
-    {
-        if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1|| IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-        {
-            telco_chassis_alert(BMCInst,CHASSIS_POWER_OFF,CMD_PASS);
-        }
-    }
+	// TODO: Currently the delay time and method are unknown 
+	HyvePlatform_ButtonProxy(IO_FM_BMC_PWRBTN_OUT_N, 1000000000 /* 1 sec */, 0);
 
-	printf("POWER OFF CHASSIS\n");
-	
-    if(g_corefeatures.ssi_support == ENABLED)
-    {
+#if 0 // Unused
+	if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
+			IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1) {
+		if (PDK_GetPSGood(BMCInst)) {
+			telco_chassis_alert(BMCInst, CHASSIS_POWER_OFF, CMD_FAIL);
+		} else {
+			telco_chassis_alert(BMCInst, CHASSIS_POWER_OFF, CMD_PASS);
+		}
+	}
+#endif
+
+    if (g_corefeatures.ssi_support == ENABLED) {
         /* Do queue Operational State condition. */
-        if (g_SSIHandle[SSICB_QUEUECOND] != NULL)
-        {
+        if (g_SSIHandle[SSICB_QUEUECOND] != NULL) {
            ((STATUS(*)(INT8U, INT8U, INT8U, int))g_SSIHandle[SSICB_QUEUECOND]) (DEFAULT_FRU_DEV_ID, COND_POWER_ON, 0, BMCInst);
         }
 
@@ -491,9 +402,8 @@ PDK_SoftOffChassis (int BMCInst)
         BMC_GET_SHARED_MEM(BMCInst)->PowerActionInProgress = FALSE;
         UNLOCK_BMC_SHARED_MEM(BMCInst);
    }
-
-    return;
 }
+
 /*--------------------------------------------------------------------
  * @fn PDK_PowerCycleChassis
  * @brief Power Cycle the chassis.
@@ -504,51 +414,43 @@ int
 PDK_PowerCycleChassis (int BMCInst)
 {
 	int ret = 0;
-    int retries = 3;
+    char retries = 3;
     BMCInfo_t *pBMCInfo = &g_BMCInfo[BMCInst];
+
     printf("POWER CYCLE CHASSIS\n");
 
-   	IPMI_DBG_PRINT ("Power Cycle Chassis\n");
-
-    if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 || IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-    {
-        telco_chassis_alert(BMCInst,CHASSIS_POWER_CYCLE,CMD_WAIT);
+#if 0 // Unused
+    if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
+    		IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1) {
+        telco_chassis_alert(BMCInst, CHASSIS_POWER_CYCLE, CMD_WAIT);
     }
+#endif
+
     /* Try to power down the host. We continue whether or not it succeeds */
     /* in case the failure actually ends with the system off or otherwise */
-    /* stuck.                                                             */
     PDK_PowerOffChassis(BMCInst);
 
-    /* This is for AMI automation Test only. If needed, please remove     */ 
-    /*  those and implement for OEM/ODM platform porting.                 */
-    retries = 50;
-    do
-    {
-        ret = PDK_GetPSGood(BMCInst);
-        if( ret == 1 )
-        {
-            /* Wait for some time */
-            sleep((int)(pBMCInfo->ChassisConfig.PowerCycleInterval));
-        }
-    } while ((ret == 1) && (retries-- > 0));
+    /* Wait for some time */
+	if (pBMCInfo->ChassisConfig.PowerCycleInterval) {
+		printf("PowerCycle delay %d second\n", (int)(pBMCInfo->ChassisConfig.PowerCycleInterval));
+		sleep((int)(pBMCInfo->ChassisConfig.PowerCycleInterval));
+	}
 
-
-    retries = 3;
     /* Try to power up the host.  Try several times if necessary to make */
     /* sure the host comes back up.                                      */
-    do
-    {
+    do {
         ret = PDK_PowerOnChassis(BMCInst);
-        if( ret < 0 )
-            sleep(1);
+        if( ret < 0 ) { sleep(1); }
     } while((ret < 0) && (retries-- > 0));
 
-    if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 || IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-    {
+#if 0 // Unused
+    if (IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
+    		IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1) {
         telco_chassis_alert(BMCInst,CHASSIS_POWER_CYCLE,CMD_PASS);
     }
-    return ret;
+#endif
 
+    return ret;
 }
 
 /*--------------------------------------------------------------------
@@ -560,21 +462,20 @@ PDK_PowerCycleChassis (int BMCInst)
 int
 PDK_ResetChassis (int BMCInst)
 {
-    u8 val, delay = 1;
-    hal_t hal;
+	if (0) { BMCInst = BMCInst; }
 
-    UN_USED(BMCInst);  /*  -Wextra, fix for unused parameter  */
-    UN_USED(hal);
-    UN_USED(val);
-    UN_USED(delay);
-   
-    ChassisPowerControl(GPIO_BMC_RSTBTN_OUT_N, delay);
-
-    if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 || IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1)
-    {
-        telco_chassis_alert(BMCInst,CHASSIS_POWER_RESET,CMD_PASS);
-    }
     printf("RESET CHASSIS\n");
+
+	// TODO: Currently the delay time is unknown 
+    if (HyvePlatform_ButtonProxy(IO_RST_SYSRST_BTN_OUT_N, 1000, 2) < 0) {
+    	return -1;
+    }
+#if 0 // Unused
+    if (IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
+    		IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1) {
+        telco_chassis_alert(BMCInst,CHASSIS_POWER_RESET, CMD_PASS);
+    }
+#endif
     return 0;
 }
 
@@ -1025,7 +926,7 @@ void
 PDK_ClearCMOS (int BMCInst)
 {
 	if (0) { BMCInst = BMCInst; }
-//	HyvePlatform_Reset_CMOS();
+	HyvePlatform_Reset_CMOS();
     return;
 }
 

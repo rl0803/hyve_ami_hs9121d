@@ -13,13 +13,6 @@ typedef enum {
 	JTAG_MUX_RISER
 } HyvePlatformJTAGMuxIndex;
 
-typedef enum {
-	ButtonHostPower = 0,
-	ButtonHostReset,
-	Button_MAX
-} HyvePlatformButtonIndex;
-
-
 
 
 

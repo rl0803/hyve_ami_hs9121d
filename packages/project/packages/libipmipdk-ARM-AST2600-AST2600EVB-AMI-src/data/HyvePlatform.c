@@ -247,6 +247,30 @@ int HyvePlatform_TaskInit(int BMCInst)
 
 /********************* Platform Peripheral Control Functions *********************/
 /*-----------------------------------------------------------------
+ * @fn HyvePlatform_ButtonProxy
+ * @brief	To control the button GPIO (assume active low)
+ *
+ * @param[in] gpioNum - The GPIO pin number
+ * @param[in] delay   - The delay time (us)
+ * @param[in] retryCount - The retry count
+ *
+ * @return    0 - if succeed
+ *           -1 - otherwise
+ *-----------------------------------------------------------------*/
+int HyvePlatform_ButtonProxy(const INT8U gpioNum, const INT32U delay, INT8U retryCount)
+{
+	do {
+		if (HyveExt_GPIO_Set_Data_Low(gpioNum) > -1) {
+			usleep(delay);
+			if (HyveExt_GPIO_Set_Data_High(gpioNum) > -1) { return 0; }
+		}
+		usleep(1000);
+	} while (retryCount--);
+
+	return -1;
+}
+
+/*-----------------------------------------------------------------
  * @fn HyvePlatform_BIOS_FlashSelect
  * @brief	To select which BIOS flash to access
  *
@@ -326,20 +350,8 @@ int HyvePlatform_BIOS_FlashAccessControl(const INT8U op, INT8U* pIs_enable)
  *-----------------------------------------------------------------*/
 int HyvePlatform_Reset_OCP_NIC_SMBus()
 {
-	int retryCount = 3;
-
-	do {
-		if (HyveExt_GPIO_Set_Data_Low(IO_BMC_OCP1_SMRST_L) > -1) {
-			// TODO: Currently the delay time is unknown 
-			usleep(1000);
-			if (HyveExt_GPIO_Set_Data_High(IO_BMC_OCP1_SMRST_L) > -1) {
-				return 0;
-			}
-		}
-		usleep(1000);
-	} while (retryCount--);
-
-	return -1;			
+	// TODO: Currently the delay time is unknown 
+	return HyvePlatform_ButtonProxy(IO_BMC_OCP1_SMRST_L, 1000, 2);
 }
 
 /*-----------------------------------------------------------------
@@ -432,6 +444,7 @@ int HyvePlatform_BoardID(INT8U *pBoardID)
  * @param[in/out]  pIs_enable   - The INT8U pointer to input/output the flag of enable
  *
  * @return    0 - if success
+ *           -3 - the LED index not supported
  *           -1 - otherwise
  *-----------------------------------------------------------------*/
 int HyvePlatform_LED_Control(const INT8U ledIndex, const INT8U op, INT8U* pIs_enable)
@@ -449,7 +462,7 @@ int HyvePlatform_LED_Control(const INT8U ledIndex, const INT8U op, INT8U* pIs_en
 	int ret = 0;
 	int (*pFuncSetGPIO)(const INT16U ) = HyveExt_GPIO_Set_Data_Low;
 
-	if ((ledIndex >= PLATFORM_LED_MAX_Index) || (!pIs_enable)) { return -1; }
+	if ((ledIndex >= PLATFORM_LED_MAX_Index) || (!pIs_enable)) { return -3; }
 
 	if (Hyve_VALUE_SET == op) {
 		if (((TRUE == *pIs_enable) && (FALSE == ledGPIO[ledIndex].isActiveLow)) ||
@@ -480,20 +493,8 @@ int HyvePlatform_LED_Control(const INT8U ledIndex, const INT8U op, INT8U* pIs_en
  *-----------------------------------------------------------------*/
 int HyvePlatform_TriggerHostCPU_NMI_SYNC_FLOOD()
 {
-	int retryCount = 3;
-
-	do {
-		if (HyveExt_GPIO_Set_Data_Low(IO_P0_NMI_SYNC_FLOOD_L) > -1) {
-			// TODO: Currently the delay time is unknown 
-			usleep(1000);
-			if (HyveExt_GPIO_Set_Data_High(IO_P0_NMI_SYNC_FLOOD_L) > -1) {
-				return 0;
-			}
-		}
-		usleep(1000);
-	} while (retryCount--);
-
-	return -1;			
+	// TODO: Currently the delay time is unknown 
+	return HyvePlatform_ButtonProxy(IO_P0_NMI_SYNC_FLOOD_L, 1000, 2);		
 }
 
 /*-----------------------------------------------------------------
@@ -507,20 +508,8 @@ int HyvePlatform_TriggerHostCPU_NMI_SYNC_FLOOD()
  *-----------------------------------------------------------------*/
 int HyvePlatform_Reset_EMMC()
 {
-	int retryCount = 3;
-
-	do {
-		if (HyveExt_GPIO_Set_Data_Low(IO_FM_BMC_EMMC_RST_N) > -1) {
-			// TODO: Currently the delay time is unknown 
-			usleep(1000);
-			if (HyveExt_GPIO_Set_Data_High(IO_FM_BMC_EMMC_RST_N) > -1) {
-				return 0;
-			}
-		}
-		usleep(1000);
-	} while (retryCount--);
-
-	return -1;			
+	// TODO: Currently the delay time is unknown 
+	return HyvePlatform_ButtonProxy(IO_FM_BMC_EMMC_RST_N, 1000, 2);			
 }
 
 /*-----------------------------------------------------------------
@@ -542,22 +531,11 @@ int HyvePlatform_Reset_PwrAUX_IC(const INT8U auxIndex)
 	const INT16U resetPins[PwrAUXIndex_MAX] = {
 			IO_P5V_AUX_RST_DLY, IO_P3V3_AUX_RST_DLY
 	};
-	int retryCount = 3;
 
 	if (auxIndex >= PwrAUXIndex_MAX) { return -1; }
-	
-	do {
-		if (HyveExt_GPIO_Set_Data_Low(resetPins[auxIndex]) > -1) {
-			// TODO: Currently the delay time is unknown 
-			usleep(1000);
-			if (HyveExt_GPIO_Set_Data_High(resetPins[auxIndex]) > -1) {
-				return 0;
-			}
-		}
-		usleep(1000);
-	} while (retryCount--);
 
-	return -1;			
+	// TODO: Currently the delay time is unknown 
+	return HyvePlatform_ButtonProxy(resetPins[auxIndex], 1000, 2);
 }
 
 /*-----------------------------------------------------------------
@@ -600,20 +578,8 @@ int HyvePlatform_SetBMCReady()
  *-----------------------------------------------------------------*/
 int HyvePlatform_Reset_CMOS()
 {
-	int retryCount = 3;
-
-	do {
-		if (HyveExt_GPIO_Set_Data_Low(IO_RST_RTCRST_N) > -1) {
-			// TODO: Currently the delay time is unknown 
-			usleep(1000);
-			if (HyveExt_GPIO_Set_Data_High(IO_RST_RTCRST_N) > -1) {
-				return 0;
-			}
-		}
-		usleep(1000);
-	} while (retryCount--);
-
-	return -1;			
+	// TODO: Currently the delay time is unknown 
+	return HyvePlatform_ButtonProxy(IO_RST_RTCRST_N, 1000000000 /* 1 sec */, 2);		
 }
 
 /*-----------------------------------------------------------------
@@ -688,8 +654,6 @@ int HyvePlatform_DIMM_MuxControl(const INT8U op, INT8U* pIs_enable)
 	return 0;
 }
 
-
-
 /*-----------------------------------------------------------------
  * @fn HyvePlatform_Reset_I2CMux
  * @brief	To reset the I2C Mux IC
@@ -706,21 +670,10 @@ int HyvePlatform_Reset_I2CMux(const INT8U muxIndex)
 			IO_BMC_CLKGEN_I2CMUX_RST_N, IO_BMC_PLINK_I2CMUX_RST_N,
 			IO_BMC_GLINK_I2CMUX_RST_N
 	};
-	int retryCount = 3;
 
 	if (muxIndex >= I2CMUXIndex_MAX) { return -1; }
 	
-	do {
-		if (HyveExt_GPIO_Set_Data_Low(resetPins[muxIndex]) > -1) {
-			// TODO: Currently the delay time is unknown 
-			usleep(1000);
-			if (HyveExt_GPIO_Set_Data_High(resetPins[muxIndex]) > -1) {
-				return 0;
-			}
-		}
-		usleep(1000);
-	} while (retryCount--);
-
-	return -1;			
+	// TODO: Currently the delay time is unknown 
+	return HyvePlatform_ButtonProxy(resetPins[muxIndex], 1000, 2);		
 }
 
