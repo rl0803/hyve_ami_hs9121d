@@ -190,7 +190,7 @@
 
 #define IO_RST_RGMII_PHYRST_N               GPIOS0 // GPIO, Output, to reset the phy-IC, HW default sets it NI
 #define IO_FM_BMC_PLD_RESERVED              GPIOS1 // GPIO, Output, to the CPLD, reserved
-#define IO_RST_RTCRST_N                     GPIOS2 // GPIO, Output, this pin can both reset the CMOS and the BMC RTC
+#define IO_RST_RTCRST                     	GPIOS2 // GPIO, Output, this pin can both reset the CMOS and the BMC RTC
 #define IO_P0_HDT_SEL_0                     GPIOS3 // GPIO, Output, HDT source selection, High (default): CPU HDT; Low: BMC HDT
 #define IO_FM_BIOS_FLASH_SEL0_N             GPIOS4 // GPIO, Input, from the ROT to know which BIOS it is accessing
 #define IO_FM_BIOS_FLASH_SEL1_N             GPIOS5 // GPIO, Input, from the ROT to know which BIOS it is accessing

@@ -14,6 +14,6 @@ typedef enum {
 } HyvePlatformJTAGMuxIndex;
 
 
-
+extern int HyvePlatformCPLD_Inform_FwAuthComplete(const INT8U op, INT8U* pIs_asserted);
 
 #endif

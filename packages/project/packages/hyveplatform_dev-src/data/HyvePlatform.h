@@ -23,6 +23,9 @@
 #include "HyvePlatformROT.h"
 #include "HyvePlatformFRU.h"
 
+//#define HYVEPSU_DEBUG_ENABLE 1
+//#define HYVEFSC_DEBUG_ENABLE 1
+//#define HYVETMP_DEBUG_ENABLE 1
 
 /********************* Define platform ID and name string *********************/
 /* The naming rule of the platform ID string:
@@ -212,7 +215,8 @@ extern int HyvePlatform_Init();
 extern int HyvePlatform_TaskInit(int BMCInst);
 
 /********************* Platform Peripheral Control Functions *********************/
-extern int HyvePlatform_ButtonProxy(const INT8U gpioNum, const INT32U delay, INT8U retryCount);
+extern int HyvePlatform_ButtonProxy(const INT8U gpioNum, const INT16U delaySec,
+									const INT16U delayMs, INT8U retryCount);
 extern int HyvePlatform_BIOS_FlashSelect(const INT8U op, INT8U* pFlashIndex);
 extern int HyvePlatform_BIOS_FlashAccessControl(const INT8U op, INT8U* pIs_enable);
 extern int HyvePlatform_Reset_OCP_NIC_SMBus();
@@ -228,5 +232,6 @@ extern int HyvePlatform_Reset_CMOS();
 extern int HyvePlatform_HDTSelect(const INT8U op, INT8U* pHDTIndex);
 extern int HyvePlatform_DIMM_MuxControl(const INT8U op, INT8U* pIs_enable);
 extern int HyvePlatform_Reset_I2CMux(const INT8U muxIndex);
+extern int HyvePlatform_HostPowerCtrl(const INT8U on_off);
 
 #endif

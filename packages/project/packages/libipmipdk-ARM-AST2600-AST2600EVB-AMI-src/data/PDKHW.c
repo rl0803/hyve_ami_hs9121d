@@ -287,18 +287,12 @@ bool PDK_IsACPowerOn(int BMCInst)
 int 
 PDK_PowerOnChassis (int BMCInst)
 {
-	printf("POWER ON CHASSIS\n");
-	// TODO: Currently the delay time is unknown 
-    if (HyvePlatform_ButtonProxy(IO_FM_BMC_PWRBTN_OUT_N, 1000000000 /* 1 sec */, 1) < 0) {
-    	printf("POWER ON CHASSIS FAILED!\n");
-    	return -1;
-    }
+	int ret = 0;
 
-    // If Not support ROT, wait a while and check the power status
-    sleep(2);
-    if (!PDK_GetPSGood(BMCInst)) {
+	printf("POWER ON CHASSIS\n");
+
+	if ((ret = HyvePlatform_HostPowerCtrl(TRUE) < 0)) {
     	printf("POWER ON CHASSIS FAILED!\n");
-    	return -1;
     }
 
 #if 0 // Unused
@@ -321,7 +315,8 @@ PDK_PowerOnChassis (int BMCInst)
         BMC_GET_SHARED_MEM(BMCInst)->PowerActionInProgress = FALSE;
         UNLOCK_BMC_SHARED_MEM(BMCInst);
     }
-    return 0;
+
+    return ret;
 }
 
 
@@ -335,18 +330,12 @@ PDK_PowerOnChassis (int BMCInst)
 int
 PDK_PowerOffChassis (int BMCInst)
 {
-	char retryCount = 1;
+	int ret = 0;
 
 	printf("POWER OFF CHASSIS\n");
 
-	do {
-		// TODO: Currently the delay time is unknown 
-		HyvePlatform_ButtonProxy(IO_FM_BMC_PWRBTN_OUT_N, 2000000000 /* 2 sec */, 0);
-	} while ((retryCount-- > 0) && PDK_GetPSGood(BMCInst));
-
-	if (PDK_GetPSGood(BMCInst)) {
+	if ((ret = HyvePlatform_HostPowerCtrl(FALSE) < 0)) {
     	printf("POWER OFF CHASSIS FAILED!\n");
-    	return -1;
     }
 
 #if 0 // Unused
@@ -370,7 +359,8 @@ PDK_PowerOffChassis (int BMCInst)
         BMC_GET_SHARED_MEM(BMCInst)->PowerActionInProgress = FALSE;
         UNLOCK_BMC_SHARED_MEM(BMCInst);
     }
-    return 0;
+
+	return ret;
 }
 
 void
@@ -378,8 +368,9 @@ PDK_SoftOffChassis (int BMCInst)
 {
     printf("SOFT POWER OFF CHASSIS\n");
 
-	// TODO: Currently the delay time and method are unknown 
-	HyvePlatform_ButtonProxy(IO_FM_BMC_PWRBTN_OUT_N, 1000000000 /* 1 sec */, 0);
+	if (HyvePlatform_HostPowerCtrl(FALSE) < 0) {
+		printf("SOFT POWER OFF CHASSIS FAILED!\n");
+	}
 
 #if 0 // Unused
 	if(IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
@@ -414,7 +405,7 @@ int
 PDK_PowerCycleChassis (int BMCInst)
 {
 	int ret = 0;
-    char retries = 3;
+
     BMCInfo_t *pBMCInfo = &g_BMCInfo[BMCInst];
 
     printf("POWER CYCLE CHASSIS\n");
@@ -425,23 +416,20 @@ PDK_PowerCycleChassis (int BMCInst)
         telco_chassis_alert(BMCInst, CHASSIS_POWER_CYCLE, CMD_WAIT);
     }
 #endif
-
-    /* Try to power down the host. We continue whether or not it succeeds */
-    /* in case the failure actually ends with the system off or otherwise */
-    PDK_PowerOffChassis(BMCInst);
-
+    // Power Off
+	if ((ret = HyvePlatform_HostPowerCtrl(FALSE) < 0)) {
+		printf("POWER OFF CHASSIS FAILED!\n");
+		return ret;
+	}
     /* Wait for some time */
 	if (pBMCInfo->ChassisConfig.PowerCycleInterval) {
 		printf("PowerCycle delay %d second\n", (int)(pBMCInfo->ChassisConfig.PowerCycleInterval));
 		sleep((int)(pBMCInfo->ChassisConfig.PowerCycleInterval));
 	}
-
-    /* Try to power up the host.  Try several times if necessary to make */
-    /* sure the host comes back up.                                      */
-    do {
-        ret = PDK_PowerOnChassis(BMCInst);
-        if( ret < 0 ) { sleep(1); }
-    } while((ret < 0) && (retries-- > 0));
+	// Power On
+	if ((ret = HyvePlatform_HostPowerCtrl(TRUE) < 0)) {
+		printf("POWER ON CHASSIS FAILED!\n");
+	}
 
 #if 0 // Unused
     if (IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
@@ -462,21 +450,25 @@ PDK_PowerCycleChassis (int BMCInst)
 int
 PDK_ResetChassis (int BMCInst)
 {
+	int ret = 0;
+
 	if (0) { BMCInst = BMCInst; }
 
     printf("RESET CHASSIS\n");
 
-	// TODO: Currently the delay time is unknown 
-    if (HyvePlatform_ButtonProxy(IO_RST_SYSRST_BTN_OUT_N, 1000, 2) < 0) {
-    	return -1;
+    if (!(ret = HyveExt_CtrlGPIOPbyPass(FALSE))) {
+    	ret = HyvePlatform_ButtonProxy(IO_RST_SYSRST_BTN_OUT_N, 0, 500, 2);
     }
+    HyveExt_CtrlGPIOPbyPass(TRUE);
+
 #if 0 // Unused
     if (IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
     		IsFeatureEnabled("CONFIG_SPX_FEATURE_SNMPTRAP_SUPPORT")== 1) {
         telco_chassis_alert(BMCInst,CHASSIS_POWER_RESET, CMD_PASS);
     }
 #endif
-    return 0;
+
+    return ret;
 }
 
 /*--------------------------------------------------------------------
