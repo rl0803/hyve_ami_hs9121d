@@ -228,7 +228,7 @@
 
 #else
     phy-mode = "rmii";
-    // use-ncsi;
+    use-ncsi;
     pinctrl-0 = <&pinctrl_rmii4_default>;
 #endif
 };
@@ -286,7 +286,7 @@
 };
 #endif
 
-#if 1 // For A2 chip
+#if 0 // For A2 chip
 
 &fmc {
     spi-dma-write;
@@ -328,8 +328,8 @@
         m25p,fast-read;
         label = "bmc";
         spi-max-frequency = <50000000>;
-        spi-tx-bus-width = <4>;
-        spi-rx-bus-width = <4>;
+        spi-tx-bus-width = <2>;
+        spi-rx-bus-width = <2>;
         reg= <0>;
         partitions {
             compatible = "ami,spx-fmh";
@@ -340,8 +340,8 @@
         m25p,fast-read;
         label = "bmc2";
         spi-max-frequency = <50000000>;
-        spi-tx-bus-width = <4>;
-        spi-rx-bus-width = <4>;
+        spi-tx-bus-width = <2>;
+        spi-rx-bus-width = <2>;
         reg = <1>;
     };
 };
@@ -360,8 +360,8 @@
         m25p,fast-read;
         label = "pnor";
         spi-max-frequency = <50000000>;
-        spi-tx-bus-width = <4>;
-        spi-rx-bus-width = <4>;     
+        spi-tx-bus-width = <2>;
+        spi-rx-bus-width = <2>;     
     };
 };
 
@@ -459,6 +459,8 @@
 
 &sgpiom0 {
         status = "okay";
+	bus-frequency = <48000>; // 48 kHz
+	ngpios = <80>; // 10 bytes
 };
 
 &hace {
