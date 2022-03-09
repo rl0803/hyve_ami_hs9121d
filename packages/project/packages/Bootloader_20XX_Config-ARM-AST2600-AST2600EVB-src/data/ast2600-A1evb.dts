@@ -144,16 +144,16 @@
 		compatible = "spi-flash", "sst,w25q256";
 		status = "okay";
 		spi-max-frequency = <50000000>;
-		spi-tx-bus-width = <4>;
-		spi-rx-bus-width = <4>;
+		spi-tx-bus-width = <2>;
+		spi-rx-bus-width = <2>;
 	};
 
 	flash@1 {
                 compatible = "spi-flash", "sst,w25q256";
                 status = "okay";
                 spi-max-frequency = <50000000>;
-                spi-tx-bus-width = <4>;
-                spi-rx-bus-width = <4>;
+                spi-tx-bus-width = <2>;
+                spi-rx-bus-width = <2>;
         };
 };
 &spi1 {
@@ -168,8 +168,8 @@
 		compatible = "spi-flash", "sst,w25q256";
 		status = "okay";
 		spi-max-frequency = <50000000>;
-		spi-tx-bus-width = <4>;
-		spi-rx-bus-width = <4>;
+		spi-tx-bus-width = <2>;
+		spi-rx-bus-width = <2>;
 	};
 
 };
@@ -329,7 +329,7 @@
 	pin_gpio_g1 {
 		gpio-hog;
 		gpios = <ASPEED_GPIO(G, 1) GPIO_ACTIVE_HIGH>;
-		output-low;
+		output-high; // Default enable
 	};
 	// FP_ID_LED_N
 	pin_gpio_g2 {
@@ -511,11 +511,11 @@
 		gpios = <ASPEED_GPIO(S, 1) GPIO_ACTIVE_HIGH>;
 		output-low;
 	};
-	// RST_RTCRST_N
+	// RST_RTCRST
 	pin_gpio_s2 {
 		gpio-hog;
 		gpios = <ASPEED_GPIO(S, 2) GPIO_ACTIVE_HIGH>;
-		output-high;
+		output-low;
 	};
 	// P0_HDT_SEL_0
 	pin_gpio_s3 {
