@@ -83,6 +83,7 @@ bool  g_bInitAgentRearmed = FALSE;
 int g_pdkSnoopCounter=0;
 int g_pdkSnoopFlag=0;
 
+extern  _FAR_ INT16U  SDR_DeleteSDR (INT16U ReservationID, INT16U RecID,int BMCInst);
 
 #define USE_PECI_TO_READ_CPU_MEMORY_SENSOR_VALUEx
 #ifdef USE_PECI_TO_READ_CPU_MEMORY_SENSOR_VALUE
@@ -959,46 +960,6 @@ PDK_TimerTask (int BMCInst)
 	// Count the platform global jiffy
 	// This var is only written here, so no need to protect it
 	g_HyvePlatformJiffy++;
-
-
-
-#if 0 // To be (re)moved
-	u8 PostCodeBuf[MAX_SNOOP_SIZE];
-	hal_t phal;
-	int	rd_len=0, i;
-    	if(0)
-    	{
-        	BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
-    	}
-	if (g_pdkSnoopFlag == 1)
-		return;
-	if (g_pdkSnoopCounter < SNOOP_DELAY_TIME)
-	{
-		g_pdkSnoopCounter ++;
-		return;
-	}
-	printf ("Starting to Read Current PostCode buffer...\n");
-	phal.read_len = sizeof (PostCodeBuf);
-	phal.pread_buf = PostCodeBuf;
-	rd_len=snoop_read_current_bios_code (&phal);
-	if (-1 == rd_len)
-	{
-		printf ("Error Reading Current PostCode buffer...\n");
-	}
-	else if (rd_len)
-	{
-		printf ("Current Post Codes are ...\n");
-		for (i = 0; i < rd_len; i++)
-		{
-			printf ("0x%02x ", phal.pread_buf[i]);
-		}
-		printf ("\n");
-	}
-	else
-		printf ("No Post Codes ...\n");
-	g_pdkSnoopFlag = 1;
-	return;
-#endif
 }
 
 /*-------------------------------------------------------------------------
@@ -1366,11 +1327,6 @@ void PDK_InitSOLPort (struct termios *ptty_struct, int BMCInst)
     return;
 }
 
-
-
-
-
-
 /*----------------------------------------------------------------------
  * @fn PDK_GetSpecificSensorReading
  * @This function can be used when internal Sensor values are to be returned or
@@ -1700,8 +1656,6 @@ void PDK_ProcessOEMRecord(INT8U* OEMRec, int BMCInst)
     return;
 }
 
-#if DYNAMIC_SENSOR
-extern  _FAR_ INT16U  SDR_DeleteSDR (INT16U ReservationID, INT16U RecID,int BMCInst);
 static int _DeleteSDR(INT16U sdrRecID, INT8U BMCInst)
 {
 	int ret = -1;
@@ -1720,45 +1674,37 @@ static int _DeleteSDR(INT16U sdrRecID, INT8U BMCInst)
     OS_THREAD_MUTEX_RELEASE(&pBMCInfo->SDRConfig.SDRMutex);
     return ret;
 }
-#endif
 
 void PDK_AfterSDRInit(INT8U BMCInst)
 {
 	if (0) { BMCInst = BMCInst;}
 
-	/* Test Code: for dynamic sensor mechanism */
-#if DYNAMIC_SENSOR
-
 	_FAR_ SDRRecHdr_T *pSDRRecHdr = SDR_GetFirstSDRRec(BMCInst);
 
 	while (pSDRRecHdr) {
-
 		if (FULL_SDR_REC == pSDRRecHdr->Type) {
 			_FAR_ FullSensorRec_T *pFullRec = (_FAR_ FullSensorRec_T*)pSDRRecHdr;
-			// Check the OwnerID
-			if (pFullRec->OwnerID == pBMCInfo->IpmiConfig.BMCSlaveAddr) {
-				// Find the Temp sensor
+
+			// Find the sensor
 				if (IPMI_SENSOR_TEMP_TYPE == pFullRec->SensorType) {
-					// Test remove a SDR rec
-					if (HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MP) ==
+				// Currently EVT-1 MB doesn't have the aux 3V3
+				if (HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_VAUX_P3V3) ==
 							(HYVE_LUN_NUM(pFullRec->OwnerLUN, pFullRec->SensorNum))) {
-//					    _DeleteSDR(pSDRRecHdr->ID, BMCInst);
+					_DeleteSDR(pSDRRecHdr->ID, BMCInst);
 					}
 				}
 			}
-		}
-		// Test Remove FRU SDR
+		// [Workaround] Remove Fanboard, MP, FP FRU SDR to avoid self-test result failed
 		if (FRU_DEVICE_LOCATOR_SDR_REC == pSDRRecHdr->Type) {
 			FRUDevLocatorRec_T *pFruRec = (_FAR_ FRUDevLocatorRec_T*)pSDRRecHdr;
 
-			if (pFruRec->FRUIDSlaveAddr == 0x02) {
-//			    _DeleteSDR(pSDRRecHdr->ID, BMCInst);
+			if ((pFruRec->FRUIDSlaveAddr > 0x00)) {
+			    _DeleteSDR(pSDRRecHdr->ID, BMCInst);
 			}
 		}
 
 		pSDRRecHdr = SDR_GetNextSDRRec(pSDRRecHdr, BMCInst);
 	} // end of while
-#endif
 }
 
 
