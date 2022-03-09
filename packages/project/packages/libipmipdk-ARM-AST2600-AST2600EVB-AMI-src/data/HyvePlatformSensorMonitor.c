@@ -430,7 +430,7 @@ static void HyvePlatform_Sensor_VR(int BMCInst)
 				dataBuff = 0;
 				// Read VR Power Out
 				if (HyveExt_Send_PMBus_CMD(HYFEPLATFORM_SMBUS_CPU_VR, VRAddrs[index], CMD_PSU_READ_POUT,
-											HYVE_PSU_CMD_R, SENSOR_READ_RETRY_COUNT, (INT8U*)dataBuff) < 0) {
+											HYVE_PSU_CMD_R, SENSOR_READ_RETRY_COUNT, (INT8U*)&dataBuff) < 0) {
 					if (g_SensorReadArrt[sensorIndex2].retryCount > SENSOR_READ_RETRY_COUNT) {
 						g_SensorReadArrt[sensorIndex2].status  = HAL_ERR_READ;
 					} else {
@@ -542,7 +542,7 @@ void* HyvePlatform_SensorMonitor(void* pArg)
 
 	// Init the sensor reading status
 	for (i = 0; i < HYVE_ARRAYSIZE(g_SensorReadArrt); i++) {
-		g_SensorReadArrt[i].status = HAL_ERR_NONE;
+		g_SensorReadArrt[i].status = HAL_ERR_FUNC_NOT_SUPPORTED;
 	}
 
 	HyvePlatform_SensorInit(BMCInst);
