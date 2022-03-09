@@ -29,7 +29,7 @@ const INT8U g_FSCI2CBusTable[] = {
 //		HYFEPLATFORM_ADDR_FAN_HWMON, HYFEPLATFORM_ADDR_FAN_HWMON,
 //};
 const INT8U g_tachIndexTable[] = {
-		TACH12, TACH13, TACH14, TACH15, TACH0, TACH1, TACH2, TACH3,
+		TACH12, TACH13, TACH15, TACH14, TACH0, TACH1, TACH2, TACH3,
 };
 const INT8U g_pwmIndexTable[] = { PWM0, PWM1, PWM2, PWM3, };
 
@@ -111,11 +111,11 @@ int HyvePlatformFan_NCT7362Y_Init()
 		if (HyveFSC_NCT7362Y_SetAllPinFunc(g_FSCI2CBusTable[i], HYVEFSC_I2C_ADDR, pinFunc) < 0) { ret = -1; }
 		// Check fan present pin GPIO dir
 		if (!HyveFSC_NCT7362Y_GPIOPortDir(Hyve_VALUE_GET, g_FSCI2CBusTable[i], HYVEFSC_I2C_ADDR, 1, &portVal)) {
-			printf("%s: GPIO Port 1: 0x%x\n", __func__, portVal);
+			HyveFSCDBG("%s: GPIO Port 1: 0x%x\n", __func__, portVal);
 			if (0xF0 != (0xF0 & portVal)) {
 				portVal |= 0xF0;
 				if (HyveFSC_NCT7362Y_GPIOPortDir(Hyve_VALUE_SET, g_FSCI2CBusTable[i], HYVEFSC_I2C_ADDR, 1, &portVal) < 0) {
-					printf("%s: Unable to set GPIO Port1 Dir\n", __func__);
+					HyveFSCDBG("%s: Unable to set GPIO Port1 Dir\n", __func__);
 					ret = -1;
 				}
 			}
@@ -136,21 +136,37 @@ int HyvePlatformFan_NCT7362Y_Init()
  *-----------------------------------------------------------------*/
 void HyvePlatformFan_PresentDetect()
 {
+	static INT8U is_detectDone = 0;
+
+	/* By HW design,
+	 * 1. The fan presence is determined if the fan cable is connected 
+	 * 2. Once the cable is connected, all the fan present pins are pull low,
+	 *    it doesn't matter if there is actually a fan connected
+	 * 3. It doesn't support fan Hot-plug
+	 * 
+	 * So, there is no need to detect fan presence every time */
+	if (is_detectDone) { return; }
+
 	HyveFanTach_T *pFanTach = HyveFSC_GetFanTachList();
-	INT8U i = 0;
-	INT8U fansPresence = 0;
+	INT8U i = 0, fansPresence = 0, detected = 0;
 
 	for (i = 0; i < NUM_FANCTRLIC; i++) {
 		INT8U retryCount = 3, portVal = 0xFF;
 
 		do {
 			if (!HyveFSC_NCT7362Y_GPIOPort(Hyve_VALUE_GET, g_FSCI2CBusTable[i],
-											HYVEFSC_I2C_ADDR, 1, &portVal)) { break; }
+											HYVEFSC_I2C_ADDR, 1, &portVal)) {
+				detected |= 0x0F << (4 * i);
+				break;
+			}
 		} while (retryCount--);
-		fansPresence |= (((~(portVal) >> 4) & 0x0F) << (i * 4));
+		portVal = ((~(portVal) >> 4) & 0x0F);
+		fansPresence |= ((((portVal & 0x04) << 1) | ((portVal & 0x08) >> 1) | (portVal & 0x03)) << (i * 4));
 	}
 	for (i = 0; i < HYVEFSC_MAX_FAN_NUM; i++) {
 		pFanTach[i].is_Present = (fansPresence & 0x01);
 		fansPresence >>= 1;
 	}
+	if (0xFF == detected) { is_detectDone = 1; }
 }
+
