@@ -16,14 +16,21 @@
 
 /********************* LUN 01 *********************/
 // Event Only
-#define SENSOR_NUM_FW_CHANGE									(0x01)
-#define SENSOR_NUM_ACPI_STATUS									(0x02)
-#define SENSOR_NUM_WATCHDOG2									(0x03)	// TODO
-#define SENSOR_NUM_I2C_BUSHANG									(0x04)	// TODO
-#define SENSOR_NUM_SYS_RESTART									(0x05)
-#define SENSOR_NUM_PWRUNIT_STATUS								(0x06)
-#define SENSOR_NUM_BMC_RESET									(0x07)
-#define SENSOR_NUM_BMC_SEL_STATUS								(0x08)
+#define SENSOR_NUM_BMC_FW_CHANGE								(0x00)
+#define SENSOR_NUM_BMC_RESET									(0x01)
+#define SENSOR_NUM_STS_EVENTLOGGING								(0x02)
+#define SENSOR_NUM_STS_SYSTEMEVENT								(0x03)
+#define SENSOR_NUM_STS_INTRUSION								(0x04)
+#define SENSOR_NUM_PWRUNIT_STATUS								(0x05)	// AC Lost
+#define SENSOR_NUM_INFO_BTN										(0x06)
+#define SENSOR_NUM_INFO_SYSRST									(0x07)
+#define SENSOR_NUM_STS_ACPI										(0x08)
+#define SENSOR_NUM_STS_BIOSPOSTCMPT 							(0x09)	// TODO
+#define SENSOR_NUM_ERR_FRB2										(0x0A)	// TODO
+#define SENSOR_NUM_ERR_MEMHOT									(0x0B)	// TODO
+#define SENSOR_NUM_ERR_I2CHANG 									(0x0C)	// TODO
+
+
 
 /* TODO:
 About MEM_HOT, this event sensor should be type 0x0c (memory), sensor specific offset 0x0A
