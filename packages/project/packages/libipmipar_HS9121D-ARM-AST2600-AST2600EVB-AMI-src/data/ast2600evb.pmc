@@ -13,10 +13,10 @@
 <device>
 	<dev_name>HyvePsuSts</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>PSU0_Status</name>
+	<name>STS_PSU0</name>
 	<config>
 		<variable>ID_STR</variable>
-		<value>PSU0_Status</value>
+		<value>STS_PSU0</value>
 	</config>
 	<config>
 		<variable>SENSOR_NUM</variable>
@@ -65,7 +65,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>PSU0_Status [1]</name>
+		<name>STS_PSU0 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -147,7 +147,7 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>PSU0_Status</name>
+	<name>STS_PSU0</name>
 </device_connection>
 <device>
 	<dev_name>HyvePSUReadings</dev_name>
@@ -1685,10 +1685,10 @@
 <device>
 	<dev_name>HyvePsuSts</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>PSU1_Status</name>
+	<name>STS_PSU1</name>
 	<config>
 		<variable>ID_STR</variable>
-		<value>PSU1_Status</value>
+		<value>STS_PSU1</value>
 	</config>
 	<config>
 		<variable>SENSOR_NUM</variable>
@@ -1737,7 +1737,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>PSU1_Status [1]</name>
+		<name>STS_PSU1 [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -1819,7 +1819,7 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>PSU1_Status</name>
+	<name>STS_PSU1</name>
 </device_connection>
 <device>
 	<dev_name>HyvePSUReadings</dev_name>
@@ -3460,7 +3460,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x0</value>
+			<value>0x4</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -3685,7 +3685,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -3910,7 +3910,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x2</value>
+			<value>0x6</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -4135,7 +4135,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x3</value>
+			<value>0x7</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -4272,7 +4272,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>1</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -4360,7 +4360,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x4</value>
+			<value>0x8</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -4585,7 +4585,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x5</value>
+			<value>0x9</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -4722,7 +4722,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>1</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -4766,7 +4766,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xde</value>
+		<value>0xc4</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -4810,7 +4810,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x6</value>
+			<value>0xa</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -4850,7 +4850,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x9</value>
+			<value>0x61</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -4878,7 +4878,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xd</value>
+			<value>0xc</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -4967,15 +4967,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xa1</value>
+		<value>0x74</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x80</value>
+		<value>0x64</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x75</value>
+		<value>0x54</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_RECOVERABLE</variable>
@@ -4983,7 +4983,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xa2</value>
+		<value>0x75</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -4995,7 +4995,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0x74</value>
+		<value>0x53</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -5027,7 +5027,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x7</value>
+			<value>0xb</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -5087,7 +5087,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x11</value>
+			<value>0x1e</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -5115,7 +5115,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xc</value>
+			<value>0xd</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -5170,7 +5170,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>1</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -5186,15 +5186,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xaa</value>
+		<value>0x7a</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x90</value>
+		<value>0x71</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x56</value>
+		<value>0x68</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -5214,7 +5214,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xab</value>
+		<value>0x7b</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5226,7 +5226,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0x55</value>
+		<value>0x67</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -5258,7 +5258,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x8</value>
+			<value>0xc</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -5298,7 +5298,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x7</value>
+			<value>0x61</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -5326,7 +5326,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xd</value>
+			<value>0xc</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -5395,7 +5395,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>1</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -5411,15 +5411,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xdd</value>
+		<value>0x7a</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0x71</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb3</value>
+		<value>0x68</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -5439,7 +5439,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xde</value>
+		<value>0x7b</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5451,7 +5451,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb2</value>
+		<value>0x67</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -5483,7 +5483,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x9</value>
+			<value>0xd</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -5523,7 +5523,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x9</value>
+			<value>0x61</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -5551,7 +5551,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xd</value>
+			<value>0xc</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -5620,7 +5620,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>1</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -5636,15 +5636,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xdd</value>
+		<value>0x7a</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0x5c</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb3</value>
+		<value>0x53</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -5664,7 +5664,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xde</value>
+		<value>0x7b</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5676,7 +5676,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb2</value>
+		<value>0x52</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -5708,7 +5708,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xa</value>
+			<value>0xe</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -5748,7 +5748,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x9</value>
+			<value>0x61</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -5776,7 +5776,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xd</value>
+			<value>0xc</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -5845,7 +5845,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>1</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -5861,15 +5861,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xdd</value>
+		<value>0x7a</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0x5c</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb3</value>
+		<value>0x53</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -5889,7 +5889,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xde</value>
+		<value>0x7b</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5901,7 +5901,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb2</value>
+		<value>0x52</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -5933,7 +5933,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xb</value>
+			<value>0xf</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -5973,7 +5973,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x9</value>
+			<value>0x61</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -6001,7 +6001,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xd</value>
+			<value>0xc</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -6070,7 +6070,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>1</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -6086,15 +6086,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xdd</value>
+		<value>0x7a</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0x5c</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb3</value>
+		<value>0x53</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -6114,7 +6114,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xde</value>
+		<value>0x7b</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -6126,7 +6126,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb2</value>
+		<value>0x52</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -6158,7 +6158,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xc</value>
+			<value>0x10</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -6198,7 +6198,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x9</value>
+			<value>0x61</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -6226,7 +6226,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xd</value>
+			<value>0xc</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -6383,7 +6383,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xd</value>
+			<value>0x11</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -6503,231 +6503,6 @@
 	</pin_x>
 </device_connection>
 <device>
-	<dev_name>Hyve_Voltage</dev_name>
-	<dev_class>Sensor</dev_class>
-	<name>VAUX_P3V3</name>
-	<config>
-		<variable>SENSOR_NUM</variable>
-		<value>0x4e</value>
-	</config>
-	<config>
-		<variable>ID_STR</variable>
-		<value>VAUX_P3V3</value>
-	</config>
-	<config>
-		<variable>ID_ENUM</variable>
-		<value>UNKNOWN</value>
-	</config>
-	<config>
-		<variable>POWER_ON_DELAY</variable>
-		<value>1</value>
-	</config>
-	<config>
-		<variable>SYS_RESET_DELAY</variable>
-		<value>3</value>
-	</config>
-	<config>
-		<variable>MONITOR_INTERVAL</variable>
-		<value>1</value>
-	</config>
-	<config>
-		<variable>MONITOR_STATE</variable>
-		<value>DoNotMontiorOnStandby</value>
-	</config>
-	<config>
-		<variable>NOMINAL_MAX</variable>
-		<value>0xcf</value>
-	</config>
-	<config>
-		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
-	</config>
-	<config>
-		<variable>NOMINAL_MIN</variable>
-		<value>0xb1</value>
-	</config>
-	<config>
-		<variable>LWR_T_MASK</variable>
-		<value>0x2204</value>
-	</config>
-	<config>
-		<variable>UPR_T_MASK</variable>
-		<value>0x2204</value>
-	</config>
-	<config>
-		<variable>S_R_T_MASK</variable>
-		<value>0x1212</value>
-	</config>
-	<config>
-		<variable>UPPER_NON_RECOVERABLE</variable>
-		<value>0x0</value>
-	</config>
-	<config>
-		<variable>UPPER_CRITICAL</variable>
-		<value>0xd0</value>
-	</config>
-	<config>
-		<variable>UPPER_NON_CRITICAL</variable>
-		<value>0x0</value>
-	</config>
-	<config>
-		<variable>LOWER_NON_CRITICAL</variable>
-		<value>0x0</value>
-	</config>
-	<config>
-		<variable>LOWER_CRITICAL</variable>
-		<value>0xb0</value>
-	</config>
-	<config>
-		<variable>LOWER_NON_RECOVERABLE</variable>
-		<value>0x0</value>
-	</config>
-	<config>
-		<variable>RETRY_COUNT</variable>
-		<value>3</value>
-	</config>
-	<pdk>
-	</pdk>
-	<sdr>
-		<name>VAUX_P3V3 [1]</name>
-		<config>
-			<variable>SDR_VER</variable>
-			<value>0x51</value>
-		</config>
-		<config>
-			<variable>SEN_ID</variable>
-			<value>0x20</value>
-		</config>
-		<config>
-			<variable>LUN</variable>
-			<value>0x1</value>
-		</config>
-		<config>
-			<variable>ENT_ID</variable>
-			<value>0x7</value>
-		</config>
-		<config>
-			<variable>ENT_INST</variable>
-			<value>0xe</value>
-		</config>
-		<config>
-			<variable>SEN_INIT</variable>
-			<value>0x7f</value>
-		</config>
-		<config>
-			<variable>SEN_CAPS</variable>
-			<value>0x68</value>
-		</config>
-		<config>
-			<variable>ANALOG_FORMAT</variable>
-			<value>Unsigned</value>
-		</config>
-		<config>
-			<variable>RATE_UNIT</variable>
-			<value>None</value>
-		</config>
-		<config>
-			<variable>MOD_UNIT</variable>
-			<value>None</value>
-		</config>
-		<config>
-			<variable>PERCENT</variable>
-			<value>NO</value>
-		</config>
-		<config>
-			<variable>BASE_UNIT</variable>
-			<value>4</value>
-		</config>
-		<config>
-			<variable>UNIT_3</variable>
-			<value>0</value>
-		</config>
-		<config>
-			<variable>LINEAR</variable>
-			<value>Linear</value>
-		</config>
-		<config>
-			<variable>M_VAL</variable>
-			<value>0x11</value>
-		</config>
-		<config>
-			<variable>TOLERENCE</variable>
-			<value>0x2</value>
-		</config>
-		<config>
-			<variable>B_VAL</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>ACCURACY</variable>
-			<value>0xc2</value>
-		</config>
-		<config>
-			<variable>ACCURACY_EXP</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>SENSOR_DIR</variable>
-			<value>Unspecified</value>
-		</config>
-		<config>
-			<variable>B_EXP</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>R_EXP</variable>
-			<value>0xd</value>
-		</config>
-		<config>
-			<variable>ACF</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>SEN_MAX</variable>
-			<value>0xff</value>
-		</config>
-		<config>
-			<variable>SEN_MIN</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>OEM</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
-		</config>
-		<config>
-			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
-		</config>
-	</sdr>
-	<device_glyph>
-		<topleft_x>0x1ee</topleft_x>
-		<topleft_y>0x28d</topleft_y>
-		<width>0x67</width>
-		<height>0x1b</height>
-		<pin_glyph_X>
-			<name>VOLT</name>
-			<style>0x1</style>
-			<lbinder>
-				<pt1_x>0x1df</pt1_x>
-				<pt1_y>0x290</pt1_y>
-				<pt2_fixed>true</pt2_fixed>
-			</lbinder>
-		</pin_glyph_X>
-	</device_glyph>
-</device>
-<device_connection>
-	<name>VAUX_P3V3</name>
-	<pin_x>
-		<name>VOLT</name>
-		<attached_device>AST_ADC14</attached_device>
-		<attached_pin>AVIN</attached_pin>
-	</pin_x>
-</device_connection>
-<device>
 	<dev_name>Hyve_NC</dev_name>
 	<dev_class>Sensor</dev_class>
 	<name>TEMP_Inlet</name>
@@ -6825,7 +6600,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x2</value>
+			<value>0x13</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -7048,7 +6823,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x3</value>
+			<value>0x14</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -7271,7 +7046,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x4</value>
+			<value>0x15</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -7494,7 +7269,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x5</value>
+			<value>0x16</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -7717,7 +7492,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x6</value>
+			<value>0x17</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -7940,7 +7715,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x7</value>
+			<value>0x18</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -8163,7 +7938,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x8</value>
+			<value>0x19</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -8386,7 +8161,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x9</value>
+			<value>0x1a</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -8609,7 +8384,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xa</value>
+			<value>0x1b</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -8832,7 +8607,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xb</value>
+			<value>0x1c</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -9055,7 +8830,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xc</value>
+			<value>0x1d</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -9278,7 +9053,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xd</value>
+			<value>0x1e</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -9501,7 +9276,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xe</value>
+			<value>0x1f</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -9724,7 +9499,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0xf</value>
+			<value>0x20</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -9947,7 +9722,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x10</value>
+			<value>0x21</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -10170,7 +9945,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x11</value>
+			<value>0x22</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -10393,7 +10168,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x12</value>
+			<value>0x23</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -10616,7 +10391,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x13</value>
+			<value>0x24</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -10839,7 +10614,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x14</value>
+			<value>0x25</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -11062,7 +10837,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x15</value>
+			<value>0x26</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -11285,7 +11060,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x16</value>
+			<value>0x27</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -11508,7 +11283,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x17</value>
+			<value>0x28</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -11731,7 +11506,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x18</value>
+			<value>0x29</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -11954,7 +11729,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x19</value>
+			<value>0x2a</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -12177,7 +11952,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1a</value>
+			<value>0x2b</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -12400,7 +12175,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1b</value>
+			<value>0x2c</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -12623,7 +12398,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1c</value>
+			<value>0x2d</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -12846,7 +12621,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1d</value>
+			<value>0x2e</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -13069,7 +12844,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1e</value>
+			<value>0x2f</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -13292,7 +13067,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1f</value>
+			<value>0x30</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -13515,7 +13290,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x20</value>
+			<value>0x31</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -13662,11 +13437,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -13885,11 +13660,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -14108,11 +13883,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -14331,11 +14106,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -14554,11 +14329,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -14777,11 +14552,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -15000,11 +14775,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -15223,11 +14998,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -15446,11 +15221,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -15669,11 +15444,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -15892,11 +15667,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -16115,11 +15890,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -16338,11 +16113,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -16561,11 +16336,11 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
+		<value>3</value>
 	</config>
 	<config>
 		<variable>MONITOR_INTERVAL</variable>
@@ -17432,6 +17207,81 @@
 	<name>TEMP_MP</name>
 </device_connection>
 <device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>ERR_I2CHang</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>ERR_I2CHang</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>ERR_I2CHang [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0xc</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x8</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x13</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x225</topleft_x>
+		<topleft_y>0xf7</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>ERR_I2CHang</name>
+</device_connection>
+<device>
 	<dev_name>AST_ADC</dev_name>
 	<dev_class>MicroController</dev_class>
 	<name>AST_ADC_10</name>
@@ -17498,81 +17348,6 @@
 	<name>AST_ADC_12</name>
 </device_connection>
 <device>
-	<dev_name>EventRecord</dev_name>
-	<dev_class>SDR</dev_class>
-	<name>SYS_Restart</name>
-	<config>
-		<variable>ID_STR</variable>
-		<value>SYS_Restart</value>
-	</config>
-	<config>
-		<variable>ID_ENUM</variable>
-		<value>UNKNOWN</value>
-	</config>
-	<config>
-		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
-	</config>
-	<config>
-		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
-	</config>
-	<pdk>
-	</pdk>
-	<sdr>
-		<name>SYS_Restart [1]</name>
-		<config>
-			<variable>SDR_VER</variable>
-			<value>0x51</value>
-		</config>
-		<config>
-			<variable>SEN_ID</variable>
-			<value>0x20</value>
-		</config>
-		<config>
-			<variable>LUN</variable>
-			<value>0x1</value>
-		</config>
-		<config>
-			<variable>SENSOR_NUMBER</variable>
-			<value>0x5</value>
-		</config>
-		<config>
-			<variable>ENT_ID</variable>
-			<value>0x6</value>
-		</config>
-		<config>
-			<variable>ENT_INST</variable>
-			<value>0x3</value>
-		</config>
-		<config>
-			<variable>SEN_TYPE</variable>
-			<value>0x1d</value>
-		</config>
-		<config>
-			<variable>READ_TYPE</variable>
-			<value>0x6f</value>
-		</config>
-		<config>
-			<variable>RECORD_SHARING</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>OEM</variable>
-			<value>0x0</value>
-		</config>
-	</sdr>
-	<device_glyph>
-		<topleft_x>0x289</topleft_x>
-		<topleft_y>0x74</topleft_y>
-		<width>0x98</width>
-		<height>0x10</height>
-	</device_glyph>
-</device>
-<device_connection>
-	<name>SYS_Restart</name>
-</device_connection>
-<device>
 	<dev_name>AST_ADC</dev_name>
 	<dev_class>MicroController</dev_class>
 	<name>AST_ADC_11</name>
@@ -17608,10 +17383,10 @@
 <device>
 	<dev_name>EventRecord</dev_name>
 	<dev_class>SDR</dev_class>
-	<name>I2C_BusHang</name>
+	<name>ERR_MEMHOT</name>
 	<config>
 		<variable>ID_STR</variable>
-		<value>I2C_BusHang</value>
+		<value>ERR_MEMHOT</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -17628,7 +17403,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>I2C_BusHang [1]</name>
+		<name>ERR_MEMHOT [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -17643,19 +17418,19 @@
 		</config>
 		<config>
 			<variable>SENSOR_NUMBER</variable>
-			<value>0x4</value>
+			<value>0xb</value>
 		</config>
 		<config>
 			<variable>ENT_ID</variable>
-			<value>0x24</value>
+			<value>0x6</value>
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x0</value>
+			<value>0x7</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
-			<value>0x13</value>
+			<value>0xc</value>
 		</config>
 		<config>
 			<variable>READ_TYPE</variable>
@@ -17671,14 +17446,14 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x289</topleft_x>
-		<topleft_y>0x63</topleft_y>
+		<topleft_x>0x225</topleft_x>
+		<topleft_y>0xe4</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>I2C_BusHang</name>
+	<name>ERR_MEMHOT</name>
 </device_connection>
 <device>
 	<dev_name>AST_ADC</dev_name>
@@ -17712,6 +17487,156 @@
 </device>
 <device_connection>
 	<name>AST_ADC_13</name>
+</device_connection>
+<device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>ERR_FRB2</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>ERR_FRB2</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>ERR_FRB2 [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0xa</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x23</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x224</topleft_x>
+		<topleft_y>0xd2</topleft_y>
+		<width>0x98</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>ERR_FRB2</name>
+</device_connection>
+<device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>STS_SystemEvent</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>STS_SystemEvent</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>STS_SystemEvent [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0x3</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x7</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x12</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x225</topleft_x>
+		<topleft_y>0x55</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>STS_SystemEvent</name>
 </device_connection>
 <device>
 	<dev_name>FRU Device</dev_name>
@@ -17864,156 +17789,6 @@
 	<name>MP_FRU</name>
 </device_connection>
 <device>
-	<dev_name>EventRecord</dev_name>
-	<dev_class>SDR</dev_class>
-	<name>FW_Change</name>
-	<config>
-		<variable>ID_STR</variable>
-		<value>FW_Change</value>
-	</config>
-	<config>
-		<variable>ID_ENUM</variable>
-		<value>UNKNOWN</value>
-	</config>
-	<config>
-		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
-	</config>
-	<config>
-		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
-	</config>
-	<pdk>
-	</pdk>
-	<sdr>
-		<name>FW_Change [1]</name>
-		<config>
-			<variable>SDR_VER</variable>
-			<value>0x51</value>
-		</config>
-		<config>
-			<variable>SEN_ID</variable>
-			<value>0x20</value>
-		</config>
-		<config>
-			<variable>LUN</variable>
-			<value>0x1</value>
-		</config>
-		<config>
-			<variable>SENSOR_NUMBER</variable>
-			<value>0x1</value>
-		</config>
-		<config>
-			<variable>ENT_ID</variable>
-			<value>0x6</value>
-		</config>
-		<config>
-			<variable>ENT_INST</variable>
-			<value>0x1</value>
-		</config>
-		<config>
-			<variable>SEN_TYPE</variable>
-			<value>0x2b</value>
-		</config>
-		<config>
-			<variable>READ_TYPE</variable>
-			<value>0x6f</value>
-		</config>
-		<config>
-			<variable>RECORD_SHARING</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>OEM</variable>
-			<value>0x0</value>
-		</config>
-	</sdr>
-	<device_glyph>
-		<topleft_x>0x28a</topleft_x>
-		<topleft_y>0x31</topleft_y>
-		<width>0x96</width>
-		<height>0x10</height>
-	</device_glyph>
-</device>
-<device_connection>
-	<name>FW_Change</name>
-</device_connection>
-<device>
-	<dev_name>EventRecord</dev_name>
-	<dev_class>SDR</dev_class>
-	<name>Watchdog2</name>
-	<config>
-		<variable>ID_STR</variable>
-		<value>Watchdog2</value>
-	</config>
-	<config>
-		<variable>ID_ENUM</variable>
-		<value>UNKNOWN</value>
-	</config>
-	<config>
-		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
-	</config>
-	<config>
-		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
-	</config>
-	<pdk>
-	</pdk>
-	<sdr>
-		<name>Watchdog2 [1]</name>
-		<config>
-			<variable>SDR_VER</variable>
-			<value>0x51</value>
-		</config>
-		<config>
-			<variable>SEN_ID</variable>
-			<value>0x20</value>
-		</config>
-		<config>
-			<variable>LUN</variable>
-			<value>0x1</value>
-		</config>
-		<config>
-			<variable>SENSOR_NUMBER</variable>
-			<value>0x3</value>
-		</config>
-		<config>
-			<variable>ENT_ID</variable>
-			<value>0x6</value>
-		</config>
-		<config>
-			<variable>ENT_INST</variable>
-			<value>0x2</value>
-		</config>
-		<config>
-			<variable>SEN_TYPE</variable>
-			<value>0x23</value>
-		</config>
-		<config>
-			<variable>READ_TYPE</variable>
-			<value>0x6f</value>
-		</config>
-		<config>
-			<variable>RECORD_SHARING</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>OEM</variable>
-			<value>0x0</value>
-		</config>
-	</sdr>
-	<device_glyph>
-		<topleft_x>0x289</topleft_x>
-		<topleft_y>0x52</topleft_y>
-		<width>0x98</width>
-		<height>0x10</height>
-	</device_glyph>
-</device>
-<device_connection>
-	<name>Watchdog2</name>
-</device_connection>
-<device>
 	<dev_name>AST_ADC</dev_name>
 	<dev_class>MicroController</dev_class>
 	<name>AST_ADC_9</name>
@@ -18045,6 +17820,81 @@
 </device>
 <device_connection>
 	<name>AST_ADC_9</name>
+</device_connection>
+<device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>STS_ACPI</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>STS_ACPI</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>STS_ACPI [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0x8</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x5</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x22</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x224</topleft_x>
+		<topleft_y>0xad</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>STS_ACPI</name>
 </device_connection>
 <device>
 	<dev_name>AST_ADC</dev_name>
@@ -18263,7 +18113,7 @@
 		</config>
 		<config>
 			<variable>SENSOR_NUMBER</variable>
-			<value>0x7</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>ENT_ID</variable>
@@ -18271,7 +18121,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x4</value>
+			<value>0x2</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -18291,14 +18141,89 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x289</topleft_x>
-		<topleft_y>0x97</topleft_y>
+		<topleft_x>0x225</topleft_x>
+		<topleft_y>0x31</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
 	<name>BMC_RESET</name>
+</device_connection>
+<device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>STS_Intrusion</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>STS_Intrusion</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>STS_Intrusion [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0x4</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x17</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x5</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x224</topleft_x>
+		<topleft_y>0x67</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>STS_Intrusion</name>
 </device_connection>
 <device>
 	<dev_name>AST_ADC</dev_name>
@@ -18404,7 +18329,7 @@
 		</config>
 		<config>
 			<variable>SENSOR_NUMBER</variable>
-			<value>0x6</value>
+			<value>0x5</value>
 		</config>
 		<config>
 			<variable>ENT_ID</variable>
@@ -18432,8 +18357,8 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x28a</topleft_x>
-		<topleft_y>0x84</topleft_y>
+		<topleft_x>0x224</topleft_x>
+		<topleft_y>0x79</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
@@ -18550,6 +18475,81 @@
 	<name>AST_ADC0</name>
 </device_connection>
 <device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>BMC_FW_Change</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>BMC_FW_Change</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>BMC_FW_Change [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x2b</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x225</topleft_x>
+		<topleft_y>0x21</topleft_y>
+		<width>0x96</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>BMC_FW_Change</name>
+</device_connection>
+<device>
 	<dev_name>AST_ADC</dev_name>
 	<dev_class>MicroController</dev_class>
 	<name>AST_ADC1</name>
@@ -18624,11 +18624,11 @@
 		</config>
 		<config>
 			<variable>ENT_ID</variable>
-			<value>0x0</value>
+			<value>0x14</value>
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x10</value>
+			<value>0x0</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -18648,8 +18648,8 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x353</topleft_x>
-		<topleft_y>0x34</topleft_y>
+		<topleft_x>0x2ee</topleft_x>
+		<topleft_y>0x24</topleft_y>
 		<width>0x95</width>
 		<height>0x10</height>
 	</device_glyph>
@@ -18660,10 +18660,10 @@
 <device>
 	<dev_name>EventRecord</dev_name>
 	<dev_class>SDR</dev_class>
-	<name>ACPI_Status</name>
+	<name>STS_EventLogging</name>
 	<config>
 		<variable>ID_STR</variable>
-		<value>ACPI_Status</value>
+		<value>STS_EventLogging</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -18680,7 +18680,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>ACPI_Status [1]</name>
+		<name>STS_EventLogging [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -18699,119 +18699,11 @@
 		</config>
 		<config>
 			<variable>ENT_ID</variable>
-			<value>0x7</value>
-		</config>
-		<config>
-			<variable>ENT_INST</variable>
-			<value>0x1</value>
-		</config>
-		<config>
-			<variable>SEN_TYPE</variable>
-			<value>0x22</value>
-		</config>
-		<config>
-			<variable>READ_TYPE</variable>
-			<value>0x6f</value>
-		</config>
-		<config>
-			<variable>RECORD_SHARING</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>OEM</variable>
-			<value>0x0</value>
-		</config>
-	</sdr>
-	<device_glyph>
-		<topleft_x>0x28a</topleft_x>
-		<topleft_y>0x42</topleft_y>
-		<width>0x97</width>
-		<height>0x10</height>
-	</device_glyph>
-</device>
-<device_connection>
-	<name>ACPI_Status</name>
-</device_connection>
-<device>
-	<dev_name>AST_ADC</dev_name>
-	<dev_class>MicroController</dev_class>
-	<name>AST_ADC14</name>
-	<config>
-		<variable>ID_STR</variable>
-		<value>AST_ADC14</value>
-	</config>
-	<config>
-		<variable>ADC_CHANNEL</variable>
-		<value>14</value>
-	</config>
-	<pdk>
-	</pdk>
-	<device_glyph>
-		<topleft_x>0x15a</topleft_x>
-		<topleft_y>0x28d</topleft_y>
-		<width>0x64</width>
-		<height>0x1b</height>
-		<pin_glyph_S>
-			<name>AVIN</name>
-			<style>0x1</style>
-			<rbinder>
-				<pt1_x>0x1c8</pt1_x>
-				<pt1_y>0x290</pt1_y>
-				<pt2_fixed>true</pt2_fixed>
-			</rbinder>
-		</pin_glyph_S>
-	</device_glyph>
-</device>
-<device_connection>
-	<name>AST_ADC14</name>
-</device_connection>
-<device>
-	<dev_name>EventRecord</dev_name>
-	<dev_class>SDR</dev_class>
-	<name>SEL_STATUS</name>
-	<config>
-		<variable>ID_STR</variable>
-		<value>SEL_STATUS</value>
-	</config>
-	<config>
-		<variable>ID_ENUM</variable>
-		<value>UNKNOWN</value>
-	</config>
-	<config>
-		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
-	</config>
-	<config>
-		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
-	</config>
-	<pdk>
-	</pdk>
-	<sdr>
-		<name>SEL_STATUS [1]</name>
-		<config>
-			<variable>SDR_VER</variable>
-			<value>0x51</value>
-		</config>
-		<config>
-			<variable>SEN_ID</variable>
-			<value>0x20</value>
-		</config>
-		<config>
-			<variable>LUN</variable>
-			<value>0x1</value>
-		</config>
-		<config>
-			<variable>SENSOR_NUMBER</variable>
-			<value>0x8</value>
-		</config>
-		<config>
-			<variable>ENT_ID</variable>
 			<value>0x6</value>
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x5</value>
+			<value>0x3</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -18831,14 +18723,239 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x289</topleft_x>
-		<topleft_y>0xa8</topleft_y>
+		<topleft_x>0x226</topleft_x>
+		<topleft_y>0x42</topleft_y>
 		<width>0x97</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
-	<name>SEL_STATUS</name>
+	<name>STS_EventLogging</name>
+</device_connection>
+<device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>STS_BIOSPOSTCMPT</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>STS_BIOSPOSTCMPT</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>STS_BIOSPOSTCMPT [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0x9</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x7</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x3</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x224</topleft_x>
+		<topleft_y>0xbf</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>STS_BIOSPOSTCMPT</name>
+</device_connection>
+<device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>INFO_SYSRST</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>INFO_SYSRST</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>INFO_SYSRST [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0x7</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x4</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x1d</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x224</topleft_x>
+		<topleft_y>0x9b</topleft_y>
+		<width>0x98</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>INFO_SYSRST</name>
+</device_connection>
+<device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>INFO_BTN</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>INFO_BTN</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>INFO_BTN [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x7</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x14</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x223</topleft_x>
+		<topleft_y>0x8a</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>INFO_BTN</name>
 </device_connection>
 <device>
 	<dev_name>FRU Device</dev_name>
@@ -18918,9 +19035,9 @@
 <sdrorder>
 	<item>MB_FRU</item>
 	<item>AST2600</item>
-	<item>PSU0_Status</item>
+	<item>STS_PSU0</item>
 	<item>CURR_PSU0CIN</item>
-	<item>PSU1_Status</item>
+	<item>STS_PSU1</item>
 	<item>CURR_PSU0COUT</item>
 	<item>PWR_PSU0PIN</item>
 	<item>PWR_PSU0POUT</item>
@@ -18944,20 +19061,19 @@
 	<item>VOLT_P0VDD1V1</item>
 	<item>VAUX_P12V</item>
 	<item>VOLT_P0VDD3V3</item>
-	<item>VAUX_P3V3</item>
 	<item>VOLT_P0VDDIO</item>
 	<item>VOLT_P0VDDSOC</item>
 	<item>VOLT_P0VDDCORE0</item>
 	<item>VOLT_P0VDDCORE1</item>
 	<item>PMBUS_ALERT</item>
-	<item>FW_Change</item>
-	<item>ACPI_Status</item>
-	<item>Watchdog2</item>
-	<item>I2C_BusHang</item>
-	<item>SYS_Restart</item>
+	<item>BMC_FW_Change</item>
+	<item>STS_ACPI</item>
+	<item>ERR_FRB2</item>
+	<item>ERR_I2CHang</item>
+	<item>INFO_SYSRST</item>
 	<item>POWER_UNIT</item>
 	<item>BMC_RESET</item>
-	<item>SEL_STATUS</item>
+	<item>STS_EventLogging</item>
 	<item>TEMP_Inlet</item>
 	<item>TEMP_Outlet</item>
 	<item>TEMP_MB_3_0</item>
@@ -18997,9 +19113,6 @@
 	<item>TACH_Fan2_0</item>
 	<item>TACH_Fan3_0</item>
 	<item>TACH_Fan3_1</item>
-	<item>FanBoard_FRU</item>
-	<item>FP_FRU</item>
-	<item>MP_FRU</item>
 	<item>TEMP_FP</item>
 	<item>TEMP_MP</item>
 	<item>TEMP_FAN_BOARD</item>
@@ -19009,6 +19122,14 @@
 	<item>TACH_Fan6_0</item>
 	<item>TACH_Fan4_0</item>
 	<item>TACH_Fan5_0</item>
+	<item>STS_SystemEvent</item>
+	<item>STS_Intrusion</item>
+	<item>INFO_BTN</item>
+	<item>STS_BIOSPOSTCMPT</item>
+	<item>ERR_MEMHOT</item>
+	<item>FanBoard_FRU</item>
+	<item>MP_FRU</item>
+	<item>FP_FRU</item>
 </sdrorder>
 	</devcfg>
 <module>
@@ -24271,7 +24392,7 @@
 		</config>
 		<config>
 			<variable>SOL_IFC_PORT</variable>
-			<value>/dev/ttyS0</value>
+			<value>/dev/ttyS3</value>
 		</config>
 		<config>
 			<variable>SERIAL_IFC_PORT</variable>
@@ -37745,11 +37866,11 @@
 		</config>
 		<config>
 			<variable>NV_BIT_RATE</variable>
-			<value>8</value>
+			<value>10</value>
 		</config>
 		<config>
 			<variable>V_BIT_RATE</variable>
-			<value>8</value>
+			<value>10</value>
 		</config>
 		<config>
 			<variable>SOL_PAYLOAD_CHANNEL</variable>
@@ -37804,11 +37925,11 @@
 		</config>
 		<config>
 			<variable>NV_BIT_RATE</variable>
-			<value>8</value>
+			<value>10</value>
 		</config>
 		<config>
 			<variable>V_BIT_RATE</variable>
-			<value>8</value>
+			<value>10</value>
 		</config>
 		<config>
 			<variable>SOL_PAYLOAD_CHANNEL</variable>
@@ -37863,11 +37984,11 @@
 		</config>
 		<config>
 			<variable>NV_BIT_RATE</variable>
-			<value>8</value>
+			<value>10</value>
 		</config>
 		<config>
 			<variable>V_BIT_RATE</variable>
-			<value>8</value>
+			<value>10</value>
 		</config>
 		<config>
 			<variable>SOL_PAYLOAD_CHANNEL</variable>
@@ -37922,11 +38043,11 @@
 		</config>
 		<config>
 			<variable>NV_BIT_RATE</variable>
-			<value>8</value>
+			<value>10</value>
 		</config>
 		<config>
 			<variable>V_BIT_RATE</variable>
-			<value>8</value>
+			<value>10</value>
 		</config>
 		<config>
 			<variable>SOL_PAYLOAD_CHANNEL</variable>

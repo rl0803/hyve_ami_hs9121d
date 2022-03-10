@@ -48,9 +48,9 @@ SOL3Config_LoadFile(char *File, SOLConfig_T *data)
 
 	data->SOLRetryInterval = IniGetUInt(ini, "SOL3Configuration", "SOLRetryInterval", 50);
 
-	data->NVBitRate = IniGetUInt(ini, "SOL3Configuration", "NVBitRate", 8);
+	data->NVBitRate = IniGetUInt(ini, "SOL3Configuration", "NVBitRate", 10);
 
-	data->VBitRate = IniGetUInt(ini, "SOL3Configuration", "VBitRate", 8);
+	data->VBitRate = IniGetUInt(ini, "SOL3Configuration", "VBitRate", 10);
 
 	data->PayldChannel = IniGetUInt(ini, "SOL3Configuration", "PayldChannel", 1);
 
