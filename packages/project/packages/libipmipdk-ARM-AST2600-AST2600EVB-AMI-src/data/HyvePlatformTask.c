@@ -310,23 +310,21 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	break;
 
             case HyvePlatformIRQMsgQ_PowerButton:
-            	printf("IRQMsgQ_Button, data: %u\n", msg.msgData);
-            	if (msg.msgData) {
-                    OnSetRestartCause(RESTART_CAUSE_POWER_BUTTON, TRUE, BMCInst);
-                    Platform_HostPowerOn(BMCInst);
-            	} else {
-            		Platform_HostPowerOff(BMCInst);
-            	}
+            	printf("HyvePlatformIRQMsgQ_PowerButton, data: %u\n", msg.msgData);
+//            	if (!HYVEPLATFORM_IS_SYS_PWRGOOD) {
+//                    OnSetRestartCause(RESTART_CAUSE_POWER_BUTTON, TRUE, BMCInst);
+//                    Platform_HostPowerOn(BMCInst);
+//            	} else {
+//            		Platform_HostPowerOff(BMCInst);
+//            	}
             	break;
 
             case HyvePlatformIRQMsgQ_ResetButton:
-            	printf("IRQMsgQ_Button, data: %u\n", msg.msgData);
-            	if (msg.msgData) {
-                    OnSetRestartCause(RESTART_CAUSE_RESET_BUTTON, TRUE, BMCInst);
-                    Platform_HostPowerOn(BMCInst);
-            	} else {
-            		Platform_HostPowerOff(BMCInst);
-            	}
+            	printf("HyvePlatformIRQMsgQ_ResetButton, data: %u\n", msg.msgData);
+//            	if (HYVEPLATFORM_IS_SYS_PWRGOOD) {
+//                    OnSetRestartCause(RESTART_CAUSE_RESET_BUTTON, TRUE, BMCInst);
+//                    Platform_HostColdReset(BMCInst);
+//            	}
             	break;
  
             case HyvePlatformIRQMsgQ_PMBus_ALERT:
