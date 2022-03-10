@@ -92,60 +92,45 @@ void IRQhndlr_EC_BMC_FATAL_ERROR_N(IPMI_INTInfo_T *IntInfo);
 void IRQhndlr_FM_CEC_BIOS_AUTH_COMP(IPMI_INTInfo_T *IntInfo);
 
 
-void PDK_SensorInterruptHandler (IPMI_INTInfo_T *IntInfo)
-{
-    switch(IntInfo->int_num)
-    { 
-		case IO_PCIE_P2_MCIO1_ALERT_N:
-			printf("GPIO_INT_SENSOR\n");
-			break;
-		default:
-			break;
-    }
-    return;
-}
-
 IPMI_INTInfo_T m_IntInfo [] =
 {
- 	//{ int_hndlr, int_num, Source, SensorNum, SensorType, TriggerMethod, TriggerType, reading_on_assertion },
-//	{ PDK_SensorInterruptHandler, IO_PCIE_P2_MCIO1_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+ 	//{ int_hndlr, int_num, Source, SensorNum, SensorType, TriggerMethod, TriggerType, reading_on_assertion, gpioValue },
+    { IRQhndlr_PCIE_P2_MCIO1_ALERT_N, IO_PCIE_P2_MCIO1_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_PCIE_P2_MCIO1_ALERT_N, IO_PCIE_P3_MCIO2_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_XGMI_G2_AIC1_ALERT_N, IO_XGMI_G2_AIC1_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_XGMI_G3_AIC2_ALERT_N, IO_XGMI_G3_AIC2_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
 
-    { IRQhndlr_PCIE_P2_MCIO1_ALERT_N, IO_PCIE_P2_MCIO1_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_PCIE_P2_MCIO1_ALERT_N, IO_PCIE_P3_MCIO2_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_XGMI_G2_AIC1_ALERT_N, IO_XGMI_G2_AIC1_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_XGMI_G3_AIC2_ALERT_N, IO_XGMI_G3_AIC2_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_FP_ID_BTN_N, IO_FP_ID_BTN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_CLK_100M_9DML0455_CLKIN_LOS_N, IO_CLK_100M_9DML0455_CLKIN_LOS_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
 
-    { IRQhndlr_FP_ID_BTN_N, IO_FP_ID_BTN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_CLK_100M_9DML0455_CLKIN_LOS_N, IO_CLK_100M_9DML0455_CLKIN_LOS_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_CPU_THERMAL_TRIP_N, IO_FM_P0_CPLD_THERMTRIP_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_CPU_PROCHOT_N, IO_P0_PROCHOT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_CPU_SMERR_L, IO_P0_SMERR_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_APML_ALERT_L, IO_P0_BMC_APML_ALERT_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, FALLING_EDGE, 0, 0, 0 ,0 ,0 },
 
-    { IRQhndlr_CPU_THERMAL_TRIP_N, IO_FM_P0_CPLD_THERMTRIP_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_CPU_PROCHOT_N, IO_P0_PROCHOT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_CPU_SMERR_L, IO_P0_SMERR_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_APML_ALERT_L, IO_P0_BMC_APML_ALERT_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, FALLING_EDGE, 0, 0, 0 ,0 },
+    { IRQhndlr_PWRGD_SYS_PWROK, IO_PWRGD_SYS_PWROK_BMC, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_PWRGD_PSU_PWROK, IO_PWRGD_PS_PWROK_BMC, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_PWRGD_CPU_PWROK, IO_P0_PWRGD, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_SPD_HOST_CTRL_L, IO_P0_SPD_HOST_CTRL_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
 
-    { IRQhndlr_PWRGD_SYS_PWROK, IO_PWRGD_SYS_PWROK_BMC, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_PWRGD_PSU_PWROK, IO_PWRGD_PS_PWROK_BMC, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_PWRGD_CPU_PWROK, IO_P0_PWRGD, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_SPD_HOST_CTRL_L, IO_P0_SPD_HOST_CTRL_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_RST_RSMRST_BMC_N, IO_RST_RSMRST_BMC_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_PLTRST_BMC_IN_N, IO_PLTRST_BMC_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
 
-    { IRQhndlr_RST_RSMRST_BMC_N, IO_RST_RSMRST_BMC_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_PLTRST_BMC_IN_N, IO_PLTRST_BMC_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_EC_BMC_AP1_RESET_N, IO_EC_BMC_AP1_RESET_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_EC_BMC_FATAL_ERROR_N, IO_EC_BMC_FATAL_ERROR_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_FM_CEC_BIOS_AUTH_COMP, IO_FM_CEC_BIOS_AUTH_COMP, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
 
-    { IRQhndlr_EC_BMC_AP1_RESET_N, IO_EC_BMC_AP1_RESET_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_EC_BMC_FATAL_ERROR_N, IO_EC_BMC_FATAL_ERROR_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_FM_CEC_BIOS_AUTH_COMP, IO_FM_CEC_BIOS_AUTH_COMP, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_PWRBTN_IN_N, IO_FM_BMC_PWRBTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_RST_SYSTEM_BTN_IN_N, IO_RST_SYSTEM_BTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
 
-    { IRQhndlr_PWRBTN_IN_N, IO_FM_BMC_PWRBTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, FALLING_EDGE, 0, 0, 0 ,0 },
-    { IRQhndlr_RST_SYSTEM_BTN_IN_N, IO_RST_SYSTEM_BTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, FALLING_EDGE, 0, 0, 0 ,0 },
-
-    { IRQhndlr_PCIE_P1_RISER_ALERT_N, IO_PCIE_P1_RISER_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_TEMP_I2C_ALERT_L, IO_TEMP_I2C_ALERT_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_PCIE_P1_RISER_ALERT_N, IO_PCIE_P1_RISER_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_TEMP_I2C_ALERT_L, IO_TEMP_I2C_ALERT_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
     
-    { IRQhndlr_CPU_S3_STATE_N, IO_PLD_BMC_SLP_S3_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_CPU_S5_STATE_N, IO_PLD_BMC_SLP_S5_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_CPU_S3_STATE_N, IO_PLD_BMC_SLP_S3_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_CPU_S5_STATE_N, IO_PLD_BMC_SLP_S5_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
 
-    { IRQhndlr_PMBusALERT_N, IO_PSU_SMB_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
-    { IRQhndlr_SMBUS_ALERT, IO_P0_SMBUS_ALERT, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 },
+    { IRQhndlr_PMBusALERT_N, IO_PSU_SMB_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_SMBUS_ALERT, IO_P0_SMBUS_ALERT, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
     
 };
 
@@ -153,6 +138,7 @@ int m_IntInfoCount = (sizeof(m_IntInfo)/sizeof(m_IntInfo[0]));
 
 static struct pollfd 	fd_to_watch [IPMI_MAX_INT_FDS];	/* File descriptor to watch for interrupt */
 static int	   			m_total_reg_fds = 0;
+
 
 
 /*-------------------------------------------------------------------------
@@ -302,29 +288,20 @@ int
 PDK_RegIntFDs ( struct pollfd **pfd, int BMCInst, int ret[IPMI_MAX_INT_FDS], int gpio_desc)
 {
     UN_USED(BMCInst);
+    UN_USED(gpio_desc);
 
-    int i;
+    int i = 0;
 
     /* Initialize count */
-    (*pfd)              = &fd_to_watch [0];
+    (*pfd)  = &fd_to_watch [0];
 
     /* Initialize all FDs */
     memset (&fd_to_watch[0], 0 , (sizeof (struct pollfd) * IPMI_MAX_INT_FDS));
-    //open the gpio driver
-    gpio_desc = open( GPIO_CTL_FILE, O_RDWR );
-    if(gpio_desc == -1)
-    {
-        printf("opening gpio device failed\n");
-        return -1;
-    }
 
-    for(i = 0;i < m_total_reg_fds; i++)
-    {
+    for (i = 0; i < m_total_reg_fds; i++) {
         fd_to_watch [i].fd        = ret[i];
         fd_to_watch [i].events    = POLLPRI;
     }
-
-
     return 0;
 }
 
@@ -346,25 +323,25 @@ PDK_GetIntInfo (int BMCInst, int FdNum)
 void IRQhndlr_PCIE_P2_MCIO1_ALERT_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 void IRQhndlr_PCIE_P3_MCIO2_ALERT_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 void IRQhndlr_XGMI_G2_AIC1_ALERT_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 void IRQhndlr_XGMI_G3_AIC2_ALERT_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 void IRQhndlr_PWRGD_SYS_PWROK(IPMI_INTInfo_T *IntInfo)
@@ -373,11 +350,11 @@ void IRQhndlr_PWRGD_SYS_PWROK(IPMI_INTInfo_T *IntInfo)
 
 	if (!IntInfo) { return; }
 
-	g_Is_DCPowerOn = (IntInfo->reading_on_assertion & 0x01);
+	g_Is_DCPowerOn = (IntInfo->gpioValue & 0x01);
 	msg.msgType = HyvePlatformIRQMsgQ_SysPwrGood;
 	msg.msgData = HYVEPLATFORM_IS_SYS_PWRGOOD;
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, IntInfo->reading_on_assertion);
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, IntInfo->gpioValue);
 	}
 }
 
@@ -385,7 +362,7 @@ void IRQhndlr_PWRGD_PSU_PWROK(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
 
-	g_Is_PSUPwrGood = (IntInfo->reading_on_assertion & 0x01);
+	g_Is_PSUPwrGood = (IntInfo->gpioValue & 0x01);
 	// TODO: Check if one of the two PSU unplugged this pin will be triggered or not
 	// redundant check
 }
@@ -394,7 +371,7 @@ void IRQhndlr_PWRGD_CPU_PWROK(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
 
-	g_Is_CPUPwrGood = (IntInfo->reading_on_assertion & 0x01);
+	g_Is_CPUPwrGood = (IntInfo->gpioValue & 0x01);
 }
 
 void IRQhndlr_CPU_THERMAL_TRIP_N(IPMI_INTInfo_T *IntInfo)
@@ -404,9 +381,9 @@ void IRQhndlr_CPU_THERMAL_TRIP_N(IPMI_INTInfo_T *IntInfo)
 	if (!IntInfo) { return; }
 
 	msg.msgType = HyvePlatformIRQMsgQ_CPU_ThermalTrip;
-	msg.msgData = ((~IntInfo->reading_on_assertion) & 0x01); // convert the alert value
+	msg.msgData = ((~IntInfo->gpioValue) & 0x01); // convert the alert value
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}
 }
 
@@ -419,9 +396,9 @@ void IRQhndlr_CPU_PROCHOT_N(IPMI_INTInfo_T *IntInfo)
 	if (!IntInfo) { return; }
 
 	msg.msgType = HyvePlatformIRQMsgQ_CPU_PROCHOT;
-	msg.msgData = ((~IntInfo->reading_on_assertion) & 0x01); // convert the alert value
+	msg.msgData = ((~IntInfo->gpioValue) & 0x01); // convert the alert value
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}
 }
 
@@ -429,7 +406,7 @@ void IRQhndlr_CPU_SMERR_L(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
 
-	g_Is_PSUPwrGood = (IntInfo->reading_on_assertion & 0x01);
+	g_Is_PSUPwrGood = (IntInfo->gpioValue & 0x01);
 }
 
 void IRQhndlr_FP_ID_BTN_N(IPMI_INTInfo_T *IntInfo)
@@ -439,30 +416,30 @@ void IRQhndlr_FP_ID_BTN_N(IPMI_INTInfo_T *IntInfo)
 	if (!IntInfo) { return; }
 
 	msg.msgType = HyvePlatformIRQMsgQ_FP_ID_Button;
-	msg.msgData = ((~IntInfo->reading_on_assertion) & 0x01); // convert the alert value
+	msg.msgData = ((~IntInfo->gpioValue) & 0x01); // convert the alert value
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}
 }
 
 void IRQhndlr_CLK_100M_9DML0455_CLKIN_LOS_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 // From CPLD, purpose TBD
 void IRQhndlr_RST_RSMRST_BMC_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 // From CPLD, purpose TBD
 void IRQhndlr_PLTRST_BMC_IN_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 void IRQhndlr_APML_ALERT_L(IPMI_INTInfo_T *IntInfo)
@@ -470,40 +447,40 @@ void IRQhndlr_APML_ALERT_L(IPMI_INTInfo_T *IntInfo)
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	
 	msg.msgType = HyvePlatformIRQMsgQ_APML_ALERT;
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}
 }
 
 void IRQhndlr_SPD_HOST_CTRL_L(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	// Low: to inform the BMC the owner-ship of DIMMs is CPU
-	g_Is_DIMM_Ready = (IntInfo->reading_on_assertion & 0x01);
+	g_Is_DIMM_Ready = (IntInfo->gpioValue & 0x01);
 }
 
 void IRQhndlr_EC_BMC_AP1_RESET_N(IPMI_INTInfo_T *IntInfo)
 {
 	// Can use the FM_CEC_BIOS_AUTH_COMP instead
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 void IRQhndlr_EC_BMC_FATAL_ERROR_N(IPMI_INTInfo_T *IntInfo)
 {
 	// Can use the FM_CEC_BIOS_AUTH_COMP instead
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 void IRQhndlr_FM_CEC_BIOS_AUTH_COMP(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 }
 
 void IRQhndlr_PWRBTN_IN_N(IPMI_INTInfo_T *IntInfo)
@@ -511,7 +488,8 @@ void IRQhndlr_PWRBTN_IN_N(IPMI_INTInfo_T *IntInfo)
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u , IO_FM_BMC_PWRBTN_IN_N: %d\n", __func__, ((~IntInfo->gpioValue) & 0x01)
+			, HyveExt_GPIO_Get_Data(IO_FM_BMC_PWRBTN_IN_N));
 	
 	// The power button behavior
 	// if DC off, do power on action
@@ -519,7 +497,7 @@ void IRQhndlr_PWRBTN_IN_N(IPMI_INTInfo_T *IntInfo)
 	msg.msgType = HyvePlatformIRQMsgQ_PowerButton;
 	msg.msgData = 1;
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}
 }
 
@@ -528,26 +506,27 @@ void IRQhndlr_RST_SYSTEM_BTN_IN_N(IPMI_INTInfo_T *IntInfo)
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u, IO_RST_SYSTEM_BTN_IN_N: %d\n", __func__, ((~IntInfo->gpioValue) & 0x01)
+			, HyveExt_GPIO_Get_Data(IO_RST_SYSTEM_BTN_IN_N));
 
 	msg.msgType = HyvePlatformIRQMsgQ_ResetButton;
 	msg.msgData = 1;
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}
 }
 
 void IRQhndlr_PCIE_P1_RISER_ALERT_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	// SMBus Alert from the Riser Card
 }
 
 void IRQhndlr_TEMP_I2C_ALERT_L(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	// there are 3 Thermal sensors can fire it.
 	//  Alert from thermal sensors, need to send I2C cmd to check which one sent
 }
@@ -555,13 +534,13 @@ void IRQhndlr_TEMP_I2C_ALERT_L(IPMI_INTInfo_T *IntInfo)
 void IRQhndlr_CPU_S3_STATE_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	g_Is_HostIn_S3_State = ((~IntInfo->reading_on_assertion) & 0x01);
+	g_Is_HostIn_S3_State = ((~IntInfo->gpioValue) & 0x01);
 }
 
 void IRQhndlr_CPU_S5_STATE_N(IPMI_INTInfo_T *IntInfo)
 {
 	if (!IntInfo) { return; }
-	g_Is_HostIn_S5_State = ((~IntInfo->reading_on_assertion) & 0x01);
+	g_Is_HostIn_S5_State = ((~IntInfo->gpioValue) & 0x01);
 }
 
 void IRQhndlr_PMBusALERT_N(IPMI_INTInfo_T *IntInfo)
@@ -569,12 +548,12 @@ void IRQhndlr_PMBusALERT_N(IPMI_INTInfo_T *IntInfo)
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	
 	msg.msgType = HyvePlatformIRQMsgQ_PMBus_ALERT;
-	msg.msgData = IntInfo->reading_on_assertion;
+	msg.msgData = IntInfo->gpioValue;
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}
 }
 
@@ -583,11 +562,11 @@ void IRQhndlr_SMBUS_ALERT(IPMI_INTInfo_T *IntInfo)
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	
 	msg.msgType = HyvePlatformIRQMsgQ_SMBus_ALERT;
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->reading_on_assertion) & 0x01));
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}
 }
 
