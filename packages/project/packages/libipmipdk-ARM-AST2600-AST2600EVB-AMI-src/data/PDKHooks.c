@@ -818,13 +818,25 @@ PDK_PostMonitorAllSensors ( INT8U NumSensor, _FAR_ INT16U* pSensorTable,int BMCI
 INT8U
 PDK_PreAddSEL (_FAR_ INT8U* pSELEntry, INT8U SelectTbl, int BMCInst)
 {
-    if(0)
-    {
-        BMCInst=BMCInst;  /*  -Wextra, fix for unused parameters  */
-	pSELEntry=pSELEntry;
-    }
+	SELEventRecord_T *pSELrec = (SELEventRecord_T *)pSELEntry;
+
+	/* Support PSU status sensor SEL can provide the status data.
+	   Use the EventDta2 and EventDta3 to store the 'PMBus status word' data */
+	if (((pSELrec->SensorNum == SENSOR_NUM_PSU0_STATUS) ||
+			(pSELrec->SensorNum == SENSOR_NUM_PSU1_STATUS)) &&
+			(TO_16U(pSELrec->GenID) == HYVE_LUN_NUM(BMC_SENSOR_LUN, BMC_GEN_ID))) {
+		INT8U psuNum = 0;
+		const HyvePSU_StatusInfo_T *pHyvePSUInfo = NULL;
+
+		if ((pSELrec->SensorNum == SENSOR_NUM_PSU1_STATUS)) { psuNum++; }
+		if ((pHyvePSUInfo = HyvePSU_GetPSUStatusInfo(psuNum))) {
+			*((INT16U *)&pSELrec->EvtData2) = pHyvePSUInfo->lastPMBusStatus;
+		}
+	}
+
     return SelectTbl;
 }
+
 /*---------------------------------------------------------------------
  * @fn PDK_PostAddSEL
  *
@@ -1686,14 +1698,14 @@ void PDK_AfterSDRInit(INT8U BMCInst)
 			_FAR_ FullSensorRec_T *pFullRec = (_FAR_ FullSensorRec_T*)pSDRRecHdr;
 
 			// Find the sensor
-				if (IPMI_SENSOR_TEMP_TYPE == pFullRec->SensorType) {
+			if (IPMI_SENSOR_TEMP_TYPE == pFullRec->SensorType) {
 				// Currently EVT-1 MB doesn't have the aux 3V3
 				if (HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_VAUX_P3V3) ==
-							(HYVE_LUN_NUM(pFullRec->OwnerLUN, pFullRec->SensorNum))) {
+						(HYVE_LUN_NUM(pFullRec->OwnerLUN, pFullRec->SensorNum))) {
 					_DeleteSDR(pSDRRecHdr->ID, BMCInst);
-					}
 				}
 			}
+		}
 		// [Workaround] Remove Fanboard, MP, FP FRU SDR to avoid self-test result failed
 		if (FRU_DEVICE_LOCATOR_SDR_REC == pSDRRecHdr->Type) {
 			FRUDevLocatorRec_T *pFruRec = (_FAR_ FRUDevLocatorRec_T*)pSDRRecHdr;
