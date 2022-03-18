@@ -23,8 +23,7 @@
 
 
 
-
-#define POLL_INTERVAL_3V3BATTERY					(3) //(3600) seconds
+#define POLL_INTERVAL_3V3BATTERY					(3600) // seconds
 #define POWERON_DELAY_CPU							(30) // seconds
 #define POWERON_DELAY_DIMM							(30) // seconds
 #define POWERON_DELAY_VR							(30) // seconds
@@ -137,7 +136,7 @@ static INT32U g_HostPwrOnCount = 0;
 static HyvePlatformTMP75Sensor_T* HyvePlatform_Get_ExtBoardTMP75Sensors(INT8U* pCount)
 {
 	static HyvePlatformTMP75Sensor_T TMP75Sensors[] = {
-			// sensorIndex               enable  is_standby   i2cBus                 i2cAddr
+			// sensorIndex					enable	is_standby	i2cBus                 					i2cAddr
 			{ SensorIndex_TEMP_FAN_BOARD,	FALSE,	TRUE, 		HYFEPLATFORM_SMBUS_FAN_BOARD,			HYFEPLATFORM_ADDR_FAN_BOARD_TEMP },
 			{ SensorIndex_TEMP_FP,			FALSE,	TRUE,		HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD,	HYFEPLATFORM_ADDR_FP_TEMP},
 			{ SensorIndex_TEMP_MP,			FALSE,	TRUE,		HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD,	HYFEPLATFORM_ADDR_MP_TEMP},
@@ -208,8 +207,8 @@ static inline int HyvePlatform_3V3BatteryAccess(const INT8U enable)
 
 static int HyvePlatform_Sensor_3V3Bat()
 {
-	static INT32U preJiffy = - 1; /* to trigger reading at first time */
-	static INT8U is_ready = FALSE;
+	static INT32U preJiffy = (POLL_INTERVAL_3V3BATTERY + 1); /* to trigger reading at first time */
+	static INT8U is_ready = FALSE, is_open = FALSE, wait_count = 0;
 	int ret = 0;
 
 	if (NULL == g_HALADCHandle[HAL_ADC_READ]) { return -1; }
@@ -219,19 +218,25 @@ static int HyvePlatform_Sensor_3V3Bat()
 		INT8U is_done = FALSE;
 
 		if (FALSE == is_ready) {
-			ret = HyvePlatform_3V3BatteryAccess(TRUE);
-			if (-1 != ret) {
-				is_ready = TRUE;
-				// After enable the ADC access of the 3V3 battery
-				// need to wait a while to make sure the reading value is stable
+			if (FALSE == is_open) {
+				if (-1 != (ret = HyvePlatform_3V3BatteryAccess(TRUE))) {
+					is_open = TRUE;
+					// After enable the ADC access of the 3V3 battery
+					// need to wait a while to make sure the reading value is stable
+				}
+			} else {
+				if (++wait_count > 2) {
+					is_ready = TRUE;
+					wait_count = 0;
+				}
 			}
-		} else {				
+		} else {
 			ret = ((int(*)(int, unsigned short*))g_HALADCHandle[HAL_ADC_READ])(ADC_CH_3V3BATTERY, &rData);
 			if (!ret) {
-				g_SensorReadArrt[SensorIndex_3V3Bat].status = HAL_ERR_NONE;
-				g_SensorReadArrt[SensorIndex_3V3Bat].retryCount = 0;
 				 // The ADC reading is a 10-bit value, left shift 2 bit to 8 bit
 				g_SensorReadArrt[SensorIndex_3V3Bat].reading = rData >> 2;
+				g_SensorReadArrt[SensorIndex_3V3Bat].status = HAL_ERR_NONE;
+				g_SensorReadArrt[SensorIndex_3V3Bat].retryCount = 0;
 				is_done = TRUE;
 			} else {
 				if (g_SensorReadArrt[SensorIndex_3V3Bat].retryCount > SENSOR_READ_RETRY_COUNT) {
@@ -244,6 +249,7 @@ static int HyvePlatform_Sensor_3V3Bat()
 			if (TRUE == is_done) {
 				HyvePlatform_3V3BatteryAccess(FALSE);
 				is_ready = FALSE;
+				is_open = FALSE;
 				preJiffy = HYFEPLATFORM_JIFFY;
 			}
 		}
@@ -330,7 +336,7 @@ static void HyvePlatform_Sensor_CPU(int BMCInst)
 				g_SensorReadArrt[SensorIndex_PWR_CPU0].status = HAL_ERR_NONE;
 				g_SensorReadArrt[SensorIndex_PWR_CPU0].retryCount = 0;
 				g_SensorReadArrt[SensorIndex_PWR_CPU0].reading = ((*pU32Data) / 1000);
-			}
+			}			
 		} else if (HyvePlatform_Is_CPU_PwrGood() && is_PwrOnDelayOk(POWERON_DELAY_CPU)) {
 			is_ready = TRUE;
 		}
@@ -584,7 +590,7 @@ void* HyvePlatform_SensorMonitor(void* pArg)
 void* HyvePlatform_SensorMonitor2(void* pArg)
 {
 	int BMCInst = (int)pArg;
-	
+
 	if (0) { BMCInst = BMCInst; }
 	
 	printf("[ INFO ] - Launch %s\n", __func__);
