@@ -24,7 +24,8 @@ int gHyvePlatformSkuID = PLATFORM_DEFAULT;
 /* The platform global time-tick per second */
 UINT32 g_HyvePlatformJiffy = 0;
 INT8U g_Is_DCPowerOn = FALSE; // This variable can only be set by PDK_GetPSGood or IRQhndlr_PWRGD_SYS_PWROK
-
+INT8U g_Is_PowerButtonOn = FALSE;
+INT8U g_Is_ResetButtonOn = FALSE;
 
 /********************* Functions *********************/
 static void HyvePlatform_InitSKUID(const char* idStr)
@@ -172,57 +173,11 @@ int HyvePlatform_Init()
 	HyveExt_MutexInit();
 
 	if (HyvePlatform_InitFRU() < 0 ) {
-		printf("[INFO] Error in creating MB FRU cache\n");
+		printf("[INFO] Error in creating FRU cache\n");
 	}
 	// Recognize this platform
 	HyvePlatform_InitPlatformID();
-	
-	
-	
-	
-/*--------------Test Code--------------------*/	
-	
-	
-	
-//	if (HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, EVENT_TYPE_UNSPECIFIC, 0xBB, EVENT_TYPE_SENSOR_SPECIFIC_6F, 0xFF, 0xFF, 0xFF, BMCInst) < 0) {
-//		printf("Error in HyveExt_LogEvent\n");
-//	}
-//	
-//	INT8U pWriteBuff[] = {0x80}, readData[6] = {0};
-//	if (HyveExt_I2C_Access_Retry(EEPROM_I2C_NUM, EEPROM_ADDR, pWriteBuff, 1, readData, 6, 3) < 0) {
-//		printf("Error in HyveExt_I2C_Access_Retry\n");
-//	} else {
-//		printf("Get MAC: %x:%x:%x:%x:%x:%x\n", readData[0], readData[1], readData[2], readData[3], readData[4], readData[5]);
-//	}
 
-	
-//	 HyveMonitor_GetReadingValBySensorNum(const INT8U sensorNum, const INT8U senLUN, hal_t* phal);
-	
-//	 hal_t *phal = malloc(sizeof(hal_t));
-	 
-//	UINT8 phal;
-//	 
-//	 if (!HyveMonitor_GetReadingValBySensorNum(SENSOR_NUM_TEST_LUN00, BMC_SENSOR_LUN00, &phal)) {
-//		 printf("Get LUN: %02x, #%02x, %d\n", BMC_SENSOR_LUN00, SENSOR_NUM_TEST_LUN00, phal);
-//	 }
-//	 if (!HyveMonitor_GetReadingValBySensorNum(SENSOR_NUM_TEST_LUN00, BMC_SENSOR_LUN01, &hal)) {
-//		 printf("Get LUN: %02x, #%02x, %d\n", BMC_SENSOR_LUN00, BMC_SENSOR_LUN01, *hal.pbyte);
-//	 }	 
-	
-
-
-	INT16U offset = CONFIG_SPX_FEATURE_I2C_EEPROM_MAC2ADDR_OFFSET;
-	INT8U readData[6] = {0};
-	if (HyveExt_ReadEEPROM(offset, readData, 6) < 0) {
-		printf("Error in HyveExt_ReadEEPROM\n");
-	} else {
-		printf("Get MAC: %x:%x:%x:%x:%x:%x\n", readData[0], readData[1], readData[2], readData[3], readData[4], readData[5]);
-	}
-
-//	if (HyveExt_SetLastTimeStamp() < 0) {
-//		printf("Error in HyveExt_SetLastTimeStamp\n");
-//	}
-	
 	return 0;
 }
 
@@ -250,9 +205,12 @@ int HyvePlatform_TaskInit(int BMCInst)
 	HyvePlatform_PSUTaskStart(BMCInst);
 	HyvePlatform_SensorMonitorStart(BMCInst);
 	HyvePlatform_SetBMCReady();
+
+	// [workaround] Currently not support ROT, so just always set Auth-completed
 	INT8U Is_asserted = 1;
 	printf("[ INFO ] - Inform CPLD FwAuthComplete %s\n", __func__);
 	HyvePlatformCPLD_Inform_FwAuthComplete(Hyve_VALUE_SET, &Is_asserted);
+	
 	return 0;
 }
 
@@ -527,28 +485,28 @@ int HyvePlatform_Reset_EMMC()
 
 /*-----------------------------------------------------------------
  * @fn HyvePlatform_Reset_PwrAUX_IC
- * @brief	To reset the power AUX IC
+ * @brief	To trigger the power AUX Reset IC
  *
- * @param[in] auxIndex - The index of the AUX IC
+ * @param[None]
  *
  * @return    0 - if success
  *           -1 - otherwise
  *           
  * Note:
- *     The reset IC will delay about 5 seconds then trigger reset action
+ *     Once trigger the reset IC (pull High) will immediately Off all power
+ *     and wait about 5 seconds then restore the power.
  *     Please make sure you done all preserve, flush config actions
+ *     before this action.
  *           
  *-----------------------------------------------------------------*/
-int HyvePlatform_Reset_PwrAUX_IC(const INT8U auxIndex)
+int HyvePlatform_Reset_PwrAUX_IC()
 {
-	const INT16U resetPins[PwrAUXIndex_MAX] = {
-			IO_P5V_AUX_RST_DLY, IO_P3V3_AUX_RST_DLY
-	};
+	int ret = 0;
 
-	if (auxIndex >= PwrAUXIndex_MAX) { return -1; }
-
-	// TODO: Currently the delay time is unknown 
-	return HyvePlatform_ButtonProxy(resetPins[auxIndex], 1, 0, 2);
+	if (-1 != (ret = HyveExt_GPIO_Set_Data_High(IO_P5V_AUX_RST_DLY))) {
+		ret = HyveExt_GPIO_Set_Data_High(IO_P3V3_AUX_RST_DLY);
+	}
+	return ret;
 }
 
 /*-----------------------------------------------------------------

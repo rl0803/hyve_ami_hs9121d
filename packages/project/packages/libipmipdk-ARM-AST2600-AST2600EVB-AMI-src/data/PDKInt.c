@@ -121,7 +121,7 @@ IPMI_INTInfo_T m_IntInfo [] =
     { IRQhndlr_FM_CEC_BIOS_AUTH_COMP, IO_FM_CEC_BIOS_AUTH_COMP, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
 
     { IRQhndlr_PWRBTN_IN_N, IO_FM_BMC_PWRBTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
-    { IRQhndlr_RST_SYSTEM_BTN_IN_N, IO_RST_SYSTEM_BTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_RST_SYSTEM_BTN_IN_N, IO_RST_SYSTEM_BTN_IN_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, FALLING_EDGE, 0, 0, 0 ,0 ,0 },
 
     { IRQhndlr_PCIE_P1_RISER_ALERT_N, IO_PCIE_P1_RISER_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
     { IRQhndlr_TEMP_I2C_ALERT_L, IO_TEMP_I2C_ALERT_L, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
@@ -485,19 +485,28 @@ void IRQhndlr_FM_CEC_BIOS_AUTH_COMP(IPMI_INTInfo_T *IntInfo)
 
 void IRQhndlr_PWRBTN_IN_N(IPMI_INTInfo_T *IntInfo)
 {
+	static UINT32 jiffy_BtnOn = 0;
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u , IO_FM_BMC_PWRBTN_IN_N: %d\n", __func__, ((~IntInfo->gpioValue) & 0x01)
-			, HyveExt_GPIO_Get_Data(IO_FM_BMC_PWRBTN_IN_N));
+	printf("%s: assert: %u \n", __func__, ((~IntInfo->gpioValue) & 0x01));
+
 	
 	// The power button behavior
-	// if DC off, do power on action
-	// if DC on, check if the user presses the button over N seconds then power off
+	// Clicking: Power On
+	// Press over 3 ~ 6 seconds: Power Off
+	if (!IntInfo->gpioValue) {
+		// button pressed, record the current platform jiffy count value 
+		jiffy_BtnOn = HYFEPLATFORM_JIFFY;
+	} else {
+		// button released, calc. the time diff
+		if (HYFEPLATFORM_JIFFY_DIFF(jiffy_BtnOn) < 2) {
+			msg.msgData = 1; // it's to trigger power on
+		}
 	msg.msgType = HyvePlatformIRQMsgQ_PowerButton;
-	msg.msgData = 1;
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
 		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
+		}
 	}
 }
 
@@ -506,8 +515,9 @@ void IRQhndlr_RST_SYSTEM_BTN_IN_N(IPMI_INTInfo_T *IntInfo)
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u, IO_RST_SYSTEM_BTN_IN_N: %d\n", __func__, ((~IntInfo->gpioValue) & 0x01)
-			, HyveExt_GPIO_Get_Data(IO_RST_SYSTEM_BTN_IN_N));
+	printf("%s: assert: %u \n", __func__, ((~IntInfo->gpioValue) & 0x01));
+
+	g_Is_ResetButtonOn = TRUE;
 
 	msg.msgType = HyvePlatformIRQMsgQ_ResetButton;
 	msg.msgData = 1;
@@ -562,9 +572,11 @@ void IRQhndlr_SMBUS_ALERT(IPMI_INTInfo_T *IntInfo)
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
+
 	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	
 	msg.msgType = HyvePlatformIRQMsgQ_SMBus_ALERT;
+	msg.msgData = ((~IntInfo->gpioValue) & 0x01);
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
 		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}

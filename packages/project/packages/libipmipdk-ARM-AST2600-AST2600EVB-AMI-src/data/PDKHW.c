@@ -291,9 +291,14 @@ PDK_PowerOnChassis (int BMCInst)
 
 	printf("POWER ON CHASSIS\n");
 
-	if ((ret = HyvePlatform_HostPowerCtrl(TRUE) < 0)) {
-    	printf("POWER ON CHASSIS FAILED!\n");
+    if (g_Is_PowerButtonOn) {
+    	g_Is_PowerButtonOn = FALSE;
+    	return ret;
     }
+
+	if ((ret = HyvePlatform_HostPowerCtrl(TRUE) < 0)) {
+		printf("POWER ON CHASSIS FAILED!\n");
+	}
 
 #if 0 // Unused
     if (IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
@@ -335,8 +340,8 @@ PDK_PowerOffChassis (int BMCInst)
 	printf("POWER OFF CHASSIS\n");
 
 	if ((ret = HyvePlatform_HostPowerCtrl(FALSE) < 0)) {
-    	printf("POWER OFF CHASSIS FAILED!\n");
-    }
+		printf("POWER OFF CHASSIS FAILED!\n");
+	}
 
 #if 0 // Unused
     if (IsFeatureEnabled("CONFIG_SPX_FEATURE_TELCO_RSYSLOG_SUPPORT") == 1 ||
@@ -383,7 +388,7 @@ PDK_SoftOffChassis (int BMCInst)
 	}
 #endif
 
-    if (g_corefeatures.ssi_support == ENABLED) {
+	if (g_corefeatures.ssi_support == ENABLED) {
         /* Do queue Operational State condition. */
         if (g_SSIHandle[SSICB_QUEUECOND] != NULL) {
            ((STATUS(*)(INT8U, INT8U, INT8U, int))g_SSIHandle[SSICB_QUEUECOND]) (DEFAULT_FRU_DEV_ID, COND_POWER_ON, 0, BMCInst);
@@ -455,6 +460,11 @@ PDK_ResetChassis (int BMCInst)
 	if (0) { BMCInst = BMCInst; }
 
     printf("RESET CHASSIS\n");
+
+    if (g_Is_ResetButtonOn) {
+    	g_Is_ResetButtonOn = FALSE;
+    	return ret;
+    }
 
     if (!(ret = HyveExt_CtrlGPIOPbyPass(FALSE))) {
     	ret = HyvePlatform_ButtonProxy(IO_RST_SYSRST_BTN_OUT_N, 0, 500, 2);
@@ -708,7 +718,7 @@ default_routing:
 			hal.lpcuart.source_port = UART2;
 			hal.lpcuart.destination_port = UART3;
 			lpcuart_route_set(&hal);
-			
+
 			//UART4 TO UART1, and UART1 TO UART4			
 			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
 			hal.lpcuart.source_port = UART4;

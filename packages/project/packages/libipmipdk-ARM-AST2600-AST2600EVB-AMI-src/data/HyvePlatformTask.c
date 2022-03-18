@@ -311,32 +311,52 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
 
             case HyvePlatformIRQMsgQ_PowerButton:
             	printf("HyvePlatformIRQMsgQ_PowerButton, data: %u\n", msg.msgData);
-//            	if (!HYVEPLATFORM_IS_SYS_PWRGOOD) {
-//                    OnSetRestartCause(RESTART_CAUSE_POWER_BUTTON, TRUE, BMCInst);
-//                    Platform_HostPowerOn(BMCInst);
-//            	} else {
-//            		Platform_HostPowerOff(BMCInst);
-//            	}
+
+            	if ((!msg.msgData) ||
+            			(msg.msgData && !HYVEPLATFORM_IS_SYS_PWRGOOD)) {
+                	// Record button event
+                    if (HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_BUTTON,
+                    		SENSOR_NUM_INFO_BTN, EVENT_TYPE_SENSOR_SPECIFIC_6F,
+            				EVENT_POWERBUTTON_PRESSED, 0xFF, 0xFF, BMCInst) < 0) {
+//            			printf("[%s] Error in recoding SEL\n", __func__);
+            		}
+                    if (!msg.msgData) {
+						// For power off by Button, just record ACPI SEL 
+						API_SetACPIState(IPMI_ACPI_S5,BMCInst);
+                    } else {
+						// In order to sync the state and record SEL
+						g_Is_PowerButtonOn = TRUE;
+						OnSetRestartCause(RESTART_CAUSE_POWER_BUTTON, TRUE, BMCInst);
+						Platform_HostPowerOn(BMCInst);
+                    }
+            	}
             	break;
 
             case HyvePlatformIRQMsgQ_ResetButton:
             	printf("HyvePlatformIRQMsgQ_ResetButton, data: %u\n", msg.msgData);
-//            	if (HYVEPLATFORM_IS_SYS_PWRGOOD) {
-//                    OnSetRestartCause(RESTART_CAUSE_RESET_BUTTON, TRUE, BMCInst);
-//                    Platform_HostColdReset(BMCInst);
-//            	}
+            	if (HYVEPLATFORM_IS_SYS_PWRGOOD) {
+            		// In order to sync the state and record SEL
+            		OnSetRestartCause(RESTART_CAUSE_RESET_BUTTON, TRUE, BMCInst);
+                    Platform_HostColdReset(BMCInst);
+                	// Record button event
+                    if (HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_BUTTON,
+                    		SENSOR_NUM_INFO_BTN, EVENT_TYPE_SENSOR_SPECIFIC_6F,
+            				EVENT_RESETBUTTON_PRESSED, 0xFF, 0xFF, BMCInst) < 0) {
+//            			printf("[%s] Error in recoding SEL\n", __func__);
+            		}
+            	}
             	break;
  
             case HyvePlatformIRQMsgQ_PMBus_ALERT:
             	if (HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PSU,
         				SENSOR_NUM_PMBUS_ALERT,
-        				(msg.msgData | EVENT_TYPE_SENSOR_SPECIFIC_6F),
+        				((msg.msgData << 7)| EVENT_TYPE_SENSOR_SPECIFIC_6F),
         				EVENT_POWER_SUPPLY_FAILURE_DETECTED, 0xFF, 0xFF, BMCInst) < 0) {
         			printf("[%s] Error in recoding SEL\n", __func__);
         		}
             	// Because the PSU status sensor will record more detail SEL, here just record a very general one
         		break;
-            
+
             
             default:
             	break;

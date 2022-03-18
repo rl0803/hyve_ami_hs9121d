@@ -820,6 +820,8 @@ PDK_PreAddSEL (_FAR_ INT8U* pSELEntry, INT8U SelectTbl, int BMCInst)
 {
 	SELEventRecord_T *pSELrec = (SELEventRecord_T *)pSELEntry;
 
+	if (0) { BMCInst = BMCInst; }
+
 	/* Support PSU status sensor SEL can provide the status data.
 	   Use the EventDta2 and EventDta3 to store the 'PMBus status word' data */
 	if (((pSELrec->SensorNum == SENSOR_NUM_PSU0_STATUS) ||

@@ -87,10 +87,12 @@ typedef enum {
 #define HYFEPLATFORM_SPD_BUS_DIMM_GL					(1)	// I3C-1
 //#define HYVE_SPD_BUS_ACCESS						HyveExt_I3C_Access_Retry // TODO
 
-#define HYFEPLATFORM_APML_BUS							(1)	// 3
+#define HYFEPLATFORM_APML_BUS							(1) // I2C		or  (3) // I3C
 //#define HYVEAMD_APML_BUS_ACCESS						HyveExt_I3C_Access_Retry // TODO
 #define HYFEPLATFORM_SBRMI_ADDR   						SBRMI_ADDR_0
 #define HYFEPLATFORM_SBTSI_ADDR   						SBTSI_ADDR_0
+//#define HYVE_IMX31X2_BUS_ACCESS						HyveExt_I3C_Access_Retry // TODO
+#define HYFEPLATFORM_IMX3112_ADDR						(0xE0)
 
 #define HYFEPLATFORM_SMBUS_PCIE							(5)
 #define HYFEPLATFORM_ADDR_MUX_PCIE						(0xE8)	// PCA9546A
@@ -173,6 +175,8 @@ extern INT8U g_Is_DIMM_Ready;			// DO NOT use this var directly, use HYVEPLATFOR
 extern INT8U g_Is_CPUPwrGood;			// DO NOT use this var directly, use HYVEPLATFORM_CPU_PWRGOOD instead
 extern INT8U g_Is_HostIn_S3_State;		// DO NOT use this var directly, use HYVEPLATFORM_IS_HOST_IN_S3 instead
 extern INT8U g_Is_HostIn_S5_State;		// DO NOT use this var directly, use HYVEPLATFORM_IS_HOST_IN_S5 instead
+extern INT8U g_Is_PowerButtonOn;
+extern INT8U g_Is_ResetButtonOn;
 
 /********************* Define platform specific functions *********************/
 /* The platform global time-tick per second */
@@ -226,7 +230,7 @@ extern int HyvePlatform_BoardID(INT8U *pBoardID);
 extern int HyvePlatform_LED_Control(const INT8U ledIndex, const INT8U op, INT8U* pIs_enable);
 extern int HyvePlatform_TriggerHostCPU_NMI_SYNC_FLOOD();
 extern int HyvePlatform_Reset_EMMC();
-extern int HyvePlatform_Reset_PwrAUX_IC(const INT8U auxIndex);
+extern int HyvePlatform_Reset_PwrAUX_IC();
 extern int HyvePlatform_SetBMCReady();
 extern int HyvePlatform_Reset_CMOS();
 extern int HyvePlatform_HDTSelect(const INT8U op, INT8U* pHDTIndex);
