@@ -27,13 +27,14 @@ void* HyvePlatform_PSUTask(void* pArg)
 {
 	int BMCInst = (int)pArg;
 	INT8U psuNum = 0;
-	UINT32 preJiffy = HYFEPLATFORM_JIFFY;
+	UINT32 preJiffy = 0;
 	INT16U fanSenLUN_NUM[HYVE_PSU_MAX_NUM][1] = {
 		// PSU0
 		{ HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TACH_PSU0Fan0)},
 		// PSU1
 		{ HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TACH_PSU1Fan0)}
 	};
+	const HyvePSU_StatusInfo_T *pHyvePSUStatInfo= HyvePSU_GetPSUStatusInfo(0);
 
 	if (0) { BMCInst = BMCInst; }
 	
@@ -56,19 +57,17 @@ void* HyvePlatform_PSUTask(void* pArg)
 				break; // If one of PSUs is in FW update, just stop accessing the I2C Bus to avoid FW update fail
 				// TODO: implement PSU FW update
 			} else { // Normal routine
+				// Read PSU status
+				HyvePSU_Read_PSU_Info(psuNum, HYVE_PSU_PEC_OFF);
 				// Check AC lost
-				if (HYVE_PSU_AC_LOST == HyvePSU_CheckACLost(psuNum, HYVE_PSU_PEC_OFF)) {
+				if (HYVE_PSU_AC_LOST == pHyvePSUStatInfo[psuNum].isAcLost) {
 					// per 10 second print the msg
 					if (HYFEPLATFORM_JIFFY_DIFF(preJiffy) > 10) {
 						//TODO: Do something, if PSU AC lost occurs
 						printf("[INFO] %s: Detect AC lost of the PSU(%d)\n", __func__, psuNum);
 						preJiffy = HYFEPLATFORM_JIFFY;
 					}
-				} else {
-					preJiffy = HYFEPLATFORM_JIFFY;
 				}
-				// Read PSU status
-				HyvePSU_Read_PSU_Info(psuNum, HYVE_PSU_PEC_OFF);
 			}
 		}
 		OS_TIME_DELAY_HMSM(0, 0, 1, 0);

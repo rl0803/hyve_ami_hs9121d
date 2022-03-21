@@ -59,8 +59,8 @@
 		.db 0x40             /* Sensor Capabilities              */
 		.db 0x08                    /* Sensor Type                      */
 		.db 0x6f         /* Event / Reading Type             */
-		.dw 0xe       /* Lower Threshold Reading Mask     */
-		.dw 0xe    /* Upper Threshold Reading Mask     */
+		.dw 0xf       /* Lower Threshold Reading Mask     */
+		.dw 0xf    /* Upper Threshold Reading Mask     */
 		.dw 0xf           /* Settable/Readable Threshold Mask */
 		.db 0x0           /* Sensor Units 1                   */
 		.db 0x0           /* Sensor Units 2 - Base Unit       */
@@ -144,8 +144,8 @@
 		.db 0x40             /* Sensor Capabilities              */
 		.db 0x08                    /* Sensor Type                      */
 		.db 0x6f         /* Event / Reading Type             */
-		.dw 0xe       /* Lower Threshold Reading Mask     */
-		.dw 0xe    /* Upper Threshold Reading Mask     */
+		.dw 0xf       /* Lower Threshold Reading Mask     */
+		.dw 0xf    /* Upper Threshold Reading Mask     */
 		.dw 0xf           /* Settable/Readable Threshold Mask */
 		.db 0x0           /* Sensor Units 1                   */
 		.db 0x0           /* Sensor Units 2 - Base Unit       */

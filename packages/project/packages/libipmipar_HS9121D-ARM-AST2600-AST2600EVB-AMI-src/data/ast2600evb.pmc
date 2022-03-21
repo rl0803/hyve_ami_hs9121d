@@ -100,11 +100,11 @@
 		</config>
 		<config>
 			<variable>ASSERTION_MASK</variable>
-			<value>0xe</value>
+			<value>0xf</value>
 		</config>
 		<config>
 			<variable>DE-ASSERTION_MASK</variable>
-			<value>0xe</value>
+			<value>0xf</value>
 		</config>
 		<config>
 			<variable>S_R_T_MASK</variable>
@@ -1772,11 +1772,11 @@
 		</config>
 		<config>
 			<variable>ASSERTION_MASK</variable>
-			<value>0xe</value>
+			<value>0xf</value>
 		</config>
 		<config>
 			<variable>DE-ASSERTION_MASK</variable>
-			<value>0xe</value>
+			<value>0xf</value>
 		</config>
 		<config>
 			<variable>S_R_T_MASK</variable>
