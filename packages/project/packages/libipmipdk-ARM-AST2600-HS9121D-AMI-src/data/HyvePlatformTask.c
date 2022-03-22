@@ -30,6 +30,8 @@
 #define HYVEPLATFORM_MSG_Q_GENERIC_PATH				"/var/.hyvePlatformMsgQ1"
 #define HYVEPLATFORM_MSG_Q_IRQ_PATH					"/var/.hyvePlatformMsgQ2"
 
+#define REG_INTRUSION_CTRL							(0x1E6EF010)
+
 /********************* Global variable definitions *********************/
 int g_hyvePlatformMsgQFD = -1;
 int g_hyvePlatformMsgQFD_IRQ = -1;
@@ -38,43 +40,6 @@ static HyvePlatformPendTask_T g_hyvePlatformPendTasks[HyvePlatformPT_MAX] = {
 	// { is_set ,timeout ,jiffy, data, callback }
 	{ 0, 1, 0, 0, HyvePlatformPT_BackupFRU },
 };
-
-
-/*
-HS1811D tasks
-	HyvePlatform_TimerTask
-	
-	HyveFSC_TimerTask									<--- Fan task
-	HyveMonit_SingleOuput_PMBusPollingThreadStart		<--- PSU task (sensor monitor and PSU FW update)
-	HyveMonit_TriggerStatusPollingThreadStart			<--- kind of a pending task(Use select + Msg Queue)
-	HyveMonit_PlatformSensorMonitor						<--- Sensor monitor(may need one or more depends on platform)
-	
-	HyveMonit_Early_VGA
-	
-	Redfish workaround task:
-		HyveRedfish_TimerTask
-		HyveMonit_SyncAgentHealthMonitorThreadStart
-	
-	
-New task:
-	IRQ_deferHandler
-
-For Intel platform:
-	PCH and ME task
-
-
-HS9121D tasks
-	PDK_TimerTask					(Use this task to provide one second time-tick count instead using time())
-	HyvePlatform_GenericTask		(previous HyvePlatform_TimerTask + HyveMonit_TriggerStatusPollingThreadStart)
-									(Use select + Msg Queue to handle platform pending task)
-	HyvePlatform_IRQDeferHandler	(Use select + Msg Queue to handle IRQ actions)
-	HyvePlatform_FanCtrlTask		(previous HyveFSC_TimerTask)
-	HyvePlatform_PSUTask			(previous HyveMonit_SingleOuput_PMBusPollingThreadStart, responsible for sensor monitoring and PSU FW update)
-	HyvePlatform_SensorMonitor		(Sensor monitor(may need one or more depends on platform))
-	HyvePlatform_SensorMonitor_BP
-
-*/
-
 
 
 /********************* Functions *********************/
@@ -175,6 +140,29 @@ static void* HyvePlatform_GenericTask(void* pArg)
     				HyveExt_SetBmcTimeToRTC();
     			}
             }
+            // Chassis intrusion check
+            // TODO: implement a chassis intrusion driver instead of reading reg directly
+            INT32U regVal = 0;
+            if (!HyveExt_BMC_Register(Hyve_RegOp_Read, REG_INTRUSION_CTRL, &regVal)) {
+            	static INT8U is_intruded = FALSE;
+
+            	if (!is_intruded && !(regVal & HYVE_BIT(4))) {
+                	if (!HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PHYSICAL_SECURITY,
+                			SENSOR_NUM_STS_INTRUSION,
+            				((is_intruded << 7)| EVENT_TYPE_SENSOR_SPECIFIC_6F),
+            				EVENT_GENERAL_CHASSIS_INTRUSION, 0xFF, 0xFF, 1)) {
+                		is_intruded = TRUE;
+            		}
+            	} else if (is_intruded && (regVal & HYVE_BIT(4))) {
+                	if (!HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PHYSICAL_SECURITY,
+                			SENSOR_NUM_STS_INTRUSION,
+            				((is_intruded << 7)| EVENT_TYPE_SENSOR_SPECIFIC_6F),
+            				EVENT_GENERAL_CHASSIS_INTRUSION, 0xFF, 0xFF, 1)) {
+                		is_intruded = FALSE;
+            		}
+            	}
+            }
+
 //-- Routine Work
         	timeout.tv_sec = HyvePlatform_TASK_INTERVAL_GENERIC;
             continue;
