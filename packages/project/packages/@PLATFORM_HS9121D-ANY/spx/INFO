@@ -1,0 +1,17 @@
+Package : @PLATFORM_HS9121D
+Version :   1.0.0.0.0
+SPX-Version : 4.0
+SPX-Format : 2.0
+Owner : AMI
+Maintainer : AlanW (alanw@hyvesolutions.com)
+Config-Tag : HS9121D
+Section : info
+License : AMI
+Group : BASE
+Essential : YES
+Required : @SOC_AST2600
+Provides : PLATFORM
+Architecture : ANY
+Urgency :   high
+Description : Selects Platform as HS9121D Platform
+.

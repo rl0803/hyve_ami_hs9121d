@@ -1,0 +1,12 @@
+Package: @PLATFORM_HS9121D (13.1.0.0.0); urgency = high
+
+Abstract:
+	Adding Platform specific macro
+
+Files Modified: spx/P.CONFIG
+
+--Submitter: AlanW (alanw@hyvesolutions.com) Mon Mar 21 16:35:25 CST 2022
+
+
+
+

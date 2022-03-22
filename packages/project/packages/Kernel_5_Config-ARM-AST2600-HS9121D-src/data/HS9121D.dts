@@ -1,0 +1,579 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+// Copyright 2019 IBM Corp.
+
+/dts-v1/;
+
+#include "aspeed-g6.dtsi"
+#include <dt-bindings/gpio/aspeed-gpio.h>
+#include <dt-bindings/i2c/i2c.h>
+#include "../../../../../../include/projdef.h"
+
+/ {
+    model = "AST2600 EVB";
+    compatible = "aspeed,ast2600";
+
+    aliases {
+        serial0 = &uart1;
+        // serial1 = &uart2;
+        // serial2 = &uart3;
+		serial3 = &uart4;
+        serial4 = &uart5;
+    };
+
+    chosen {
+        bootargs = "console=ttyS4,115200n8";
+    };
+
+    memory@80000000 {
+        device_type = "memory";
+        reg = <0x80000000 0x80000000>;
+    };
+    reserved-memory {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges;
+
+        gfx_memory: framebuffer {
+            size = <0x01000000>;
+            alignment = <0x01000000>;
+            compatible = "shared-dma-pool";
+            reusable;
+        };
+#if defined(CONFIG_SPX_FEATURE_VIDEO_RVAS)
+        linux,cma {
+            size = <0x4000000>; //64MB
+            alignment = <0x01000000>;
+            compatible = "shared-dma-pool";
+            reusable;
+            linux,cma-default;
+        };
+#endif              
+    };
+
+    iio-hwmon {
+        compatible = "iio-hwmon";
+        io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
+                        <&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
+                        <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>,
+                        <&adc1 4>, <&adc1 5>, <&adc1 6>, <&adc1 7>;
+    };
+};
+
+&syscon {
+        uart-clock-high-speed;
+        status = "okay";
+        
+        // mac0-clk-delay = <0x10 0x0a
+        //        0x10 0x10
+        //        0x10 0x10>;
+        // mac1-clk-delay = <0x10 0x0a
+        //        0x10 0x10
+        //        0x10 0x10>;
+        mac2-clk-delay = <0x08 0x04
+                  0x08 0x04
+                  0x08 0x04>;
+        mac3-clk-delay = <0x08 0x04
+                  0x08 0x04
+                  0x08 0x04>;       
+};
+
+&kcs1 {
+    kcs_addr = <0xCA0>;
+    status = "okay";
+};
+
+&kcs2 {
+    kcs_addr = <0xCA8>;
+    status = "okay";
+};
+
+&kcs3 {
+    kcs_addr = <0xCA2>;
+    status = "okay";
+};
+
+&jtag0 {
+    status = "okay";
+};
+
+&jtag1 {
+    status = "okay";
+};
+
+&mctp0 {
+    tx-payload-bytes= <64>;
+    rx-payload-bytes= <64>;
+    status = "okay";
+};
+
+&espi_ctrl {
+    status = "okay";
+    
+    perif,memcyc-src-addr = <0x98000000>;
+    perif,memcyc-size = <0x10000>;
+    perif,dma-mode;
+    
+    oob,dma-mode;
+    oob,dma-tx-desc-num = <0x2>;
+    oob,dma-rx-desc-num = <0x8>;
+    
+    flash,dma-mode;
+    flash,safs-mode = <0x2>;
+};
+
+&lpc_reset {
+    status = "okay";
+};
+
+&lpc_sio {
+    status = "okay";
+};
+
+&lpc_snoop {
+    snoop-ports = <0x80>;
+    status = "okay";
+};
+
+&lpc_pcc { 
+    rec-mode = <0x1>; 
+    port-addr = <0x80>; 
+    port-addr-hbits-select = <0x1>; 
+    port-addr-xbits = <0x1>; 
+    pattern-a-en; 
+    pattern-a = <0x41424344>; 
+    pattern-a-len = <0x4>; 
+    pattern-a-write = <0x1>; 
+    pattern-a-port = <0x80>; 
+    status = "okay"; 
+};
+
+// HS9121D, uses MAC3 and MAC4
+// &mdio0 {
+//         status = "okay";
+
+//         ethphy0: ethernet-phy@0 {
+//                 compatible = "ethernet-phy-ieee802.3-c22";
+//                 reg = <0>;
+//         };
+// };
+
+// &mdio1 {
+//  status = "okay";
+
+//  ethphy1: ethernet-phy@0 {
+//      compatible = "ethernet-phy-ieee802.3-c22";
+//      reg = <0>;
+//  };
+// };
+
+&mdio2 {
+    status = "okay";
+
+    ethphy2: ethernet-phy@0 {
+        compatible = "ethernet-phy-ieee802.3-c22";
+        reg = <0>;
+    };
+};
+
+&mdio3 { // MAC4 (Shared NIC) 
+    status = "disabled";
+
+    ethphy3: ethernet-phy@0 {
+        compatible = "ethernet-phy-ieee802.3-c22";
+        reg = <0>;
+    };
+};
+
+// HS9121D, uses MAC3 (Dedicated NIC) and MAC4 (Shared NIC)
+// &mac0 {
+//         status = "okay";
+
+//         phy-mode = "rgmii-rxid";
+//         phy-handle = <&ethphy0>;
+
+//         pinctrl-names = "default";
+//         pinctrl-0 = <&pinctrl_rgmii1_default>;
+// };
+
+// &mac1 {
+//  status = "okay";
+
+//  phy-mode = "rgmii-rxid";
+//  phy-handle = <&ethphy1>;
+
+//  pinctrl-names = "default";
+//  pinctrl-0 = <&pinctrl_rgmii2_default>;
+// };
+
+// MAC3 (Dedicated NIC)
+&mac2 {
+    status = "okay";
+
+    phy-mode = "rgmii";
+    phy-handle = <&ethphy2>;
+    
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_rgmii3_default>;
+};
+// MAC4 (Shared NIC)
+&mac3 {
+    status = "okay";
+
+    phy-handle = <&ethphy3>;
+    pinctrl-names = "default";
+
+#if 0 //currently using AST EVB, so disable NCSI
+    phy-mode = "rgmii";
+    pinctrl-0 = <&pinctrl_rgmii4_default>;
+
+#else
+    phy-mode = "rmii";
+    use-ncsi;
+    pinctrl-0 = <&pinctrl_rmii4_default>;
+#endif
+};
+
+&adc0 {
+    vref = <2500>;
+    status = "okay";
+
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
+        &pinctrl_adc2_default &pinctrl_adc3_default
+        &pinctrl_adc4_default &pinctrl_adc5_default
+        &pinctrl_adc6_default &pinctrl_adc7_default>;
+};
+
+&adc1 {
+    vref = <2500>;
+    status = "okay";
+
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_adc8_default &pinctrl_adc9_default
+        &pinctrl_adc10_default &pinctrl_adc11_default
+        &pinctrl_adc12_default &pinctrl_adc13_default
+        &pinctrl_adc14_default &pinctrl_adc15_default>;
+};
+
+&gfx {
+    status = "okay";
+    memory-region = <&gfx_memory>;
+};
+
+&emmc_controller {
+    status = "okay";
+    timing-phase = <0x300FF>;
+};
+
+&emmc {
+    status = "okay";
+    non-removable;
+    max-frequency = <100000000>;
+    sdhci-drive-type = /bits/ 8 <3>;
+#if 1
+    bus-width = <4>;
+#else
+    bus-width = <8>;
+    pinctrl-0 = <&pinctrl_emmc_default
+            &pinctrl_emmcg8_default>;
+#endif
+
+};
+
+#ifdef CONFIG_SPX_FEATURE_HYVE_RTC_SUPPORT
+&rtc {
+    status = "okay";
+};
+#endif
+
+#if 0 // For A2 chip
+
+&fmc {
+    spi-dma-write;
+    low-spi-clk-write;
+    status = "okay";
+    num-cs = <2>;
+
+    flash0: flash@0 {
+        status = "okay";
+        m25p,fast-read;
+        label = "bmc";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <1>;
+        spi-rx-bus-width = <4>;
+        reg= <0>;
+        partitions {
+            compatible = "ami,spx-fmh";
+        };
+    };
+    flash1: flash@1 {
+        status = "okay";
+        m25p,fast-read;
+        label = "bmc2";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <1>;
+        spi-rx-bus-width = <4>;
+        reg = <1>;
+    }; 
+};
+
+#else // For A3 chip
+&fmc {
+    fmc-spi-user-mode;
+    status = "okay";
+    num-cs = <2>;
+
+    flash0: flash@0 {
+        status = "okay";
+        m25p,fast-read;
+        label = "bmc";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <2>;
+        spi-rx-bus-width = <2>;
+        reg= <0>;
+        partitions {
+            compatible = "ami,spx-fmh";
+        };
+    };
+    flash1: flash@1 {
+        status = "okay";
+        m25p,fast-read;
+        label = "bmc2";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <2>;
+        spi-rx-bus-width = <2>;
+        reg = <1>;
+    };
+};
+#endif
+
+&spi1 {
+    spi-dma-write;
+    low-spi-clk-write;
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_spi1_default &pinctrl_spi1cs1_default
+                &pinctrl_qspi1_default>;
+    status = "okay";
+
+    flash@0 {
+        status = "okay";
+        m25p,fast-read;
+        label = "pnor";
+        spi-max-frequency = <50000000>;
+        spi-tx-bus-width = <2>;
+        spi-rx-bus-width = <2>;     
+    };
+};
+
+// For Host UART
+&uart1 {
+    status = "okay";
+    // If use UART1 via superIO, the uart1 via phsical pin should be disabled
+    // status = "disabled";
+};
+
+&uart4 {
+    status = "okay";
+};
+// For BMC debug console
+&uart5 {
+    status = "okay";
+};
+
+&uart_routing {
+    status = "okay";
+};
+
+#if 0 // TODO:
+// For Chassis Instrustion Detect
+&chassis {
+	status = "disabled";
+};
+#endif
+
+#if 0 // Due to the I3C driver doesn't not support hot-join feature yet
+&i3cglobal {
+    status = "okay";
+};
+
+// HS9121D, the I3C-0 and I3C-1 are for DIMM SPD access
+&i3c0 {
+        status = "okay";
+		jdec-spd;
+		DIMMA0_spd: spd@50,3C000000000 {
+			reg = <0x50 0x3C0 0x00000000>;
+			assigned-address = <0x50>;
+		};
+		DIMMB0_spd: spd@51,3C000000001 {
+			reg = <0x51 0x3C0 0x00000001>;
+			assigned-address = <0x51>;
+		};
+		DIMMC0_spd: spd@52,3C000000002 {
+			reg = <0x52 0x3C0 0x00000000>;
+			assigned-address = <0x52>;
+		};
+		DIMMD0_spd: spd@53,3C000000003 {
+			reg = <0x53 0x3C0 0x00000001>;
+			assigned-address = <0x53>;
+		};
+		DIMME0_spd: spd@54,3C000000004 {
+			reg = <0x54 0x3C0 0x00000000>;
+			assigned-address = <0x54>;
+		};
+		DIMMF0_spd: spd@55,3C000000005 {
+			reg = <0x55 0x3C0 0x00000001>;
+			assigned-address = <0x55>;
+		};
+};
+
+&i3c1 {
+    status = "okay";
+
+	jdec-spd;
+	DIMMG0_spd: spd@50,3C000000000 {
+		reg = <0x50 0x3C0 0x00000000>;
+		assigned-address = <0x50>;
+	};
+	DIMMH0_spd: spd@51,3C000000001 {
+		reg = <0x51 0x3C0 0x00000001>;
+		assigned-address = <0x51>;
+	};
+	DIMMI0_spd: spd@52,3C000000002 {
+		reg = <0x52 0x3C0 0x00000000>;
+		assigned-address = <0x52>;
+	};
+	DIMMJ0_spd: spd@53,3C000000003 {
+		reg = <0x53 0x3C0 0x00000001>;
+		assigned-address = <0x53>;
+	};
+	DIMMK0_spd: spd@54,3C000000004 {
+		reg = <0x54 0x3C0 0x00000000>;
+		assigned-address = <0x54>;
+	};
+	DIMML0_spd: spd@55,3C000000005 {
+		reg = <0x55 0x3C0 0x00000001>;
+		assigned-address = <0x55>;
+	};
+};
+#endif
+
+// HS9121D, the I2C1/I3C is for APML
+#if 1
+&i2c1 {
+    status = "okay";
+};
+#else
+&i3c3 {
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_i3c4_default>;
+//    pinctrl-0 = <&pinctrl_hvi3c4_default>;
+#if 0
+	/* IDT IMX3112 I3C multiplexer with thermal sensor */
+	imx3112: i3cmux@70,3C000000000 {
+		reg = <0x70 0x3C0 0x00000000>;
+		assigned-address = <0x70>;
+};
+#endif
+
+};
+#endif
+
+&i2c4 {
+    status = "okay";
+};
+
+&i2c5 {
+    status = "okay";
+};
+
+&i2c6 {
+    status = "okay";
+};
+
+&i2c7 {
+    status = "okay";
+};
+
+&i2c8 {
+    status = "okay";
+};
+
+&i2c9 {
+    status = "okay";
+};
+
+&i2c11 {
+    status = "okay";
+};
+&i2c12 {
+    status = "okay";
+};
+
+&i2c13 {
+    status = "okay";
+};
+
+&i2c14 {
+    status = "okay";
+};
+
+&i2c15 {
+    status = "okay";
+};
+
+&sgpiom0 {
+	status = "okay";
+	bus-frequency = <48000>; // 48 kHz
+	ngpios = <128>; // 16 bytes
+};
+
+&hace {
+        status = "okay";
+};
+
+&acry {
+        status = "okay";
+};
+
+#ifdef CONFIG_SPX_FEATURE_USB_PORT_B_HOST_SUPPORT
+&ehci1 {
+    status = "okay";
+};
+
+&uhci {
+    status = "okay";
+};
+#endif
+
+&vhub {
+        status = "okay";
+};
+
+#ifdef CONFIG_SPX_FEATURE_USB_PORT_B_SUPPORT
+&udc {
+        status = "okay";
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_usb2bd_default>;
+};
+#endif
+
+&gpio0 {
+    /* Enable GPIO input debounce.
+       To avoid polarity confusing, use default polarity - Active High. */
+    pin_gpio_p0 {
+        gpios =  <ASPEED_GPIO(P, 0) GPIO_ACTIVE_HIGH>; 
+        input;
+        line-name = "IO_FM_BMC_PWRBTN_IN_N";
+        ami,debounce-interval = <1000>; // 1 ms
+    };
+    pin_gpio_p2 {
+        gpios =  <ASPEED_GPIO(P, 2) GPIO_ACTIVE_HIGH>; 
+        input;
+        line-name = "IO_RST_SYSTEM_BTN_IN_N";
+        ami,debounce-interval = <1000>; // 1 ms
+    };
+};
+
+#include "legacy.dtsi" /* For Legacy AMI Drivers */
+
