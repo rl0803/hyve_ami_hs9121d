@@ -311,6 +311,19 @@ static void HyvePlatform_Sensor_CPU(int BMCInst)
 			INT8U rBuff[4] = {0};
 			INT32U *pU32Data = (INT32U*)rBuff;
 
+			// Enable Mux IMX3112
+			if (HyveMuxCtrl_IMX31X2(HYFEPLATFORM_APML_BUS, HYFEPLATFORM_IMX3112_ADDR, MUX_CHANNEL_0) < 0) {
+				INT8U i = 0;
+
+				for (i = SensorIndex_TEMP_CPU0; i < (SensorIndex_PWR_CPU0 + 1); i++) {
+					if (g_SensorReadArrt[i].retryCount > SENSOR_READ_RETRY_COUNT) {
+						g_SensorReadArrt[i].status  = HAL_ERR_READ;
+					} else {
+						g_SensorReadArrt[i].retryCount++;
+					}
+				}
+				return; // return, if enable mux failed
+			}
 			// Read CPU temp
 			if (HyveAMD_ReadCPU_Temp_Int(HYFEPLATFORM_APML_BUS, HYFEPLATFORM_SBTSI_ADDR,
 										SENSOR_READ_RETRY_COUNT, rBuff) < 0) {
@@ -344,7 +357,7 @@ static void HyvePlatform_Sensor_CPU(int BMCInst)
 		is_ready = FALSE;
 	}
 }
-
+#if 0 // TODO: Need to modify the I3C driver to support
 static void HyvePlatform_Sensor_DIMM(int BMCInst)
 {
 	static INT8U is_ready = FALSE;
@@ -377,7 +390,6 @@ static void HyvePlatform_Sensor_DIMM(int BMCInst)
 					// Change to another bus
 					busNum = HYFEPLATFORM_SPD_BUS_DIMM_GL;
 				}
-#if 0 // TODO: wait 9121D MB
 				if (HyveSPD_ReadTemp(busNum, SPD_ADDR_HIDXXX((index % busDIMMNum)),
 									SENSOR_READ_RETRY_COUNT, &rData) < 0) {
 					if (g_SensorReadArrt[sensorIndex].retryCount > SENSOR_READ_RETRY_COUNT) {
@@ -390,7 +402,6 @@ static void HyvePlatform_Sensor_DIMM(int BMCInst)
 					g_SensorReadArrt[sensorIndex].retryCount = 0;
 					g_SensorReadArrt[sensorIndex].reading = rData;
 				}
-#endif
 				sensorIndex++;
 			}
 		} else if (HyvePlatform_has_DIMMOwership() &&
@@ -402,6 +413,7 @@ static void HyvePlatform_Sensor_DIMM(int BMCInst)
 		is_ready = FALSE;
 	}
 }
+#endif
 
 static void HyvePlatform_Sensor_VR(int BMCInst)
 {
@@ -570,7 +582,7 @@ void* HyvePlatform_SensorMonitor(void* pArg)
 
 		HyvePlatform_Sensor_MBTemp();
 		HyvePlatform_Sensor_CPU(BMCInst);
-		HyvePlatform_Sensor_DIMM(BMCInst);
+//		HyvePlatform_Sensor_DIMM(BMCInst);  // TODO: Need to modify the I3C driver to support
 		HyvePlatform_Sensor_VR(BMCInst);
 		HyvePlatform_Sensor_ExtBoard_Temp();
 
