@@ -231,7 +231,7 @@ extern int HyvePlatform_LED_Control(const INT8U ledIndex, const INT8U op, INT8U*
 extern int HyvePlatform_TriggerHostCPU_NMI_SYNC_FLOOD();
 extern int HyvePlatform_Reset_EMMC();
 extern int HyvePlatform_Reset_PwrAUX_IC();
-extern int HyvePlatform_SetBMCReady();
+extern int HyvePlatform_SetBMCReady(const INT8U enable);
 extern int HyvePlatform_Reset_CMOS();
 extern int HyvePlatform_HDTSelect(const INT8U op, INT8U* pHDTIndex);
 extern int HyvePlatform_DIMM_MuxControl(const INT8U op, INT8U* pIs_enable);

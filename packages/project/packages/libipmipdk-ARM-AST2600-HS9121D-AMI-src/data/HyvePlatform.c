@@ -204,7 +204,7 @@ int HyvePlatform_TaskInit(int BMCInst)
 	HyvePlatform_FanCtrlTaskStart(BMCInst);
 	HyvePlatform_PSUTaskStart(BMCInst);
 	HyvePlatform_SensorMonitorStart(BMCInst);
-	HyvePlatform_SetBMCReady();
+	HyvePlatform_SetBMCReady(TRUE);
 
 	// [workaround] Currently not support ROT, so just always set Auth-completed
 	INT8U Is_asserted = 1;
@@ -513,23 +513,23 @@ int HyvePlatform_Reset_PwrAUX_IC()
  * @fn HyvePlatform_SetBMCReady
  * @brief	To set the BMC ready GPIO pin
  *
- * @param None
+ * @param[in] enable - To set/clear the ready pin status
  *
  * @return    0 - if success
  *           -1 - otherwise
  *-----------------------------------------------------------------*/
-int HyvePlatform_SetBMCReady()
+int HyvePlatform_SetBMCReady(const INT8U enable)
 {
 	int retryCount = 3;
-
-	// printf("[ INFO ] %s\n", __func__);
+	int (*HyveExt_GPIO_Set_Data) (const INT16U) = enable ? HyveExt_GPIO_Set_Data_Low :
+															HyveExt_GPIO_Set_Data_High;
 
 	do {
+		int ret = -1;
+
 		// To inform the CPLD that the BMC is ready
-		if (HyveExt_GPIO_Set_Data_Low(IO_FM_BMC_ONCTL_N) > -1) {
-			if (HYVE_GPIO_DATA_LOW == HyveExt_GPIO_Get_Data(IO_FM_BMC_ONCTL_N)) {
-				return 0;
-			}
+		if ((ret = HyveExt_GPIO_Set_Data(IO_FM_BMC_ONCTL_N)) > -1) {
+			if (ret == HyveExt_GPIO_Get_Data(IO_FM_BMC_ONCTL_N)) { return 0; }
 		}
 		// If set value failed, maybe caused by direction is input
 		HyveExt_GPIO_Set_Dir_Output(IO_FM_BMC_ONCTL_N);
