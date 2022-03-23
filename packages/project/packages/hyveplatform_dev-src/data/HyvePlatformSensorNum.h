@@ -12,6 +12,9 @@
 #define BMC_SENSOR_LUN											(BMC_SENSOR_LUN01)
 
 /********************* LUN 00 *********************/
+// Event Only
+#define SENSOR_NUM_ERR_CPU0PROHOT 								(0x18)	// TODO
+#define SENSOR_NUM_ERR_CPU0THRMTRIP 							(0x1C)
 
 
 /********************* LUN 01 *********************/

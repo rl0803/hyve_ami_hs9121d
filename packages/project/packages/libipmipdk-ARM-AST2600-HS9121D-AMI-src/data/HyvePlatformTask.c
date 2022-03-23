@@ -19,10 +19,9 @@
 #include "OSPort.h"
 #include "EINTR_wrappers.h"
 #include "flashlib.h"
-
-#include "Platform.h" //Alan, Test chassis power
+#include "Platform.h"
 #include "ChassisCtrl.h"
-
+#include "SensorAPI.h"
 
 #include "HyveCommon.h"
 
@@ -252,28 +251,27 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	break;
 
             case HyvePlatformIRQMsgQ_SysPwrGood:
-            	/*
-            	API_InitPowerOnTick
-
-            			gHostBootUpTime = 0;
-            			HyveExt_BIOS_Status(VALUE_CLEAN, 0);
-            			
-            			// BMC should clear & stop WDT while user DC off before POST END 
-            			PostPendTask(PEND_OP_SET_TRIGGER_TYPE, (INT8U *)&TriggerCmd,sizeof(TriggerCmdArg_T),1,BMCInst);
-            			
-            	*/
+            	API_InitPowerOnTick(BMCInst);
+            	if (!msg.msgData) { // Power Off
+        			// Clear & stop FRB2 WDT while Host DC off
+            		HyveExt_ClrAndStopFRB2WDT(BMCInst);
+            		HyveExt_BIOS_Status(Hyve_VALUE_CLEAN, Hyve_BIOS_NO_ACTIVE);
+            	}
             	break;
 
             case HyvePlatformIRQMsgQ_CPU_ThermalTrip:
+            {
             	printf("IRQMsgQ_CPU_ThermalTrip, data: %u\n", msg.msgData);
-            	if (msg.msgData) {
-            		// TODO
-            		// Check the CPU temp
-            		
-            		// Record SEL
-            	} else {
-            		// De-asset??
-            	}
+				// Check the CPU temp
+				_FAR_ SensorInfo_T *pSensorInfo = API_GetSensorInfo(SENSOR_NUM_TEMP_CPU0, BMC_SENSOR_LUN01, BMCInst);
+				if (pSensorInfo && (pSensorInfo-> SensorReading > pSensorInfo->UpperCritical)) {
+					// Record SEL
+					HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN00, SENSOR_TYPE_PROCESSOR,
+									SENSOR_NUM_ERR_CPU0THRMTRIP,
+									(((!msg.msgData) << 7) | EVENT_TYPE_SENSOR_SPECIFIC_6F),
+									EVENT_PROCESSOR_THERMALTRIP, 0xFF, 0xFF, BMCInst);
+				}
+            }
             	break;
 
             case HyvePlatformIRQMsgQ_CPU_PROCHOT:
@@ -281,8 +279,7 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	if (msg.msgData) {
             		// TODO
             		// Check the CPU temp
-            		
-            		// Record SEL
+
             	} else {
             		// De-asset??
             	}
@@ -303,11 +300,9 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	if ((!msg.msgData) ||
             			(msg.msgData && !HYVEPLATFORM_IS_SYS_PWRGOOD)) {
                 	// Record button event
-                    if (HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_BUTTON,
-                    		SENSOR_NUM_INFO_BTN, EVENT_TYPE_SENSOR_SPECIFIC_6F,
-            				EVENT_POWERBUTTON_PRESSED, 0xFF, 0xFF, BMCInst) < 0) {
-//            			printf("[%s] Error in recoding SEL\n", __func__);
-            		}
+            		HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_BUTTON,
+									SENSOR_NUM_INFO_BTN, EVENT_TYPE_SENSOR_SPECIFIC_6F,
+									EVENT_POWERBUTTON_PRESSED, 0xFF, 0xFF, BMCInst);
                     if (!msg.msgData) {
 						// For power off by Button, just record ACPI SEL 
 						API_SetACPIState(IPMI_ACPI_S5,BMCInst);
@@ -327,25 +322,20 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             		OnSetRestartCause(RESTART_CAUSE_RESET_BUTTON, TRUE, BMCInst);
                     Platform_HostColdReset(BMCInst);
                 	// Record button event
-                    if (HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_BUTTON,
-                    		SENSOR_NUM_INFO_BTN, EVENT_TYPE_SENSOR_SPECIFIC_6F,
-            				EVENT_RESETBUTTON_PRESSED, 0xFF, 0xFF, BMCInst) < 0) {
-//            			printf("[%s] Error in recoding SEL\n", __func__);
-            		}
+                    HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_BUTTON,
+									SENSOR_NUM_INFO_BTN, EVENT_TYPE_SENSOR_SPECIFIC_6F,
+									EVENT_RESETBUTTON_PRESSED, 0xFF, 0xFF, BMCInst);
             	}
             	break;
  
             case HyvePlatformIRQMsgQ_PMBus_ALERT:
-            	if (HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PSU,
-        				SENSOR_NUM_PMBUS_ALERT,
-        				((msg.msgData << 7)| EVENT_TYPE_SENSOR_SPECIFIC_6F),
-        				EVENT_POWER_SUPPLY_FAILURE_DETECTED, 0xFF, 0xFF, BMCInst) < 0) {
-        			printf("[%s] Error in recoding SEL\n", __func__);
-        		}
+            	HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PSU,
+								SENSOR_NUM_PMBUS_ALERT,
+								((msg.msgData << 7) | EVENT_TYPE_SENSOR_SPECIFIC_6F),
+								EVENT_POWER_SUPPLY_FAILURE_DETECTED, 0xFF, 0xFF, BMCInst);
             	// Because the PSU status sensor will record more detail SEL, here just record a very general one
         		break;
 
-            
             default:
             	break;
             }
