@@ -580,15 +580,25 @@ PDK_FPEnable (INT8U FPEnable,int BMCInst)
  *--------------------------------------------------------------------*/
 int PDK_GetPSGood (int BMCInst)
 {
-	int ret = 0;
+	static INT32U jiffy = 10;
 
 	if (0) { BMCInst = BMCInst; }
-	
-	if ((ret = HyveExt_GPIO_Get_Data(IO_PWRGD_SYS_PWROK_BMC)) > -1) {
-		g_Is_DCPowerOn = ret;
-	}
+	/* It takes about 120 us ~ 160 us for reading data from GPIO,
+	   in other word, the PDK_GetPSGood needs to cost 120 us ~ 160 us.
+	   Because the PDK_GetPSGood is called by so many tasks crazy frequently,
+	   about 9250 times per min, it cost too much.
+	   To reduce CPU usage, read the GPIO per 10 seconds,
+	   Because we have interrupt handler for IO_PWRGD_SYS_PWROK_BMC,
+	   basically is enough for update the flag 'g_Is_DCPowerOn'
 
-    return HYVEPLATFORM_IS_SYS_PWRGOOD;
+	   Use this new mechanism, in most case, this function only cost 2 us !!!
+	*/
+	if (HYFEPLATFORM_JIFFY_DIFF(jiffy) > 9) {
+		int ret = HyveExt_GPIO_Get_Data(IO_PWRGD_SYS_PWROK_BMC);
+		if (ret  > -1) { g_Is_DCPowerOn = ret; }
+		jiffy = HYFEPLATFORM_JIFFY;
+	}
+	return HYVEPLATFORM_IS_SYS_PWRGOOD;
 }
 
 /*------------------------------------------------------------------------
