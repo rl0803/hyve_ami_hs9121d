@@ -4456,3 +4456,24 @@
             .db 0xc0 + sizeof"FP_FRU"/* ID String Type / Length Code     */
             .db "FP_FRU"
         
+
+        /* SDR Record Header */
+            .dw 0x62               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x03                    /* Record Type                      */
+            .db 12 + sizeof "ERR_CPU0THRMTRIP" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20               /* Sensor Owner ID                  */
+            .db 0x0                  /* Sensor Owner LUN                 */
+            .db 0x1c        /* Sensor Number                    */
+            /* RECORD BODY BYTES*/      
+            .db 0x3               /* Entity ID                        */
+            .db 0x6             /* Entity Instance                  */
+            .db 0x7             /* Sensor Type                      */
+            .db 0x6f            /* Event / Reading Type             */
+            .dw 0x0       /* Sensor Record Sharing            */
+            .db 0x0                     /* Reserved                         */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"ERR_CPU0THRMTRIP"/* ID String Type / Length Code     */
+            .db "ERR_CPU0THRMTRIP"
+    

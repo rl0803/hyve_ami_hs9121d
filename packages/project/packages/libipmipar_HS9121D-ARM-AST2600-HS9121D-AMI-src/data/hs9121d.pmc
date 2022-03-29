@@ -17714,6 +17714,81 @@
 	<name>FP_FRU</name>
 </device_connection>
 <device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>ERR_CPU0THRMTRIP</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>ERR_CPU0THRMTRIP</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>ERR_CPU0THRMTRIP [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0x1c</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x3</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x6</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x7</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x6f</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x2ee</topleft_x>
+		<topleft_y>0x22</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>ERR_CPU0THRMTRIP</name>
+</device_connection>
+<device>
 	<dev_name>FRU Device</dev_name>
 	<dev_class>SDR</dev_class>
 	<name>MP_FRU</name>
@@ -18648,8 +18723,8 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x2ee</topleft_x>
-		<topleft_y>0x24</topleft_y>
+		<topleft_x>0x3b6</topleft_x>
+		<topleft_y>0x22</topleft_y>
 		<width>0x95</width>
 		<height>0x10</height>
 	</device_glyph>
@@ -19130,6 +19205,7 @@
 	<item>FanBoard_FRU</item>
 	<item>MP_FRU</item>
 	<item>FP_FRU</item>
+	<item>ERR_CPU0THRMTRIP</item>
 </sdrorder>
 	</devcfg>
 <module>
