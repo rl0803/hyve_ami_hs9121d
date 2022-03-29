@@ -93,7 +93,7 @@
 };
 
 &jtag0 {
-    status = "okay";
+    status = "disabled";
 };
 
 &jtag1 {
@@ -172,6 +172,10 @@
     ethphy2: ethernet-phy@0 {
         compatible = "ethernet-phy-ieee802.3-c22";
         reg = <0>;
+
+		// LED2(Right-Green): 100 Mbps ; LED1(Right-Amber): 1000 Mbps; LED0(Left): Active Indication
+		lcr_reg = /bits/ 16 <0x8910>;
+		eeelcr_reg = /bits/ 16 <0x0000>; // Disable Energy Efficient Ethernet
     };
 };
 
