@@ -564,10 +564,9 @@ void IRQhndlr_PMBusALERT_N(IPMI_INTInfo_T *IntInfo)
 	HyveMsgQ_T msg = {0};
 
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	
 	msg.msgType = HyvePlatformIRQMsgQ_PMBus_ALERT;
-	msg.msgData = IntInfo->gpioValue;
+	msg.msgData = ((~IntInfo->gpioValue) & 0x01);
 	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
 		printf("%s: Error in posting IRQ signal(%u)\n", __func__, ((~IntInfo->gpioValue) & 0x01));
 	}

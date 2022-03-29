@@ -329,11 +329,20 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	break;
  
             case HyvePlatformIRQMsgQ_PMBus_ALERT:
-            	HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PSU,
-								SENSOR_NUM_PMBUS_ALERT,
-								((msg.msgData << 7) | EVENT_TYPE_SENSOR_SPECIFIC_6F),
-								EVENT_POWER_SUPPLY_FAILURE_DETECTED, 0xFF, 0xFF, BMCInst);
-            	// Because the PSU status sensor will record more detail SEL, here just record a very general one
+            {
+            	static INT8U is_asserted = FALSE;
+
+            	if (msg.msgData) { is_asserted = TRUE; }
+
+            	if (is_asserted) {
+                	HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PSU,
+    								SENSOR_NUM_PMBUS_ALERT,
+    								((msg.msgData << 7) | EVENT_TYPE_SENSOR_SPECIFIC_6F),
+    								EVENT_POWER_SUPPLY_FAILURE_DETECTED, 0xFF, 0xFF, BMCInst);
+                	// Because the PSU status sensor will record more detail SEL, here just record a very general one
+                	is_asserted = FALSE;
+            	}
+            }
         		break;
 
             default:
