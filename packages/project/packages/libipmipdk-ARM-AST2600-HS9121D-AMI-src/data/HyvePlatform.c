@@ -568,36 +568,40 @@ int HyvePlatform_Reset_CMOS()
 }
 
 /*-----------------------------------------------------------------
- * @fn HyvePlatform_HDTSelect
+ * @fn HyvePlatform_JTagAccessSelect
  * @brief	To set the HDT source selection
  *
- * @param[in]               op  - The operation: SET, GET
- * @param[in/out]  pHDTIndex  - The INT8U pointer to input/output the HDT index
+ * @param[in] selection - The JTag access selection
  *
  * @return    0 - if success
  *           -1 - otherwise
+ * 
+-------------      ------------
+| BMC JTag2 |<-----| Mux Ctrl |<-----------> Host CPU
+-------------      |          |<-----------> CPLD
+                   |          |<-----------> Riser JTag
+                   ------------
+
  *-----------------------------------------------------------------*/
-int HyvePlatform_HDTSelect(const INT8U op, INT8U* pHDTIndex)
+int HyvePlatform_JTagAccessSelect(const INT8U selection)
 {
-	int ret = 0;
-
-	if (!pHDTIndex) { return -1; }
-
-	if (Hyve_VALUE_SET == op) {
-		if (HDT_CPLD == *pHDTIndex) {
-			ret = HyveExt_GPIO_Set_Data_High(IO_P0_HDT_SEL_0);
-		} else {
-			ret = HyveExt_GPIO_Set_Data_Low(IO_P0_HDT_SEL_0);
-		}
-		return ret < 0 ? -1 : 0;
+	if ((Enable_HostCPU_JTagAccess == selection) &&
+			(HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
+					HyveExt_GPIO_Set_Data_Low(IO_P0_HDT_SEL_0) < 0)) {
+		return -1;
+	} else if ((Enable_CPLD_JTagAccess == selection) &&
+			(HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
+					HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_SEL) < 0)) {
+		return -1;
+	} else if ((Enable_Riser_JTagAccess == selection) &&
+			(HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
+					HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_SEL) < 0)) {
+		return -1;
+	} else if (HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
+				HyveExt_GPIO_Set_Data_High(IO_P0_HDT_SEL_0) < 0) {
+		return -1;
 	}
-	// Get currently HDT selection
-	if ((ret = HyveExt_GPIO_Get_Data(IO_P0_HDT_SEL_0)) < 0) { return ret; }
-	if (HYVE_GPIO_DATA_HIGH == ret) {
-		*pHDTIndex = HDT_CPLD;
-	} else {
-		*pHDTIndex = HDT_BMC;
-	}
+
 	return 0;
 }
 

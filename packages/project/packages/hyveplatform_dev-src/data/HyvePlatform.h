@@ -210,9 +210,11 @@ typedef enum {
 } HyvePlatformI2CMuxIndex;
 
 typedef enum {
-	HDT_CPLD = 0,
-	HDT_BMC
-} HyvePlatformHDTIndex;
+	Disable_All_JTagAccess = 0,
+	Enable_CPLD_JTagAccess,
+	Enable_Riser_JTagAccess,
+	Enable_HostCPU_JTagAccess
+} HyvePlatformJTagAccessSelect;
 
 /********************* Functions *********************/
 extern int HyvePlatform_Init();
@@ -233,7 +235,7 @@ extern int HyvePlatform_Reset_EMMC();
 extern int HyvePlatform_Reset_PwrAUX_IC();
 extern int HyvePlatform_SetBMCReady(const INT8U enable);
 extern int HyvePlatform_Reset_CMOS();
-extern int HyvePlatform_HDTSelect(const INT8U op, INT8U* pHDTIndex);
+extern int HyvePlatform_JTagAccessSelect(const INT8U selection);
 extern int HyvePlatform_DIMM_MuxControl(const INT8U op, INT8U* pIs_enable);
 extern int HyvePlatform_Reset_I2CMux(const INT8U muxIndex);
 extern int HyvePlatform_HostPowerCtrl(const INT8U on_off);
