@@ -617,9 +617,6 @@ PDK_SwitchEMPMux (INT8U Direction,int BMCInst)
 	_FAR_ BMCInfo_t* pBMCInfo = &g_BMCInfo[BMCInst];
 	INT8U TSettings=0x00;
 
-	// HS9121D doesn't support route system UART
-	if (MUX_2_SOL == Direction) { return; }
-
 	TSettings = BMC_GET_SHARED_MEM (BMCInst)->SerialMuxSetting;
 	if(Direction==pBMCInfo->SerialConfig.CurSwitchDir)return;
 
@@ -718,6 +715,8 @@ default_routing:
 		
 		case MUX_2_SOL:
 		{
+
+#if 0
 			//UART3 TO COM2, and COM2 TO UART3
 			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
 			hal.lpcuart.source_port = UART3;
@@ -728,7 +727,7 @@ default_routing:
 			hal.lpcuart.source_port = UART2;
 			hal.lpcuart.destination_port = UART3;
 			lpcuart_route_set(&hal);
-
+#endif
 			//UART4 TO UART1, and UART1 TO UART4			
 			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
 			hal.lpcuart.source_port = UART4;
@@ -739,6 +738,8 @@ default_routing:
 			hal.lpcuart.source_port = UART1;
 			hal.lpcuart.destination_port = UART4;
 			lpcuart_route_set(&hal);
+
+			pBMCInfo->SerialConfig.CurSwitchDir=MUX_2_SOL;
 		}
 		break;
 #elif defined CONFIG_SPX_FEATURE_SOL_INTERNAL_SUPERIO_SERIAL_PORT_SHARING
