@@ -236,6 +236,16 @@ def build_install():
 	if retval != 0:
 		return retval
 
+	#Check file permissions to match security policy
+	if os.path.exists(ImageTree+"/etc/defconfig/passwd"):
+		os.chmod(ImageTree+"/etc/defconfig/passwd", 0o644)
+
+	if os.path.exists(ImageTree+"/etc/default_group"):
+		os.chmod(ImageTree+"/etc/default_group", 0o644)
+
+	if os.path.exists(ImageTree+"/etc/defconfig/shadow"):
+		os.chmod(ImageTree+"/etc/defconfig/shadow", 0o600)
+
 	#Add SystemLogSocketName support for Kernel Version 2.6.28+New Target
 #	if  "CONFIG_SPX_FEATURE_GLOBAL_KERNEL_VER2_PLUS_NEW_TARGET" in PrjVars:
 #		retval = Py_AppendFile("$SystemLogSocketName /var/syslogsock", ImageTree+"/etc/defconfig/rsyslog.conf")

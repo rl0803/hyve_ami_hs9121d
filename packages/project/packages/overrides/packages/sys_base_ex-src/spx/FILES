@@ -39,7 +39,6 @@
 ./defaults/etc/init.d/sysklogd 2876 e8de58ec1236054a50fca1ff296c460b
 ./defaults/etc/init.d/telnetd 4539 a0d13e4b59267653d9cae00f849af5cb
 ./defaults/etc/init.d/tftpd 2822 de72c70bbaf7f49598f20b6a3902a47d
-./defaults/etc/init.d/warm-reset-begin 135 9b90c8935edc762e9df061be824bd396
 ./defaults/etc/init.d/warm-reset-complete 199 7e59bf4d503f138870715c668bb31fdd
 ./defaults/etc/ld.so.conf.d/keep.folder 1 7215ee9c7d9dc229d2921a40e899ec5f
 ./defaults/etc/logrotate.conf 828 4a5a1e1341d36edf63ea6a141490414c
@@ -55,8 +54,8 @@
 ./defaults/etc/network/if-up.d/02-up-ipv6autoconf 4620 047e78186bede8ea05073df466a6a8c4
 ./defaults/etc/network/if-up.d/05-up-bond 1593 692ab18670b6f1189cbf0844c7950687
 ./defaults/etc/network/if-up.d/96-up-advancedrouting 4402 ace2b4c822886604f6f91a368b3f03f1
-./defaults/etc/network/udhcpc.script 6136 bf29224644ce0f5b1253c089f254434a
-./defaults/etc/nwhelperapi.sh 7613 1ab872fcef836966b678a8444ee007f3
+./defaults/etc/network/udhcpc.script 6208 593f457d5a5b391d165b69b3a9fed44f
+./defaults/etc/nwhelperapi.sh 8117 35c1e00bc300e4646576e6227fa78499
 ./defaults/etc/pam.d/keep.folder 1 7215ee9c7d9dc229d2921a40e899ec5f
 ./defaults/etc/reservedusers 688 e21af767ef3fe377210d8312169a7539
 ./defaults/etc/ssh/keep.folder 1 7215ee9c7d9dc229d2921a40e899ec5f

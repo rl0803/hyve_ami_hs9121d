@@ -1,3 +1,48 @@
+Package: sys_base_ex (13.39.0.0.0); urgency = high
+
+Abstract:
+	EIP 662823 - [Performance] Modify trigger condition of IPv6 advanced route to... (rexchu@ami.com)
+
+Files Modified: data/defaults/etc/defconfig/crontabs/sysadmin
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2022-03-23T10:02:15+00:00
+
+Package: sys_base_ex (13.38.0.0.0); urgency = high
+
+Abstract:
+	Fix EIP 665578. Go to DNS configuration page will session timeout after set manual DNS domain name server setting. (ethanwei@ami.com)
+
+Files Modified: data/defaults/etc/nwhelperapi.sh
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2022-03-01T04:30:41+00:00
+
+Package: sys_base_ex (13.17.22.0.0); urgency = high
+
+Abstract:
+	Fix EIP 657985. The NTP timesync will be triggered when received NTP server info from DNS server even NTP of BMC is disabled. (ethanwei@ami.com)
+
+Files Modified: data/defaults/etc/network/udhcpc.script
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2022-02-08T05:37:44+00:00
+
+Package: sys_base_ex (13.17.21.0.0); urgency = high
+
+Abstract:
+	Fix for IPMI crash after BMC warm reset continuously (yaswanthsai@ami.com)
+
+Files Removed: data/defaults/etc/init.d/warm-reset-begin
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2022-02-01T05:39:00+00:00
+
+Package: sys_base_ex (13.17.20.0.0); urgency = medium
+
+Abstract:
+	Fix EIP656300, change file permission as security report description (kennywu@ami.com)
+
+Files Modified: spx/PACKAGES.D/sys_base_ex/SCRIPTS/dev-install.py
+
+--Submitter: Senguttuvan M (senguttuvanm)() 2022-01-18T11:04:03+00:00
+
 Package: sys_base_ex (13.17.19.0.0); urgency = high
 
 Abstract:

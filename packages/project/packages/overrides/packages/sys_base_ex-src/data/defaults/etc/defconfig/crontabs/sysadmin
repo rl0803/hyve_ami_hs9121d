@@ -10,6 +10,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 # Run logrotate every minute
   * * * * *	   [ 0 -eq `ps -ef | grep "/usr/sbin/logrotate" | grep -vc "grep"` ] && /usr/sbin/logrotate /etc/logrotate.conf
-  * * * * *	  /etc/ipv6-advanced-route
+  * * * * *	  /etc/autoipv6notify.sh
  #01 * * * *	  /etc/init.d/ntpdate start
 

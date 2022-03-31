@@ -126,6 +126,9 @@ AddNTPServerName()
 # will work for both IPV4 and IPV6
 AddDNSServerIP_New()
 {
+    IP_TYPE_IPv4="IPv4"
+    IP_TYPE_IPv6="IPv6"
+
     if [ ! -f /conf/no_write_resolv_conf ]; then
 
        API_RESOLV_CONF_FILE=/conf/resolv_disabled.conf
@@ -145,8 +148,10 @@ AddDNSServerIP_New()
             #echo $ARG
             if  [ -z "$ARG" ]; then
                 ARG="\:"
+                IP_TYPE=$IP_TYPE_IPv6
             else
                 ARG="\."
+                IP_TYPE=$IP_TYPE_IPv4
             fi
             #echo "ARG - $ARG"
 
@@ -196,8 +201,16 @@ AddDNSServerIP_New()
     
 	    if [ $2 -gt $COUNT ]; then
                 #echo "AddDNSserverIP_New - There are less DNS entries already present. so just insert your new entry here."
-		if [ "$SET_IPV6_PRIORITY" == 'yes' -o "$SET_IPV6_PRIORITY" == 'y' ]; then
+		if [[ "$IP_TYPE" == "$IP_TYPE_IPv6" -a "${SET_IPV6_PRIORITY:0:1}" == 'y' ]]; then
 			TMP=`grep ^nameserver $API_RESOLV_CONF_FILE | grep "\."`
+			if ! [ -z "$TMP" ]; then
+				sed '/'"$TMP"'/ i\nameserver '$1 $API_RESOLV_CONF_FILE >> /var/tmp/resolv.conf
+				mv /var/tmp/resolv.conf $API_RESOLV_CONF_FILE
+			else
+				echo "nameserver $1" >> $API_RESOLV_CONF_FILE
+			fi
+		elif [[ "$IP_TYPE" == "$IP_TYPE_IPv4" -a "${SET_IPV6_PRIORITY:0:1}" == 'n' ]]; then
+			TMP=`grep ^nameserver $API_RESOLV_CONF_FILE | grep "\:"`
 			if ! [ -z "$TMP" ]; then
 				sed '/'"$TMP"'/ i\nameserver '$1 $API_RESOLV_CONF_FILE >> /var/tmp/resolv.conf
 				mv /var/tmp/resolv.conf $API_RESOLV_CONF_FILE

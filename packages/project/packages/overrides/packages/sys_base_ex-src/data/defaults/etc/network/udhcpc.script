@@ -208,18 +208,22 @@ case "$1" in
 		fi
     fi
 
-#		echo "Came to ntp part.......!"
-		if [ -n "$ntpsrv" ] ; then
-			echo "ntpsrv : $ntpsrv"         
-			#backup ntp server ip for PendTask use.
-			echo "$ntpsrv"   > /var/tmp/ntpsrv
-			AddNTPServerName $ntpsrv
-			#Directly update system time if script run after boot complete.
-			ntpdate -b -s -u $ntpsrv
-		else
-			echo "No NTP support"
+		grep "Auto" /conf/ntp.stat > /dev/null 2>&1
+		if [ $? == 0 ]
+		then
+#			echo "Came to ntp part.......!"
+			if [ -n "$ntpsrv" ] ; then
+				echo "ntpsrv : $ntpsrv"
+				#backup ntp server ip for PendTask use.
+				echo "$ntpsrv"   > /var/tmp/ntpsrv
+				AddNTPServerName $ntpsrv
+				#Directly update system time if script run after boot complete.
+				ntpdate -b -s -u $ntpsrv
+			else
+				echo "No NTP support"
+			fi
+			AddTimeout
 		fi
-        AddTimeout
 		#echo -n > $NTP_CONF
 		#[ -n "$ntpsrv" ] && echo server $ntpsrv >> $NTP_CONF
 
