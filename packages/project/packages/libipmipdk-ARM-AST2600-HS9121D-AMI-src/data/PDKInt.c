@@ -463,10 +463,20 @@ void IRQhndlr_APML_ALERT_L(IPMI_INTInfo_T *IntInfo)
 
 void IRQhndlr_SPD_HOST_CTRL_L(IPMI_INTInfo_T *IntInfo)
 {
+	HyveMsgQ_T msg = {0};
+
 	if (!IntInfo) { return; }
-	printf("%s: assert: %u\n", __func__, ((~IntInfo->gpioValue) & 0x01));
+
 	// Low: to inform the BMC the owner-ship of DIMMs is CPU
 	g_Is_DIMM_Ready = (IntInfo->gpioValue & 0x01);
+	/* Currently use the GPIO pin SPD_HOST_CTRL_L as the BIOS POST status pin.
+		Because during POST the DIMM ownership belongs to the Host until POST end */ 
+	msg.msgType = HyvePlatformIRQMsgQ_BIOS_POST;
+	msg.msgData = (~HYVEPLATFORM_IS_DIMM_READY) & 0x01;
+	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
+		printf("%s: Error in posting IRQ signal(%u)\n", __func__, msg.msgData);
+	}
+	// printf("DIMM SPD ownership is %s\n", HYVEPLATFORM_IS_DIMM_READY ? "BMC" : "Host");
 }
 
 void IRQhndlr_EC_BMC_AP1_RESET_N(IPMI_INTInfo_T *IntInfo)

@@ -17,6 +17,25 @@
 #include "HyveCommon.h"
 
 
+
+/*----------------------------------------------------------------------------
+ * @fn HyvePlatform_GetHostStatus
+ *
+ * @brief To init the pHostStatus
+ * @param[in] ptr - A void pointer which must point to the HYVE_HOST_Status type
+ *
+ *---------------------------------------------------------------------------*/
+void HyvePlatform_GetHostStatus(void* ptr)
+{
+	HYVE_HOST_Status* pHostStatus = (HYVE_HOST_Status*)ptr;
+	if (pHostStatus) {
+		/* Currently use the GPIO pin SPD_HOST_CTRL_L as the BIOS POST status pin.
+		   Because during POST the DIMM ownership belongs to the Host until POST end */
+		pHostStatus->biosPOSTStatus = HYVEPLATFORM_IS_DIMM_READY ?
+										Hyve_BIOS_POST_END : Hyve_BIOS_POST_START;
+	}
+}
+
 /*----------------------------------------------------------------------------
  * @fn HyvePlatform_BIOS_Status_Callback
  *
@@ -28,6 +47,12 @@ void HyvePlatform_BIOS_Status_Callback(const INT8U status)
 {
 	switch(status)
 	{
+	case Hyve_BIOS_POST_START:
+		printf("\n========== BIOS PSOT Start ==========\n");
+		break;
+	case Hyve_BIOS_POST_END:
+		printf("\n========== BIOS PSOT End   ==========\n");
+		break;
 	default:
 		break;
 	}

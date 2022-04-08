@@ -24,6 +24,7 @@ typedef enum {
 	HyvePlatformIRQMsgQ_ResetButton,
 	HyvePlatformIRQMsgQ_PMBus_ALERT,
 	HyvePlatformIRQMsgQ_SMBus_ALERT,
+	HyvePlatformIRQMsgQ_BIOS_POST,
 } HyvePlatformMsgQ_Type;
 
 typedef enum {

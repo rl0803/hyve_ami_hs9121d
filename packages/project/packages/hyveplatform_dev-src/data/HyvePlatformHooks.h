@@ -36,7 +36,7 @@ Hyve Platform Hook Function Definition Steps:
 
  */
 
-
+extern void HyvePlatform_GetHostStatus(void* pHostStatus);
 extern void HyvePlatform_BIOS_Status_Callback(const INT8U status);
 extern int HyvePlatform_PrepareBIOSFlash(INT8U targetBIOS);
 extern int HyvePlatform_AfterBIOSFlash(INT8U updateRes);
@@ -47,5 +47,7 @@ extern int HyvePlatform_AfterBIOSFlash(INT8U updateRes);
 #define HYVEPLATFORM_CLAER_CMOS										HyvePlatform_Reset_CMOS
 #define HYVEPLATFORM_LED_CONTROL(ledIndex, enable)					HyvePlatform_LED_Control((ledIndex), Hyve_VALUE_SET, &(enable))
 #define HYVEPLATFORM_AFTERCREATINGTASKS								HyvePlatform_TaskInit
+#define HYVEPLATFORM_GET_HOST_STATUS								HyvePlatform_GetHostStatus
+#define HYVEPLATFORM_BIOS_STATUS_CALLBACK							HyvePlatform_BIOS_Status_Callback
 
 #endif
