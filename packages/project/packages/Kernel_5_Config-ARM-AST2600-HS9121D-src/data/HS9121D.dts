@@ -395,71 +395,108 @@
 };
 #endif
 
-#if 0 // Due to the I3C driver doesn't not support hot-join feature yet
 &i3cglobal {
     status = "okay";
 };
 
 // HS9121D, the I3C-0 and I3C-1 are for DIMM SPD access
 &i3c0 {
-        status = "okay";
-		jdec-spd;
-		DIMMA0_spd: spd@50,3C000000000 {
-			reg = <0x50 0x3C0 0x00000000>;
-			assigned-address = <0x50>;
-		};
-		DIMMB0_spd: spd@51,3C000000001 {
-			reg = <0x51 0x3C0 0x00000001>;
-			assigned-address = <0x51>;
-		};
-		DIMMC0_spd: spd@52,3C000000002 {
-			reg = <0x52 0x3C0 0x00000000>;
-			assigned-address = <0x52>;
-		};
-		DIMMD0_spd: spd@53,3C000000003 {
-			reg = <0x53 0x3C0 0x00000001>;
-			assigned-address = <0x53>;
-		};
-		DIMME0_spd: spd@54,3C000000004 {
-			reg = <0x54 0x3C0 0x00000000>;
-			assigned-address = <0x54>;
-		};
-		DIMMF0_spd: spd@55,3C000000005 {
-			reg = <0x55 0x3C0 0x00000001>;
-			assigned-address = <0x55>;
-		};
+	status = "okay";
+	jdec-spd;
+
+	/* JEDEC SPD5118 - Renesas */
+	spd_DIMMA0: spd@50,4cc51180000 {
+		reg = <0x50 0x4cc 0x51180000>;
+		assigned-address = <0x50>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
+	};
+	spd_DIMMB0: spd@51,4cc51180001 {
+		reg = <0x51 0x4cc 0x51180001>;
+		assigned-address = <0x51>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
+	};
+	spd_DIMMC0: spd@52,4cc51180002 {
+		reg = <0x52 0x4cc 0x51180002>;
+		assigned-address = <0x52>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
+	};
+	spd_DIMMD0: spd@53,4cc51180003 {
+		reg = <0x53 0x4cc 0x51180003>;
+		assigned-address = <0x53>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
+	};
+	spd_DIMME0: spd@54,4cc51180004 {
+		reg = <0x54 0x4cc 0x51180004>;
+		assigned-address = <0x54>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
+	};
+	spd_DIMMF0: spd@55,4cc51180005 {
+		reg = <0x55 0x4cc 0x51180005>;
+		assigned-address = <0x55>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
+	};
 };
 
 &i3c1 {
     status = "okay";
+    jdec-spd;
 
-	jdec-spd;
-	DIMMG0_spd: spd@50,3C000000000 {
-		reg = <0x50 0x3C0 0x00000000>;
+	/* JEDEC SPD5118 - Renesas */
+	spd_DIMMG0: spd@50,4cc51180000 {
+		reg = <0x50 0x4cc 0x51180000>;
 		assigned-address = <0x50>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
 	};
-	DIMMH0_spd: spd@51,3C000000001 {
-		reg = <0x51 0x3C0 0x00000001>;
+	spd_DIMMH0: spd@51,4cc51180001 {
+		reg = <0x51 0x4cc 0x51180001>;
 		assigned-address = <0x51>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
 	};
-	DIMMI0_spd: spd@52,3C000000002 {
-		reg = <0x52 0x3C0 0x00000000>;
+	spd_DIMMI0: spd@52,4cc51180002 {
+		reg = <0x52 0x4cc 0x51180002>;
 		assigned-address = <0x52>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
 	};
-	DIMMJ0_spd: spd@53,3C000000003 {
-		reg = <0x53 0x3C0 0x00000001>;
+	spd_DIMMJ0: spd@53,4cc51180003 {
+		reg = <0x53 0x4cc 0x51180003>;
 		assigned-address = <0x53>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
 	};
-	DIMMK0_spd: spd@54,3C000000004 {
-		reg = <0x54 0x3C0 0x00000000>;
+	spd_DIMMK0: spd@54,4cc51180004 {
+		reg = <0x54 0x4cc 0x51180004>;
 		assigned-address = <0x54>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
 	};
-	DIMML0_spd: spd@55,3C000000005 {
-		reg = <0x55 0x3C0 0x00000001>;
+	spd_DIMML0: spd@55,4cc51180005 {
+		reg = <0x55 0x4cc 0x51180005>;
 		assigned-address = <0x55>;
+		dcr = <0xda>;
+		bcr = <0x6>;
+        compatible = "jedec,spd5118-temp";
 	};
 };
-#endif
 
 // HS9121D, the I2C1/I3C is for APML
 #if 1
