@@ -83,9 +83,12 @@ typedef enum {
 	I3C-1: DIMM G0 ~ L0
 */
 
+#define HYFEPLATFORM_SPD_I3CBUS_NUM						(2) // total 2 I3C buses for accessing DIMM SPD
+// the total DIMM num of each bus
+#define HYFEPLATFORM_BUS_DIMM_NUM						(HYVE_MAX_HOST_DIMM_NUM / HYFEPLATFORM_SPD_I3CBUS_NUM)
 #define HYFEPLATFORM_SPD_BUS_DIMM_AF					(0)	// I3C-0
 #define HYFEPLATFORM_SPD_BUS_DIMM_GL					(1)	// I3C-1
-//#define HYVE_SPD_BUS_ACCESS						HyveExt_I3C_Access_Retry // TODO
+
 
 #define HYFEPLATFORM_APML_BUS							(1) // I2C		or  (3) // I3C
 //#define HYVEAMD_APML_BUS_ACCESS						HyveExt_I3C_Access_Retry // TODO

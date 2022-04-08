@@ -122,6 +122,7 @@ INT8U g_Is_CPUPwrGood = FALSE;
 
 static HyveSensorReadArrt_T g_SensorReadArrt[SensorReadArrtIndex_MAX] = {0};
 static INT32U g_HostPwrOnCount = 0;
+static int g_HwmonIndexTable[HYVE_MAX_HOST_DIMM_NUM] = {0};
 
 
 
@@ -357,63 +358,51 @@ static void HyvePlatform_Sensor_CPU(int BMCInst)
 		is_ready = FALSE;
 	}
 }
-#if 0 // TODO: Need to modify the I3C driver to support
+
 static void HyvePlatform_Sensor_DIMM(int BMCInst)
 {
-	static INT8U is_ready = FALSE;
+	static INT8U is_ready = FALSE, is_I3CBusReady[HYFEPLATFORM_SPD_I3CBUS_NUM] = {0};
+
 
 	if (PDK_GetPSGood(BMCInst)) {
 		if (is_ready && HYVEPLATFORM_IS_DIMM_READY) {
-			INT8U enableMux = TRUE, index = 0;
-			INT8U sensorIndex = SensorIndex_TEMP_DIMMA0;
-			INT8U busNum = HYFEPLATFORM_SPD_BUS_DIMM_AF;
-			const INT8U busDIMMNum = HYVE_MAX_HOST_DIMM_NUM / 2;
+			INT8U sensorIndex = 0;
 
-			// Switch Mux ownership to BMC
-			if (HyvePlatform_DIMM_MuxControl(Hyve_VALUE_SET, &enableMux) < 0) {
-				for (index = 0; index < HYVE_MAX_HOST_DIMM_NUM; index++) {
-					if (g_SensorReadArrt[sensorIndex].retryCount > SENSOR_READ_RETRY_COUNT) {
-						g_SensorReadArrt[sensorIndex].status  = HAL_ERR_READ;
-					} else {
-						g_SensorReadArrt[sensorIndex].retryCount++;
-					}
-					sensorIndex++;
-				}
-				printf("%s: Unable to enable SPD Mux access\n", __func__);
-				return;
-			}
 			// Read DIMM temp
-			for (index = 0; index < HYVE_MAX_HOST_DIMM_NUM; index++) {
-//				INT16U rData = 0;
+			for (sensorIndex = SensorIndex_TEMP_DIMMA0;
+					sensorIndex < (SensorIndex_TEMP_DIMMA0 + HYVE_MAX_HOST_DIMM_NUM);
+					sensorIndex++) {
+				INT8U index = sensorIndex - SensorIndex_TEMP_DIMMA0;
+				INT16U rData = 0;
 
-				if (busDIMMNum == index) {
-					// Change to another bus
-					busNum = HYFEPLATFORM_SPD_BUS_DIMM_GL;
-				}
-				if (HyveSPD_ReadTemp(busNum, SPD_ADDR_HIDXXX((index % busDIMMNum)),
-									SENSOR_READ_RETRY_COUNT, &rData) < 0) {
-					if (g_SensorReadArrt[sensorIndex].retryCount > SENSOR_READ_RETRY_COUNT) {
-						g_SensorReadArrt[sensorIndex].status  = HAL_ERR_READ;
-					} else {
-						g_SensorReadArrt[sensorIndex].retryCount++;
+				// Check the bus is ready
+				if (FALSE == is_I3CBusReady[(index / HYFEPLATFORM_BUS_DIMM_NUM)]) {
+					if (!HyveSPD_I3CBus_SETAASA(g_HwmonIndexTable[index])) {
+						is_I3CBusReady[(index / HYFEPLATFORM_BUS_DIMM_NUM)] = TRUE;
 					}
 				} else {
-					g_SensorReadArrt[sensorIndex].status = HAL_ERR_NONE;
-					g_SensorReadArrt[sensorIndex].retryCount = 0;
-					g_SensorReadArrt[sensorIndex].reading = rData;
+					if (HyveSPD_I3CHwmon_ReadTemp(g_HwmonIndexTable[index], &rData) < 0) {
+						if (g_SensorReadArrt[sensorIndex].retryCount > SENSOR_READ_RETRY_COUNT) {
+							g_SensorReadArrt[sensorIndex].status  = HAL_ERR_READ;
+						} else {
+							g_SensorReadArrt[sensorIndex].retryCount++;
+						}
+					} else {
+						g_SensorReadArrt[sensorIndex].status = HAL_ERR_NONE;
+						g_SensorReadArrt[sensorIndex].retryCount = 0;
+						g_SensorReadArrt[sensorIndex].reading = rData;
+					}
 				}
-				sensorIndex++;
 			}
-		} else if (HyvePlatform_has_DIMMOwership() &&
-					(Hyve_BIOS_POST_END == HyveExt_BIOS_Status(Hyve_VALUE_GET, 0)) &&
-					is_PwrOnDelayOk(POWERON_DELAY_DIMM)) {
+		} else if (HyvePlatform_has_DIMMOwership() && is_PwrOnDelayOk(POWERON_DELAY_DIMM)) {
 			is_ready = TRUE;
 		}
 	} else {
 		is_ready = FALSE;
+		memset(is_I3CBusReady, FALSE, sizeof(is_I3CBusReady));
 	}
 }
-#endif
+
 
 static void HyvePlatform_Sensor_VR(int BMCInst)
 {
@@ -541,6 +530,19 @@ static void HyvePlatform_SensorInit(int BMCInst)
 	} // end of while
 }
 
+static void HyvePlatform_Sensor_DIMM_Init()
+{
+	HyveSPD_DevBusInfo_T spdDevs[HYVE_MAX_HOST_DIMM_NUM] = {
+			{HYFEPLATFORM_SPD_BUS_DIMM_AF , SPD_ADDR_HID000}, {HYFEPLATFORM_SPD_BUS_DIMM_AF , SPD_ADDR_HID001},
+			{HYFEPLATFORM_SPD_BUS_DIMM_AF , SPD_ADDR_HID010}, {HYFEPLATFORM_SPD_BUS_DIMM_AF , SPD_ADDR_HID011},
+			{HYFEPLATFORM_SPD_BUS_DIMM_AF , SPD_ADDR_HID100}, {HYFEPLATFORM_SPD_BUS_DIMM_AF , SPD_ADDR_HID101},
+			{HYFEPLATFORM_SPD_BUS_DIMM_GL , SPD_ADDR_HID000}, {HYFEPLATFORM_SPD_BUS_DIMM_GL , SPD_ADDR_HID001},
+			{HYFEPLATFORM_SPD_BUS_DIMM_GL , SPD_ADDR_HID010}, {HYFEPLATFORM_SPD_BUS_DIMM_GL , SPD_ADDR_HID011},
+			{HYFEPLATFORM_SPD_BUS_DIMM_GL , SPD_ADDR_HID100}, {HYFEPLATFORM_SPD_BUS_DIMM_GL , SPD_ADDR_HID101},
+	};
+	HyveSPD_I3CHwmon_InitIndexTable(spdDevs, HYVE_MAX_HOST_DIMM_NUM, g_HwmonIndexTable);
+}
+
 /*-----------------------------------------------------------------
  * @fn HyvePlatform_SensorMonitor
  * @brief	The platform sensor monitor.
@@ -564,6 +566,7 @@ void* HyvePlatform_SensorMonitor(void* pArg)
 	}
 
 	HyvePlatform_SensorInit(BMCInst);
+	HyvePlatform_Sensor_DIMM_Init();
 
 	while (1) {
 		if (IsCardInFlashMode()) {
@@ -582,7 +585,7 @@ void* HyvePlatform_SensorMonitor(void* pArg)
 
 		HyvePlatform_Sensor_MBTemp();
 		HyvePlatform_Sensor_CPU(BMCInst);
-//		HyvePlatform_Sensor_DIMM(BMCInst);  // TODO: Need to modify the I3C driver to support
+		HyvePlatform_Sensor_DIMM(BMCInst);
 		HyvePlatform_Sensor_VR(BMCInst);
 		HyvePlatform_Sensor_ExtBoard_Temp();
 
@@ -664,3 +667,31 @@ INT8U HyvePlatform_Is_HostInS5()
 	return HYVEPLATFORM_IS_HOST_IN_S5;
 }
 
+/*-----------------------------------------------------------------
+ * @fn HyvePlatform_Sensor_RstStatAfterPwrOff
+ * @brief	To reset the sensors'(which should be checked at every DC on, e.g., CPU, DIMM)
+ *          reading status.
+ *
+ * @param[None]
+ *
+ * @return  None
+ *-----------------------------------------------------------------*/
+void HyvePlatform_Sensor_RstStatAfterPwrOff()
+{
+	INT8U sensorIndex = 0;
+
+	// Reset CPU sensor reading status
+	for (sensorIndex = SensorIndex_TEMP_CPU0;
+			sensorIndex < (SensorIndex_PWR_CPU0 + 1);
+			sensorIndex++) {
+		g_SensorReadArrt[sensorIndex].status  = HAL_ERR_FUNC_NOT_SUPPORTED;
+		g_SensorReadArrt[sensorIndex].retryCount = 0;
+	}
+	// Reset DIMM temp sensor reading status
+	for (sensorIndex = SensorIndex_TEMP_DIMMA0;
+			sensorIndex < (SensorIndex_TEMP_DIMMA0 + HYVE_MAX_HOST_DIMM_NUM);
+			sensorIndex++) {
+		g_SensorReadArrt[sensorIndex].status  = HAL_ERR_FUNC_NOT_SUPPORTED;
+		g_SensorReadArrt[sensorIndex].retryCount = 0;
+	}
+}

@@ -256,6 +256,7 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
         			// Clear & stop FRB2 WDT while Host DC off
             		HyveExt_ClrAndStopFRB2WDT(BMCInst);
             		HyveExt_BIOS_Status(Hyve_VALUE_CLEAN, Hyve_BIOS_NO_ACTIVE);
+            		HyvePlatform_Sensor_RstStatAfterPwrOff();
             	}
             	break;
 

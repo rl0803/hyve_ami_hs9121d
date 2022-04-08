@@ -38,5 +38,6 @@ extern INT8U HyvePlatform_has_DIMMOwership();
 extern INT8U HyvePlatform_Is_CPU_PwrGood();
 extern INT8U HyvePlatform_Is_HostInS3();
 extern INT8U HyvePlatform_Is_HostInS5();
+extern void HyvePlatform_Sensor_RstStatAfterPwrOff();
 
 #endif
