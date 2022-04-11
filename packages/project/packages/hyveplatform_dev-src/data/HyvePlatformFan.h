@@ -30,6 +30,7 @@ typedef enum {
 } HyvePlatformFanDirection;
 
 
+extern INT8U HyvePlatform_FSC_GetConfigBankID();
 extern void HyvePlatform_FSC_Init(int BMCInst);
 extern INT8U HyvePlatformFan_GetFanDir();
 extern int HyvePlatformFan_NCT7362Y_Init();
@@ -51,6 +52,6 @@ extern INT8U HyvePlatform_FSC_Tach_Index(INT8U tachIndex);
 #define HYVEPLATFORM_FSC_INIT							HyvePlatform_FSC_Init
 #define HYVEPLATFORM_FANCTRL_NCT_INIT					HyvePlatformFan_NCT7362Y_Init
 #define HYVEPLATFORM_FAN_PRESENT_DETECT					HyvePlatformFan_PresentDetect
-
+#define HYVEPLATFORM_FSC_GET_CONFIGBANKID				HyvePlatform_FSC_GetConfigBankID
 
 #endif

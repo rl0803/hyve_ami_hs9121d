@@ -36,6 +36,19 @@ const INT8U g_pwmIndexTable[] = { PWM0, PWM1, PWM2, PWM3, };
 
 /********************* Functions *********************/
 
+INT8U HyvePlatform_FSC_GetConfigBankID()
+{
+	INT8U fscBankID = 0;
+
+	switch (HYVEPLATFORM_SKU) {
+	case PLATFORM_SKU_DEFAULT:
+	case PLATFORM_SKU_HS9121D:
+	default:
+		break;
+	}
+	return fscBankID;
+}
+
 INT8U HyvePlatform_FSC_I2C_Bus(INT8U fanNum)
 {
 	// because fan board only uses 3 fans, need to adjust the index

@@ -28,6 +28,14 @@ def build_install():
     if retval != 0:
         return retval
     
+    retval = Py_MkdirClean(IMAGETREE+"/conf/BMC1/" + hyvePlatformID + "/fscConfig")
+    if retval != 0:
+        return retval
+    
+    retval = Py_MkdirClean(IMAGETREE+"/etc/defconfig/BMC1/" + hyvePlatformID + "/fscConfig")
+    if retval != 0:
+        return retval
+    
     retval = Py_CopyFile("SDR.dat", IMAGETREE+"/conf/BMC1/" + hyvePlatformID + "/")
     if retval != 0:
         return retval
@@ -57,43 +65,11 @@ def build_install():
         return retval
 
 # Hyve Platform FSC Config--
-    retval = Py_CopyFile("pid_data", IMAGETREE+"/conf/BMC1/" + hyvePlatformID + "/")
+    retval = Py_CopyDir("fscConfig", IMAGETREE+"/conf/BMC1/" + hyvePlatformID + "/fscConfig")
     if retval != 0:
         return retval
 
-    retval = Py_CopyFile("pid_curve0", IMAGETREE+"/conf/BMC1/" + hyvePlatformID + "/")
-    if retval != 0:
-        return retval
-
-    retval = Py_CopyFile("pid_curve1", IMAGETREE+"/conf/BMC1/" + hyvePlatformID + "/")
-    if retval != 0:
-        return retval
-        
-    retval = Py_CopyFile("pid_curve2", IMAGETREE+"/conf/BMC1/" + hyvePlatformID + "/")
-    if retval != 0:
-        return retval
-
-    retval = Py_CopyFile("pid_curve3", IMAGETREE+"/conf/BMC1/" + hyvePlatformID + "/")
-    if retval != 0:
-        return retval
-
-    retval = Py_CopyFile("pid_data", IMAGETREE+"/etc/defconfig/BMC1/" + hyvePlatformID + "/")
-    if retval != 0:
-        return retval
-
-    retval = Py_CopyFile("pid_curve0", IMAGETREE+"/etc/defconfig/BMC1/" + hyvePlatformID + "/")
-    if retval != 0:
-        return retval
-
-    retval = Py_CopyFile("pid_curve1", IMAGETREE+"/etc/defconfig/BMC1/" + hyvePlatformID + "/")
-    if retval != 0:
-        return retval
-        
-    retval = Py_CopyFile("pid_curve2", IMAGETREE+"/etc/defconfig/BMC1/" + hyvePlatformID + "/")
-    if retval != 0:
-        return retval
-
-    retval = Py_CopyFile("pid_curve3", IMAGETREE+"/etc/defconfig/BMC1/" + hyvePlatformID + "/")
+    retval = Py_CopyDir("fscConfig", IMAGETREE+"/etc/defconfig/BMC1/" + hyvePlatformID + "/fscConfig")
     if retval != 0:
         return retval
 # --Hyve Platform FSC Config

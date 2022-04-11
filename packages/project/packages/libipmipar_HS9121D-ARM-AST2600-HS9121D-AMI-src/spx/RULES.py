@@ -43,9 +43,6 @@ def build_source():
 #			 Rules for Creating (Packing) Binary Package
 #-------------------------------------------------------------------------------------------------------
 # Rules to create libipmipar_HS9121D package
-
-FSCconfigFiles = [ "pid_data", "pid_curve0", "pid_curve1", "pid_curve2", "pid_curve3" ]
-
 def build_package_libipmipar_HS9121D():
 	TEMPDIR = PrjVars["TEMPDIR"]
 	PACKAGE = PrjVars["PACKAGE"]
@@ -68,10 +65,13 @@ def build_package_libipmipar_HS9121D():
 		return retval
 
 # Hyve Platform FSC Config--
-	for FSCconfigFile in FSCconfigFiles:
-		retval = Py_CopyFile(BUILD+"/"+PACKAGE+"/data/" + FSCconfigFile, TEMPDIR+"/"+PACKAGE+"/tmp")
-		if retval != 0:
-			return retval
+	retval = Py_MkdirClean(TEMPDIR + "/" + PACKAGE + "/tmp/fscConfig")
+	if retval != 0:
+		return retval
+
+	retval = Py_CopyDir(BUILD + "/" + PACKAGE + "/data/fscConfig", TEMPDIR + "/" + PACKAGE + "/tmp/fscConfig")
+	if retval != 0:
+		return retval
 # --Hyve Platform FSC Config
 
 	return Py_PackSPX("./",TEMPDIR+"/"+PACKAGE+"/tmp")
