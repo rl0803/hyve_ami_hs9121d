@@ -1115,7 +1115,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
     
 	
 
-	static INT8U VOLT_P12V_previous_value = 0xc5;
+	static INT8U VOLT_P12V_previous_value = 0xc2;
 	static INT8U VOLT_P12V_retry_MAX_Threshold;
 	static INT8U VOLT_P12V_retry_MIN_Threshold;
 	static INT8U VOLT_P12V_retry = 0;
@@ -1135,7 +1135,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VOLT_PDBP12V_previous_value = 0xc5;
+	static INT8U VOLT_PDBP12V_previous_value = 0xc2;
 	static INT8U VOLT_PDBP12V_retry_MAX_Threshold;
 	static INT8U VOLT_PDBP12V_retry_MIN_Threshold;
 	static INT8U VOLT_PDBP12V_retry = 0;
@@ -1155,7 +1155,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VOLT_PDBP3V3_previous_value = 0xc5;
+	static INT8U VOLT_PDBP3V3_previous_value = 0xc2;
 	static INT8U VOLT_PDBP3V3_retry_MAX_Threshold;
 	static INT8U VOLT_PDBP3V3_retry_MIN_Threshold;
 	static INT8U VOLT_PDBP3V3_retry = 0;
@@ -1175,7 +1175,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VOLT_P3V3_previous_value = 0xc5;
+	static INT8U VOLT_P3V3_previous_value = 0xc2;
 	static INT8U VOLT_P3V3_retry_MAX_Threshold;
 	static INT8U VOLT_P3V3_retry_MIN_Threshold;
 	static INT8U VOLT_P3V3_retry = 0;
@@ -1195,7 +1195,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VOLT_P0VDD3V3_previous_value = 0xc5;
+	static INT8U VOLT_P0VDD3V3_previous_value = 0xc2;
 	static INT8U VOLT_P0VDD3V3_retry_MAX_Threshold;
 	static INT8U VOLT_P0VDD3V3_retry_MIN_Threshold;
 	static INT8U VOLT_P0VDD3V3_retry = 0;
@@ -1215,7 +1215,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VAUX_P5V_previous_value = 0xc0;
+	static INT8U VAUX_P5V_previous_value = 0xc2;
 	static INT8U VAUX_P5V_retry_MAX_Threshold;
 	static INT8U VAUX_P5V_retry_MIN_Threshold;
 	static INT8U VAUX_P5V_retry = 0;
@@ -1235,7 +1235,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VOLT_P0VDD1V8_previous_value = 0xc5;
+	static INT8U VOLT_P0VDD1V8_previous_value = 0xba;
 	static INT8U VOLT_P0VDD1V8_retry_MAX_Threshold;
 	static INT8U VOLT_P0VDD1V8_retry_MIN_Threshold;
 	static INT8U VOLT_P0VDD1V8_retry = 0;
@@ -1314,7 +1314,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VOLT_P0VDDSOC_previous_value = 0x5c;
+	static INT8U VOLT_P0VDDSOC_previous_value = 0x7c;
 	static INT8U VOLT_P0VDDSOC_retry_MAX_Threshold;
 	static INT8U VOLT_P0VDDSOC_retry_MIN_Threshold;
 	static INT8U VOLT_P0VDDSOC_retry = 0;
@@ -1334,7 +1334,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VOLT_P0VDDCORE0_previous_value = 0x5c;
+	static INT8U VOLT_P0VDDCORE0_previous_value = 0x5a;
 	static INT8U VOLT_P0VDDCORE0_retry_MAX_Threshold;
 	static INT8U VOLT_P0VDDCORE0_retry_MIN_Threshold;
 	static INT8U VOLT_P0VDDCORE0_retry = 0;
@@ -1354,7 +1354,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VOLT_P0VDDCORE1_previous_value = 0x5c;
+	static INT8U VOLT_P0VDDCORE1_previous_value = 0x5a;
 	static INT8U VOLT_P0VDDCORE1_retry_MAX_Threshold;
 	static INT8U VOLT_P0VDDCORE1_retry_MIN_Threshold;
 	static INT8U VOLT_P0VDDCORE1_retry = 0;
@@ -1374,7 +1374,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 
-	static INT8U VAUX_P12V_previous_value = 0xc5;
+	static INT8U VAUX_P12V_previous_value = 0xc2;
 	static INT8U VAUX_P12V_retry_MAX_Threshold;
 	static INT8U VAUX_P12V_retry_MIN_Threshold;
 	static INT8U VAUX_P12V_retry = 0;
@@ -5849,8 +5849,8 @@ int
 dev_hyve_voltage_0x40h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P12V_retry_MAX_Threshold = 0xce;
-		VOLT_P12V_retry_MIN_Threshold = 0xa4;
+		VOLT_P12V_retry_MAX_Threshold = 0xd4;
+		VOLT_P12V_retry_MIN_Threshold = 0xaf;
 		return 0;
 	}    
 	
@@ -5951,8 +5951,8 @@ int
 dev_hyve_voltage_0x41h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_PDBP12V_retry_MAX_Threshold = 0xce;
-		VOLT_PDBP12V_retry_MIN_Threshold = 0xa4;
+		VOLT_PDBP12V_retry_MAX_Threshold = 0xd4;
+		VOLT_PDBP12V_retry_MIN_Threshold = 0xaf;
 		return 0;
 	}    
 	
@@ -6053,8 +6053,8 @@ int
 dev_hyve_voltage_0x42h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_PDBP3V3_retry_MAX_Threshold = 0xcf;
-		VOLT_PDBP3V3_retry_MIN_Threshold = 0xb1;
+		VOLT_PDBP3V3_retry_MAX_Threshold = 0xd4;
+		VOLT_PDBP3V3_retry_MIN_Threshold = 0xaf;
 		return 0;
 	}    
 	
@@ -6155,8 +6155,8 @@ int
 dev_hyve_voltage_0x43h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P3V3_retry_MAX_Threshold = 0xcf;
-		VOLT_P3V3_retry_MIN_Threshold = 0xb1;
+		VOLT_P3V3_retry_MAX_Threshold = 0xd4;
+		VOLT_P3V3_retry_MIN_Threshold = 0xaf;
 		return 0;
 	}    
 	
@@ -6257,8 +6257,8 @@ int
 dev_hyve_voltage_0x44h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDD3V3_retry_MAX_Threshold = 0xcf;
-		VOLT_P0VDD3V3_retry_MIN_Threshold = 0xb1;
+		VOLT_P0VDD3V3_retry_MAX_Threshold = 0xd4;
+		VOLT_P0VDD3V3_retry_MIN_Threshold = 0xaf;
 		return 0;
 	}    
 	
@@ -6359,8 +6359,8 @@ int
 dev_hyve_voltage_0x45h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VAUX_P5V_retry_MAX_Threshold = 0xcd;
-		VAUX_P5V_retry_MIN_Threshold = 0xb1;
+		VAUX_P5V_retry_MAX_Threshold = 0xd4;
+		VAUX_P5V_retry_MIN_Threshold = 0xaf;
 		return 0;
 	}    
 	
@@ -6461,8 +6461,8 @@ int
 dev_hyve_voltage_0x46h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDD1V8_retry_MAX_Threshold = 0xdd;
-		VOLT_P0VDD1V8_retry_MIN_Threshold = 0xb3;
+		VOLT_P0VDD1V8_retry_MAX_Threshold = 0xcb;
+		VOLT_P0VDD1V8_retry_MIN_Threshold = 0xa8;
 		return 0;
 	}    
 	
@@ -6563,7 +6563,7 @@ int
 dev_hyve_nc_0x47h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_BATP3V_retry_MAX_Threshold = 0x74;
+		VOLT_BATP3V_retry_MAX_Threshold = 0x6d;
 		VOLT_BATP3V_retry_MIN_Threshold = 0x54;
 		return 0;
 	}    
@@ -6665,8 +6665,8 @@ int
 dev_hyve_voltage_0x48h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDD1V1_retry_MAX_Threshold = 0x7a;
-		VOLT_P0VDD1V1_retry_MIN_Threshold = 0x68;
+		VOLT_P0VDD1V1_retry_MAX_Threshold = 0x7b;
+		VOLT_P0VDD1V1_retry_MIN_Threshold = 0x67;
 		return 0;
 	}    
 	
@@ -6767,8 +6767,8 @@ int
 dev_hyve_voltage_0x49h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDDIO_retry_MAX_Threshold = 0x7a;
-		VOLT_P0VDDIO_retry_MIN_Threshold = 0x68;
+		VOLT_P0VDDIO_retry_MAX_Threshold = 0x7b;
+		VOLT_P0VDDIO_retry_MIN_Threshold = 0x67;
 		return 0;
 	}    
 	
@@ -6869,8 +6869,8 @@ int
 dev_hyve_voltage_0x4ah_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDDSOC_retry_MAX_Threshold = 0x7a;
-		VOLT_P0VDDSOC_retry_MIN_Threshold = 0x53;
+		VOLT_P0VDDSOC_retry_MAX_Threshold = 0x87;
+		VOLT_P0VDDSOC_retry_MIN_Threshold = 0x70;
 		return 0;
 	}    
 	
@@ -6971,8 +6971,8 @@ int
 dev_hyve_voltage_0x4bh_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDDCORE0_retry_MAX_Threshold = 0x7a;
-		VOLT_P0VDDCORE0_retry_MIN_Threshold = 0x53;
+		VOLT_P0VDDCORE0_retry_MAX_Threshold = 0x66;
+		VOLT_P0VDDCORE0_retry_MIN_Threshold = 0x4d;
 		return 0;
 	}    
 	
@@ -7073,8 +7073,8 @@ int
 dev_hyve_voltage_0x4ch_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDDCORE1_retry_MAX_Threshold = 0x7a;
-		VOLT_P0VDDCORE1_retry_MIN_Threshold = 0x53;
+		VOLT_P0VDDCORE1_retry_MAX_Threshold = 0x66;
+		VOLT_P0VDDCORE1_retry_MIN_Threshold = 0x4d;
 		return 0;
 	}    
 	
@@ -7175,8 +7175,8 @@ int
 dev_hyve_voltage_0x4dh_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VAUX_P12V_retry_MAX_Threshold = 0xce;
-		VAUX_P12V_retry_MIN_Threshold = 0xa4;
+		VAUX_P12V_retry_MAX_Threshold = 0xd4;
+		VAUX_P12V_retry_MIN_Threshold = 0xaf;
 		return 0;
 	}    
 	

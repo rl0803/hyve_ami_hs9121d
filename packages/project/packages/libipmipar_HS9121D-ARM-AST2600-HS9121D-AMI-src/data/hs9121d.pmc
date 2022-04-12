@@ -3388,15 +3388,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xce</value>
+		<value>0xd4</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0xc2</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xa4</value>
+		<value>0xaf</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -3416,7 +3416,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xcf</value>
+		<value>0xd5</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -3428,7 +3428,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xa3</value>
+		<value>0xae</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -3613,15 +3613,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xce</value>
+		<value>0xd4</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0xc2</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xa4</value>
+		<value>0xaf</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -3641,7 +3641,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xcf</value>
+		<value>0xd5</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -3653,7 +3653,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xa3</value>
+		<value>0xae</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -3838,15 +3838,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xcf</value>
+		<value>0xd4</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0xc2</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb1</value>
+		<value>0xaf</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -3866,7 +3866,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xd0</value>
+		<value>0xd5</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -3878,7 +3878,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb0</value>
+		<value>0xae</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -4063,15 +4063,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xcf</value>
+		<value>0xd4</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0xc2</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb1</value>
+		<value>0xaf</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -4091,7 +4091,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xd0</value>
+		<value>0xd5</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -4103,7 +4103,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb0</value>
+		<value>0xae</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -4288,15 +4288,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xcf</value>
+		<value>0xd4</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0xc2</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb1</value>
+		<value>0xaf</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -4316,7 +4316,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xd0</value>
+		<value>0xd5</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -4328,7 +4328,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb0</value>
+		<value>0xae</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -4513,15 +4513,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xcd</value>
+		<value>0xd4</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc0</value>
+		<value>0xc2</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb1</value>
+		<value>0xaf</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -4541,7 +4541,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xce</value>
+		<value>0xd5</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -4553,7 +4553,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb0</value>
+		<value>0xae</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -4738,15 +4738,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xdd</value>
+		<value>0xcb</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0xba</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xb3</value>
+		<value>0xa8</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -4766,7 +4766,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xc4</value>
+		<value>0xcc</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -4778,7 +4778,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xb2</value>
+		<value>0xa7</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -4967,7 +4967,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x74</value>
+		<value>0x6d</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
@@ -4983,7 +4983,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x75</value>
+		<value>0x6e</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5186,7 +5186,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x7a</value>
+		<value>0x7b</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
@@ -5194,7 +5194,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x68</value>
+		<value>0x67</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -5214,7 +5214,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x7b</value>
+		<value>0x7c</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5226,7 +5226,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0x67</value>
+		<value>0x66</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -5411,7 +5411,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x7a</value>
+		<value>0x7b</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
@@ -5419,7 +5419,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x68</value>
+		<value>0x67</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -5439,7 +5439,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x7b</value>
+		<value>0x7c</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5451,7 +5451,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0x67</value>
+		<value>0x66</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -5636,15 +5636,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x7a</value>
+		<value>0x87</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x5c</value>
+		<value>0x7c</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x53</value>
+		<value>0x70</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -5664,7 +5664,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x7b</value>
+		<value>0x88</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5676,7 +5676,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0x52</value>
+		<value>0x6f</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -5861,15 +5861,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x7a</value>
+		<value>0x66</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x5c</value>
+		<value>0x5a</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x53</value>
+		<value>0x4d</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -5889,7 +5889,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x7b</value>
+		<value>0x67</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -5901,7 +5901,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0x52</value>
+		<value>0x4c</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -6086,15 +6086,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x7a</value>
+		<value>0x66</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x5c</value>
+		<value>0x5a</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x53</value>
+		<value>0x4d</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -6114,7 +6114,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x7b</value>
+		<value>0x67</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -6126,7 +6126,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0x52</value>
+		<value>0x4c</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -6311,15 +6311,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xce</value>
+		<value>0xd4</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0xc5</value>
+		<value>0xc2</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xa4</value>
+		<value>0xaf</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -6339,7 +6339,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xcf</value>
+		<value>0xd5</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -6351,7 +6351,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xa3</value>
+		<value>0xae</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
