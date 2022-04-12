@@ -32995,11 +32995,11 @@
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_SHA2</variable>
@@ -33011,11 +33011,11 @@
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_SHA2</variable>
@@ -33027,11 +33027,11 @@
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_SHA2</variable>
@@ -33043,11 +33043,11 @@
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_SHA2</variable>
@@ -33075,19 +33075,19 @@
 		<name>Algorithm for Integrity 1</name>
 		<config>
 			<variable>INTE_CABK_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_SHA2</variable>
@@ -33095,19 +33095,19 @@
 		</config>
 		<config>
 			<variable>INTE_USER_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_SHA2</variable>
@@ -33115,19 +33115,19 @@
 		</config>
 		<config>
 			<variable>INTE_OPER_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_SHA2</variable>
@@ -33135,19 +33135,19 @@
 		</config>
 		<config>
 			<variable>INTE_ADMIN_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_SHA2</variable>
@@ -33688,11 +33688,11 @@
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_SHA2</variable>
@@ -33704,11 +33704,11 @@
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_SHA2</variable>
@@ -33720,11 +33720,11 @@
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_SHA2</variable>
@@ -33736,11 +33736,11 @@
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_SHA2</variable>
@@ -33768,19 +33768,19 @@
 		<name>Algorithm for Integrity 1</name>
 		<config>
 			<variable>INTE_CABK_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_SHA2</variable>
@@ -33788,19 +33788,19 @@
 		</config>
 		<config>
 			<variable>INTE_USER_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_SHA2</variable>
@@ -33808,19 +33808,19 @@
 		</config>
 		<config>
 			<variable>INTE_OPER_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_SHA2</variable>
@@ -33828,19 +33828,19 @@
 		</config>
 		<config>
 			<variable>INTE_ADMIN_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_SHA2</variable>
@@ -34381,11 +34381,11 @@
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_SHA2</variable>
@@ -34397,11 +34397,11 @@
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_SHA2</variable>
@@ -34413,11 +34413,11 @@
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_SHA2</variable>
@@ -34429,11 +34429,11 @@
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_SHA2</variable>
@@ -34461,19 +34461,19 @@
 		<name>Algorithm for Integrity 1</name>
 		<config>
 			<variable>INTE_CABK_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_SHA2</variable>
@@ -34481,19 +34481,19 @@
 		</config>
 		<config>
 			<variable>INTE_USER_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_SHA2</variable>
@@ -34501,19 +34501,19 @@
 		</config>
 		<config>
 			<variable>INTE_OPER_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_SHA2</variable>
@@ -34521,19 +34521,19 @@
 		</config>
 		<config>
 			<variable>INTE_ADMIN_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_SHA2</variable>
@@ -35074,11 +35074,11 @@
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_CABK_HMAC_SHA2</variable>
@@ -35090,11 +35090,11 @@
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_USER_HMAC_SHA2</variable>
@@ -35106,11 +35106,11 @@
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_OPER_HMAC_SHA2</variable>
@@ -35122,11 +35122,11 @@
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_MD5</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>ALGO_ADMIN_HMAC_SHA2</variable>
@@ -35154,19 +35154,19 @@
 		<name>Algorithm for Integrity 1</name>
 		<config>
 			<variable>INTE_CABK_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_CABK_HMAC_SHA2</variable>
@@ -35174,19 +35174,19 @@
 		</config>
 		<config>
 			<variable>INTE_USER_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_USER_HMAC_SHA2</variable>
@@ -35194,19 +35194,19 @@
 		</config>
 		<config>
 			<variable>INTE_OPER_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_OPER_HMAC_SHA2</variable>
@@ -35214,19 +35214,19 @@
 		</config>
 		<config>
 			<variable>INTE_ADMIN_NONE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_SHA1</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_MD5_128</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>INTE_ADMIN_HMAC_SHA2</variable>
