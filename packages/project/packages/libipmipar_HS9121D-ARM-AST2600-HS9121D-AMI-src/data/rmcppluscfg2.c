@@ -84,17 +84,17 @@ RMCPlus2_LoadFile(char *File, RMCPPlus_T *data)
 	data->PseudoGenKey[19] = IniGetUInt(ini, "RMCPPlus2Configuration", "PseudoGenKey/19", 0);
 
 	data->Algorithm[0][0] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/0", 0);
-	data->Algorithm[0][1] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/1", 0x1  << 3 | 0x0  << 2  |  0x0  << 1  |  0x0);
-	data->Algorithm[0][2] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/2", 0x1  << 3 | 0x0  << 2  |  0x0  << 1  |  0x0);
-	data->Algorithm[0][3] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/3", 0x1  << 3 | 0x0  << 2  |  0x0  << 1  |  0x0);
-	data->Algorithm[0][4] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/4", 0x1  << 3 | 0x0  << 2  |  0x0   << 1  |  0x0);
+	data->Algorithm[0][1] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/1", 0x1  << 3 | 0x1  << 2  |  0x1  << 1  |  0x0);
+	data->Algorithm[0][2] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/2", 0x1  << 3 | 0x1  << 2  |  0x1  << 1  |  0x0);
+	data->Algorithm[0][3] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/3", 0x1  << 3 | 0x1  << 2  |  0x1  << 1  |  0x0);
+	data->Algorithm[0][4] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/4", 0x1  << 3 | 0x1  << 2  |  0x1   << 1  |  0x0);
 	data->Algorithm[0][5] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/5", 0x0 << 3 | 0x0  << 2  |  0x0 << 1  |  0x0);
 	data->Algorithm[0][6] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/0/6", 0);
 	data->Algorithm[1][0] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/0", 0);
-	data->Algorithm[1][1] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/1", 0x1  << 4 | 0x0  << 3 | 0x0  << 2  | 0x0  << 1 | 0x0);
-	data->Algorithm[1][2] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/2", 0x1  << 4 | 0x0  << 3 | 0x0  << 2  | 0x0  << 1 | 0x0);
-	data->Algorithm[1][3] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/3", 0x1  << 4 | 0x0  << 3 | 0x0  << 2  | 0x0  << 1 | 0x0);
-	data->Algorithm[1][4] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/4", 0x1  << 4 | 0x0  << 3 | 0x0  << 2  | 0x0  << 1 | 0x0);
+	data->Algorithm[1][1] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/1", 0x1  << 4 | 0x1  << 3 | 0x1  << 2  | 0x1  << 1 | 0x1);
+	data->Algorithm[1][2] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/2", 0x1  << 4 | 0x1  << 3 | 0x1  << 2  | 0x1  << 1 | 0x1);
+	data->Algorithm[1][3] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/3", 0x1  << 4 | 0x1  << 3 | 0x1  << 2  | 0x1  << 1 | 0x1);
+	data->Algorithm[1][4] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/4", 0x1  << 4 | 0x1  << 3 | 0x1  << 2  | 0x1  << 1 | 0x1);
 	data->Algorithm[1][5] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/5", 0x0 << 4 | 0x0  << 3 | 0x0 << 2  | 0x0 << 1 | 0x0);
 	data->Algorithm[1][6] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/1/6", 0);
 	data->Algorithm[2][0] = IniGetUInt(ini, "RMCPPlus2Configuration", "Algorithm/2/0", 0);
