@@ -6767,8 +6767,8 @@ int
 dev_hyve_voltage_0x49h_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDDIO_retry_MAX_Threshold = 0x7b;
-		VOLT_P0VDDIO_retry_MIN_Threshold = 0x67;
+		VOLT_P0VDDIO_retry_MAX_Threshold = 0x83;
+		VOLT_P0VDDIO_retry_MIN_Threshold = 0x56;
 		return 0;
 	}    
 	
@@ -6869,8 +6869,8 @@ int
 dev_hyve_voltage_0x4ah_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDDSOC_retry_MAX_Threshold = 0x87;
-		VOLT_P0VDDSOC_retry_MIN_Threshold = 0x70;
+		VOLT_P0VDDSOC_retry_MAX_Threshold = 0x8a;
+		VOLT_P0VDDSOC_retry_MIN_Threshold = 0x3f;
 		return 0;
 	}    
 	
@@ -6971,8 +6971,8 @@ int
 dev_hyve_voltage_0x4bh_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDDCORE0_retry_MAX_Threshold = 0x66;
-		VOLT_P0VDDCORE0_retry_MIN_Threshold = 0x4d;
+		VOLT_P0VDDCORE0_retry_MAX_Threshold = 0xae;
+		VOLT_P0VDDCORE0_retry_MIN_Threshold = 0x25;
 		return 0;
 	}    
 	
@@ -7073,8 +7073,8 @@ int
 dev_hyve_voltage_0x4ch_1_32_init_device (hal_t *phal) /* @source: File - Hyve_Voltage.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		VOLT_P0VDDCORE1_retry_MAX_Threshold = 0x66;
-		VOLT_P0VDDCORE1_retry_MIN_Threshold = 0x4d;
+		VOLT_P0VDDCORE1_retry_MAX_Threshold = 0xae;
+		VOLT_P0VDDCORE1_retry_MIN_Threshold = 0x25;
 		return 0;
 	}    
 	

@@ -1420,15 +1420,15 @@
 		.db (0xc << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x0                      /* Analog Characteristics Flags     */
 		.db 0x71          /* Nominal Reading                  */
-		.db 0x7b              /* Normal Maximum                   */
-		.db 0x67              /* Normal Minimum                   */
+		.db 0x83              /* Normal Maximum                   */
+		.db 0x56              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x7c           /* Upper Critical Threshold         */
+		.db 0x84           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
-		.db 0x66           /* Lower Critical Threshold         */
+		.db 0x55           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
 		.db 0x2     /* Positive - threshold Hysteresis value*/
 		.db 0x2     /* Negative - threshold Hysteresis value*/
@@ -1475,15 +1475,15 @@
 		.db (0xc << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x0                      /* Analog Characteristics Flags     */
 		.db 0x7c          /* Nominal Reading                  */
-		.db 0x87              /* Normal Maximum                   */
-		.db 0x70              /* Normal Minimum                   */
+		.db 0x8a              /* Normal Maximum                   */
+		.db 0x3f              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x88           /* Upper Critical Threshold         */
+		.db 0x8b           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
-		.db 0x6f           /* Lower Critical Threshold         */
+		.db 0x3e           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
 		.db 0x2     /* Positive - threshold Hysteresis value*/
 		.db 0x2     /* Negative - threshold Hysteresis value*/
@@ -1530,15 +1530,15 @@
 		.db (0xc << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x0                      /* Analog Characteristics Flags     */
 		.db 0x5a          /* Nominal Reading                  */
-		.db 0x66              /* Normal Maximum                   */
-		.db 0x4d              /* Normal Minimum                   */
+		.db 0xae              /* Normal Maximum                   */
+		.db 0x25              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x67           /* Upper Critical Threshold         */
+		.db 0xaf           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
-		.db 0x4c           /* Lower Critical Threshold         */
+		.db 0x24           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
 		.db 0x2     /* Positive - threshold Hysteresis value*/
 		.db 0x2     /* Negative - threshold Hysteresis value*/
@@ -1585,15 +1585,15 @@
 		.db (0xc << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x0                      /* Analog Characteristics Flags     */
 		.db 0x5a          /* Nominal Reading                  */
-		.db 0x66              /* Normal Maximum                   */
-		.db 0x4d              /* Normal Minimum                   */
+		.db 0xae              /* Normal Maximum                   */
+		.db 0x25              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x67           /* Upper Critical Threshold         */
+		.db 0xaf           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
-		.db 0x4c           /* Lower Critical Threshold         */
+		.db 0x24           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
 		.db 0x2     /* Positive - threshold Hysteresis value*/
 		.db 0x2     /* Negative - threshold Hysteresis value*/
