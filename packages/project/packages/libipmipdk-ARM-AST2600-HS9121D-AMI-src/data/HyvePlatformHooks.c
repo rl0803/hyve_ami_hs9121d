@@ -28,11 +28,16 @@
 void HyvePlatform_GetHostStatus(void* ptr)
 {
 	HYVE_HOST_Status* pHostStatus = (HYVE_HOST_Status*)ptr;
+
 	if (pHostStatus) {
+		if (HYVEPLATFORM_IS_SYS_PWRGOOD) {
 		/* Currently use the GPIO pin SPD_HOST_CTRL_L as the BIOS POST status pin.
 		   Because during POST the DIMM ownership belongs to the Host until POST end */
 		pHostStatus->biosPOSTStatus = HYVEPLATFORM_IS_DIMM_READY ?
 										Hyve_BIOS_POST_END : Hyve_BIOS_POST_START;
+		} else {
+			pHostStatus->biosPOSTStatus = Hyve_BIOS_NO_ACTIVE;
+		}
 	}
 }
 

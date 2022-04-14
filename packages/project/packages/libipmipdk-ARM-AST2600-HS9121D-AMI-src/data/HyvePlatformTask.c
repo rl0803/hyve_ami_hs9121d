@@ -261,8 +261,10 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	break;
 
             case HyvePlatformIRQMsgQ_BIOS_POST:
-            	HyveExt_BIOS_Status(Hyve_VALUE_SET,
-            			(msg.msgData ? Hyve_BIOS_POST_START : Hyve_BIOS_POST_END));
+            	if (HYVEPLATFORM_IS_SYS_PWRGOOD) {
+					HyveExt_BIOS_Status(Hyve_VALUE_SET,
+							(msg.msgData ? Hyve_BIOS_POST_START : Hyve_BIOS_POST_END));
+            	}
         		break;
 
             case HyvePlatformIRQMsgQ_CPU_ThermalTrip:
