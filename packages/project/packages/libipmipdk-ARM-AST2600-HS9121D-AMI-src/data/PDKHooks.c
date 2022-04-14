@@ -80,8 +80,6 @@ static INT8U 	  gPDKLastPowerEvent = PDK_LAST_POWER_DOWN_VIA_AC_FAILURE;
 // This is set to TRUE when the Init Agent has just rearmed all sensors.
 bool  g_bInitAgentRearmed = FALSE;
 
-int g_pdkSnoopCounter=0;
-int g_pdkSnoopFlag=0;
 
 extern  _FAR_ INT16U  SDR_DeleteSDR (INT16U ReservationID, INT16U RecID,int BMCInst);
 
@@ -415,13 +413,8 @@ PDK_OnTaskStartup (INT8U Id,int BMCInst)
 void
 PDK_LPCReset (int BMCInst)
 {
-
     printf ("PDK LPC Reset is invoked\n");
 
-    g_pdkSnoopCounter=0;
-    g_pdkSnoopFlag=0;
-
-    API_RunInitializationAgent (BMCInst);
     return;
 }
 /*-------------------------------------------------------------------------
