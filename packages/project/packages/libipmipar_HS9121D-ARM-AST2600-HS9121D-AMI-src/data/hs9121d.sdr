@@ -4364,7 +4364,7 @@
             /* RECORD BODY BYTES*/      
             .db 0x7               /* Entity ID                        */
             .db 0x3             /* Entity Instance                  */
-            .db 0x6f             /* Sensor Type                      */
+            .db 0x12             /* Sensor Type                      */
             .db 0x6f            /* Event / Reading Type             */
             .dw 0x0       /* Sensor Record Sharing            */
             .db 0x0                     /* Reserved                         */

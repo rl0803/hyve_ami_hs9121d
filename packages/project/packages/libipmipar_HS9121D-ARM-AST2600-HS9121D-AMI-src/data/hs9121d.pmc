@@ -18857,7 +18857,7 @@
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
-			<value>0x6f</value>
+			<value>0x12</value>
 		</config>
 		<config>
 			<variable>READ_TYPE</variable>
