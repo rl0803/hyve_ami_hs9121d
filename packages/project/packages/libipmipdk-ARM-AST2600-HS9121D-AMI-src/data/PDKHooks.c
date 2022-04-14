@@ -413,9 +413,8 @@ PDK_OnTaskStartup (INT8U Id,int BMCInst)
 void
 PDK_LPCReset (int BMCInst)
 {
+	if (0) { BMCInst = BMCInst; }
     printf ("PDK LPC Reset is invoked\n");
-
-    return;
 }
 /*-------------------------------------------------------------------------
  * @fn PDK_PreInit
@@ -1714,6 +1713,15 @@ void PDK_AfterSDRInit(INT8U BMCInst)
 	} // end of while
 }
 
+void PDK_PostReInitSensor(int BMCInst)
+{
+	/* By AMI design, it only considers one instance of the type 0x12 Event-Only sensor
+	   And it picks the last found one.
+       But we may use few or more, so to avoid picking wrong one,
+	   use this hook function to assign the correct one
+	*/
+	BMC_GET_SHARED_MEM(BMCInst)->SysEvent_SensorNo = SENSOR_NUM_STS_SYSTEMEVENT;
+}
 
 //<<KAMAL>>Added to support Sensor Averaging ../
 
