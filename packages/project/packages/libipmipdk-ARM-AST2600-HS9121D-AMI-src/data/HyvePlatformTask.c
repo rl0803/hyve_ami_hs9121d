@@ -264,6 +264,15 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	if (HYVEPLATFORM_IS_SYS_PWRGOOD) {
 					HyveExt_BIOS_Status(Hyve_VALUE_SET,
 							(msg.msgData ? Hyve_BIOS_POST_START : Hyve_BIOS_POST_END));
+					// TODO: currently, BIOS both trigger the GPIO and send the OEM cmd to set the POST status
+					// to void redundant SEL, put the action here, it will be moved to HyvePlatform_BIOS_Status_Callback
+					if (!msg.msgData) {
+						// Record POST complete SEL
+						HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_SYSTEMEVENT,
+										SENSOR_NUM_STS_BIOSPOSTCMPT	,
+										EVENT_TYPE_SENSOR_SPECIFIC_6F,
+										EVENT_OEM_SYSTEM_BOOT_EVENT, 0xFF, 0xFF, BMCInst);
+					}
             	}
         		break;
 
