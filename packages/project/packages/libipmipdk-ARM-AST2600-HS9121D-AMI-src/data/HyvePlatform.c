@@ -106,12 +106,26 @@ static void HyvePlatform_InitChip()
 	regValue = HYVE_BIT(31);
 	HyveExt_BMC_RegSCU(Hyve_RegOp_ClearBits, 0x69C, &regValue);
 
-	// Disable WDT Reset GPIO controller 1 and 2
+/*
+Note:
+	Currently find that,
+	if enable "reset ESPI controller" by SCU050 bit[25]
+	will cause the Host CPU cannot boot.
+
+TODO:
+	The EXTRST# is controlled by the ROT,
+	need to check if enable "reset ESPI controller" by EXTRST# 
+	will also cause the same issue.
+*/
+	// Enable reset ESPI controller
+//	regValue = HYVE_BIT(26);
+//	HyveExt_BMC_RegSCU(Hyve_RegOp_SetBits, 0x070, &regValue);
+
 	for (i = 0; i < HYVE_ARRAYSIZE(wdts); i++) {
-		regValue = HYVE_BIT(24);
-		HyveExt_BMC_Register(Hyve_RegOp_ClearBits, (wdts[i] + REG_WDT_OFFSET_RESET_MASK1), &regValue);
-		regValue = HYVE_BIT(9);
-		HyveExt_BMC_Register(Hyve_RegOp_ClearBits, (wdts[i] + REG_WDT_OFFSET_RESET_MASK2), &regValue);
+		// Enable reset ESPI controller
+		regValue = HYVE_BIT(26);
+		HyveExt_BMC_Register(Hyve_RegOp_SetBits, (wdts[i] + REG_WDT_OFFSET_RESET_MASK2), &regValue);
+		HyveExt_BMC_Register(Hyve_RegOp_SetBits, (wdts[i] + REG_WDT_OFFSET_SW_RESET_MASK1), &regValue);
 	}
 
 	if (HyveExt_EnablePort80ToSGPIO() < 0) {
@@ -119,7 +133,6 @@ static void HyvePlatform_InitChip()
 	}
 
 	HyveExt_CtrlGPIOPbyPass(TRUE);
-	
 }
 
 static int HyvePlatform_InitFRU()
