@@ -566,8 +566,7 @@
 &sgpiom0 {
 	status = "okay";
 	bus-frequency = <48000>; // 48 kHz
-	// ngpios = <128>; // 16 bytes
-	ngpios = <80>; // 10 bytes, only for EVT
+	ngpios = <128>; // 16 bytes
 };
 
 &hace {
