@@ -95,38 +95,13 @@ static void HyvePlatform_InitPlatformID()
 	printf("    [INFO]     ====== Platform: %s    SKU ID: %d ======\n", PlatformID, HYVEPLATFORM_SKU);
 }
 
-
 static void HyvePlatform_InitChip()
 {
-	INT32U regValue = 0, i = 0;
-	// Usually use the WDT1 ~ WDT3
-	INT32U wdts[] = { REG_WDT1_BASE, REG_WDT2_BASE, REG_WDT3_BASE };
+	INT32U regValue = 0;
 
 	// Disable HW Heart Beat LED
 	regValue = HYVE_BIT(31);
 	HyveExt_BMC_RegSCU(Hyve_RegOp_ClearBits, 0x69C, &regValue);
-
-/*
-Note:
-	Currently find that,
-	if enable "reset ESPI controller" by SCU050 bit[25]
-	will cause the Host CPU cannot boot.
-
-TODO:
-	The EXTRST# is controlled by the ROT,
-	need to check if enable "reset ESPI controller" by EXTRST# 
-	will also cause the same issue.
-*/
-	// Enable reset ESPI controller
-//	regValue = HYVE_BIT(26);
-//	HyveExt_BMC_RegSCU(Hyve_RegOp_SetBits, 0x070, &regValue);
-
-	for (i = 0; i < HYVE_ARRAYSIZE(wdts); i++) {
-		// Enable reset ESPI controller
-		regValue = HYVE_BIT(26);
-		HyveExt_BMC_Register(Hyve_RegOp_SetBits, (wdts[i] + REG_WDT_OFFSET_RESET_MASK2), &regValue);
-		HyveExt_BMC_Register(Hyve_RegOp_SetBits, (wdts[i] + REG_WDT_OFFSET_SW_RESET_MASK1), &regValue);
-	}
 
 	if (HyveExt_EnablePort80ToSGPIO() < 0) {
 		printf("Unable to set Port80 to SGPIO\n");
