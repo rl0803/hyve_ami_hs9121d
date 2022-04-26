@@ -1683,34 +1683,41 @@ static int _DeleteSDR(INT16U sdrRecID, INT8U BMCInst)
 
 void PDK_AfterSDRInit(INT8U BMCInst)
 {
-	if (0) { BMCInst = BMCInst;}
+	const INT8U *sensorDelList = HyvePlatform_CreateSensorDelList();
 
-	_FAR_ SDRRecHdr_T *pSDRRecHdr = SDR_GetFirstSDRRec(BMCInst);
+	if (sensorDelList) {
+		_FAR_ SDRRecHdr_T *pSDRRecHdr = SDR_GetFirstSDRRec(BMCInst);
 
-	while (pSDRRecHdr) {
-		if (FULL_SDR_REC == pSDRRecHdr->Type) {
-			_FAR_ FullSensorRec_T *pFullRec = (_FAR_ FullSensorRec_T*)pSDRRecHdr;
+		while (pSDRRecHdr) {
+			INT8U is_InDeleteList = 0;
 
-			// Find the sensor
-			if (IPMI_SENSOR_TEMP_TYPE == pFullRec->SensorType) {
-				// Currently EVT-1 MB doesn't have the aux 3V3
-				if (HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_VAUX_P3V3) ==
-						(HYVE_LUN_NUM(pFullRec->OwnerLUN, pFullRec->SensorNum))) {
-					_DeleteSDR(pSDRRecHdr->ID, BMCInst);
-				}
+			// check for threshold and discrete sensors
+			if (FULL_SDR_REC == pSDRRecHdr->Type) {
+				_FAR_ FullSensorRec_T *pFullRec = (_FAR_ FullSensorRec_T*)pSDRRecHdr;
+				// Find the sensor
+				if ((BMC_SENSOR_LUN == pFullRec->OwnerLUN) &&
+						(sensorDelList[pFullRec->SensorNum]))
+					is_InDeleteList = 1;
+			} else if (COMPACT_SDR_REC == pSDRRecHdr->Type) {
+				_FAR_ CompactSensorRec_T *pCompactRec = (_FAR_ CompactSensorRec_T*)pSDRRecHdr;
+				// Find the sensor
+				if ((BMC_SENSOR_LUN == pCompactRec->OwnerLUN) &&
+						(sensorDelList[pCompactRec->SensorNum]))
+					is_InDeleteList = 1;
+			// [Workaround] Remove Fanboard, MP, FP FRU SDR to avoid self-test result failed
+			} else if (FRU_DEVICE_LOCATOR_SDR_REC == pSDRRecHdr->Type) {
+				FRUDevLocatorRec_T *pFruRec = (_FAR_ FRUDevLocatorRec_T*)pSDRRecHdr;
+
+				if ((pFruRec->FRUIDSlaveAddr > 0x00))
+					is_InDeleteList = 1;
 			}
-		}
-		// [Workaround] Remove Fanboard, MP, FP FRU SDR to avoid self-test result failed
-		if (FRU_DEVICE_LOCATOR_SDR_REC == pSDRRecHdr->Type) {
-			FRUDevLocatorRec_T *pFruRec = (_FAR_ FRUDevLocatorRec_T*)pSDRRecHdr;
-
-			if ((pFruRec->FRUIDSlaveAddr > 0x00)) {
+			if (is_InDeleteList)
 			    _DeleteSDR(pSDRRecHdr->ID, BMCInst);
-			}
-		}
 
-		pSDRRecHdr = SDR_GetNextSDRRec(pSDRRecHdr, BMCInst);
-	} // end of while
+			pSDRRecHdr = SDR_GetNextSDRRec(pSDRRecHdr, BMCInst);
+		} // end of while
+	}
+	HyvePlatform_DestroySensorDelList();
 }
 
 void PDK_PostReInitSensor(int BMCInst)

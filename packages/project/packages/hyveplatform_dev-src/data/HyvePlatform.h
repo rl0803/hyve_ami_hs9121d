@@ -22,6 +22,7 @@
 #include "HyvePlatformCPLD.h"
 #include "HyvePlatformROT.h"
 #include "HyvePlatformFRU.h"
+#include "HyvePlatformSKUconfig.h"
 
 //#define HYVEPSU_DEBUG_ENABLE 1
 //#define HYVEFSC_DEBUG_ENABLE 1

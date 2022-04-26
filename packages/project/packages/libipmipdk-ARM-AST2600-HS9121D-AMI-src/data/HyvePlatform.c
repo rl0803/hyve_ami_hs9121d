@@ -92,6 +92,7 @@ static void HyvePlatform_InitPlatformID()
 	// Overwrite the PlatformID
 	if (1 || !ret) { snprintf(PlatformID, sizeof(PlatformID), "%s", PLATFORMID_HS9121D); }
 	HyvePlatform_InitSKUID(PlatformID);
+	HyvePlatform_InitSKUFeature();
 	printf("    [INFO]     ====== Platform: %s    SKU ID: %d ======\n", PlatformID, HYVEPLATFORM_SKU);
 }
 
