@@ -283,7 +283,7 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
 				_FAR_ SensorInfo_T *pSensorInfo = API_GetSensorInfo(SENSOR_NUM_TEMP_CPU0, BMC_SENSOR_LUN01, BMCInst);
 				if (pSensorInfo && (pSensorInfo-> SensorReading > pSensorInfo->UpperCritical)) {
 					// Record SEL
-					HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN00, SENSOR_TYPE_PROCESSOR,
+					HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PROCESSOR,
 									SENSOR_NUM_ERR_CPU0THRMTRIP,
 									(((!msg.msgData) << 7) | EVENT_TYPE_SENSOR_SPECIFIC_6F),
 									EVENT_PROCESSOR_THERMALTRIP, 0xFF, 0xFF, BMCInst);
