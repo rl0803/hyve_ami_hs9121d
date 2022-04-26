@@ -186,7 +186,7 @@ int HyvePlatform_TaskInit(int BMCInst)
 	}
 	
 	printf("[ INFO ] - Run %s\n", __func__);
-	
+
 	HyvePlatform_GenericTaskStart();
 	HyvePlatform_IRQDeferHandlerStart(BMCInst);
 	HyvePlatform_FanCtrlTaskStart(BMCInst);
@@ -573,24 +573,32 @@ int HyvePlatform_Reset_CMOS()
  *-----------------------------------------------------------------*/
 int HyvePlatform_JTagAccessSelect(const INT8U selection)
 {
-	if ((Enable_HostCPU_JTagAccess == selection) &&
-			(HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
-					HyveExt_GPIO_Set_Data_Low(IO_P0_HDT_SEL_0) < 0)) {
-		return -1;
-	} else if ((Enable_CPLD_JTagAccess == selection) &&
-			(HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
-					HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_SEL) < 0)) {
-		return -1;
-	} else if ((Enable_Riser_JTagAccess == selection) &&
-			(HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
-					HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_SEL) < 0)) {
-		return -1;
-	} else if (HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
-				HyveExt_GPIO_Set_Data_High(IO_P0_HDT_SEL_0) < 0) {
-		return -1;
+	int ret = 0;
+
+	switch (selection) {
+	case Enable_HostCPU_JTagAccess:
+		if (HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
+				HyveExt_GPIO_Set_Data_Low(IO_P0_HDT_SEL_0) < 0) { ret = -1; }
+		break;
+
+	case Enable_CPLD_JTagAccess:
+		if (HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
+				HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_SEL) < 0) { ret = -1; }
+		break;
+
+	case Enable_Riser_JTagAccess:
+		if (HyveExt_GPIO_Set_Data_Low(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
+				HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_SEL) < 0) { ret = -1; }
+		break;
+
+	case Disable_All_JTagAccess:
+	default:
+		if (HyveExt_GPIO_Set_Data_High(IO_BMC_CPLD_JTAG_MUX_OE) < 0 ||
+				HyveExt_GPIO_Set_Data_High(IO_P0_HDT_SEL_0) < 0) { ret = -1; }
+		break;
 	}
 
-	return 0;
+	return ret;
 }
 
 /*-----------------------------------------------------------------
