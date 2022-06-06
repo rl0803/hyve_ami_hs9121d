@@ -40,6 +40,10 @@ extern void HyvePlatform_GetHostStatus(void* pHostStatus);
 extern void HyvePlatform_BIOS_Status_Callback(const INT8U status);
 extern int HyvePlatform_PrepareBIOSFlash(INT8U targetBIOS);
 extern int HyvePlatform_AfterBIOSFlash(INT8U updateRes);
+extern int HyvePlatform_BeforeUpdateCPLD(INT8U targetCPLD);
+extern int HyvePlatform_AfterUpdateCPLD(int updateResult);
+extern int Hyveplatform_PEFOemAction(void *_pEvtRecord, int BMCInst);
+extern void Hyveplatform_PostClearSEL(int BMCInst);
 
 #define HYVEPLATFORM_BIOS_FLASHSELECT								HyvePlatform_BIOS_FlashSelect
 #define HYVEPLATFORM_PREPARE_BIOSFLASH								HyvePlatform_PrepareBIOSFlash
@@ -49,5 +53,10 @@ extern int HyvePlatform_AfterBIOSFlash(INT8U updateRes);
 #define HYVEPLATFORM_AFTERCREATINGTASKS								HyvePlatform_TaskInit
 #define HYVEPLATFORM_GET_HOST_STATUS								HyvePlatform_GetHostStatus
 #define HYVEPLATFORM_BIOS_STATUS_CALLBACK							HyvePlatform_BIOS_Status_Callback
+#define HYVEPLATFORM_BEFORE_UPDATE_CPLD								HyvePlatform_BeforeUpdateCPLD
+#define HYVEPLATFORM_AFTER_UPDATE_CPLD								HyvePlatform_AfterUpdateCPLD
+#define HYVEPLATFORM_PEFOEMACTION									Hyveplatform_PEFOemAction
+#define HYVEPLATFORM_POSTCLEARSEL									Hyveplatform_PostClearSEL
+#define HYVEPLATFORM_SYS_POWER_RESET								HyvePlatform_Reset_PwrAUX_IC
 
 #endif

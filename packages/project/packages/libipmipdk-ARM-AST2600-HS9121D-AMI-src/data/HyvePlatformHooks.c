@@ -116,3 +116,28 @@ int HyvePlatform_AfterBIOSFlash(INT8U updateRes)
 	// Change the ownership to BIOS 
 	return HyvePlatform_BIOS_FlashAccessControl(Hyve_VALUE_SET, &enable);
 }
+
+int HyvePlatform_BeforeUpdateCPLD(INT8U targetCPLD)
+{
+	if (0) { targetCPLD = targetCPLD; }
+	return HyvePlatform_JTagAccessSelect(Enable_CPLD_JTagAccess);
+}
+
+int HyvePlatform_AfterUpdateCPLD(int updateResult)
+{
+	if (0) { updateResult = updateResult; }
+	return HyvePlatform_JTagAccessSelect(Disable_All_JTagAccess);
+}
+
+int Hyveplatform_PEFOemAction(void *_pEvtRecord, int BMCInst)
+{
+	if (0) {
+		_pEvtRecord = _pEvtRecord;
+		BMCInst = BMCInst;
+	}
+}
+
+void Hyveplatform_PostClearSEL(int BMCInst)
+{
+	if (0) { BMCInst = BMCInst; }
+}
