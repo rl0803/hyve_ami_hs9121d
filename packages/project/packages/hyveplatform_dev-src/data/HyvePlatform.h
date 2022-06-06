@@ -75,7 +75,7 @@ typedef enum {
 
 	I2C-11: Fan HW monitor, on-board Fan(4 fans) control
 	I2C-12: Fan board, 3 fans, can support up to 8 fans
-	I2C-13: FP(front panel), MP(Middle panel), Hyve debug card and CPLD
+	I2C-13: FP(front panel), Hyve debug card and CPLD
 	I2C-14: CPLD
 	I2C-15: ROT
 
@@ -138,8 +138,6 @@ typedef enum {
 #define HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD			(13)	// FP(front panel), MP(Middle panel), Hyve debug card or CPLD
 #define HYFEPLATFORM_ADDR_FP_TEMP						(0x92)	// FP temp sensor
 #define HYFEPLATFORM_ADDR_FP_FRU						(0xA8)	// FP FRU
-#define HYFEPLATFORM_ADDR_MP_TEMP						(0x9C)	// MP temp sensor
-#define HYFEPLATFORM_ADDR_MP_FRU						(0xAC)	// MP FRU
 #define HYFEPLATFORM_ADDR_DBGCARD						(0x40)	// Hyve debug card
 #define HYFEPLATFORM_ADDR_CPLD1
 
