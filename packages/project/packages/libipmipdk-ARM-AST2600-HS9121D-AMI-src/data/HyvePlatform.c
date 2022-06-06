@@ -359,7 +359,8 @@ int HyvePlatform_DisplayPortPwrControl(const INT8U op, INT8U* pIs_enable)
  *-----------------------------------------------------------------*/
 int HyvePlatform_BoardSKUID(INT8U *pBoardSKUID)
 {
-	INT8U i = 0, gpios[] = { IO_FM_BMC_BOARD_SKU_ID0_N, IO_FM_BMC_BOARD_SKU_ID1_N,
+	INT8U i = 0;
+	INT16U gpios[] = { IO_FM_BMC_BOARD_SKU_ID0_N, IO_FM_BMC_BOARD_SKU_ID1_N,
 						IO_FM_BMC_BOARD_SKU_ID2_N, IO_FM_BMC_BOARD_SKU_ID3_N };
 
 	if (!pBoardSKUID) { return -1; }
@@ -383,7 +384,8 @@ int HyvePlatform_BoardSKUID(INT8U *pBoardSKUID)
  *-----------------------------------------------------------------*/
 int HyvePlatform_BoardID(INT8U *pBoardID)
 {
-	INT8U i = 0, gpios[] = { IO_FM_REV_BOARD_ID0, IO_FM_REV_BOARD_ID1, IO_FM_REV_BOARD_ID2 };
+	INT8U i = 0;
+	INT16U gpios[] = { IO_FM_REV_BOARD_ID0, IO_FM_REV_BOARD_ID1, IO_FM_REV_BOARD_ID2 };
 
 	if (!pBoardID) { return -1; }
 	
@@ -490,12 +492,7 @@ int HyvePlatform_Reset_EMMC()
  *-----------------------------------------------------------------*/
 int HyvePlatform_Reset_PwrAUX_IC()
 {
-	int ret = 0;
-
-	if (-1 != (ret = HyveExt_GPIO_Set_Data_High(IO_P5V_AUX_RST_DLY))) {
-		ret = HyveExt_GPIO_Set_Data_High(IO_P3V3_AUX_RST_DLY);
-	}
-	return ret;
+	return  HyveExt_GPIO_Set_Data_High(IO_P3V3_AUX_RST_DLY) < 0 ? -1 : 0;
 }
 
 /*-----------------------------------------------------------------

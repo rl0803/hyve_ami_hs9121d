@@ -13,7 +13,7 @@
 
 /********************* Platform GPIO Pin Definition *********************/
 /*
-	Ref: HS9121D_X00_BMC GPIO_HW strap table_20211229
+	Ref: HS9121D_BMC GPIO_HW strap table_22'0503
 	
 	Note:
 	    Remember to search "TODO" for what must need to check with EE/CPLD team
@@ -33,10 +33,10 @@
 #define IO_PCIE_P3_MCIO2_ALERT_N            GPIOB1 // GPIO, Input, From J32-E1.S
 #define IO_XGMI_G2_AIC1_ALERT_N             GPIOB2 // GPIO, Input, From J33-PCIe card
 #define IO_XGMI_G3_AIC2_ALERT_N             GPIOB3 // GPIO, Input, From J34-PCIe card
-#define IO_P0_CORETYPE_0                    GPIOB4 // GPIO, Input
-#define IO_P0_CORETYPE_1                    GPIOB5 // GPIO, Input
-#define IO_P0_CORETYPE_2                    GPIOB6 // GPIO, Input
-#define IO_NC_GPIOB7                        GPIOB7 // No Use
+#define IO_NC_GPIOB4                        GPIOB4 // No Use
+#define IO_NC_GPIOB5                        GPIOB5 // No Use
+#define IO_UART4_BMC_USB3_DEBUG_TX          GPIOB6 // UART4 for BMC debug console or BIOS debug console output to debug card
+#define IO_UART4_BMC_USB3_DEBUG_RX          GPIOB7
 
 #define IO_RGMII_BMC_R_TX_CLK               GPIOC0
 #define IO_RGMII_BMC_R_TX_CTRL              GPIOC1
@@ -78,10 +78,10 @@
 #define IO_FM_DP_CONN_PWR_EN_CTL            GPIOG1 // GPIO, Output, default pull Low, power enable for Display Port Connector
 #define IO_FP_ID_LED_N                      GPIOG2 // GPIO, Output
 #define IO_FM_P0_CPLD_THERMTRIP_N           GPIOG3 // GPIO, Input, CPU thermal trip signal
-#define IO_NC_GPIOG4                        GPIOG4 // No Use
-#define IO_NC_GPIOG5                        GPIOG5 // No Use
-#define IO_NC_GPIOG6                        GPIOG6 // No Use
-#define IO_NC_GPIOG7                        GPIOG7 // No Use
+#define IO_PSU1_PRSNT_N                     GPIOG4 // GPIO, Input, from PDB
+#define IO_PSU2_PRSNT_N                     GPIOG5 // GPIO, Input, from PDB
+#define IO_PSU1_AC_FAIL_N                   GPIOG6 // GPIO, Input, from PDB
+#define IO_PSU2_AC_FAIL_N                   GPIOG7 // GPIO, Input, from PDB
 
 #define IO_SGPIO_BMC_CPLD_CLK               GPIOH0
 #define IO_SGPIO_BMC_CPLD_LD                GPIOH1
@@ -101,13 +101,13 @@
 #define IO_BMC_CPLD_JTAG_MUX_OE             GPIOI6 // GPIO, Output, to enable the JTAG MUX, High: disable; Low: enable
 #define IO_CLK_100M_9DML0455_CLKIN_LOS_N    GPIOI7 // GPIO, Input, CLK_100M_9DML0455_CLKIN_LOS_N, to inform the BMC PCIe clock generator loss
 
-#define IO_RST_RSMRST_BMC_N                 GPIOJ0 // GPIO, Input, from CPLD
-#define IO_P0_BMC_APML_ALERT_L              GPIOJ1 // GPIO, Input, AMD APML Alert, Active Low
+#define IO_BMC_P0_I2C_SEC_SCL               GPIOJ0 // I2C-1 or HVI3C3, reserved for CPU secure I2C/I3C access TODO: function not implemented
+#define IO_BMC_P0_I2C_SEC_SDA               GPIOJ1
 #define IO_BMC_I3C4_I2C_SCL                 GPIOJ2 // APML, I3C-4 or I2C-2
 #define IO_BMC_I3C4_I2C_SDA                 GPIOJ3
 #define IO_P0_NMI_SYNC_FLOOD_L              GPIOJ4 // GPIO, Output, default pull High, basically no use
 #define IO_P0_SPD_HOST_CTRL_L               GPIOJ5 // GPIO, Input, Low: to inform the BMC the owner-ship of DIMMs is CPU
-#define IO_EMMC_RST_N                       GPIOJ6 // GPIO, Output, to reset EMMC, this pin is reserved. currently use IO_FM_BMC_EMMC_RST_N instead
+#define IO_P0_BMC_APML_ALERT_L              GPIOJ6 // GPIO, Input, AMD APML Alert, Active Low
 #define IO_P0_SMERR_L                       GPIOJ7 // GPIO, Input, CPU SM error
 
 #define IO_SMB_PSU_STBY_LVC3_SCL            GPIOK0 // I2C-5, PMBUS
@@ -123,7 +123,7 @@
 #define IO_SMB_BMC_P0_VR_SDA                GPIOL1
 #define IO_SMB_BMC_OCP_RISER_SCL            GPIOL2 // I2C-10
 #define IO_SMB_BMC_OCP_RISER_SDA            GPIOL3
-#define IO_P5V_AUX_RST_DLY                  GPIOL4 // GPIO, Output, to reset standby 5V, High: enable delay reset IC input control
+#define IO_P5V_AUX_RST_DLY                  GPIOL4 // GPIO, Output, to reset standby 5V, High: enable delay reset IC input control (deprecated)
 #define IO_P3V3_AUX_RST_DLY                 GPIOL5 // GPIO, Output, to reset standby 3.3V, High: enable delay reset IC input control
 #define IO_NC_GPIOL6                        GPIOL6 // No Use
 #define IO_NC_GPIOL7                        GPIOL7 // No Use
@@ -132,7 +132,7 @@
 #define IO_P0_PWRGD                         GPIOM1 // GPIO, Input, the CPU power good
 #define IO_PLTRST_BMC_IN_N                  GPIOM2 // GPIO, Input, reserved, TODO: check with CPLD
 #define IO_NC_GPIOM3                        GPIOM3 // No Use
-#define IO_NC_GPIOM4                        GPIOM4 // No Use
+#define IO_RST_RSMRST_BMC_N                 GPIOM4 // GPIO, Input, from CPLD
 #define IO_NC_GPIOM5                        GPIOM5 // No Use
 #define IO_BMC_UART_1_TXD                   GPIOM6 // For SOL
 #define IO_BMC_UART_1_RXD                   GPIOM7
@@ -200,7 +200,7 @@
 #define IO_P12V_STBY_SCALED                 GPIOT0 // ADC-0, Standby 12V
 #define IO_P12V_SCALED                      GPIOT1 // ADC-1, power distribution board 12V
 #define IO_P3V3_SCALED                      GPIOT2 // ADC-2, power distribution board 3.3V
-#define IO_P3V3_STBY_SCALED                 GPIOT3 // ADC-3, Standby 3.3V
+#define IO_P5V_SCALED                 		GPIOT3 // ADC-3, power distribution board 5V
 #define IO_P0_VDD_33_DUAL_SCALED            GPIOT4 // ADC-4, CPU VDD 3.3V
 #define IO_P5V_AUX_SCALED                   GPIOT5 // ADC-5, AUX 5V
 #define IO_P0_VDD_18_DUAL_SCALED            GPIOT6 // ADC-6, CPU VDD 1.8V
@@ -212,7 +212,7 @@
 #define IO_P0_VDD_CORE_0_SCALED             GPIOU3 // ADC-11, CPU VDDCR_CPU0
 #define IO_P0_VDD_CORE_1_SCALED             GPIOU4 // ADC-12, CPU VDDCR_CPU1
 #define IO_P12V_AUX_SCALED                  GPIOU5 // ADC-13, AUX 12V
-#define IO_P3V3_AUX_SCALED                  GPIOU6 // ADC-14, AUX 3V3 , Note: currently EE doesn't implement the circuit
+#define IO_P3V3_AUX_SCALED                  GPIOU6 // ADC-14, AUX 3V3
 #define IO_NC_GPIOU7                        GPIOU7 // No Use
 
 #define IO_PLD_BMC_SLP_S3_L                 GPIOV0 // GPIO, Input, the CPLD informs the CPU S3 state to the BMC
@@ -260,11 +260,11 @@
 #define IO_PU_GPIOZ6_SPI1_D2                GPIOZ6
 #define IO_PU_GPIOZ7_SPI1_D3                GPIOZ7
 
-#define IO_FM_REV_BOARD_ID0                 GPIO18A0 // GPIO, Input
-#define IO_FM_REV_BOARD_ID1                 GPIO18A1 // GPIO, Input
-#define IO_FM_REV_BOARD_ID2                 GPIO18A2 // GPIO, Input
-#define IO_RESERVED_GPIO18A3                GPIO18A3 // Reserved
-#define IO_RESERVED_GPIO18A4                GPIO18A4 // Reserved
+#define IO_NC_GPIO18A0                      GPIO18A0 // No Use
+#define IO_NC_GPIO18A1                      GPIO18A1 // No Use
+#define IO_NC_GPIO18A2                      GPIO18A2 // No Use
+#define IO_FM_P0_BMC_START_POST             GPIO18A3 // GPIO, Input
+#define IO_FM_P0_BMC_START_END              GPIO18A4 // GPIO, Input
 #define IO_RESERVED_GPIO18A5                GPIO18A5 // Reserved
 #define IO_RESERVED_GPIO18A6                GPIO18A6 // Reserved
 #define IO_FM_CEC_BIOS_AUTH_COMP            GPIO18A7 // GPIO, Input, ROT informs the BMC that BIOS FW auth completed
@@ -273,10 +273,10 @@
 #define IO_RESERVED_GPIO18B1                GPIO18B1 // Reserved
 #define IO_RESERVED_GPIO18B2                GPIO18B2 // Reserved
 #define IO_RESERVED_GPIO18B3                GPIO18B3 // Reserved
-#define IO_FM_BMC_BOARD_SKU_ID0_N           GPIO18B4 // GPIO, Input
-#define IO_FM_BMC_BOARD_SKU_ID1_N           GPIO18B5 // GPIO, Input
-#define IO_FM_BMC_BOARD_SKU_ID2_N           GPIO18B6 // GPIO, Input
-#define IO_FM_BMC_BOARD_SKU_ID3_N           GPIO18B7 // GPIO, Input
+#define IO_NC_GPIO18B4                      GPIO18B4 // No Use
+#define IO_NC_GPIO18B5                      GPIO18B5 // No Use
+#define IO_NC_GPIO18B6                      GPIO18B6 // No Use
+#define IO_NC_GPIO18B7                      GPIO18B7 // No Use
 
 #define IO_RESERVED_GPIO18C0                GPIO18C0 // Reserved
 #define IO_RESERVED_GPIO18C1                GPIO18C1 // Reserved
@@ -300,5 +300,55 @@
 #define IO_EMMC_DATA_5                      GPIO18E1
 #define IO_EMMC_DATA_6                      GPIO18E2
 #define IO_EMMC_DATA_7                      GPIO18E3
+
+
+/********************* Platform SGPIO Pin Definition *********************/
+/*
+	Ref: HS9121D_SGPIO table__v0.0.1_20220506_1842
+*/
+#define IO_P0_PRSNT_L_PLD_N                 SGPIOM1A5_IN   // Indicates that CPU0 is physically present
+#define IO_FM_REV_BOARD_ID0                 SGPIOM1A3_IN
+#define IO_FM_REV_BOARD_ID1                 SGPIOM1A2_IN
+#define IO_FM_REV_BOARD_ID2                 SGPIOM1A1_IN
+
+#define IO_FM_BMC_BOARD_SKU_ID0_N           SGPIOM1B7_IN
+#define IO_FM_BMC_BOARD_SKU_ID1_N           SGPIOM1B6_IN
+#define IO_FM_BMC_BOARD_SKU_ID2_N           SGPIOM1B5_IN
+#define IO_FM_BMC_BOARD_SKU_ID3_N           SGPIOM1B4_IN
+#define IO_P0_CORETYPE0_PLD                 SGPIOM1B3_IN // CPU type code bit[0], 3'b100 means Type-0
+#define IO_P0_CORETYPE1_PLD                 SGPIOM1B2_IN // CPU type code bit[1]
+#define IO_P0_CORETYPE2_PLD                 SGPIOM1B1_IN // CPU type code bit[2]
+#define IO_STARTFAIL                        SGPIOM1B0_IN // There power rail start-fail in system, active High
+
+#define IO_fault_latch_P1V0_BMC_AUX         SGPIOM1C7_IN // P1V0_BMC_AUX power fault flag, active High
+#define IO_fault_latch_VDD_11               SGPIOM1C6_IN // VDD_11 power fault flag
+#define IO_fault_latch_VDD_VDDIO            SGPIOM1C5_IN // VDD_VDDIO power fault flag
+#define IO_fault_latch_VDD_SOC              SGPIOM1C4_IN // VDD_SOC power fault flag
+#define IO_fault_latch_VDD_CORE_0           SGPIOM1C3_IN // VDD_CORE_0 power fault flag
+#define IO_fault_latch_VDD_CORE_1           SGPIOM1C2_IN // VDD_CORE_1 power fault flag
+
+#define IO_P0_DIMM_A_PCAMP_PFAULT_FLAG      SGPIOM1F7_IN // CPU0 DIMM A power fault flag, active High
+#define IO_P0_DIMM_B_PCAMP_PFAULT_FLAG      SGPIOM1F6_IN // CPU0 DIMM B power fault flag
+#define IO_P0_DIMM_C_PCAMP_PFAULT_FLAG      SGPIOM1F5_IN // CPU0 DIMM C power fault flag
+#define IO_P0_DIMM_D_PCAMP_PFAULT_FLAG      SGPIOM1F4_IN // CPU0 DIMM D power fault flag
+#define IO_P0_DIMM_E_PCAMP_PFAULT_FLAG      SGPIOM1F3_IN // CPU0 DIMM E power fault flag
+#define IO_P0_DIMM_F_PCAMP_PFAULT_FLAG      SGPIOM1F2_IN // CPU0 DIMM F power fault flag
+#define IO_P0_DIMM_G_PCAMP_PFAULT_FLAG      SGPIOM1F1_IN // CPU0 DIMM G power fault flag
+#define IO_P0_DIMM_H_PCAMP_PFAULT_FLAG      SGPIOM1F0_IN // CPU0 DIMM H power fault flag
+
+#define IO_P0_DIMM_I_PCAMP_PFAULT_FLAG      SGPIOM1G7_IN // CPU0 DIMM I power fault flag
+#define IO_P0_DIMM_J_PCAMP_PFAULT_FLAG      SGPIOM1G6_IN // CPU0 DIMM J power fault flag
+#define IO_P0_DIMM_K_PCAMP_PFAULT_FLAG      SGPIOM1G5_IN // CPU0 DIMM K power fault flag
+#define IO_P0_DIMM_L_PCAMP_PFAULT_FLAG      SGPIOM1G4_IN // CPU0 DIMM L power fault flag
+
+#define IO_PLD_P0_PROCHOT_L                 SGPIOM1I5_IN // Indicates CPU0 has reached its maximum safe operating temperature, active Low
+#define IO_FM_P0_CPLD_THERMTRIP_N_R         SGPIOM1I4_IN // Indicates CPU0 has shut down and stopped all executions due to overheat condition, active Low
+
+#define IO_DEBUG_CARD_PRSNT                 SGPIOM1P7_IN // LCD debug card present.
+                                                         // Low: USB3, USB2 or None plugged to USB port.
+                                                         // High: LCD debug Card plugged to USB port.
+#define IO_DEBUG_CARD_TYPE                  SGPIOM1P6_IN // Low : Support Hyve Debug Card. High : Support OCP Debug Card.
+#define IO_DEBUG_CARD_UART_TOGGLE           SGPIOM1P5_IN // Low : UART1 (BIOS debug console) High : UART4 (BMC debug console)
+
 
 #endif
