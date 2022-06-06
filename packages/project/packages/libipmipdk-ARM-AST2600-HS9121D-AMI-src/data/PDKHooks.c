@@ -1720,16 +1720,6 @@ void PDK_AfterSDRInit(INT8U BMCInst)
 	HyvePlatform_DestroySensorDelList();
 }
 
-void PDK_PostReInitSensor(int BMCInst)
-{
-	/* By AMI design, it only considers one instance of the type 0x12 Event-Only sensor
-	   And it picks the last found one.
-       But we may use few or more, so to avoid picking wrong one,
-	   use this hook function to assign the correct one
-	*/
-	BMC_GET_SHARED_MEM(BMCInst)->SysEvent_SensorNo = SENSOR_NUM_STS_SYSTEMEVENT;
-}
-
 //<<KAMAL>>Added to support Sensor Averaging ../
 
 #define AVERAGING_SIZE					30
