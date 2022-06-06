@@ -23,7 +23,7 @@
 
 /********************* Global variable definitions *********************/
 const INT8U g_FSCI2CBusTable[] = {
-		HYFEPLATFORM_SMBUS_FAN_BOARD, HYFEPLATFORM_SMBUS_FAN_HWMONIOTR
+		HYFEPLATFORM_SMBUS_FAN_HWMONIOTR, HYFEPLATFORM_SMBUS_FAN_BOARD,
 };
 //const INT8U g_FSCI2CAddrTable[] = {
 //		HYFEPLATFORM_ADDR_FAN_HWMON, HYFEPLATFORM_ADDR_FAN_HWMON,
@@ -47,31 +47,6 @@ INT8U HyvePlatform_FSC_GetConfigBankID()
 		break;
 	}
 	return fscBankID;
-}
-
-INT8U HyvePlatform_FSC_I2C_Bus(INT8U fanNum)
-{
-	// because fan board only uses 3 fans, need to adjust the index
-	if (fanNum >= 3) fanNum++;
-	return (g_FSCI2CBusTable[((fanNum) / 4)]);
-}
-
-INT8U HyvePlatform_FSC_Monitor_I2C_Bus(INT8U tachIndex)
-{
-	if (tachIndex >= 5) tachIndex += 2;
-	return (g_FSCI2CBusTable[(tachIndex / 8)]);
-}
-
-INT8U HyvePlatform_FSC_PWM_Index(INT8U fanNum)
-{
-	if (fanNum >= 3) fanNum++;
-	return (g_pwmIndexTable[(fanNum % 4)]);
-}
-
-INT8U HyvePlatform_FSC_Tach_Index(INT8U tachIndex)
-{
-	if (tachIndex >= 6) tachIndex += 2;
-	return (g_tachIndexTable[(tachIndex % 8)]);
 }
 
 void HyvePlatform_FSC_Init(int BMCInst)
@@ -203,7 +178,6 @@ void HyvePlatformFan_PresentDetect()
 	for (i = 0; i < HYVEFSC_MAX_FAN_NUM; i++) {
 		pFanTach[i].is_Present = (fansPresence & 0x01);
 		fansPresence >>= 1;
-		if (2 == i) fansPresence >>= 1; // because the fan board only has 3 fans
 	}
 	if (0xFF == detected) { is_detectDone = 1; }
 }
