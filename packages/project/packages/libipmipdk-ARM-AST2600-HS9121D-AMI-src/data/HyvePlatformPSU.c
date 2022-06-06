@@ -30,9 +30,9 @@ void* HyvePlatform_PSUTask(void* pArg)
 	UINT32 preJiffy = 0;
 	INT16U fanSenLUN_NUM[HYVE_PSU_MAX_NUM][1] = {
 		// PSU0
-		{ HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TACH_PSU0Fan0)},
+		{ HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_PSU0_FAN)},
 		// PSU1
-		{ HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TACH_PSU1Fan0)}
+		{ HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_PSU1_FAN)}
 	};
 	const HyvePSU_StatusInfo_T *pHyvePSUStatInfo= HyvePSU_GetPSUStatusInfo(0);
 
@@ -58,14 +58,14 @@ void* HyvePlatform_PSUTask(void* pArg)
 				// TODO: implement PSU FW update
 			} else { // Normal routine
 				INT8U is_PSUlost = 0;
-				char *errMsg = "AC lost";
+				// char *errMsg = "AC lost";
 
 				// Read PSU status
 				HyvePSU_Read_PSU_Info(psuNum, HYVE_PSU_PEC_OFF);
 				// Check PSU presence
 				if ((!pHyvePSUStatInfo[psuNum].isPresent)) {
 					is_PSUlost = 1;
-					errMsg = "Removed";
+					// errMsg = "Removed";
 				}
 				// Check AC lost or PSU removed
 				if (HYVE_PSU_AC_LOST == pHyvePSUStatInfo[psuNum].isAcLost) {
@@ -74,7 +74,7 @@ void* HyvePlatform_PSUTask(void* pArg)
 				// per 10 second print the msg
 				if (is_PSUlost && HYFEPLATFORM_JIFFY_DIFF(preJiffy) > 10) {
 					//TODO: Do something, if PSU removed or AC lost occurs
-					printf("[INFO] %s: Detect the PSU(%d) %s\n", __func__, psuNum, errMsg);
+					// printf("[INFO] %s: Detect the PSU(%d) %s\n", __func__, psuNum, errMsg);
 					preJiffy = HYFEPLATFORM_JIFFY;
 				}
 			}

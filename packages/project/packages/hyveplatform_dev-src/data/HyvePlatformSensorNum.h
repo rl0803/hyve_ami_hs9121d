@@ -9,157 +9,139 @@
 #define HYVEPLATFORMSENSORNUM_H_
 
 
-#define BMC_SENSOR_LUN											(BMC_SENSOR_LUN01)
+#define BMC_SENSOR_LUN											(BMC_SENSOR_LUN00)
 
 /********************* LUN 00 *********************/
 // Event Only
-#define SENSOR_NUM_ERR_CPU0PROHOT 								(0x18)	// TODO
-#define SENSOR_NUM_ERR_CPU0THRMTRIP 							(0x1C)
+#define SENSOR_NUM_CPU_CATERR									(0x00) // TODO
+#define SENSOR_NUM_CPU0_PRESENT									(0x04) // TODO, can use the IO_P0_PRSNT_L_PLD_N
+#define SENSOR_NUM_CPU0_PROCHOT									(0x08) // TODO
+#define SENSOR_NUM_CPU0_VRHOT									(0x0C) // TODO
+#define SENSOR_NUM_CPU0_THERMTRIP								(0x10)
+#define SENSOR_NUM_CPU0_VCC_IN_ERR								(0x14) // TODO
 
+#define SENSOR_NUM_SEL_STATUS									(0x21)
+#define SENSOR_NUM_FRB2_TIMEOUT									(0x23)
+#define SENSOR_NUM_BMC_RESET 									(0x24)
+#define SENSOR_NUM_BMC_FW_CHANGE								(0x25)
+#define SENSOR_NUM_SYSTEMEVENT									(0x30)
+#define SENSOR_NUM_BUTTON_PRESS									(0x31)
+#define SENSOR_NUM_ACPI_STATUS									(0x34)
 
-/********************* LUN 01 *********************/
-// Event Only
-#define SENSOR_NUM_BMC_FW_CHANGE								(0x00)
-#define SENSOR_NUM_BMC_RESET									(0x01)
-#define SENSOR_NUM_STS_EVENTLOGGING								(0x02)
-#define SENSOR_NUM_STS_SYSTEMEVENT								(0x03)
-#define SENSOR_NUM_STS_INTRUSION								(0x04)
-#define SENSOR_NUM_PWRUNIT_STATUS								(0x05)	// AC Lost
-#define SENSOR_NUM_INFO_BTN										(0x06)
-#define SENSOR_NUM_INFO_SYSRST									(0x07)
-#define SENSOR_NUM_STS_ACPI										(0x08)
-#define SENSOR_NUM_STS_BIOSPOSTCMPT 							(0x09)	// TODO
-#define SENSOR_NUM_ERR_FRB2										(0x0A)	// TODO
-#define SENSOR_NUM_ERR_MEMHOT									(0x0B)	// TODO
-#define SENSOR_NUM_ERR_I2CHANG 									(0x0C)	// TODO
+#define SENSOR_NUM_CPU0_MEM_HOT									(0x40) // TODO
+#define SENSOR_NUM_CPU0_MEM_VR_HOT								(0x44) // TODO
+#define SENSOR_NUM_P0_MEM_THERMTRIP								(0x48) // TODO
+#define SENSOR_NUM_POWER_UNIT									(0x50)	// AC Lost
+#define SENSOR_NUM_INTRUSION_STATUS								(0x51)
+#define SENSOR_NUM_BIOS_POST_CMPLT								(0x52)
+#define SENSOR_NUM_PMBUS_ALERT									(0x53) // optional, choose not implement
 
+// Threshold or Discrete
 
-
-/* TODO:
-About MEM_HOT, this event sensor should be type 0x0c (memory), sensor specific offset 0x0A
-#define SENSOR_NUM_MEM_HOT										(???)
-
-About BUTTON, currently doesn't know how to define it
-#define SENSOR_NUM_BUTTON										(???)
-
-*/
-
-
-#define SENSOR_NUM_PMBUS_ALERT									(0x29)
-// PSU0
-#define SENSOR_NUM_PSU0_STATUS									(0x30)
-#define SENSOR_NUM_CURR_PSU0CIN									(0x31)
-#define SENSOR_NUM_CURR_PSU0COUT								(0x32)	// current out, need to verify
-#define SENSOR_NUM_PWR_PSU0PIN									(0x33)
-#define SENSOR_NUM_PWR_PSU0POUT									(0x34)
-#define SENSOR_NUM_VOLT_PSU0									(0x35)
-#define SENSOR_NUM_TEMP_PSU0									(0x36)
-#define SENSOR_NUM_TACH_PSU0Fan0								(0x37)
-// PSU1
-#define SENSOR_NUM_PSU1_STATUS									(0x38)
-#define SENSOR_NUM_CURR_PSU1CIN									(0x39)
-#define SENSOR_NUM_CURR_PSU1COUT								(0x3A)	// current out, need to verify
-#define SENSOR_NUM_PWR_PSU1PIN									(0x3B)
-#define SENSOR_NUM_PWR_PSU1POUT									(0x3C)
-#define SENSOR_NUM_VOLT_PSU1									(0x3D)
-#define SENSOR_NUM_TEMP_PSU1									(0x3E)
-#define SENSOR_NUM_TACH_PSU1Fan0								(0x3F)
-
-// Voltage (ADC)
-#define SENSOR_NUM_VOLT_P12V									(0x40)
-#define SENSOR_NUM_VOLT_PDBP12V									(0x41)
-#define SENSOR_NUM_VOLT_PDBP3V3									(0x42)
-#define SENSOR_NUM_VOLT_P3V3									(0x43)
-#define SENSOR_NUM_VOLT_P0VDD3V3								(0x44)
-#define SENSOR_NUM_VAUX_P5V										(0x45)
-#define SENSOR_NUM_VOLT_P0VDD1V8								(0x46)
-#define SENSOR_NUM_VOLT_BATP3V									(0x47)
-#define SENSOR_NUM_VOLT_P0VDD1V1								(0x48)
-#define SENSOR_NUM_VOLT_P0VDDIO									(0x49)
-#define SENSOR_NUM_VOLT_P0VDDSOC								(0x4A)
-#define SENSOR_NUM_VOLT_P0VDDCORE0								(0x4B)
-#define SENSOR_NUM_VOLT_P0VDDCORE1								(0x4C)
-#define SENSOR_NUM_VAUX_P12V									(0x4D)
-#define SENSOR_NUM_VAUX_P3V3									(0x4E)
+// CPU
+#define SENSOR_NUM_CPU0_TEMP									(0x01) // From APML
+#define SENSOR_NUM_CPU0_VDDSOC									(0x09) // ADC10
+#define SENSOR_NUM_CPU0_VDDIO									(0x0D) // ADC9
+#define SENSOR_NUM_CPU0_VDDCORE0								(0x11) // ADC11
+#define SENSOR_NUM_CPU0_VDDCORE1								(0x12) // ADC12
+#define SENSOR_NUM_CPU0_VDD1V1									(0x15) // ADC8
+#define SENSOR_NUM_CPU0_VDD1V8									(0x16) // ADC6
+#define SENSOR_NUM_CPU0_VDD3V3									(0x17) // ADC4
+#define SENSOR_NUM_P0_PACKAGE_POWER								(0x19) // From APML
 
 // MB Temp. Sensor
-// TODO: Currently not define the sensor name
-#define SENSOR_NUM_TEMP_MB_1									(0x50) // THERMAL SENSOR 1, ADDR 0x92
-#define SENSOR_NUM_TEMP_MB_2									(0x51) // THERMAL SENSOR 2, ADDR 0x94
-#define SENSOR_NUM_TEMP_MB_3_0									(0x52) // THERMAL DIODE SENSOR, ADDR 0x90
-#define SENSOR_NUM_TEMP_MB_3_1									(0x53) // THERMAL DIODE SENSOR, ADDR 0x90
-#define SENSOR_NUM_TEMP_MB_3_2									(0x54) // THERMAL DIODE SENSOR, ADDR 0x90
-#define SENSOR_NUM_TEMP_MB_3_3									(0x55) // THERMAL DIODE SENSOR, ADDR 0x90
-#define SENSOR_NUM_TEMP_MB_3_4									(0x56) // THERMAL DIODE SENSOR, ADDR 0x90
-#define SENSOR_NUM_TEMP_MB_3_5									(0x57) // THERMAL DIODE SENSOR, ADDR 0x90
-#define SENSOR_NUM_TEMP_MB_3_6									(0x58) // THERMAL DIODE SENSOR, ADDR 0x90
-#define SENSOR_NUM_TEMP_MB_3_7									(0x59) // THERMAL DIODE SENSOR, ADDR 0x90
-#define SENSOR_NUM_TEMP_MB_3_8									(0x5A) // THERMAL DIODE SENSOR, ADDR 0x90
-
-/* 1 CPU    12 DIMM    3 VR */
-// CPU
-#define SENSOR_NUM_TEMP_CPU0									(0x5B)
-#define SENSOR_NUM_PWR_CPU0										(0x5C)
-
-// DIMM
-#define SENSOR_NUM_TEMP_DIMMA0									(0x5D)
-#define SENSOR_NUM_TEMP_DIMMB0									(0x5E)
-#define SENSOR_NUM_TEMP_DIMMC0									(0x5F)
-#define SENSOR_NUM_TEMP_DIMMD0									(0x60)
-#define SENSOR_NUM_TEMP_DIMME0									(0x61)
-#define SENSOR_NUM_TEMP_DIMMF0									(0x62)
-#define SENSOR_NUM_TEMP_DIMMG0									(0x63)
-#define SENSOR_NUM_TEMP_DIMMH0									(0x64)
-#define SENSOR_NUM_TEMP_DIMMI0									(0x65)
-#define SENSOR_NUM_TEMP_DIMMJ0									(0x66)
-#define SENSOR_NUM_TEMP_DIMMK0									(0x67)
-#define SENSOR_NUM_TEMP_DIMML0									(0x68)
+#define SENSOR_NUM_OUTLET_TEMP									(0x20) // THERMAL SENSOR 2, ADDR 0x94
+#define SENSOR_NUM_INLET_TEMP									(0x21) // THERMAL SENSOR 1, ADDR 0x92
 
 // VR
-#define SENSOR_NUM_TEMP_P0SOCVR0								(0x69) // CPU SOC VR  // P0_VDD_SOC_RUN
-#define SENSOR_NUM_TEMP_P0V11VR0								(0x6A) // CPU 1.1 Volt VR // P0_VDD_11_SUS
-#define SENSOR_NUM_TEMP_P0IOVR0									(0x6B) // CPU VDDIO VR // P0_VDD_VDDIO_RUN
+#define SENSOR_NUM_CPU0_VR0_TEMP								(0x23) // VDD_CORE_0_VDD_SOC
+#define SENSOR_NUM_CPU0_VR1_TEMP								(0x24) // VDD_CORE_1_VDD_11
+#define SENSOR_NUM_CPU0_VR2_TEMP								(0x25) // VDD_VDDIO
+#define SENSOR_NUM_CPU0_VR0_POUT								(0x26)
+#define SENSOR_NUM_CPU0_VR1_POUT								(0x27)
+#define SENSOR_NUM_CPU0_VR2_POUT								(0x28)
 
-#define SENSOR_NUM_PWR_P0SOCVR0POUT								(0x6C) // CPU SOC VR  // P0_VDD_SOC_RUN
-#define SENSOR_NUM_PWR_P0V11VR0POUT								(0x6D) // CPU 1.1 Volt VR // P0_VDD_11_SUS
-#define SENSOR_NUM_PWR_P0IOVR0POUT								(0x6E) // CPU VDDIO VR // P0_VDD_VDDIO_RUN
+// MB Voltage (ADC)
+#define SENSOR_NUM_VOLT_P12V									(0x33) // ADC0
+#define SENSOR_NUM_AUX_P12V										(0x34) // ADC13
+#define SENSOR_NUM_AUX_P5V										(0x35) // ADC5
+#define SENSOR_NUM_AUX_P3V3										(0x36) // ADC14
 
-// Fan
-#define SENSOR_NUM_TACH_Fan0_0									(0x70)
-#define SENSOR_NUM_TACH_Fan0_1									(0x71)
-#define SENSOR_NUM_TACH_Fan1_0									(0x72)
-#define SENSOR_NUM_TACH_Fan1_1									(0x73)
-#define SENSOR_NUM_TACH_Fan2_0									(0x74)
-#define SENSOR_NUM_TACH_Fan2_1									(0x75)
-#define SENSOR_NUM_TACH_Fan3_0									(0x76)
-#define SENSOR_NUM_TACH_Fan3_1									(0x77)
+// DIMM
+#define SENSOR_NUM_P0_DIMM_A0_TEMP								(0x40)
+#define SENSOR_NUM_P0_DIMM_B0_TEMP								(0x41)
+#define SENSOR_NUM_P0_DIMM_C0_TEMP								(0x42)
+#define SENSOR_NUM_P0_DIMM_D0_TEMP								(0x43)
+#define SENSOR_NUM_P0_DIMM_E0_TEMP								(0x44)
+#define SENSOR_NUM_P0_DIMM_F0_TEMP								(0x45)
+#define SENSOR_NUM_P0_DIMM_G0_TEMP								(0x46)
+#define SENSOR_NUM_P0_DIMM_H0_TEMP								(0x47)
+#define SENSOR_NUM_P0_DIMM_I0_TEMP								(0x48)
+#define SENSOR_NUM_P0_DIMM_J0_TEMP								(0x49)
+#define SENSOR_NUM_P0_DIMM_K0_TEMP								(0x4A)
+#define SENSOR_NUM_P0_DIMM_L0_TEMP								(0x4B)
 
-#define SENSOR_NUM_TACH_Fan4_0									(0x78)
-#define SENSOR_NUM_TACH_Fan4_1									(0x79)
-#define SENSOR_NUM_TACH_Fan5_0									(0x7A)
-#define SENSOR_NUM_TACH_Fan5_1									(0x7B)
-#define SENSOR_NUM_TACH_Fan6_0									(0x7C)
-#define SENSOR_NUM_TACH_Fan6_1									(0x7D)
-// Becasue the extended fan board can support up to 8 dual-fans(16 tach)
-// Reserved sensor number 0x7E ~ 0x87
+// PSU0
+#define SENSOR_NUM_PSU0_TEMP									(0x80)
+#define SENSOR_NUM_PSU0_VOUT									(0x84)
+#define SENSOR_NUM_PSU0_CIN										(0x88)
+#define SENSOR_NUM_PSU0_COUT									(0x8C)
+#define SENSOR_NUM_PSU0_POUT									(0x90)
+#define SENSOR_NUM_PSU0_FAN										(0x94)
+#define SENSOR_NUM_PSU0_STATUS									(0x98)
+#define SENSOR_NUM_PSU0_PIN										(0x9C)
+// PSU1
+#define SENSOR_NUM_PSU1_TEMP									(0x81)
+#define SENSOR_NUM_PSU1_VOUT									(0x85)
+#define SENSOR_NUM_PSU1_CIN										(0x89)
+#define SENSOR_NUM_PSU1_COUT									(0x8D)
+#define SENSOR_NUM_PSU1_POUT									(0x91)
+#define SENSOR_NUM_PSU1_FAN										(0x95)
+#define SENSOR_NUM_PSU1_STATUS									(0x99)
+#define SENSOR_NUM_PSU1_PIN										(0x9D)
 
-#define SENSOR_NUM_TEMP_FAN_BOARD								(0x88)
+// GPU
+#define SENSOR_NUM_GPU0_TEMP									(0xD9) // Reserved
 
-// Front panel
-#define SENSOR_NUM_TEMP_FP										(0x89)
+// NIC card
+#define SENSOR_NUM_NIC_CARD0_TEMP								(0xD8) // Reserved
 
-// Middle panel
-#define SENSOR_NUM_TEMP_MP										(0x8A)
+// Front panel board
+#define SENSOR_NUM_FP_TEMP										(0xE4)
 
-// OCP NIC card
-#define SENSOR_NUM_TEMP_OCP0									(0x8B)
-#define SENSOR_NUM_TEMP_OCP1									(0x8C)
+// PDB
+#define SENSOR_NUM_PDB0_TEMP									(0xC1)
+#define SENSOR_NUM_PDB0_VOLT_P12V								(0xC3) // ADC1
+#define SENSOR_NUM_PDB0_VOLT_P5V								(0xC5) // ADC3
+#define SENSOR_NUM_PDB0_VOLT_P3V3								(0xC7) // ADC2
 
 // Riser card
-#define SENSOR_NUM_TEMP_RISER0									(0x8D)
+#define SENSOR_NUM_RISER0_TEMP									(0xC9) // Reserved
 
-// NVMe
+// RAID card
+#define SENSOR_NUM_RAID_TEMP									(0xD0) // Reserved
 
+// Fan
+#define SENSOR_NUM_Fan0_0_TACH									(0xA0)
+#define SENSOR_NUM_Fan0_1_TACH									(0xA1)
+#define SENSOR_NUM_Fan1_0_TACH									(0xA2)
+#define SENSOR_NUM_Fan1_1_TACH									(0xA3)
+#define SENSOR_NUM_Fan2_0_TACH									(0xA4)
+#define SENSOR_NUM_Fan2_1_TACH									(0xA5)
+#define SENSOR_NUM_Fan3_0_TACH									(0xA6)
+#define SENSOR_NUM_Fan3_1_TACH									(0xA7)
+
+#define SENSOR_NUM_Fan4_0_TACH									(0xA8)
+#define SENSOR_NUM_Fan4_1_TACH									(0xA9)
+#define SENSOR_NUM_Fan5_0_TACH									(0xAA)
+#define SENSOR_NUM_Fan5_1_TACH									(0xAB)
+#define SENSOR_NUM_Fan6_0_TACH									(0xAC)
+#define SENSOR_NUM_Fan6_1_TACH									(0xAD)
+// Fan board
+#define SENSOR_NUM_FANBOARD0_TEMP								(0xE0)
+
+// Battery
+#define SENSOR_NUM_BAT_VOLT_P3V									(0xCF) // ADC7
 
 
 

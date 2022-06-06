@@ -39,80 +39,62 @@ typedef struct {
 } HYVE_PACKED HyveSensorReadArrt_T;
 
 typedef enum {
-	SensorIndex_3V3Bat = 0,
-	SensorIndex_TEMP_MB_1,
-	SensorIndex_TEMP_MB_2,
-	SensorIndex_TEMP_MB_3_0,
-	SensorIndex_TEMP_MB_3_1,
-	SensorIndex_TEMP_MB_3_2,
-	SensorIndex_TEMP_MB_3_3,
-	SensorIndex_TEMP_MB_3_4,
-	SensorIndex_TEMP_MB_3_5,
-	SensorIndex_TEMP_MB_3_6,
-	SensorIndex_TEMP_MB_3_7,
-	SensorIndex_TEMP_MB_3_8,
-	SensorIndex_TEMP_CPU0,
-	SensorIndex_PWR_CPU0,
-	SensorIndex_TEMP_DIMMA0,
-	SensorIndex_TEMP_DIMMB0,
-	SensorIndex_TEMP_DIMMC0,
-	SensorIndex_TEMP_DIMMD0,	
-	SensorIndex_TEMP_DIMME0,
-	SensorIndex_TEMP_DIMMF0,
-	SensorIndex_TEMP_DIMMG0,
-	SensorIndex_TEMP_DIMMH0,		
-	SensorIndex_TEMP_DIMMI0,
-	SensorIndex_TEMP_DIMMJ0,
-	SensorIndex_TEMP_DIMMK0,
-	SensorIndex_TEMP_DIMML0,
-	SensorIndex_TEMP_P0SOCVR0,
-	SensorIndex_TTEMP_P0V11VR0,
-	SensorIndex_TEMP_P0IOVR0,
-	SensorIndex_PWR_P0SOCVR0POUT,
-	SensorIndex_PWR_P0V11VR0POUT,
-	SensorIndex_PWR_P0IOVR0POUT,
-	SensorIndex_TEMP_FAN_BOARD,
-	SensorIndex_TEMP_FP,
-	SensorIndex_TEMP_MP,
+	SensorIndex_CPU0_TEMP = 0,
+	SensorIndex_P0_PACKAGE_POWER,
+	SensorIndex_OUTLET_TEMP,
+	SensorIndex_INLET_TEMP,
+	SensorIndex_CPU0_VR0_TEMP,
+	SensorIndex_CPU0_VR1_TEMP,
+	SensorIndex_CPU0_VR2_TEMP,
+	SensorIndex_CPU0_VR0_POUT,
+	SensorIndex_CPU0_VR1_POUT,
+	SensorIndex_CPU0_VR2_POUT,
+	SensorIndex_P0_DIMM_A0_TEMP,
+	SensorIndex_P0_DIMM_B0_TEMP,
+	SensorIndex_P0_DIMM_C0_TEMP,
+	SensorIndex_P0_DIMM_D0_TEMP,
+	SensorIndex_P0_DIMM_E0_TEMP,
+	SensorIndex_P0_DIMM_F0_TEMP,
+	SensorIndex_P0_DIMM_G0_TEMP,
+	SensorIndex_P0_DIMM_H0_TEMP,
+	SensorIndex_P0_DIMM_I0_TEMP,
+	SensorIndex_P0_DIMM_J0_TEMP,
+	SensorIndex_P0_DIMM_K0_TEMP,
+	SensorIndex_P0_DIMM_L0_TEMP,
+	SensorIndex_FP_TEMP,
+	SensorIndex_PDB0_TEMP,
+	SensorIndex_FANBOARD0_TEMP,
+	SensorIndex_BAT_VOLT_P3V,
 	SensorReadArrtIndex_MAX
 } HyvePlatformSensorReadArrtIndex;
 
 static const INT16U g_sensorIndexTable[SensorReadArrtIndex_MAX] = {
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_VOLT_BATP3V),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_1),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_2),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_1),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_2),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_3),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_4),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_5),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_6),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_7),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MB_3_8),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_CPU0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_PWR_CPU0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMA0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMB0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMC0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMD0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMME0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMF0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMG0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMH0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMI0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMJ0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMMK0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_DIMML0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_P0SOCVR0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_P0V11VR0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_P0IOVR0),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_PWR_P0SOCVR0POUT),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_PWR_P0V11VR0POUT),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_PWR_P0IOVR0POUT),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_FAN_BOARD),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_FP),
-		HYVE_LUN_NUM(BMC_SENSOR_LUN01, SENSOR_NUM_TEMP_MP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_CPU0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_PACKAGE_POWER),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_OUTLET_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_INLET_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_CPU0_VR0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_CPU0_VR1_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_CPU0_VR2_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_CPU0_VR0_POUT),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_CPU0_VR1_POUT),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_CPU0_VR2_POUT),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_A0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_B0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_C0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_D0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_E0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_F0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_G0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_H0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_I0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_J0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_K0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_P0_DIMM_L0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_FP_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_PDB0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_FANBOARD0_TEMP),
+		HYVE_LUN_NUM(BMC_SENSOR_LUN, SENSOR_NUM_BAT_VOLT_P3V),
 };
 
 INT8U g_Is_DIMM_Ready = FALSE;
@@ -138,8 +120,8 @@ static HyvePlatformTMP75Sensor_T* HyvePlatform_Get_ExtBoardTMP75Sensors(INT8U* p
 {
 	static HyvePlatformTMP75Sensor_T TMP75Sensors[] = {
 			// sensorIndex					enable	is_standby	i2cBus                 					i2cAddr
-			{ SensorIndex_TEMP_FAN_BOARD,	FALSE,	TRUE, 		HYFEPLATFORM_SMBUS_FAN_BOARD,			HYFEPLATFORM_ADDR_FAN_BOARD_TEMP },
-			{ SensorIndex_TEMP_FP,			FALSE,	TRUE,		HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD,	HYFEPLATFORM_ADDR_FP_TEMP},
+			{ SensorIndex_FANBOARD0_TEMP,	FALSE,	TRUE, 		HYFEPLATFORM_SMBUS_FAN_BOARD,			HYFEPLATFORM_ADDR_FAN_BOARD_TEMP },
+			{ SensorIndex_FP_TEMP,			FALSE,	TRUE,		HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD,	HYFEPLATFORM_ADDR_FP_TEMP},
 	};
 	*pCount = HYVE_ARRAYSIZE(TMP75Sensors);
 	return TMP75Sensors;
@@ -171,7 +153,7 @@ int HyveMonitor_GetReadingValBySensorNum(const INT8U sensorNum, const INT8U sens
 		phal->status_code = HAL_ERR_READ;
 		return -1;
 	}
-	if (SensorIndex_3V3Bat == index) {
+	if (SensorIndex_BAT_VOLT_P3V == index) {
 		is_WordVal = TRUE;
 	}
 	if (!is_WordVal) {
@@ -234,16 +216,16 @@ static int HyvePlatform_Sensor_3V3Bat()
 			ret = ((int(*)(int, unsigned short*))g_HALADCHandle[HAL_ADC_READ])(ADC_CH_3V3BATTERY, &rData);
 			if (!ret) {
 				 // The ADC reading is a 10-bit value, left shift 2 bit to 8 bit
-				g_SensorReadArrt[SensorIndex_3V3Bat].reading = rData >> 2;
-				g_SensorReadArrt[SensorIndex_3V3Bat].status = HAL_ERR_NONE;
-				g_SensorReadArrt[SensorIndex_3V3Bat].retryCount = 0;
+				g_SensorReadArrt[SensorIndex_BAT_VOLT_P3V].reading = rData >> 2;
+				g_SensorReadArrt[SensorIndex_BAT_VOLT_P3V].status = HAL_ERR_NONE;
+				g_SensorReadArrt[SensorIndex_BAT_VOLT_P3V].retryCount = 0;
 				is_done = TRUE;
 			} else {
-				if (g_SensorReadArrt[SensorIndex_3V3Bat].retryCount > SENSOR_READ_RETRY_COUNT) {
-					g_SensorReadArrt[SensorIndex_3V3Bat].status = HAL_ERR_READ;
+				if (g_SensorReadArrt[SensorIndex_BAT_VOLT_P3V].retryCount > SENSOR_READ_RETRY_COUNT) {
+					g_SensorReadArrt[SensorIndex_BAT_VOLT_P3V].status = HAL_ERR_READ;
 					is_done = TRUE;
 				} else {
-					g_SensorReadArrt[SensorIndex_3V3Bat].retryCount++;
+					g_SensorReadArrt[SensorIndex_BAT_VOLT_P3V].retryCount++;
 				}
 			}
 			if (TRUE == is_done) {
@@ -259,8 +241,8 @@ static int HyvePlatform_Sensor_3V3Bat()
 
 static void HyvePlatform_Sensor_MBTemp()
 {
-	static const INT8U TMP75Addrs[] = { HYFEPLATFORM_ADDR_MB_TMP75_1, HYFEPLATFORM_ADDR_MB_TMP75_2 };
-	INT8U i = 0, sensorIndex = SensorIndex_TEMP_MB_1;
+	static const INT8U TMP75Addrs[] = { HYFEPLATFORM_ADDR_MB_TMP75_2, HYFEPLATFORM_ADDR_MB_TMP75_1 };
+	INT8U i = 0, sensorIndex = SensorIndex_OUTLET_TEMP;
 
 	for (i = 0; i < HYVE_ARRAYSIZE(TMP75Addrs); i++) {
 		int data = 0;
@@ -278,6 +260,8 @@ static void HyvePlatform_Sensor_MBTemp()
 		}
 		sensorIndex++;
 	}
+#if 0 // because we don't know what's the actual measure point of the CPU 
+	  // so, not monitor the TMP_468
 	sensorIndex = SensorIndex_TEMP_MB_3_0;
 	for (i = 0; i < HyveTMP_Channel_9; i++) {
 		int data = 0;
@@ -295,6 +279,7 @@ static void HyvePlatform_Sensor_MBTemp()
 		}
 		sensorIndex++;
 	}
+#endif
 }
 
 static inline INT8U is_PwrOnDelayOk(const INT8U delayCount)
@@ -315,7 +300,7 @@ static void HyvePlatform_Sensor_CPU(int BMCInst)
 			if (HyveMuxCtrl_IMX31X2(HYFEPLATFORM_APML_BUS, HYFEPLATFORM_IMX3112_ADDR, MUX_CHANNEL_0) < 0) {
 				INT8U i = 0;
 
-				for (i = SensorIndex_TEMP_CPU0; i < (SensorIndex_PWR_CPU0 + 1); i++) {
+				for (i = SensorIndex_CPU0_TEMP; i < (SensorIndex_P0_PACKAGE_POWER + 1); i++) {
 					if (g_SensorReadArrt[i].retryCount > SENSOR_READ_RETRY_COUNT) {
 						g_SensorReadArrt[i].status  = HAL_ERR_READ;
 					} else {
@@ -327,28 +312,28 @@ static void HyvePlatform_Sensor_CPU(int BMCInst)
 			// Read CPU temp
 			if (HyveAMD_ReadCPU_Temp_Int(HYFEPLATFORM_APML_BUS, HYFEPLATFORM_SBTSI_ADDR,
 										SENSOR_READ_RETRY_COUNT, rBuff) < 0) {
-				if (g_SensorReadArrt[SensorIndex_TEMP_CPU0].retryCount > SENSOR_READ_RETRY_COUNT) {
-					g_SensorReadArrt[SensorIndex_TEMP_CPU0].status  = HAL_ERR_READ;
+				if (g_SensorReadArrt[SensorIndex_CPU0_TEMP].retryCount > SENSOR_READ_RETRY_COUNT) {
+					g_SensorReadArrt[SensorIndex_CPU0_TEMP].status  = HAL_ERR_READ;
 				} else {
-					g_SensorReadArrt[SensorIndex_TEMP_CPU0].retryCount++;
+					g_SensorReadArrt[SensorIndex_CPU0_TEMP].retryCount++;
 				}
 			} else {
-				g_SensorReadArrt[SensorIndex_TEMP_CPU0].status = HAL_ERR_NONE;
-				g_SensorReadArrt[SensorIndex_TEMP_CPU0].retryCount = 0;
-				g_SensorReadArrt[SensorIndex_TEMP_CPU0].reading = rBuff[0];
+				g_SensorReadArrt[SensorIndex_CPU0_TEMP].status = HAL_ERR_NONE;
+				g_SensorReadArrt[SensorIndex_CPU0_TEMP].retryCount = 0;
+				g_SensorReadArrt[SensorIndex_CPU0_TEMP].reading = rBuff[0];
 			}
 			// Read CPU average package power consumption
-			if (HyveAMD_ReadCPU_Power(HYFEPLATFORM_APML_BUS, HYFEPLATFORM_SBTSI_ADDR,
+			if (HyveAMD_ReadCPU_Power(HYFEPLATFORM_APML_BUS, HYFEPLATFORM_SBRMI_ADDR,
 										SENSOR_READ_RETRY_COUNT, pU32Data) < 0) {
-				if (g_SensorReadArrt[SensorIndex_PWR_CPU0].retryCount > SENSOR_READ_RETRY_COUNT) {
-					g_SensorReadArrt[SensorIndex_PWR_CPU0].status  = HAL_ERR_READ;
+				if (g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].retryCount > SENSOR_READ_RETRY_COUNT) {
+					g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].status  = HAL_ERR_READ;
 				} else {
-					g_SensorReadArrt[SensorIndex_PWR_CPU0].retryCount++;
+					g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].retryCount++;
 				}
 			} else {
-				g_SensorReadArrt[SensorIndex_PWR_CPU0].status = HAL_ERR_NONE;
-				g_SensorReadArrt[SensorIndex_PWR_CPU0].retryCount = 0;
-				g_SensorReadArrt[SensorIndex_PWR_CPU0].reading = ((*pU32Data) / 1000);
+				g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].status = HAL_ERR_NONE;
+				g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].retryCount = 0;
+				g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].reading = ((*pU32Data) / 1000);
 			}			
 		} else if (HyvePlatform_Is_CPU_PwrGood() && is_PwrOnDelayOk(POWERON_DELAY_CPU)) {
 			is_ready = TRUE;
@@ -368,10 +353,10 @@ static void HyvePlatform_Sensor_DIMM(int BMCInst)
 			INT8U sensorIndex = 0;
 
 			// Read DIMM temp
-			for (sensorIndex = SensorIndex_TEMP_DIMMA0;
-					sensorIndex < (SensorIndex_TEMP_DIMMA0 + HYVE_MAX_HOST_DIMM_NUM);
+			for (sensorIndex = SensorIndex_P0_DIMM_A0_TEMP;
+					sensorIndex < (SensorIndex_P0_DIMM_A0_TEMP + HYVE_MAX_HOST_DIMM_NUM);
 					sensorIndex++) {
-				INT8U index = sensorIndex - SensorIndex_TEMP_DIMMA0;
+				INT8U index = sensorIndex - SensorIndex_P0_DIMM_A0_TEMP;
 				INT16U rData = 0;
 
 				// Check the bus is ready
@@ -414,8 +399,8 @@ static void HyvePlatform_Sensor_VR(int BMCInst)
 
 	if (PDK_GetPSGood(BMCInst)) {
 		if (is_ready) {
-			INT8U index = 0, sensorIndex = SensorIndex_TEMP_P0SOCVR0,
-					sensorIndex2 = SensorIndex_PWR_P0SOCVR0POUT;
+			INT8U index = 0, sensorIndex = SensorIndex_CPU0_VR0_TEMP,
+					sensorIndex2 = SensorIndex_CPU0_VR0_POUT;
 
 			for (index = 0; index < HYVE_ARRAYSIZE(VRAddrs); index++) {
 				INT32U dataBuff = 0;
@@ -680,15 +665,15 @@ void HyvePlatform_Sensor_RstStatAfterPwrOff()
 	INT8U sensorIndex = 0;
 
 	// Reset CPU sensor reading status
-	for (sensorIndex = SensorIndex_TEMP_CPU0;
-			sensorIndex < (SensorIndex_PWR_CPU0 + 1);
+	for (sensorIndex = SensorIndex_CPU0_TEMP;
+			sensorIndex < (SensorIndex_P0_PACKAGE_POWER + 1);
 			sensorIndex++) {
 		g_SensorReadArrt[sensorIndex].status  = HAL_ERR_FUNC_NOT_SUPPORTED;
 		g_SensorReadArrt[sensorIndex].retryCount = 0;
 	}
 	// Reset DIMM temp sensor reading status
-	for (sensorIndex = SensorIndex_TEMP_DIMMA0;
-			sensorIndex < (SensorIndex_TEMP_DIMMA0 + HYVE_MAX_HOST_DIMM_NUM);
+	for (sensorIndex = SensorIndex_P0_DIMM_A0_TEMP;
+			sensorIndex < (SensorIndex_P0_DIMM_A0_TEMP + HYVE_MAX_HOST_DIMM_NUM);
 			sensorIndex++) {
 		g_SensorReadArrt[sensorIndex].status  = HAL_ERR_FUNC_NOT_SUPPORTED;
 		g_SensorReadArrt[sensorIndex].retryCount = 0;

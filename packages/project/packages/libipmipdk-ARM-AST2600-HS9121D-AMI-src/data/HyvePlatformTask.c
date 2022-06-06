@@ -146,15 +146,15 @@ static void* HyvePlatform_GenericTask(void* pArg)
             	static INT8U is_intruded = FALSE;
 
             	if (!is_intruded && !(regVal & HYVE_BIT(4))) {
-                	if (!HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PHYSICAL_SECURITY,
-                			SENSOR_NUM_STS_INTRUSION,
+                	if (!HyveExt_LogEvent(0, BMC_GEN_ID, BMC_EVENT_SENSOR_LUN, SENSOR_TYPE_PHYSICAL_SECURITY,
+                			SENSOR_NUM_INTRUSION_STATUS,
             				((is_intruded << 7)| EVENT_TYPE_SENSOR_SPECIFIC_6F),
             				EVENT_GENERAL_CHASSIS_INTRUSION, 0xFF, 0xFF, 1)) {
                 		is_intruded = TRUE;
             		}
             	} else if (is_intruded && (regVal & HYVE_BIT(4))) {
-                	if (!HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PHYSICAL_SECURITY,
-                			SENSOR_NUM_STS_INTRUSION,
+                	if (!HyveExt_LogEvent(0, BMC_GEN_ID, BMC_EVENT_SENSOR_LUN, SENSOR_TYPE_PHYSICAL_SECURITY,
+                			SENSOR_NUM_INTRUSION_STATUS,
             				((is_intruded << 7)| EVENT_TYPE_SENSOR_SPECIFIC_6F),
             				EVENT_GENERAL_CHASSIS_INTRUSION, 0xFF, 0xFF, 1)) {
                 		is_intruded = FALSE;
@@ -261,6 +261,8 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	break;
 
             case HyvePlatformIRQMsgQ_BIOS_POST:
+        		// if it's BIOS_POST, wait a while to make sure SYS_PWRGOOD is down
+            	if (!msg.msgData) { sleep(1); }
             	if (HYVEPLATFORM_IS_SYS_PWRGOOD) {
 					HyveExt_BIOS_Status(Hyve_VALUE_SET,
 							(msg.msgData ? Hyve_BIOS_POST_START : Hyve_BIOS_POST_END));
@@ -268,10 +270,10 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
 					// to void redundant SEL, put the action here, it will be moved to HyvePlatform_BIOS_Status_Callback
 					if (!msg.msgData) {
 						// Record POST complete SEL
-						HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_SYSTEMEVENT,
-										SENSOR_NUM_STS_BIOSPOSTCMPT	,
-										EVENT_TYPE_SENSOR_SPECIFIC_6F,
-										EVENT_OEM_SYSTEM_BOOT_EVENT, 0xFF, 0xFF, BMCInst);
+    					HyveExt_LogEvent(0, BMC_GEN_ID, BMC_EVENT_SENSOR_LUN, SENSOR_TYPE_SYSTEMEVENT,
+    									SENSOR_NUM_BIOS_POST_CMPLT	,
+    									EVENT_TYPE_DIGITAL_DISCRETE_03,
+    									EVENT_STATE_ASSERTED, 0xFF, 0xFF, BMCInst);
 					}
             	}
         		break;
@@ -280,11 +282,11 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             {
             	printf("IRQMsgQ_CPU_ThermalTrip, data: %u\n", msg.msgData);
 				// Check the CPU temp
-				_FAR_ SensorInfo_T *pSensorInfo = API_GetSensorInfo(SENSOR_NUM_TEMP_CPU0, BMC_SENSOR_LUN01, BMCInst);
+				_FAR_ SensorInfo_T *pSensorInfo = API_GetSensorInfo(SENSOR_NUM_CPU0_TEMP, BMC_SENSOR_LUN, BMCInst);
 				if (pSensorInfo && (pSensorInfo-> SensorReading > pSensorInfo->UpperCritical)) {
 					// Record SEL
-					HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PROCESSOR,
-									SENSOR_NUM_ERR_CPU0THRMTRIP,
+					HyveExt_LogEvent(0, BMC_GEN_ID, BMC_EVENT_SENSOR_LUN, SENSOR_TYPE_PROCESSOR,
+									SENSOR_NUM_CPU0_THERMTRIP,
 									(((!msg.msgData) << 7) | EVENT_TYPE_SENSOR_SPECIFIC_6F),
 									EVENT_PROCESSOR_THERMALTRIP, 0xFF, 0xFF, BMCInst);
 				}
@@ -317,8 +319,8 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	if ((!msg.msgData) ||
             			(msg.msgData && !HYVEPLATFORM_IS_SYS_PWRGOOD)) {
                 	// Record button event
-            		HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_BUTTON,
-									SENSOR_NUM_INFO_BTN, EVENT_TYPE_SENSOR_SPECIFIC_6F,
+            		HyveExt_LogEvent(0, BMC_GEN_ID, BMC_EVENT_SENSOR_LUN, SENSOR_TYPE_BUTTON,
+									SENSOR_NUM_BUTTON_PRESS, EVENT_TYPE_SENSOR_SPECIFIC_6F,
 									EVENT_POWERBUTTON_PRESSED, 0xFF, 0xFF, BMCInst);
                     if (!msg.msgData) {
 						// For power off by Button, just record ACPI SEL 
@@ -339,8 +341,8 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             		OnSetRestartCause(RESTART_CAUSE_RESET_BUTTON, TRUE, BMCInst);
                     Platform_HostColdReset(BMCInst);
                 	// Record button event
-                    HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_BUTTON,
-									SENSOR_NUM_INFO_BTN, EVENT_TYPE_SENSOR_SPECIFIC_6F,
+                    HyveExt_LogEvent(0, BMC_GEN_ID, BMC_EVENT_SENSOR_LUN, SENSOR_TYPE_BUTTON,
+									SENSOR_NUM_BUTTON_PRESS, EVENT_TYPE_SENSOR_SPECIFIC_6F,
 									EVENT_RESETBUTTON_PRESSED, 0xFF, 0xFF, BMCInst);
             	}
             	break;
@@ -352,7 +354,7 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             	if (msg.msgData) { is_asserted = TRUE; }
 
             	if (is_asserted) {
-                	HyveExt_LogEvent(0, BMC_GEN_ID, BMC_SENSOR_LUN01, SENSOR_TYPE_PSU,
+                	HyveExt_LogEvent(0, BMC_GEN_ID, BMC_EVENT_SENSOR_LUN, SENSOR_TYPE_PSU,
     								SENSOR_NUM_PMBUS_ALERT,
     								((msg.msgData << 7) | EVENT_TYPE_SENSOR_SPECIFIC_6F),
     								EVENT_POWER_SUPPLY_FAILURE_DETECTED, 0xFF, 0xFF, BMCInst);
