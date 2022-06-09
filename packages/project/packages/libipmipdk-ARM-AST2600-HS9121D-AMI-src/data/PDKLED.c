@@ -42,6 +42,7 @@
 int
 PDK_PlatformSetupLED (int BMCInst)
 {
+	INT8 sysLEDInitState = 0;
 	int ret = 0;
 	IndicatorInfo_T PlatformLEDMap[MAX_LED_NUM] = {
 		{
@@ -60,7 +61,41 @@ PDK_PlatformSetupLED (int BMCInst)
 			0,
 			0,
 		},
+		{
+			FALSE,
+			PLATFORM_LED_SYS_STATUS_Y,
+			LED_PATTERN_SLOW_BLINK,
+			0,
+			0,
+			0,
+		},
+		{
+			FALSE,
+			PLATFORM_LED_SYS_STATUS_G,
+			LED_PATTERN_ON,
+			0,
+			0,
+			0,
+		},
+		{
+			FALSE,
+			PLATFORM_LED_SYS_STATUS_R,
+			LED_PATTERN_SLOW_BLINK,
+			0,
+			0,
+			0,
+		}
 	};
+
+	sysLEDInitState = Hyveplatform_ErrorSELstatus();
+	if (2 == sysLEDInitState) {
+		PlatformLEDMap[PLATFORM_LED_SYS_STATUS_R].Enable = TRUE;
+	} else if (1 == sysLEDInitState) {
+		PlatformLEDMap[PLATFORM_LED_SYS_STATUS_Y].Enable = TRUE;
+	} else {
+		INT8U on = 1;
+		HyvePlatform_LED_Control(PLATFORM_LED_SYS_STATUS_G, Hyve_VALUE_SET, &on);
+	}
 
 	LOCK_BMC_SHARED_MEM_RET(BMCInst, ret);
 	if (ret < 0) {
@@ -68,7 +103,7 @@ PDK_PlatformSetupLED (int BMCInst)
 		return ret;
 	}
 	_fmemcpy ((BMC_GET_SHARED_MEM (BMCInst)->LEDInfo), &PlatformLEDMap, (MAX_LED_NUM * sizeof(IndicatorInfo_T)));
-	UNLOCK_BMC_SHARED_MEM(BMCInst);   
+	UNLOCK_BMC_SHARED_MEM(BMCInst);
     return 0;
 }
 
