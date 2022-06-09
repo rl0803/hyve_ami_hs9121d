@@ -257,6 +257,10 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
             		HyveExt_ClrAndStopFRB2WDT(BMCInst);
             		HyveExt_BIOS_Status(Hyve_VALUE_CLEAN, Hyve_BIOS_NO_ACTIVE);
             		HyvePlatform_Sensor_RstStatAfterPwrOff();
+            	} else {
+            		// make sure the SCU is unlocked
+            		INT32U regVal = SCU_PROTECT_KEY;
+            		HyveExt_BMC_Register(Hyve_RegOp_Assign, SCU_REG_BASE, &regVal);
             	}
             	break;
 
