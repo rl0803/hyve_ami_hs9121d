@@ -349,6 +349,7 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
  
             case HyvePlatformIRQMsgQ_PMBus_ALERT:
             {
+#if 0 // No need to record SEL
             	static INT8U is_asserted = FALSE;
 
             	if (msg.msgData) { is_asserted = TRUE; }
@@ -361,6 +362,7 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
                 	// Because the PSU status sensor will record more detail SEL, here just record a very general one
                 	is_asserted = FALSE;
             	}
+#endif
             }
         		break;
 
