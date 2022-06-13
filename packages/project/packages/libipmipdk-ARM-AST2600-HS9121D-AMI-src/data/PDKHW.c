@@ -715,28 +715,15 @@ default_routing:
 		
 		case MUX_2_SOL:
 		{
-
-#if 0
-			//UART3 TO COM2, and COM2 TO UART3
-			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
-			hal.lpcuart.source_port = UART3;
-			hal.lpcuart.destination_port = UART2;
-			lpcuart_route_set(&hal);
-
-			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
-			hal.lpcuart.source_port = UART2;
-			hal.lpcuart.destination_port = UART3;
-			lpcuart_route_set(&hal);
-#endif
-			//UART4 TO UART1, and UART1 TO UART4			
-			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
-			hal.lpcuart.source_port = UART4;
-			hal.lpcuart.destination_port = UART1;
-			lpcuart_route_set(&hal);
-
-			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
+			//UART1 TO COM1, and COM1 TO UART1
+			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_UART;
 			hal.lpcuart.source_port = UART1;
-			hal.lpcuart.destination_port = UART4;
+			hal.lpcuart.destination_port = IO1;
+			lpcuart_route_set(&hal);
+	
+			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_COM;
+			hal.lpcuart.source_port = IO1;
+			hal.lpcuart.destination_port = UART1;
 			lpcuart_route_set(&hal);
 
 			pBMCInfo->SerialConfig.CurSwitchDir=MUX_2_SOL;
