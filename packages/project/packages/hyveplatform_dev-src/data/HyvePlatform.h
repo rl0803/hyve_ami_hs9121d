@@ -98,6 +98,10 @@ typedef enum {
 //#define HYVE_IMX31X2_BUS_ACCESS						HyveExt_I3C_Access_Retry // TODO
 #define HYFEPLATFORM_IMX3112_ADDR						(0xE0)
 
+#define HYFEPLATFORM_SMBUS_PDB							HYVE_PSU_I2C_BUS
+#define HYFEPLATFORM_ADDR_PDB_TMP75						(0x9A)	// TMP75
+#define HYFEPLATFORM_ADDR_PDB_FRU						(0xAC)  // AT24C02C, size 256 Bytes
+
 #define HYFEPLATFORM_SMBUS_PCIE							(5)
 #define HYFEPLATFORM_ADDR_MUX_PCIE						(0xE8)	// PCA9546A
 

@@ -120,8 +120,9 @@ static HyvePlatformTMP75Sensor_T* HyvePlatform_Get_ExtBoardTMP75Sensors(INT8U* p
 {
 	static HyvePlatformTMP75Sensor_T TMP75Sensors[] = {
 			// sensorIndex					enable	is_standby	i2cBus                 					i2cAddr
-			{ SensorIndex_FANBOARD0_TEMP,	FALSE,	TRUE, 		HYFEPLATFORM_SMBUS_FAN_BOARD,			HYFEPLATFORM_ADDR_FAN_BOARD_TEMP },
+			{ SensorIndex_FANBOARD0_TEMP,	TRUE,	TRUE, 		HYFEPLATFORM_SMBUS_FAN_BOARD,			HYFEPLATFORM_ADDR_FAN_BOARD_TEMP },
 			{ SensorIndex_FP_TEMP,			FALSE,	TRUE,		HYFEPLATFORM_SMBUS_FP_MP_DBGCARD_CPLD,	HYFEPLATFORM_ADDR_FP_TEMP},
+			{ SensorIndex_PDB0_TEMP,		TRUE,	TRUE,		HYFEPLATFORM_SMBUS_PDB,					HYFEPLATFORM_ADDR_PDB_TMP75 },
 	};
 	*pCount = HYVE_ARRAYSIZE(TMP75Sensors);
 	return TMP75Sensors;
