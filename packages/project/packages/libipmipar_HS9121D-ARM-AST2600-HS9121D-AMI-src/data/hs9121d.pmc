@@ -68,7 +68,7 @@
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
-		<value>0x0</value>
+		<value>0x4b</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_CRITICAL</variable>
@@ -128,15 +128,15 @@
 		</config>
 		<config>
 			<variable>LWR_T_MASK</variable>
-			<value>0x200</value>
+			<value>0x280</value>
 		</config>
 		<config>
 			<variable>UPR_T_MASK</variable>
-			<value>0x2200</value>
+			<value>0x2280</value>
 		</config>
 		<config>
 			<variable>S_R_T_MASK</variable>
-			<value>0x1010</value>
+			<value>0x1818</value>
 		</config>
 		<config>
 			<variable>ANALOG_FORMAT</variable>
@@ -216,11 +216,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -427,11 +427,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -652,11 +652,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -877,11 +877,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -1102,11 +1102,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -1327,11 +1327,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -1552,11 +1552,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x14</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -1777,11 +1777,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0xb</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0xb</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -2069,11 +2069,11 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x64</value>
+		<value>0x2d</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x32</value>
+		<value>0x19</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
@@ -2085,7 +2085,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x64</value>
+		<value>0x32</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -2237,11 +2237,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -2292,11 +2292,11 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x64</value>
+		<value>0x3d</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x32</value>
+		<value>0x19</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
@@ -2308,7 +2308,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x64</value>
+		<value>0x32</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -2460,11 +2460,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -3845,7 +3845,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>DoNotMontiorOnStandby</value>
+		<value>MonitorOnstandby</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
@@ -4009,11 +4009,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x4</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x4</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -4070,7 +4070,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>DoNotMontiorOnStandby</value>
+		<value>MonitorOnstandby</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
@@ -4234,11 +4234,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x4</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x4</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -4295,7 +4295,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>DoNotMontiorOnStandby</value>
+		<value>MonitorOnstandby</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
@@ -4459,11 +4459,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x8</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x8</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -4520,7 +4520,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>DoNotMontiorOnStandby</value>
+		<value>MonitorOnstandby</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
@@ -4684,11 +4684,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0xb</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0xb</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -4921,11 +4921,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -5144,11 +5144,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -5367,11 +5367,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -5590,11 +5590,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -5813,11 +5813,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -6036,11 +6036,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -6259,11 +6259,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -6482,11 +6482,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -6705,11 +6705,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -6928,11 +6928,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -7151,11 +7151,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -7374,11 +7374,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -7437,15 +7437,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x97</value>
+		<value>0x19</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xc5</value>
+		<value>0x2d</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x8b</value>
+		<value>0x0</value>
 	</config>
 	<pdk>
 	</pdk>
@@ -7481,15 +7481,15 @@
 		</config>
 		<config>
 			<variable>LWR_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x200</value>
 		</config>
 		<config>
 			<variable>UPR_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x2200</value>
 		</config>
 		<config>
 			<variable>S_R_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x1010</value>
 		</config>
 		<config>
 			<variable>ANALOG_FORMAT</variable>
@@ -7557,7 +7557,7 @@
 		</config>
 		<config>
 			<variable>SEN_MAX</variable>
-			<value>0xff</value>
+			<value>0x7f</value>
 		</config>
 		<config>
 			<variable>SEN_MIN</variable>
@@ -7656,15 +7656,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x97</value>
+		<value>0x19</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xc5</value>
+		<value>0x2d</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x8b</value>
+		<value>0x0</value>
 	</config>
 	<pdk>
 	</pdk>
@@ -7700,15 +7700,15 @@
 		</config>
 		<config>
 			<variable>LWR_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x200</value>
 		</config>
 		<config>
 			<variable>UPR_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x2200</value>
 		</config>
 		<config>
 			<variable>S_R_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x1010</value>
 		</config>
 		<config>
 			<variable>ANALOG_FORMAT</variable>
@@ -7776,7 +7776,7 @@
 		</config>
 		<config>
 			<variable>SEN_MAX</variable>
-			<value>0xff</value>
+			<value>0x7f</value>
 		</config>
 		<config>
 			<variable>SEN_MIN</variable>
@@ -7859,7 +7859,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>MonitorOnstandby</value>
+		<value>DoNotMontiorOnStandby</value>
 	</config>
 	<config>
 		<variable>PSU_NUMBER</variable>
@@ -7875,15 +7875,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x97</value>
+		<value>0x6e</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xc5</value>
+		<value>0x72</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x8b</value>
+		<value>0x69</value>
 	</config>
 	<pdk>
 	</pdk>
@@ -7919,15 +7919,15 @@
 		</config>
 		<config>
 			<variable>LWR_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x2204</value>
 		</config>
 		<config>
 			<variable>UPR_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x2204</value>
 		</config>
 		<config>
 			<variable>S_R_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x1212</value>
 		</config>
 		<config>
 			<variable>ANALOG_FORMAT</variable>
@@ -7987,7 +7987,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xe</value>
+			<value>0xd</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -8007,7 +8007,7 @@
 		</config>
 		<config>
 			<variable>UPPER_CRITICAL</variable>
-			<value>0xfa</value>
+			<value>0x78</value>
 		</config>
 		<config>
 			<variable>UPPER_NON_CRITICAL</variable>
@@ -8019,7 +8019,7 @@
 		</config>
 		<config>
 			<variable>LOWER_CRITICAL</variable>
-			<value>0x5a</value>
+			<value>0x62</value>
 		</config>
 		<config>
 			<variable>LOWER_NON_CRITICAL</variable>
@@ -8031,11 +8031,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x2</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x2</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -8078,7 +8078,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>MonitorOnstandby</value>
+		<value>DoNotMontiorOnStandby</value>
 	</config>
 	<config>
 		<variable>PSU_NUMBER</variable>
@@ -8094,15 +8094,15 @@
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x97</value>
+		<value>0x6e</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xc5</value>
+		<value>0x72</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0x8b</value>
+		<value>0x69</value>
 	</config>
 	<pdk>
 	</pdk>
@@ -8138,15 +8138,15 @@
 		</config>
 		<config>
 			<variable>LWR_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x2204</value>
 		</config>
 		<config>
 			<variable>UPR_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x2204</value>
 		</config>
 		<config>
 			<variable>S_R_T_MASK</variable>
-			<value>0x0</value>
+			<value>0x1212</value>
 		</config>
 		<config>
 			<variable>ANALOG_FORMAT</variable>
@@ -8206,7 +8206,7 @@
 		</config>
 		<config>
 			<variable>R_EXP</variable>
-			<value>0xe</value>
+			<value>0xd</value>
 		</config>
 		<config>
 			<variable>ACF</variable>
@@ -8226,7 +8226,7 @@
 		</config>
 		<config>
 			<variable>UPPER_CRITICAL</variable>
-			<value>0xfa</value>
+			<value>0x78</value>
 		</config>
 		<config>
 			<variable>UPPER_NON_CRITICAL</variable>
@@ -8238,7 +8238,7 @@
 		</config>
 		<config>
 			<variable>LOWER_CRITICAL</variable>
-			<value>0x5a</value>
+			<value>0x62</value>
 		</config>
 		<config>
 			<variable>LOWER_NON_CRITICAL</variable>
@@ -8250,11 +8250,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x2</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x2</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -8469,11 +8469,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -8688,11 +8688,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -8735,7 +8735,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>MonitorOnstandby</value>
+		<value>DoNotMontiorOnStandby</value>
 	</config>
 	<config>
 		<variable>PSU_NUMBER</variable>
@@ -8907,11 +8907,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -8954,7 +8954,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>MonitorOnstandby</value>
+		<value>DoNotMontiorOnStandby</value>
 	</config>
 	<config>
 		<variable>PSU_NUMBER</variable>
@@ -9126,11 +9126,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x5</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -9173,7 +9173,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>MonitorOnstandby</value>
+		<value>DoNotMontiorOnStandby</value>
 	</config>
 	<config>
 		<variable>PSU_NUMBER</variable>
@@ -9392,7 +9392,7 @@
 	</config>
 	<config>
 		<variable>MONITOR_STATE</variable>
-		<value>MonitorOnstandby</value>
+		<value>DoNotMontiorOnStandby</value>
 	</config>
 	<config>
 		<variable>PSU_NUMBER</variable>
@@ -9783,11 +9783,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x3</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x3</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -10002,11 +10002,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x3</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x1</value>
+			<value>0x3</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -13895,11 +13895,11 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x64</value>
+		<value>0x2d</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x32</value>
+		<value>0x19</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
@@ -13911,7 +13911,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x64</value>
+		<value>0x32</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -13955,7 +13955,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -14063,11 +14063,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -14186,7 +14186,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1</value>
+			<value>0x2</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -14274,11 +14274,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x4</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x4</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -14411,7 +14411,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x2</value>
+			<value>0x3</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -14451,7 +14451,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x11</value>
+			<value>0x1a</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -14499,11 +14499,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x8</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x8</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -14636,7 +14636,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x3</value>
+			<value>0x4</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -14724,11 +14724,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0xb</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0xb</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -14961,11 +14961,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x7</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x2</value>
+			<value>0x7</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -15016,11 +15016,11 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x64</value>
+		<value>0x3d</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x32</value>
+		<value>0x19</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
@@ -15032,7 +15032,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x64</value>
+		<value>0x32</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -15184,11 +15184,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -15239,11 +15239,11 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x64</value>
+		<value>0x2d</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
-		<value>0x32</value>
+		<value>0x19</value>
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
@@ -15255,7 +15255,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x64</value>
+		<value>0x32</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -15407,11 +15407,11 @@
 		</config>
 		<config>
 			<variable>POSITIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>NEGATIVE_HYSTERISIS</variable>
-			<value>0x0</value>
+			<value>0x1</value>
 		</config>
 	</sdr>
 	<device_glyph>
@@ -15683,7 +15683,7 @@
 		</config>
 		<config>
 			<variable>DEVICE_ID</variable>
-			<value>0x2</value>
+			<value>0x3</value>
 		</config>
 		<config>
 			<variable>LOGICAL_ID</variable>
@@ -15715,14 +15715,89 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x32</topleft_x>
-		<topleft_y>0x65</topleft_y>
+		<topleft_x>0x31</topleft_x>
+		<topleft_y>0x88</topleft_y>
 		<width>0x62</width>
 		<height>0x10</height>
 	</device_glyph>
 </device>
 <device_connection>
 	<name>FP_FRU</name>
+</device_connection>
+<device>
+	<dev_name>EventRecord</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>CPU0_VRHOT</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>CPU0_VRHOT</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>CPU0_VRHOT [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>SEN_ID</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>LUN</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>SENSOR_NUMBER</variable>
+			<value>0xc</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0x3</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x4</value>
+		</config>
+		<config>
+			<variable>SEN_TYPE</variable>
+			<value>0x7</value>
+		</config>
+		<config>
+			<variable>READ_TYPE</variable>
+			<value>0x3</value>
+		</config>
+		<config>
+			<variable>RECORD_SHARING</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0xc7</topleft_x>
+		<topleft_y>0x53</topleft_y>
+		<width>0x97</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>CPU0_VRHOT</name>
 </device_connection>
 <device>
 	<dev_name>EventRecord</dev_name>
@@ -16783,81 +16858,6 @@
 <device>
 	<dev_name>EventRecord</dev_name>
 	<dev_class>SDR</dev_class>
-	<name>CPUx_VRHOT</name>
-	<config>
-		<variable>ID_STR</variable>
-		<value>CPUx_VRHOT</value>
-	</config>
-	<config>
-		<variable>ID_ENUM</variable>
-		<value>UNKNOWN</value>
-	</config>
-	<config>
-		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
-	</config>
-	<config>
-		<variable>SYS_RESET_DELAY</variable>
-		<value>0</value>
-	</config>
-	<pdk>
-	</pdk>
-	<sdr>
-		<name>CPUx_VRHOT [1]</name>
-		<config>
-			<variable>SDR_VER</variable>
-			<value>0x51</value>
-		</config>
-		<config>
-			<variable>SEN_ID</variable>
-			<value>0x20</value>
-		</config>
-		<config>
-			<variable>LUN</variable>
-			<value>0x2</value>
-		</config>
-		<config>
-			<variable>SENSOR_NUMBER</variable>
-			<value>0xc</value>
-		</config>
-		<config>
-			<variable>ENT_ID</variable>
-			<value>0x3</value>
-		</config>
-		<config>
-			<variable>ENT_INST</variable>
-			<value>0x4</value>
-		</config>
-		<config>
-			<variable>SEN_TYPE</variable>
-			<value>0x7</value>
-		</config>
-		<config>
-			<variable>READ_TYPE</variable>
-			<value>0x3</value>
-		</config>
-		<config>
-			<variable>RECORD_SHARING</variable>
-			<value>0x0</value>
-		</config>
-		<config>
-			<variable>OEM</variable>
-			<value>0x0</value>
-		</config>
-	</sdr>
-	<device_glyph>
-		<topleft_x>0xc7</topleft_x>
-		<topleft_y>0x53</topleft_y>
-		<width>0x97</width>
-		<height>0x10</height>
-	</device_glyph>
-</device>
-<device_connection>
-	<name>CPUx_VRHOT</name>
-</device_connection>
-<device>
-	<dev_name>EventRecord</dev_name>
-	<dev_class>SDR</dev_class>
 	<name>CPU0_VCC_IN_ERR</name>
 	<config>
 		<variable>ID_STR</variable>
@@ -17694,6 +17694,81 @@
 </device>
 <device_connection>
 	<name>AST_ADC_13</name>
+</device_connection>
+<device>
+	<dev_name>FRU Device</dev_name>
+	<dev_class>SDR</dev_class>
+	<name>PDB_FRU</name>
+	<config>
+		<variable>ID_STR</variable>
+		<value>PDB_FRU</value>
+	</config>
+	<config>
+		<variable>ID_ENUM</variable>
+		<value>UNKNOWN</value>
+	</config>
+	<config>
+		<variable>POWER_ON_DELAY</variable>
+		<value>0</value>
+	</config>
+	<config>
+		<variable>SYS_RESET_DELAY</variable>
+		<value>0</value>
+	</config>
+	<pdk>
+	</pdk>
+	<sdr>
+		<name>PDB_FRU [1]</name>
+		<config>
+			<variable>SDR_VER</variable>
+			<value>0x51</value>
+		</config>
+		<config>
+			<variable>DEVICE_ADDR</variable>
+			<value>0x20</value>
+		</config>
+		<config>
+			<variable>DEVICE_ID</variable>
+			<value>0x1</value>
+		</config>
+		<config>
+			<variable>LOGICAL_ID</variable>
+			<value>0x80</value>
+		</config>
+		<config>
+			<variable>CHANNEL</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>DEVICE_TYPE</variable>
+			<value>0xe</value>
+		</config>
+		<config>
+			<variable>DEVICE_TYPE_MODIFIER</variable>
+			<value>0x2</value>
+		</config>
+		<config>
+			<variable>ENT_ID</variable>
+			<value>0xe</value>
+		</config>
+		<config>
+			<variable>ENT_INST</variable>
+			<value>0x0</value>
+		</config>
+		<config>
+			<variable>OEM</variable>
+			<value>0x0</value>
+		</config>
+	</sdr>
+	<device_glyph>
+		<topleft_x>0x33</topleft_x>
+		<topleft_y>0x53</topleft_y>
+		<width>0x62</width>
+		<height>0x10</height>
+	</device_glyph>
+</device>
+<device_connection>
+	<name>PDB_FRU</name>
 </device_connection>
 <device>
 	<dev_name>EventRecord</dev_name>
@@ -19192,7 +19267,7 @@
 		</config>
 		<config>
 			<variable>DEVICE_ID</variable>
-			<value>0x1</value>
+			<value>0x2</value>
 		</config>
 		<config>
 			<variable>LOGICAL_ID</variable>
@@ -19224,8 +19299,8 @@
 		</config>
 	</sdr>
 	<device_glyph>
-		<topleft_x>0x32</topleft_x>
-		<topleft_y>0x4d</topleft_y>
+		<topleft_x>0x31</topleft_x>
+		<topleft_y>0x70</topleft_y>
 		<width>0x62</width>
 		<height>0x10</height>
 	</device_glyph>
@@ -19318,7 +19393,7 @@
 	<item>AUX_P3V3</item>
 	<item>CPU0_PRESENT</item>
 	<item>CPU0_PROCHOT</item>
-	<item>CPUx_VRHOT</item>
+	<item>CPU0_VRHOT</item>
 	<item>CPU0_THERMTRIP</item>
 	<item>CPU0_VCC_IN_ERR</item>
 	<item>ERR_CPU0</item>
@@ -19349,6 +19424,7 @@
 	<item>Fan6_1_TACH</item>
 	<item>Fan4_1_TACH</item>
 	<item>Fan5_1_TACH</item>
+	<item>PDB_FRU</item>
 </sdrorder>
 	</devcfg>
 <module>
@@ -24611,7 +24687,7 @@
 		</config>
 		<config>
 			<variable>SOL_IFC_PORT</variable>
-			<value>/dev/ttyS3</value>
+			<value>/dev/ttyS0</value>
 		</config>
 		<config>
 			<variable>SERIAL_IFC_PORT</variable>

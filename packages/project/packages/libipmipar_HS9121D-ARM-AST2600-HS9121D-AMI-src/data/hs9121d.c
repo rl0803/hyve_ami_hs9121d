@@ -534,6 +534,12 @@ int dev_fp_fru_write        (hal_t *phal);
 int dev_fp_fru_init_device  (hal_t *phal);
 int dev_fp_fru_read_device  (hal_t *phal);
 int dev_fp_fru_write_device (hal_t *phal);
+int dev_cpu0_vrhot_init         (hal_t *phal);
+int dev_cpu0_vrhot_read         (hal_t *phal);
+int dev_cpu0_vrhot_write        (hal_t *phal);
+int dev_cpu0_vrhot_init_device  (hal_t *phal);
+int dev_cpu0_vrhot_read_device  (hal_t *phal);
+int dev_cpu0_vrhot_write_device (hal_t *phal);
 int dev_err_pcie_init         (hal_t *phal);
 int dev_err_pcie_read         (hal_t *phal);
 int dev_err_pcie_write        (hal_t *phal);
@@ -656,12 +662,6 @@ int dev_ast_adc_2_read_device  (hal_t *phal);
 int dev_ast_adc_2_write_device (hal_t *phal);
 int dev_ast_adc_2_avin_read (hal_t *phal);
 int dev_ast_adc_2_avin_init (hal_t *phal);
-int dev_cpux_vrhot_init         (hal_t *phal);
-int dev_cpux_vrhot_read         (hal_t *phal);
-int dev_cpux_vrhot_write        (hal_t *phal);
-int dev_cpux_vrhot_init_device  (hal_t *phal);
-int dev_cpux_vrhot_read_device  (hal_t *phal);
-int dev_cpux_vrhot_write_device (hal_t *phal);
 int dev_cpu0_vcc_in_err_init         (hal_t *phal);
 int dev_cpu0_vcc_in_err_read         (hal_t *phal);
 int dev_cpu0_vcc_in_err_write        (hal_t *phal);
@@ -756,6 +756,12 @@ int dev_ast_adc_13_read_device  (hal_t *phal);
 int dev_ast_adc_13_write_device (hal_t *phal);
 int dev_ast_adc_13_avin_read (hal_t *phal);
 int dev_ast_adc_13_avin_init (hal_t *phal);
+int dev_pdb_fru_init         (hal_t *phal);
+int dev_pdb_fru_read         (hal_t *phal);
+int dev_pdb_fru_write        (hal_t *phal);
+int dev_pdb_fru_init_device  (hal_t *phal);
+int dev_pdb_fru_read_device  (hal_t *phal);
+int dev_pdb_fru_write_device (hal_t *phal);
 int dev_frb2_timeout_init         (hal_t *phal);
 int dev_frb2_timeout_read         (hal_t *phal);
 int dev_frb2_timeout_write        (hal_t *phal);
@@ -1121,7 +1127,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	          
 	
 	
-	static INT8U OUTLET_TEMP_previous_value = 0x32;
+	static INT8U OUTLET_TEMP_previous_value = 0x19;
 	static INT8U OUTLET_TEMP_retry_MAX_Threshold;
 	static INT8U OUTLET_TEMP_retry_MIN_Threshold;
 	static INT8U OUTLET_TEMP_retry = 0;
@@ -1140,7 +1146,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	          
 	
 	
-	static INT8U INLET_TEMP_previous_value = 0x32;
+	static INT8U INLET_TEMP_previous_value = 0x19;
 	static INT8U INLET_TEMP_retry_MAX_Threshold;
 	static INT8U INLET_TEMP_retry_MIN_Threshold;
 	static INT8U INLET_TEMP_retry = 0;
@@ -1283,7 +1289,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 
 	SensorProp_T dev_hyve_voltage_0x33h_0_32_properties = {  
 		1,
-		0x0,
+		0x1,
 		DUMMY_NORMAL_VALUE,
 		1,
 		3,
@@ -1303,7 +1309,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 
 	SensorProp_T dev_hyve_voltage_0x34h_0_32_properties = {  
 		1,
-		0x0,
+		0x1,
 		DUMMY_NORMAL_VALUE,
 		1,
 		3,
@@ -1323,7 +1329,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 
 	SensorProp_T dev_hyve_voltage_0x35h_0_32_properties = {  
 		1,
-		0x0,
+		0x1,
 		DUMMY_NORMAL_VALUE,
 		1,
 		3,
@@ -1343,7 +1349,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 
 	SensorProp_T dev_hyve_voltage_0x36h_0_32_properties = {  
 		1,
-		0x0,
+		0x1,
 		DUMMY_NORMAL_VALUE,
 		1,
 		3,
@@ -1581,7 +1587,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	          
 	
     
-    static INT8U PSU0_TEMP_previous_value = 0x97;
+    static INT8U PSU0_TEMP_previous_value = 0x19;
     static INT8U PSU0_TEMP_retry = 0;
 
     
@@ -1599,7 +1605,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
               
     
     
-    static INT8U PSU1_TEMP_previous_value = 0x97;
+    static INT8U PSU1_TEMP_previous_value = 0x19;
     static INT8U PSU1_TEMP_retry = 0;
 
     
@@ -1617,7 +1623,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
               
     
     
-    static INT8U PSU0_VOUT_previous_value = 0x97;
+    static INT8U PSU0_VOUT_previous_value = 0x6e;
     static INT8U PSU0_VOUT_retry = 0;
 
     
@@ -1625,7 +1631,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
     
     SensorProp_T dev_hyvepsureadings_0x84h_0_32_properties = {  
         1,
-        0x1,
+        0x0,
         DUMMY_NORMAL_VALUE,
         0,
         0,
@@ -1635,7 +1641,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
               
     
     
-    static INT8U PSU1_VOUT_previous_value = 0x97;
+    static INT8U PSU1_VOUT_previous_value = 0x6e;
     static INT8U PSU1_VOUT_retry = 0;
 
     
@@ -1643,7 +1649,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
     
     SensorProp_T dev_hyvepsureadings_0x85h_0_32_properties = {  
         1,
-        0x1,
+        0x0,
         DUMMY_NORMAL_VALUE,
         0,
         0,
@@ -1697,7 +1703,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
     
     SensorProp_T dev_hyvepsureadings_0x8ch_0_32_properties = {  
         1,
-        0x1,
+        0x0,
         DUMMY_NORMAL_VALUE,
         0,
         0,
@@ -1715,7 +1721,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
     
     SensorProp_T dev_hyvepsureadings_0x8dh_0_32_properties = {  
         1,
-        0x1,
+        0x0,
         DUMMY_NORMAL_VALUE,
         0,
         0,
@@ -1733,7 +1739,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
     
     SensorProp_T dev_hyvepsureadings_0x90h_0_32_properties = {  
         1,
-        0x1,
+        0x0,
         DUMMY_NORMAL_VALUE,
         0,
         0,
@@ -1751,7 +1757,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
     
     SensorProp_T dev_hyvepsureadings_0x91h_0_32_properties = {  
         1,
-        0x1,
+        0x0,
         DUMMY_NORMAL_VALUE,
         0,
         0,
@@ -2103,7 +2109,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
     
     
 	
-	static INT8U PDB0_TEMP_previous_value = 0x32;
+	static INT8U PDB0_TEMP_previous_value = 0x19;
 	static INT8U PDB0_TEMP_retry_MAX_Threshold;
 	static INT8U PDB0_TEMP_retry_MIN_Threshold;
 	static INT8U PDB0_TEMP_retry = 0;
@@ -2201,7 +2207,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	          
 	
 	
-	static INT8U FANBOARD0_TEMP_previous_value = 0x32;
+	static INT8U FANBOARD0_TEMP_previous_value = 0x19;
 	static INT8U FANBOARD0_TEMP_retry_MAX_Threshold;
 	static INT8U FANBOARD0_TEMP_retry_MIN_Threshold;
 	static INT8U FANBOARD0_TEMP_retry = 0;
@@ -2220,7 +2226,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	          
 	
 	
-	static INT8U TEMP_FP_previous_value = 0x32;
+	static INT8U TEMP_FP_previous_value = 0x19;
 	static INT8U TEMP_FP_retry_MAX_Threshold;
 	static INT8U TEMP_FP_retry_MIN_Threshold;
 	static INT8U TEMP_FP_retry = 0;
@@ -2292,6 +2298,22 @@ int dev_fanboard_fru_write_device (hal_t *phal);
              
                  
              SensorProp_T dev_fp_fru_properties = {  
+                             0,
+                             0,
+                             0,
+                             0,
+                             0,
+
+                       };
+                       
+                       
+    
+         	
+     
+             
+            
+                 
+             SensorProp_T dev_cpu0_vrhot_properties = {  
                              0,
                              0,
                              0,
@@ -2483,22 +2505,6 @@ int dev_fanboard_fru_write_device (hal_t *phal);
              
             
                  
-             SensorProp_T dev_cpux_vrhot_properties = {  
-                             0,
-                             0,
-                             0,
-                             0,
-                             0,
-
-                       };
-                       
-                       
-    
-         	
-     
-             
-            
-                 
              SensorProp_T dev_cpu0_vcc_in_err_properties = {  
                              0,
                              0,
@@ -2628,6 +2634,22 @@ int dev_fanboard_fru_write_device (hal_t *phal);
             
                  
              SensorProp_T dev_p0_mem_thermtrip_properties = {  
+                             0,
+                             0,
+                             0,
+                             0,
+                             0,
+
+                       };
+                       
+                       
+    
+         	
+     
+             
+             
+                 
+             SensorProp_T dev_pdb_fru_properties = {  
                              0,
                              0,
                              0,
@@ -3741,10 +3763,11 @@ device_tbl_t g_sensor_tbl [] =
 
 
 /* Total No of Devices */
-const int g_total_devices = 59;
+const int g_total_devices = 60;
 
 long long g_device_platform_tbl[] = 
 {
+		0xffffffffffffffff,
 		0xffffffffffffffff,
 		0xffffffffffffffff,
 		0xffffffffffffffff,
@@ -3866,6 +3889,16 @@ device_tbl_t g_device_tbl [] =
 		3,
 		0xFFFF,
 		0xffff,
+		dev_cpu0_vrhot_read,
+		dev_cpu0_vrhot_write,
+		dev_cpu0_vrhot_init,
+		&dev_cpu0_vrhot_properties,
+		sizeof(dev_cpu0_vrhot_properties),
+	}, 
+	{
+		4,
+		0xFFFF,
+		0xffff,
 		dev_err_pcie_read,
 		dev_err_pcie_write,
 		dev_err_pcie_init,
@@ -3873,7 +3906,7 @@ device_tbl_t g_device_tbl [] =
 		sizeof(dev_err_pcie_properties),
 	}, 
 	{
-		4,
+		5,
 		0xFFFF,
 		0xffff,
 		dev_cpu0_present_read,
@@ -3883,7 +3916,7 @@ device_tbl_t g_device_tbl [] =
 		sizeof(dev_cpu0_present_properties),
 	}, 
 	{
-		5,
+		6,
 		0xFFFF,
 		0xffff,
 		dev_cpu0_prochot_read,
@@ -3893,7 +3926,7 @@ device_tbl_t g_device_tbl [] =
 		sizeof(dev_cpu0_prochot_properties),
 	}, 
 	{
-		6,
+		7,
 		0xFFFF,
 		0xffff,
 		dev_memerr_cpu0c0_read,
@@ -3903,7 +3936,7 @@ device_tbl_t g_device_tbl [] =
 		sizeof(dev_memerr_cpu0c0_properties),
 	}, 
 	{
-		7,
+		8,
 		0xFFFF,
 		0xffff,
 		dev_thrtl_cpu0mem_read,
@@ -3913,7 +3946,7 @@ device_tbl_t g_device_tbl [] =
 		sizeof(dev_thrtl_cpu0mem_properties),
 	}, 
 	{
-		8,
+		9,
 		0xFFFF,
 		0xffff,
 		dev_intrusion_status_read,
@@ -3923,7 +3956,7 @@ device_tbl_t g_device_tbl [] =
 		sizeof(dev_intrusion_status_properties),
 	}, 
 	{
-		9,
+		10,
 		0xFFFF,
 		0xffff,
 		dev_memerr_cpu0g0_read,
@@ -3943,7 +3976,7 @@ device_tbl_t g_device_tbl [] =
 		0,
 	}, 
 	{
-		10,
+		11,
 		0xFFFF,
 		0xffff,
 		dev_info_sysfwchange_read,
@@ -3963,7 +3996,7 @@ device_tbl_t g_device_tbl [] =
 		0,
 	}, 
 	{
-		11,
+		12,
 		0xFFFF,
 		0xffff,
 		dev_memerr_cpu0k0_read,
@@ -3983,7 +4016,7 @@ device_tbl_t g_device_tbl [] =
 		0,
 	}, 
 	{
-		12,
+		13,
 		0xFFFF,
 		0xffff,
 		dev_acpi_status_read,
@@ -4013,7 +4046,7 @@ device_tbl_t g_device_tbl [] =
 		0,
 	}, 
 	{
-		13,
+		14,
 		0xFFFF,
 		0xffff,
 		dev_cpu0_mem_hot_read,
@@ -4041,16 +4074,6 @@ device_tbl_t g_device_tbl [] =
 		dev_ast_adc_2_init,
 		0,
 		0,
-	}, 
-	{
-		14,
-		0xFFFF,
-		0xffff,
-		dev_cpux_vrhot_read,
-		dev_cpux_vrhot_write,
-		dev_cpux_vrhot_init,
-		&dev_cpux_vrhot_properties,
-		sizeof(dev_cpux_vrhot_properties),
 	}, 
 	{
 		15,
@@ -4193,6 +4216,16 @@ device_tbl_t g_device_tbl [] =
 		0,
 	}, 
 	{
+		1,
+		0xFFFF,
+		0xffff,
+		dev_pdb_fru_read,
+		dev_pdb_fru_write,
+		dev_pdb_fru_init,
+		&dev_pdb_fru_properties,
+		sizeof(dev_pdb_fru_properties),
+	}, 
+	{
 		24,
 		0xFFFF,
 		0xffff,
@@ -4323,7 +4356,7 @@ device_tbl_t g_device_tbl [] =
 		sizeof(dev_power_unit_properties),
 	}, 
 	{
-		1,
+		2,
 		0xFFFF,
 		0xffff,
 		dev_mb_fru_read,
@@ -4403,7 +4436,7 @@ device_tbl_t g_device_tbl [] =
 		sizeof(dev_memerr_cpu0d0_properties),
 	}, 
 	{
-		2,
+		3,
 		0xFFFF,
 		0xffff,
 		dev_fanboard_fru_read,
@@ -4498,6 +4531,7 @@ const phal_hndlr_t g_init_tbl [] =
 	dev_err_data_pcie_init,
 	dev_memerr_cpu0l0_init,
 	dev_fp_fru_init,
+	dev_cpu0_vrhot_init,
 	dev_err_pcie_init,
 	dev_cpu0_present_init,
 	dev_cpu0_prochot_init,
@@ -4516,7 +4550,6 @@ const phal_hndlr_t g_init_tbl [] =
 	dev_cpu0_mem_hot_init,
 	dev_ast_adc_3_init,
 	dev_ast_adc_2_init,
-	dev_cpux_vrhot_init,
 	dev_cpu0_vcc_in_err_init,
 	dev_thrm_cc_cpu0_init,
 	dev_cpu_caterr_init,
@@ -4531,6 +4564,7 @@ const phal_hndlr_t g_init_tbl [] =
 	dev_p0_mem_thermtrip_init,
 	dev_ast_adc_14_init,
 	dev_ast_adc_13_init,
+	dev_pdb_fru_init,
 	dev_frb2_timeout_init,
 	dev_err_cpu0_init,
 	dev_sts_cpu0_thrm_init,
@@ -5503,7 +5537,7 @@ int
 dev_hyve_nc_0x20h_0_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		OUTLET_TEMP_retry_MAX_Threshold = 0x64;
+		OUTLET_TEMP_retry_MAX_Threshold = 0x2d;
 		OUTLET_TEMP_retry_MIN_Threshold = 0x0;
 		return 0;
 	}    
@@ -5605,7 +5639,7 @@ int
 dev_hyve_nc_0x21h_0_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		INLET_TEMP_retry_MAX_Threshold = 0x64;
+		INLET_TEMP_retry_MAX_Threshold = 0x3d;
 		INLET_TEMP_retry_MIN_Threshold = 0x0;
 		return 0;
 	}    
@@ -11151,7 +11185,7 @@ int
 dev_hyve_nc_0xc1h_0_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		PDB0_TEMP_retry_MAX_Threshold = 0x64;
+		PDB0_TEMP_retry_MAX_Threshold = 0x2d;
 		PDB0_TEMP_retry_MIN_Threshold = 0x0;
 		return 0;
 	}    
@@ -11661,7 +11695,7 @@ int
 dev_hyve_nc_0xe0h_0_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		FANBOARD0_TEMP_retry_MAX_Threshold = 0x64;
+		FANBOARD0_TEMP_retry_MAX_Threshold = 0x3d;
 		FANBOARD0_TEMP_retry_MIN_Threshold = 0x0;
 		return 0;
 	}    
@@ -11763,7 +11797,7 @@ int
 dev_hyve_nc_0xe4h_0_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		TEMP_FP_retry_MAX_Threshold = 0x64;
+		TEMP_FP_retry_MAX_Threshold = 0x2d;
 		TEMP_FP_retry_MIN_Threshold = 0x0;
 		return 0;
 	}    
@@ -12190,6 +12224,96 @@ dev_fp_fru_write_device (hal_t *phal) /* @source: File - FRU Device.ddf Line - 8
     {
         UN_USED(phal);
         return 0;
+    }
+    
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device EventRecord [CPU0_VRHOT: dev_cpu0_vrhot] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_cpu0_vrhot_init  - Init API for the device dev_cpu0_vrhot
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_cpu0_vrhot_init (hal_t *phal)
+{
+	dev_cpu0_vrhot_init_device (phal); 
+	return 0;
+}
+
+/**
+ *  dev_cpu0_vrhot_read  - Read API for the device dev_cpu0_vrhot
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_cpu0_vrhot_read (hal_t *phal)
+{
+	dev_cpu0_vrhot_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_cpu0_vrhot_write  - Write API of  the device dev_cpu0_vrhot
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_cpu0_vrhot_write (hal_t *phal)
+{
+	dev_cpu0_vrhot_write_device  (phal); 
+	return 0 ;
+}
+
+/* @source: File - EventRecord.ddf Line - 19 */
+        
+            
+    
+    
+/**
+ *  dev_cpu0_vrhot_init_device  - Initialize the device dev_cpu0_vrhot
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_cpu0_vrhot_init_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
+    {
+            UN_USED(phal);
+            return 0;
+    }
+    
+/**
+ *  dev_cpu0_vrhot_read_device  - Read Function of  the device dev_cpu0_vrhot
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_cpu0_vrhot_read_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
+    {
+            UN_USED(phal);
+            return 0;
+    }
+    
+/**
+ *  dev_cpu0_vrhot_write_device  - Write Function of  the device dev_cpu0_vrhot
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_cpu0_vrhot_write_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
+    {
+            UN_USED(phal);
+            return 0;
     }
     
 
@@ -14117,96 +14241,6 @@ dev_ast_adc_2_avin_read (hal_t *phal)
 
 
 /*-------------------------------------------------------------*/
-/* Functions for device EventRecord [CPUx_VRHOT: dev_cpux_vrhot] */
-/*-------------------------------------------------------------*/
-
-/**
- *  dev_cpux_vrhot_init  - Init API for the device dev_cpux_vrhot
- *  @return : 0 on  Success
- *    		-1 on Failure
- *  @param  : phal - Pointer to the HAL Info
- **/
-int 
-dev_cpux_vrhot_init (hal_t *phal)
-{
-	dev_cpux_vrhot_init_device (phal); 
-	return 0;
-}
-
-/**
- *  dev_cpux_vrhot_read  - Read API for the device dev_cpux_vrhot
- *   @return : 0 on  Success
- *    		 -1 on Failure
- *   @param  : phal - Pointer to the HAL Info
- **/
-int 
-dev_cpux_vrhot_read (hal_t *phal)
-{
-	dev_cpux_vrhot_read_device  (phal); 
-	return 0 ;
-}
-
-/**
- *  dev_cpux_vrhot_write  - Write API of  the device dev_cpux_vrhot
- *   @return : 0 on  Success
- *    		 -1 on Failure
- *   @param  : phal - Pointer to the HAL Info
- **/
-int 
-dev_cpux_vrhot_write (hal_t *phal)
-{
-	dev_cpux_vrhot_write_device  (phal); 
-	return 0 ;
-}
-
-/* @source: File - EventRecord.ddf Line - 19 */
-        
-            
-    
-    
-/**
- *  dev_cpux_vrhot_init_device  - Initialize the device dev_cpux_vrhot
- *   @return : 0 on  Success
- *    		  -1 on Failure
- *   @param  : phal - Pointer to the HAL Info
- **/
-int
-dev_cpux_vrhot_init_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
-    {
-            UN_USED(phal);
-            return 0;
-    }
-    
-/**
- *  dev_cpux_vrhot_read_device  - Read Function of  the device dev_cpux_vrhot
- *   @return : 0 on  Success
- *    		 -1 on Failure
- *   @param  : phal - Pointer to the HAL Info
- **/
-int
-dev_cpux_vrhot_read_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
-    {
-            UN_USED(phal);
-            return 0;
-    }
-    
-/**
- *  dev_cpux_vrhot_write_device  - Write Function of  the device dev_cpux_vrhot
- *   @return : 0 on  Success
- *    		   -1 on Failure
- *   @param  : phal - Pointer to the HAL Info
- **/
-int
-dev_cpux_vrhot_write_device (hal_t *phal) /* @source: File - EventRecord.ddf Line - 8 */
-    {
-            UN_USED(phal);
-            return 0;
-    }
-    
-
-
-
-/*-------------------------------------------------------------*/
 /* Functions for device EventRecord [CPU0_VCC_IN_ERR: dev_cpu0_vcc_in_err] */
 /*-------------------------------------------------------------*/
 
@@ -15678,6 +15712,95 @@ dev_ast_adc_13_avin_read (hal_t *phal)
 		
 
 
+
+
+
+/*-------------------------------------------------------------*/
+/* Functions for device FRU Device [PDB_FRU: dev_pdb_fru] */
+/*-------------------------------------------------------------*/
+
+/**
+ *  dev_pdb_fru_init  - Init API for the device dev_pdb_fru
+ *  @return : 0 on  Success
+ *    		-1 on Failure
+ *  @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_pdb_fru_init (hal_t *phal)
+{
+	dev_pdb_fru_init_device (phal); 
+	return 0;
+}
+
+/**
+ *  dev_pdb_fru_read  - Read API for the device dev_pdb_fru
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_pdb_fru_read (hal_t *phal)
+{
+	dev_pdb_fru_read_device  (phal); 
+	return 0 ;
+}
+
+/**
+ *  dev_pdb_fru_write  - Write API of  the device dev_pdb_fru
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int 
+dev_pdb_fru_write (hal_t *phal)
+{
+	dev_pdb_fru_write_device  (phal); 
+	return 0 ;
+}
+
+/* @source: File - FRU Device.ddf Line - 19 */
+    
+    	
+    
+/**
+ *  dev_pdb_fru_init_device  - Initialize the device dev_pdb_fru
+ *   @return : 0 on  Success
+ *    		  -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_pdb_fru_init_device (hal_t *phal) /* @source: File - FRU Device.ddf Line - 8 */
+   {
+        UN_USED(phal);
+        return 0;
+   }
+    
+/**
+ *  dev_pdb_fru_read_device  - Read Function of  the device dev_pdb_fru
+ *   @return : 0 on  Success
+ *    		 -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_pdb_fru_read_device (hal_t *phal) /* @source: File - FRU Device.ddf Line - 8 */
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    
+/**
+ *  dev_pdb_fru_write_device  - Write Function of  the device dev_pdb_fru
+ *   @return : 0 on  Success
+ *    		   -1 on Failure
+ *   @param  : phal - Pointer to the HAL Info
+ **/
+int
+dev_pdb_fru_write_device (hal_t *phal) /* @source: File - FRU Device.ddf Line - 8 */
+    {
+        UN_USED(phal);
+        return 0;
+    }
+    
 
 
 

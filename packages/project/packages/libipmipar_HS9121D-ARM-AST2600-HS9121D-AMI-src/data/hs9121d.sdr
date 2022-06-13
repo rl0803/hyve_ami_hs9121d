@@ -119,8 +119,8 @@
         .db 0x0    /* Lower Non-Recoverable Threshold  */
         .db 0x0           /* Lower Critical Threshold         */
         .db 0x0       /* Lower Non-Critical Threshold     */
-        .db 0x1     /* Positive - threshold Hysteresis value*/
-        .db 0x1     /* Negative - threshold Hysteresis value*/
+        .db 0x5     /* Positive - threshold Hysteresis value*/
+        .db 0x5     /* Negative - threshold Hysteresis value*/
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
@@ -204,8 +204,8 @@
         .db 0x0    /* Lower Non-Recoverable Threshold  */
         .db 0x2           /* Lower Critical Threshold         */
         .db 0x0       /* Lower Non-Critical Threshold     */
-        .db 0x1     /* Positive - threshold Hysteresis value*/
-        .db 0x1     /* Negative - threshold Hysteresis value*/
+        .db 0x5     /* Positive - threshold Hysteresis value*/
+        .db 0x5     /* Negative - threshold Hysteresis value*/
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
@@ -335,9 +335,9 @@
         .db 0x68                 /* Sensor Capabilities              */
         .db 0x2                 /* Sensor Type                      */
         .db 0x01                        /* Event / Reading Type             */
-        .dw 0x0               /* Lower Threshold Reading Mask     */
-        .dw 0x0               /* Upper Threshold Reading Mask     */
-        .dw 0x0               /* Settable/Readable Threshold Mask */
+        .dw 0x2204               /* Lower Threshold Reading Mask     */
+        .dw 0x2204               /* Upper Threshold Reading Mask     */
+        .dw 0x1212               /* Settable/Readable Threshold Mask */
         .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
         .db 4                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
@@ -347,21 +347,21 @@
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0x0  & 0x3F)   /* B, Accuracy  */
         .db ((0x0 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
-        .db (0xe << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db (0xd << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
         .db 0x7                      /* Analog Characteristics Flags     */
-        .db 0x97          /* Nominal Reading                  */
-        .db 0xc5              /* Normal Maximum                   */
-        .db 0x8b              /* Normal Minimum                   */
+        .db 0x6e          /* Nominal Reading                  */
+        .db 0x72              /* Normal Maximum                   */
+        .db 0x69              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0x0    /* Upper Non-Recoverable Threshold  */
-        .db 0xfa           /* Upper Critical Threshold         */
+        .db 0x78           /* Upper Critical Threshold         */
         .db 0x0       /* Upper Non-Critical Threshold     */
         .db 0x0    /* Lower Non-Recoverable Threshold  */
-        .db 0x5a           /* Lower Critical Threshold         */
+        .db 0x62           /* Lower Critical Threshold         */
         .db 0x0       /* Lower Non-Critical Threshold     */
-        .db 0x1     /* Positive - threshold Hysteresis value*/
-        .db 0x1     /* Negative - threshold Hysteresis value*/
+        .db 0x2     /* Positive - threshold Hysteresis value*/
+        .db 0x2     /* Negative - threshold Hysteresis value*/
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
@@ -387,9 +387,9 @@
         .db 0x68                 /* Sensor Capabilities              */
         .db 0x1                 /* Sensor Type                      */
         .db 0x01                        /* Event / Reading Type             */
-        .dw 0x0               /* Lower Threshold Reading Mask     */
-        .dw 0x0               /* Upper Threshold Reading Mask     */
-        .dw 0x0               /* Settable/Readable Threshold Mask */
+        .dw 0x200               /* Lower Threshold Reading Mask     */
+        .dw 0x2200               /* Upper Threshold Reading Mask     */
+        .dw 0x1010               /* Settable/Readable Threshold Mask */
         .db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
         .db 1                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
@@ -401,10 +401,10 @@
         .db ((0x0 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
         .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
         .db 0x7                      /* Analog Characteristics Flags     */
-        .db 0x97          /* Nominal Reading                  */
-        .db 0xc5              /* Normal Maximum                   */
-        .db 0x8b              /* Normal Minimum                   */
-        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x19          /* Nominal Reading                  */
+        .db 0x2d              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0x7f                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0x0    /* Upper Non-Recoverable Threshold  */
         .db 0x32           /* Upper Critical Threshold         */
@@ -464,8 +464,8 @@
         .db 0x0    /* Lower Non-Recoverable Threshold  */
         .db 0xc           /* Lower Critical Threshold         */
         .db 0x0       /* Lower Non-Critical Threshold     */
-        .db 0x1     /* Positive - threshold Hysteresis value*/
-        .db 0x1     /* Negative - threshold Hysteresis value*/
+        .db 0x3     /* Positive - threshold Hysteresis value*/
+        .db 0x3     /* Negative - threshold Hysteresis value*/
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
@@ -516,8 +516,8 @@
         .db 0x0    /* Lower Non-Recoverable Threshold  */
         .db 0x0           /* Lower Critical Threshold         */
         .db 0x0       /* Lower Non-Critical Threshold     */
-        .db 0x1     /* Positive - threshold Hysteresis value*/
-        .db 0x1     /* Negative - threshold Hysteresis value*/
+        .db 0x5     /* Positive - threshold Hysteresis value*/
+        .db 0x5     /* Negative - threshold Hysteresis value*/
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
@@ -568,8 +568,8 @@
         .db 0x0    /* Lower Non-Recoverable Threshold  */
         .db 0x2           /* Lower Critical Threshold         */
         .db 0x0       /* Lower Non-Critical Threshold     */
-        .db 0x1     /* Positive - threshold Hysteresis value*/
-        .db 0x1     /* Negative - threshold Hysteresis value*/
+        .db 0x5     /* Positive - threshold Hysteresis value*/
+        .db 0x5     /* Negative - threshold Hysteresis value*/
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
@@ -699,9 +699,9 @@
         .db 0x68                 /* Sensor Capabilities              */
         .db 0x2                 /* Sensor Type                      */
         .db 0x01                        /* Event / Reading Type             */
-        .dw 0x0               /* Lower Threshold Reading Mask     */
-        .dw 0x0               /* Upper Threshold Reading Mask     */
-        .dw 0x0               /* Settable/Readable Threshold Mask */
+        .dw 0x2204               /* Lower Threshold Reading Mask     */
+        .dw 0x2204               /* Upper Threshold Reading Mask     */
+        .dw 0x1212               /* Settable/Readable Threshold Mask */
         .db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
         .db 4                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
@@ -711,21 +711,21 @@
         .db 0x0 & 0xFF         /* B                                */
         .db ((0x0 >> 2) & 0xC0) + (0x0  & 0x3F)   /* B, Accuracy  */
         .db ((0x0 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
-        .db (0xe << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
+        .db (0xd << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
         .db 0x7                      /* Analog Characteristics Flags     */
-        .db 0x97          /* Nominal Reading                  */
-        .db 0xc5              /* Normal Maximum                   */
-        .db 0x8b              /* Normal Minimum                   */
+        .db 0x6e          /* Nominal Reading                  */
+        .db 0x72              /* Normal Maximum                   */
+        .db 0x69              /* Normal Minimum                   */
         .db 0xff                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0x0    /* Upper Non-Recoverable Threshold  */
-        .db 0xfa           /* Upper Critical Threshold         */
+        .db 0x78           /* Upper Critical Threshold         */
         .db 0x0       /* Upper Non-Critical Threshold     */
         .db 0x0    /* Lower Non-Recoverable Threshold  */
-        .db 0x5a           /* Lower Critical Threshold         */
+        .db 0x62           /* Lower Critical Threshold         */
         .db 0x0       /* Lower Non-Critical Threshold     */
-        .db 0x1     /* Positive - threshold Hysteresis value*/
-        .db 0x1     /* Negative - threshold Hysteresis value*/
+        .db 0x2     /* Positive - threshold Hysteresis value*/
+        .db 0x2     /* Negative - threshold Hysteresis value*/
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
@@ -751,9 +751,9 @@
         .db 0x68                 /* Sensor Capabilities              */
         .db 0x1                 /* Sensor Type                      */
         .db 0x01                        /* Event / Reading Type             */
-        .dw 0x0               /* Lower Threshold Reading Mask     */
-        .dw 0x0               /* Upper Threshold Reading Mask     */
-        .dw 0x0               /* Settable/Readable Threshold Mask */
+        .dw 0x200               /* Lower Threshold Reading Mask     */
+        .dw 0x2200               /* Upper Threshold Reading Mask     */
+        .dw 0x1010               /* Settable/Readable Threshold Mask */
         .db (0x2   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
         .db 1                /* Sensor Units 2 - Base Unit       */
         .db 0                   /* Sensor Units 3 - Modifier Unit   */
@@ -765,10 +765,10 @@
         .db ((0x0 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
         .db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
         .db 0x7                      /* Analog Characteristics Flags     */
-        .db 0x97          /* Nominal Reading                  */
-        .db 0xc5              /* Normal Maximum                   */
-        .db 0x8b              /* Normal Minimum                   */
-        .db 0xff                  /* Sensor Maximum Reading           */
+        .db 0x19          /* Nominal Reading                  */
+        .db 0x2d              /* Normal Maximum                   */
+        .db 0x0              /* Normal Minimum                   */
+        .db 0x7f                  /* Sensor Maximum Reading           */
         .db 0x0                  /* Sensor Minimum Reading           */
         .db 0x0    /* Upper Non-Recoverable Threshold  */
         .db 0x32           /* Upper Critical Threshold         */
@@ -828,8 +828,8 @@
         .db 0x0    /* Lower Non-Recoverable Threshold  */
         .db 0xc           /* Lower Critical Threshold         */
         .db 0x0       /* Lower Non-Critical Threshold     */
-        .db 0x1     /* Positive - threshold Hysteresis value*/
-        .db 0x1     /* Negative - threshold Hysteresis value*/
+        .db 0x3     /* Positive - threshold Hysteresis value*/
+        .db 0x3     /* Negative - threshold Hysteresis value*/
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
@@ -883,8 +883,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xae           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x4     /* Positive - threshold Hysteresis value*/
+		.db 0x4     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -935,8 +935,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x53           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x7     /* Positive - threshold Hysteresis value*/
+		.db 0x7     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -960,7 +960,7 @@
 
 		/* Record Body Bytes*/
 		.db 0xe                   /* Entity ID                        */
-		.db 0x1                 /* Entity Instance                  */
+		.db 0x2                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
 		.db 0x02                        /* Sensor Type                      */
@@ -990,8 +990,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xae           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x4     /* Positive - threshold Hysteresis value*/
+		.db 0x4     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1015,7 +1015,7 @@
 
 		/* Record Body Bytes*/
 		.db 0x7                   /* Entity ID                        */
-		.db 0x3                 /* Entity Instance                  */
+		.db 0x4                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
 		.db 0x02                        /* Sensor Type                      */
@@ -1045,8 +1045,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xae           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0xb     /* Positive - threshold Hysteresis value*/
+		.db 0xb     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1070,7 +1070,7 @@
 
 		/* Record Body Bytes*/
 		.db 0x7                   /* Entity ID                        */
-		.db 0x2                 /* Entity Instance                  */
+		.db 0x3                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
 		.db 0x02                        /* Sensor Type                      */
@@ -1082,8 +1082,8 @@
 		.db 4                /* Sensor Units 2 - Base Unit       */
 		.db 0                   /* Sensor Units 3 - Modifier Unit   */
 		.db 0x0                   /* Linearization                    */
-		.db 0x11 & 0xFF         /* M                                */ 
-		.db ((0x11 >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
+		.db 0x1a & 0xFF         /* M                                */ 
+		.db ((0x1a >> 2) & 0xC0) + (0x2 & 0x3F)   /* M, Tolerance        */
 		.db 0x0 & 0xFF         /* B                                */
 		.db ((0x0 >> 2) & 0xC0) + (0xc2  & 0x3F)   /* B, Accuracy  */
 		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
@@ -1100,8 +1100,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xae           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x8     /* Positive - threshold Hysteresis value*/
+		.db 0x8     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1155,8 +1155,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xae           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x8     /* Positive - threshold Hysteresis value*/
+		.db 0x8     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1210,8 +1210,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xa7           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x14     /* Positive - threshold Hysteresis value*/
+		.db 0x14     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1265,8 +1265,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x66           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x14     /* Positive - threshold Hysteresis value*/
+		.db 0x14     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1320,8 +1320,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xae           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x4     /* Positive - threshold Hysteresis value*/
+		.db 0x4     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1375,8 +1375,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xae           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0xb     /* Positive - threshold Hysteresis value*/
+		.db 0xb     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1430,8 +1430,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x55           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x14     /* Positive - threshold Hysteresis value*/
+		.db 0x14     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1485,8 +1485,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x3e           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x14     /* Positive - threshold Hysteresis value*/
+		.db 0x14     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1540,8 +1540,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x24           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x14     /* Positive - threshold Hysteresis value*/
+		.db 0x14     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1595,8 +1595,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x24           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0x14     /* Positive - threshold Hysteresis value*/
+		.db 0x14     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1762,19 +1762,19 @@
 		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
 		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x7                      /* Analog Characteristics Flags     */
-		.db 0x32          /* Nominal Reading                  */
-		.db 0x64              /* Normal Maximum                   */
+		.db 0x19          /* Nominal Reading                  */
+		.db 0x3d              /* Normal Maximum                   */
 		.db 0x0              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x32           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1814,19 +1814,19 @@
 		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
 		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x7                      /* Analog Characteristics Flags     */
-		.db 0x32          /* Nominal Reading                  */
-		.db 0x64              /* Normal Maximum                   */
+		.db 0x19          /* Nominal Reading                  */
+		.db 0x2d              /* Normal Maximum                   */
 		.db 0x0              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x32           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1877,8 +1877,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -1904,9 +1904,9 @@
 		.db 0x68                 /* Sensor Capabilities              */
         .db 0x1                 /* Sensor Type                      */
         .db 0x1                /* Event / Reading Type             */
-		.dw 0x200               /* Lower Threshold Reading Mask     */
-		.dw 0x2200               /* Upper Threshold Reading Mask     */
-		.dw 0x1010               /* Settable/Readable Threshold Mask */
+		.dw 0x280               /* Lower Threshold Reading Mask     */
+		.dw 0x2280               /* Upper Threshold Reading Mask     */
+		.dw 0x1818               /* Settable/Readable Threshold Mask */
 		.db (0x0   << 6) + (0x0 << 3) + (0x0 << 1) + 0x0/* Sensor Units 1  */
 		.db 1                /* Sensor Units 2 - Base Unit       */
 		.db 0                   /* Sensor Units 3 - Modifier Unit   */
@@ -1925,12 +1925,12 @@
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
 		.db 0x5f           /* Upper Critical Threshold         */
-		.db 0x0       /* Upper Non-Critical Threshold     */
+		.db 0x4b       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -2386,19 +2386,19 @@
 		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
 		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x7                      /* Analog Characteristics Flags     */
-		.db 0x32          /* Nominal Reading                  */
-		.db 0x64              /* Normal Maximum                   */
+		.db 0x19          /* Nominal Reading                  */
+		.db 0x2d              /* Normal Maximum                   */
 		.db 0x0              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x32           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -2438,19 +2438,19 @@
 		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
 		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x7                      /* Analog Characteristics Flags     */
-		.db 0x32          /* Nominal Reading                  */
-		.db 0x64              /* Normal Maximum                   */
+		.db 0x19          /* Nominal Reading                  */
+		.db 0x3d              /* Normal Maximum                   */
 		.db 0x0              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x32           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -2549,7 +2549,7 @@
             .db 11 + sizeof "FanBoard_FRU" /* Record Length = 12+ string length*/
             /* RECORD KEY BYTES*/
             .db 0x20          /* Device access addres             */
-            .db 0x1            /* FRU Device IU                    */
+            .db 0x2            /* FRU Device IU                    */
             .db 0x80           /* Channel number                   */
             .db 0x0              /* Channel number                   */
             /* RECORD BODY BYTES*/
@@ -2570,7 +2570,7 @@
             .db 11 + sizeof "FP_FRU" /* Record Length = 12+ string length*/
             /* RECORD KEY BYTES*/
             .db 0x20          /* Device access addres             */
-            .db 0x2            /* FRU Device IU                    */
+            .db 0x3            /* FRU Device IU                    */
             .db 0x80           /* Channel number                   */
             .db 0x0              /* Channel number                   */
             /* RECORD BODY BYTES*/
@@ -3113,8 +3113,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0xae           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x2     /* Positive - threshold Hysteresis value*/
-		.db 0x2     /* Negative - threshold Hysteresis value*/
+		.db 0xb     /* Positive - threshold Hysteresis value*/
+		.db 0xb     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3168,7 +3168,7 @@
             .dw 0x55               /* Record ID                        */
             .db 0x51              /* SDR Version                      */
             .db 0x03                    /* Record Type                      */
-            .db 12 + sizeof "CPUx_VRHOT" /* Record Length = 12+ string length*/
+            .db 12 + sizeof "CPU0_VRHOT" /* Record Length = 12+ string length*/
             /* RECORD KEY BYTES*/
             .db 0x20               /* Sensor Owner ID                  */
             .db 0x2                  /* Sensor Owner LUN                 */
@@ -3181,8 +3181,8 @@
             .dw 0x0       /* Sensor Record Sharing            */
             .db 0x0                     /* Reserved                         */
             .db 0x0                  /* OEM                              */
-            .db 0xc0 + sizeof"CPUx_VRHOT"/* ID String Type / Length Code     */
-            .db "CPUx_VRHOT"
+            .db 0xc0 + sizeof"CPU0_VRHOT"/* ID String Type / Length Code     */
+            .db "CPU0_VRHOT"
     
 
         /* SDR Record Header */
@@ -3333,8 +3333,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3385,8 +3385,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3437,8 +3437,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3489,8 +3489,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3541,8 +3541,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3593,8 +3593,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3645,8 +3645,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3697,8 +3697,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3749,8 +3749,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3801,8 +3801,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3853,8 +3853,8 @@
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -3875,7 +3875,7 @@
 
 		/* Record Body Bytes*/
 		.db 0xe                   /* Entity ID                        */
-		.db 0x0                 /* Entity Instance                  */
+		.db 0x1                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
         .db 0x1                 /* Sensor Type                      */
@@ -3894,19 +3894,19 @@
 		.db ((0xc2 >> 2) & 0xF0) + (0x0 & 0x0C) + 0x0    /* Accuracy, Accuracy exponent      */
 		.db (0x0 << 4) + (0x0 & 0x0F)          /*R exponent, B exponent           */
 		.db 0x7                      /* Analog Characteristics Flags     */
-		.db 0x32          /* Nominal Reading                  */
-		.db 0x64              /* Normal Maximum                   */
+		.db 0x19          /* Nominal Reading                  */
+		.db 0x2d              /* Normal Maximum                   */
 		.db 0x0              /* Normal Minimum                   */
 		.db 0xff                  /* Sensor Maximum Reading           */
 		.db 0x0                  /* Sensor Minimum Reading           */
 		.db 0x0    /* Upper Non-Recoverable Threshold  */
-		.db 0x64           /* Upper Critical Threshold         */
+		.db 0x32           /* Upper Critical Threshold         */
 		.db 0x0       /* Upper Non-Critical Threshold     */
 		.db 0x0    /* Lower Non-Recoverable Threshold  */
 		.db 0x0           /* Lower Critical Threshold         */
 		.db 0x0       /* Lower Non-Critical Threshold     */
-		.db 0x0     /* Positive - threshold Hysteresis value*/
-		.db 0x0     /* Negative - threshold Hysteresis value*/
+		.db 0x1     /* Positive - threshold Hysteresis value*/
+		.db 0x1     /* Negative - threshold Hysteresis value*/
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
@@ -4588,4 +4588,25 @@
         .db 0x0                      /* OEM                              */
         .db 0xc0 + sizeof "Fan5_1_TACH"   /* ID String Type / Length Code     */
         .db "Fan5_1_TACH"
+        
+
+        /* SDR Record Header */
+            .dw 0x74               /* Record ID                        */
+            .db 0x51              /* SDR Version                      */
+            .db 0x11                    /* Record Type                      */
+            .db 11 + sizeof "PDB_FRU" /* Record Length = 12+ string length*/
+            /* RECORD KEY BYTES*/
+            .db 0x20          /* Device access addres             */
+            .db 0x1            /* FRU Device IU                    */
+            .db 0x80           /* Channel number                   */
+            .db 0x0              /* Channel number                   */
+            /* RECORD BODY BYTES*/
+            .db 0x00                    /* Reserved                         */
+            .db 0xe          /* Device Type codes                */
+            .db 0x2 /* Device Type modifier codes       */
+            .db 0xe               /* Entity ID                        */
+            .db 0x0             /* Entity Instance                  */
+            .db 0x0                  /* OEM                              */
+            .db 0xc0 + sizeof"PDB_FRU"/* ID String Type / Length Code     */
+            .db "PDB_FRU"
         
