@@ -111,7 +111,7 @@ static void HyvePlatform_InitChip()
 	HyveExt_CtrlGPIOPbyPass(TRUE);
 }
 
-static int HyvePlatform_InitFRU()
+static int HyvePlatform_InitMBFRU()
 {
 	char fruFile[128] = {0};
 	struct stat statbuf = {0};
@@ -120,12 +120,12 @@ static int HyvePlatform_InitFRU()
 	HYVE_FRU_BKFRU_PATH(fruFile, sizeof(fruFile), HYFEPLATFORM_MB_FRU_ID);
 	if (stat(fruFile, &statbuf)) {
 		// Create the MB backup FRU
-		if (HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_FLASH) < 0) {
+		if (HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_FLASH, HYVE_FRU_FILE_SIZE) < 0) {
 			printf("[INFO] Error in creating MB backup FRU\n");
 		}
 	}
 	// Create the MB FRU Cache
-	if (HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE) < 0) {
+	if (HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE, HYVE_FRU_FILE_SIZE) < 0) {
 		INT8U fruData[HYVE_FRU_FILE_SIZE] = {0};
 		FILE *fp = NULL;
 
@@ -145,6 +145,17 @@ static int HyvePlatform_InitFRU()
 	return 0;
 }
 
+static void HyvePlatform_InitExtBoardFRUCache()
+{
+	INT32U fruIDs = 0x06; // default, HYFEPLATFORM_PDB_FRU_ID and HYFEPLATFORM_FANBOARD_FRU_ID
+
+	// TODO: check if need to support FP FRU
+//	if (g_is_FP_supported) {
+//		fruIDs |= HYVE_BIT(HYFEPLATFORM_FRONTPANEL_FRU_ID);
+//	}
+	HyvePlatform_SetPendTask(HyvePlatformPT_CREATEFRUCACHE, 3, fruIDs);
+}
+
 /*-----------------------------------------------------------------
  * @fn HyvePlatform_Init
  * @brief	To do platform specific init procedure,
@@ -161,8 +172,8 @@ int HyvePlatform_Init()
 	HyvePlatform_InitChip();
 	HyveExt_MutexInit();
 
-	if (HyvePlatform_InitFRU() < 0 ) {
-		printf("[INFO] Error in creating FRU cache\n");
+	if (HyvePlatform_InitMBFRU() < 0 ) {
+		printf("[INFO] Error in creating MB FRU cache\n");
 	}
 	// Recognize this platform
 	HyvePlatform_InitPlatformID();
@@ -199,7 +210,9 @@ int HyvePlatform_TaskInit(int BMCInst)
 	INT8U Is_asserted = 1;
 	printf("[ INFO ] - Inform CPLD FwAuthComplete %s\n", __func__);
 	HyvePlatformCPLD_Inform_FwAuthComplete(Hyve_VALUE_SET, &Is_asserted);
-	
+
+	HyvePlatform_InitExtBoardFRUCache();
+
 	return 0;
 }
 

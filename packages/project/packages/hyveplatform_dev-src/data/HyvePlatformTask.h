@@ -28,7 +28,8 @@ typedef enum {
 } HyvePlatformMsgQ_Type;
 
 typedef enum {
-	HyvePlatformPT_BACKUPFRU = 0,
+	HyvePlatformPT_SYNCFRU = 0,
+	HyvePlatformPT_CREATEFRUCACHE,
 	HyvePlatformPT_MAX
 } HyvePlatformPendTaskIndex;
 
@@ -69,8 +70,8 @@ extern void HyvePlatform_SensorMonitorStart(int BMCInst);
 
 /********************* Hyve platform pend task call-back functions *********************/
 // Note: All platform pend task call-back functions must return "0", if success.
-extern int HyvePlatformPT_BackupFRU(HyvePlatformPendTask_T* pTask);
-
+extern int HyvePlatformPT_SyncFRU(HyvePlatformPendTask_T* pTask);
+extern int HyvePlatformPT_CreateFRUCache(HyvePlatformPendTask_T* pTask);
 
 
 #endif

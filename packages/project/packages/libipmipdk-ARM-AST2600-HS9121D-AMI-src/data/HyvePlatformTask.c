@@ -37,7 +37,8 @@ int g_hyvePlatformMsgQFD_IRQ = -1;
 
 static HyvePlatformPendTask_T g_hyvePlatformPendTasks[HyvePlatformPT_MAX] = {
 	// { is_set ,timeout ,jiffy, data, callback }
-	{ 0, 1, 0, 0, HyvePlatformPT_BackupFRU },
+	{ 0, 3, 0, 0, HyvePlatformPT_SyncFRU },
+	{ 0, 3, 0, 0, HyvePlatformPT_CreateFRUCache },
 };
 
 
@@ -243,7 +244,7 @@ static void* HyvePlatform_IRQDeferHandler(void* pArg)
                 printf("[%s]: Error in reading msg queue\n", __func__);
                 continue;
             }
-            printf("msg.msgType:%x msg.msgData: %x\n", msg.msgType, msg.msgData);
+//            printf("msg.msgType:%x msg.msgData: %x\n", msg.msgType, msg.msgData);
 // IRQ Defer Action --
             switch(msg.msgType)
             {
@@ -415,19 +416,20 @@ void HyvePlatform_SensorMonitorStart(int BMCInst)
 	OS_CREATE_THREAD(HyvePlatform_SensorMonitor, (void*)BMCInst, NULL);
 }
 
-int HyvePlatformPT_BackupFRU(HyvePlatformPendTask_T* pTask)
+int HyvePlatformPT_SyncFRU(HyvePlatformPendTask_T* pTask)
 {
 	static INT8U retry = 0;
 
-	// Currently only consider MB FRU (FRU ID 0)
-	if (((HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE) < 0) ||
-			(HyveFRU_FRUBackup(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_FLASH) < 0)) &&
-			(++retry < 3)) {
+	if ((HyvePlatform_SyncFRU() < 0) && (++retry < 3)) {
 		pTask->timeout = 1;
 		pTask->jiffy = HYFEPLATFORM_JIFFY;
 		return -1;
 	}
 	retry = 0;
-
 	return 0;
+}
+
+int HyvePlatformPT_CreateFRUCache(HyvePlatformPendTask_T* pTask)
+{
+	return HyvePlatform_CreateFRUsCache(pTask->data);
 }

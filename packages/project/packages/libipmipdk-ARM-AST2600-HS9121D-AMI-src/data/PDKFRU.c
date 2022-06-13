@@ -49,6 +49,7 @@ snprintf(filename,FRU_FILE_NAME_LEN,"%s%d/%s",NV_DIR_PATH,Instance,"FRU.bin")
 
 FRUAccess_T g_FruTbl[] = {
     { HYFEPLATFORM_MB_FRU_ID,			EEPROM_I2C_ADDR, 1 },
+    { HYFEPLATFORM_PDB_FRU_ID,			HYFEPLATFORM_ADDR_PDB_FRU, 1 },
     { HYFEPLATFORM_FANBOARD_FRU_ID,		HYFEPLATFORM_ADDR_FAN_BOARD_FRU, 1 },
     { HYFEPLATFORM_FRONTPANEL_FRU_ID,	HYFEPLATFORM_ADDR_FP_FRU, 1 },
 };
@@ -208,19 +209,7 @@ static int WriteFRUDevice (FRUInfo_T* pFRUInfo, INT16U Offset, INT8U Len, INT8U*
 
 static inline int HyvePlatformReadBKFRU(const INT8U fruID, const INT16U offset, const INT16U countToRead, INT8U* pData)
 {
-	// If backup FRU action is in process then return
-	if (HyvePlatform_Is_PendTaskSet(HyvePlatformPT_BACKUPFRU)) {
-//		printf("HyvePlatformPT_BACKUPFRU is running\n");
-		return -1;
-	}
 	return HyveFRU_ReadFRU(offset, countToRead, fruID, HYVE_STORETYPE_CACHE, pData);
-}
-
-static inline void HyvePlatformWriteBKFRU(const INT8U fruID)
-{
-	if (!HyvePlatform_Is_PendTaskSet(HyvePlatformPT_BACKUPFRU)) {
-		HyvePlatform_SetPendTask(HyvePlatformPT_BACKUPFRU, 1, fruID);
-	}
 }
 
 /*-----------------------------------------------------
@@ -384,7 +373,7 @@ PDK_WriteFRUData (_NEAR_ INT8U* pReq, INT8U ReqLen, _NEAR_ INT8U* pRes, int BMCI
 
     /* Wrtie the date to FRU device */
     retval = WriteFRUDevice (pFRUInfo, Offset, Length,
-                                                (INT8U*)(pFRUWriteReq + 1),BMCInst);
+    						(INT8U*)(pFRUWriteReq + 1),BMCInst);
     if (retval != -1)
     {
     	pFRUWriteRes->CountWritten  = (INT8U) retval;
@@ -394,9 +383,7 @@ PDK_WriteFRUData (_NEAR_ INT8U* pReq, INT8U ReqLen, _NEAR_ INT8U* pRes, int BMCI
         pFRUWriteRes->CompletionCode = CC_FRU_DATA_UNAVAILABLE;
         return sizeof(INT8U);
     }
-    // Do the FRU back action, if support
-    HyvePlatformWriteBKFRU(pFRUWriteReq->FRUDeviceID);
-
+ 
     return sizeof(FRUWriteRes_T);
 }
 
