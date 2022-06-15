@@ -22,6 +22,7 @@
 /********************* Global variable definitions *********************/
 INT8U g_Is_PSUPwrGood = FALSE; // This variable can only be set by HyvePlatform_Is_PSU_PwrGood or IRQhndlr_PWRGD_PSU_PWROK
 
+const INT8U g_psuLocationTable[] = { HyvePSU_Location_Left, HyvePSU_Location_Right };
 
 void* HyvePlatform_PSUTask(void* pArg)
 {
