@@ -896,7 +896,7 @@
 		.dw 0x14                   /* Record ID                        */
 		.db 0x51                  /* SDR Version                      */
 		.db 0x01                        /* Record Type                      */
-		.db 43 + sizeof "BAT_VOLT_P3VTP3V"     /* Record Length = 43+ string length*/
+		.db 43 + sizeof "BAT_VOLT_P3V"     /* Record Length = 43+ string length*/
 
 		/* Record Key Bytes*/
 		.db 0x20                   /* Sensor Owner ID                  */
@@ -940,8 +940,8 @@
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                         /* Reserved                         */
 		.db 0x0                      /* OEM                              */
-		.db 0xc0 + sizeof "BAT_VOLT_P3VTP3V"   /* ID String Type / Length Code     */
-		.db "BAT_VOLT_P3VTP3V"
+		.db 0xc0 + sizeof "BAT_VOLT_P3V"   /* ID String Type / Length Code     */
+		.db "BAT_VOLT_P3V"
 		
 /* AVIN */
 

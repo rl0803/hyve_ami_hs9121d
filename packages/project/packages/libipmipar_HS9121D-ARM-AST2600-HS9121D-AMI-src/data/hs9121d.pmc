@@ -14758,7 +14758,7 @@
 <device>
 	<dev_name>Hyve_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>BAT_VOLT_P3VTP3V</name>
+	<name>BAT_VOLT_P3V</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xcf</value>
@@ -14769,7 +14769,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>BAT_VOLT_P3VTP3V</value>
+		<value>BAT_VOLT_P3V</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -14834,7 +14834,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>BAT_VOLT_P3VTP3V [1]</name>
+		<name>BAT_VOLT_P3V [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -14976,7 +14976,7 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>BAT_VOLT_P3VTP3V</name>
+	<name>BAT_VOLT_P3V</name>
 </device_connection>
 <device>
 	<dev_name>Hyve_NC</dev_name>
@@ -19328,7 +19328,7 @@
 	<item>PSU1_TEMP</item>
 	<item>PSU1_FAN</item>
 	<item>VOLT_P12V</item>
-	<item>BAT_VOLT_P3VTP3V</item>
+	<item>BAT_VOLT_P3V</item>
 	<item>PDB0_VOLT_P12V</item>
 	<item>PDB0_VOLT_P3V3</item>
 	<item>PDB0_VOLT_P5V</item>
