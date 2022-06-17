@@ -1711,10 +1711,13 @@ void PDK_AfterSDRInit(INT8U BMCInst)
 				if ((pFruRec->FRUIDSlaveAddr > 0x00))
 					is_InDeleteList = 1;
 			}
-			if (is_InDeleteList)
+			if (is_InDeleteList) {
 			    _DeleteSDR(pSDRRecHdr->ID, BMCInst);
-
-			pSDRRecHdr = SDR_GetNextSDRRec(pSDRRecHdr, BMCInst);
+			    // After delete a SDR rec need to start from the beginning
+			    pSDRRecHdr = SDR_GetFirstSDRRec(BMCInst);
+			} else {
+				pSDRRecHdr = SDR_GetNextSDRRec(pSDRRecHdr, BMCInst);
+			}
 		} // end of while
 	}
 	HyvePlatform_DestroySensorDelList();
