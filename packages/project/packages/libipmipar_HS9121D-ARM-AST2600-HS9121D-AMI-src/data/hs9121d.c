@@ -2188,10 +2188,10 @@ int dev_fanboard_fru_write_device (hal_t *phal);
 	
 	
 	
-	static INT8U BAT_VOLT_P3VTP3V_previous_value = 0x64;
-	static INT8U BAT_VOLT_P3VTP3V_retry_MAX_Threshold;
-	static INT8U BAT_VOLT_P3VTP3V_retry_MIN_Threshold;
-	static INT8U BAT_VOLT_P3VTP3V_retry = 0;
+	static INT8U BAT_VOLT_P3V_previous_value = 0x64;
+	static INT8U BAT_VOLT_P3V_retry_MAX_Threshold;
+	static INT8U BAT_VOLT_P3V_retry_MIN_Threshold;
+	static INT8U BAT_VOLT_P3V_retry = 0;
 
 	/* Temp sensor Properties */
 
@@ -11565,7 +11565,7 @@ dev_hyve_voltage_0xc7h_0_32_write_device (hal_t *phal) /* @source: File - Hyve_V
 
 
 /*-------------------------------------------------------------*/
-/* Functions for device Hyve_NC [BAT_VOLT_P3VTP3V: dev_hyve_nc_0xcfh_0_32] */
+/* Functions for device Hyve_NC [BAT_VOLT_P3V: dev_hyve_nc_0xcfh_0_32] */
 /*-------------------------------------------------------------*/
 
 /**
@@ -11593,8 +11593,8 @@ int
 dev_hyve_nc_0xcfh_0_32_init_device (hal_t *phal) /* @source: File - Hyve_NC.ddf Line - 11 */
 	{
 		UN_USED(phal);
-		BAT_VOLT_P3VTP3V_retry_MAX_Threshold = 0x6d;
-		BAT_VOLT_P3VTP3V_retry_MIN_Threshold = 0x54;
+		BAT_VOLT_P3V_retry_MAX_Threshold = 0x6d;
+		BAT_VOLT_P3V_retry_MIN_Threshold = 0x54;
 		return 0;
 	}    
 	
@@ -11636,16 +11636,16 @@ dev_hyve_nc_0xcfh_0_32_read_device (hal_t *phal) /* @source: File - Hyve_NC.ddf 
 	{
 		HyveMonitor_GetReadingValBySensorNum(0xcf, 0x0, phal);
 
-		if (((*phal->pbyte) >= BAT_VOLT_P3VTP3V_retry_MAX_Threshold) ||
-			(BAT_VOLT_P3VTP3V_retry_MIN_Threshold >= (*phal->pbyte)))
+		if (((*phal->pbyte) >= BAT_VOLT_P3V_retry_MAX_Threshold) ||
+			(BAT_VOLT_P3V_retry_MIN_Threshold >= (*phal->pbyte)))
 		{
-			if (3 > BAT_VOLT_P3VTP3V_retry) {
-				*phal->pbyte = BAT_VOLT_P3VTP3V_previous_value;
-				++BAT_VOLT_P3VTP3V_retry;
+			if (3 > BAT_VOLT_P3V_retry) {
+				*phal->pbyte = BAT_VOLT_P3V_previous_value;
+				++BAT_VOLT_P3V_retry;
 			}
 		} else {
-			BAT_VOLT_P3VTP3V_previous_value = *phal->pbyte;
-			BAT_VOLT_P3VTP3V_retry = 0;
+			BAT_VOLT_P3V_previous_value = *phal->pbyte;
+			BAT_VOLT_P3V_retry = 0;
 		}
 		return 0;
 	}
