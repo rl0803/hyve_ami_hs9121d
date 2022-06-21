@@ -51,12 +51,12 @@ LANConfig3_LoadFile(char *File, LANConfig_T *data)
 	data->AuthTypeEnables.AuthTypeOem = IniGetUInt(ini, "LAN3ConfigParams/AuthTypeEnables", "AuthTypeOem", (0x1 << 5) | (0x1 << 4) | \
 			(0x1 << 2) | (0x1 << 1) | 0x0);
 
-	data->IPAddr[0] = IniGetUInt(ini, "LAN3ConfigParams", "IPAddr/0", 0);
-	data->IPAddr[1] = IniGetUInt(ini, "LAN3ConfigParams", "IPAddr/1", 0);
+	data->IPAddr[0] = IniGetUInt(ini, "LAN3ConfigParams", "IPAddr/0", 169);
+	data->IPAddr[1] = IniGetUInt(ini, "LAN3ConfigParams", "IPAddr/1", 254);
 	data->IPAddr[2] = IniGetUInt(ini, "LAN3ConfigParams", "IPAddr/2", 0);
-	data->IPAddr[3] = IniGetUInt(ini, "LAN3ConfigParams", "IPAddr/3", 0);
+	data->IPAddr[3] = IniGetUInt(ini, "LAN3ConfigParams", "IPAddr/3", 17);
 
-	data->IPAddrSrc = IniGetUInt(ini, "LAN3ConfigParams", "IPAddrSrc", 0x2);
+	data->IPAddrSrc = IniGetUInt(ini, "LAN3ConfigParams", "IPAddrSrc", 0x1);
 
 	data->MACAddr[0] = IniGetUInt(ini, "LAN3ConfigParams", "MACAddr/0", 0x0);
 	data->MACAddr[1] = IniGetUInt(ini, "LAN3ConfigParams", "MACAddr/1", 0x0);
@@ -65,8 +65,8 @@ LANConfig3_LoadFile(char *File, LANConfig_T *data)
 	data->MACAddr[4] = IniGetUInt(ini, "LAN3ConfigParams", "MACAddr/4", 0x0);
 	data->MACAddr[5] = IniGetUInt(ini, "LAN3ConfigParams", "MACAddr/5", 0x0);
 
-	data->SubNetMask[0] = IniGetUInt(ini, "LAN3ConfigParams", "SubNetMask/0", 0);
-	data->SubNetMask[1] = IniGetUInt(ini, "LAN3ConfigParams", "SubNetMask/1", 0);
+	data->SubNetMask[0] = IniGetUInt(ini, "LAN3ConfigParams", "SubNetMask/0", 255);
+	data->SubNetMask[1] = IniGetUInt(ini, "LAN3ConfigParams", "SubNetMask/1", 255);
 	data->SubNetMask[2] = IniGetUInt(ini, "LAN3ConfigParams", "SubNetMask/2", 0);
 	data->SubNetMask[3] = IniGetUInt(ini, "LAN3ConfigParams", "SubNetMask/3", 0);
 
@@ -794,7 +794,7 @@ LANConfig3_LoadFile(char *File, LANConfig_T *data)
 	data->BadPasswd.ResetInterval = IniGetUInt(ini, "LAN3ConfigParams/BadPasswd", "ResetInterval", 0);
 	data->BadPasswd.LockoutInterval = IniGetUInt(ini, "LAN3ConfigParams/BadPasswd", "LockoutInterval", 0);
 
-	data->IPv6_Enable = IniGetUInt(ini, "LAN3ConfigParams", "IPv6_Enable", 0x1);
+	data->IPv6_Enable = IniGetUInt(ini, "LAN3ConfigParams", "IPv6_Enable", 0x0);
 
 	data->IPv6_IPAddrSrc = IniGetUInt(ini, "LAN3ConfigParams", "IPv6_IPAddrSrc", 0x2);
 
@@ -1091,7 +1091,7 @@ LANConfig3_LoadFile(char *File, LANConfig_T *data)
 
 	data->IPv4_Enable = IniGetUInt(ini, "LAN3ConfigParams", "IPv4_Enable", 0x1);
 
-	data->IPv6_RA_Conf_Cntl_Enable = IniGetUInt(ini, "LAN3ConfigParams", "IPv6_RA_Conf_Cntl_Enable", 0x1 << 1 | 0x0);
+	data->IPv6_RA_Conf_Cntl_Enable = IniGetUInt(ini, "LAN3ConfigParams", "IPv6_RA_Conf_Cntl_Enable", 0x0 << 1 | 0x0);
 
 	data->IPv6_Router1_IPAddr[0] = IniGetUInt(ini, "LAN3ConfigParams", "IPv6_Router1_IPAddr/0", 0x0);
 	data->IPv6_Router1_IPAddr[1] = IniGetUInt(ini, "LAN3ConfigParams", "IPv6_Router1_IPAddr/1", 0x0);

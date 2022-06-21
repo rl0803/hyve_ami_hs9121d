@@ -24775,7 +24775,7 @@
 		</config>
 		<config>
 			<variable>MAX_LAN_CHANNELS</variable>
-			<value>2</value>
+			<value>3</value>
 		</config>
 		<config>
 			<variable>SECONDARY_IPMB_SUPPORT</variable>
@@ -28254,11 +28254,11 @@
 		</config>
 		<config>
 			<variable>IP_ADDR</variable>
-			<value>0.0.0.0</value>
+			<value>169.254.0.17</value>
 		</config>
 		<config>
 			<variable>IP_ADDR_SRC</variable>
-			<value>DHCP</value>
+			<value>Static</value>
 		</config>
 		<config>
 			<variable>MAC_ADDR</variable>
@@ -28266,7 +28266,7 @@
 		</config>
 		<config>
 			<variable>SUB_NET_MASK</variable>
-			<value>0.0.0.0</value>
+			<value>255.255.0.0</value>
 		</config>
 		<config>
 			<variable>PRIM_RMCP_PORT</variable>
@@ -28334,7 +28334,7 @@
 		</config>
 		<config>
 			<variable>IPV6_ENABLE</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>IPV6_ADDR_SRC</variable>
@@ -28482,7 +28482,7 @@
 		</config>
 		<config>
 			<variable>DYNAMIC_RA</variable>
-			<value>Enable</value>
+			<value>Disable</value>
 		</config>
 		<config>
 			<variable>IPV6_ROUTER1_IPADDR</variable>
