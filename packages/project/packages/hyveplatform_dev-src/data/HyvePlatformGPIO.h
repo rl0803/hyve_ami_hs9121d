@@ -236,9 +236,9 @@
 #define IO_NC_GPIOX0                        GPIOX0 // No Use
 #define IO_BMC_SYS_STATUS_LED_CTRL_Y        GPIOX1 // GPIO, Output, Yellow LED
 #define IO_BMC_SYS_STATUS_LED_CTRL_G        GPIOX2 // GPIO, Output, Green LED
-#define IO_BMC_CLKGEN_I2CMUX_RST_N          GPIOX3 // GPIO, Output, BMC_CLKGEN_I2CMUX_RST_N, the reset pin for MUX-PCA9546
+#define IO_BMC_CLKGEN_I2CMUX_RST_N          GPIOX3 // GPIO, Output, BMC_CLKGEN_I2CMUX_RST_N, the reset pin for MUX-PCA9548
 #define IO_BMC_PLINK_I2CMUX_RST_N           GPIOX4 // GPIO, Output, BMC_PLINK_I2CMUX_RST_N,  the reset pin for MUX-PCA9548
-#define IO_BMC_GLINK_I2CMUX_RST_N           GPIOX5 // GPIO, Output, BMC_GLINK_I2CMUX_RST_N,  the reset pin for MUX-PCA9546
+#define IO_BMC_GLINK_I2CMUX_RST_N           GPIOX5 // GPIO, Output, BMC_GLINK_I2CMUX_RST_N,  the reset pin for MUX-PCA9548
 #define IO_NC_GPIOX6                        GPIOX6 // No Use
 #define IO_NC_GPIOX7                        GPIOX7 // No Use
 

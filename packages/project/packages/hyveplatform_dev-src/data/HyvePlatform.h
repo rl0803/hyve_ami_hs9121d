@@ -67,11 +67,11 @@ typedef enum {
  * I2C Bus, 0 based, 8-bit address
 	I2C-1: APML (May use I3C-3)
 	I2C-4: PMBUS
-	I2C-5: SMBus for PCIe device access
-	I2C-6: For BMC to access the Clock-Gen IC but BMC doesn't control it.
+	I2C-5: SMBus for PCIe devices (G-link) access, AIC backplane
+	I2C-6: For BMC to access the OCP, Riser, M.2, Clock-Gen IC, and connect to CPU I2C5
 	I2C-7: MB FRU, Temp sensor
 	I2C-8: CPU VR
-	I2C-9: OCP, Riser
+	I2C-9: SMBus for PCIe devices (MCIO connector) access
 
 	I2C-11: Fan HW monitor, on-board Fan(4 fans) control
 	I2C-12: Fan board, 3 fans, can support up to 8 fans
@@ -102,11 +102,20 @@ typedef enum {
 #define HYFEPLATFORM_ADDR_PDB_TMP75						(0x9A)	// TMP75
 #define HYFEPLATFORM_ADDR_PDB_FRU						(0xAC)  // AT24C02C, size 256 Bytes
 
-#define HYFEPLATFORM_SMBUS_PCIE							(5)
-#define HYFEPLATFORM_ADDR_MUX_PCIE						(0xE8)	// PCA9546A
+#define HYFEPLATFORM_SMBUS_G_MCIO						(5)
+#define HYFEPLATFORM_ADDR_MUX_PCIE						(0xEC)	// PCA9548A
 
 #define HYFEPLATFORM_SMBUS_CLK_GEN						(6)
-#define HYFEPLATFORM_ADDR_MUX_CLK_GEN					(0xE2)	// PCA9546A
+#define HYFEPLATFORM_ADDR_MUX_CLK_GEN					(0xE0)	// PCA9548A
+#define MUX_CHANNEL_OCP0									MUX_CHANNEL_0
+#define MUX_CHANNEL_P0_P_CLK_BUF							MUX_CHANNEL_1
+#define MUX_CHANNEL_CPU_I2C5								MUX_CHANNEL_2 // currently not use (unknown bus owner CPU or BMC)
+#define MUX_CHANNEL_RISER0									MUX_CHANNEL_3
+#define MUX_CHANNEL_RISER1									MUX_CHANNEL_4
+#define MUX_CHANNEL_M2										MUX_CHANNEL_5
+#define HYFEPLATFORM_ADDR_OCP0							(0xFF) // Mux channel 0, address unknown
+#define HYFEPLATFORM_ADDR_P0_P_CLK_BUF					(0xD8) // Mux channel 1, BMC doesn't control it
+#define HYFEPLATFORM_ADDR_M2							(0xFF) // Mux channel 5, address unknown
 
 #define HYFEPLATFORM_SMBUS_MB_TEMP_FRU					(7)
 #define HYFEPLATFORM_ADDR_MB_TMP468						(0x90)	// TMP468
@@ -120,15 +129,16 @@ typedef enum {
 
 #define HYFEPLATFORM_SMBUS_OCP_RISER					(9)
 #define HYFEPLATFORM_ADDR_MUX_OCP_RISER					(0xE4)	// PCA9548A
-#define HYFEPLATFORM_ADDR_OCP0							(0xA0)	// Mux channel 0
-#define HYFEPLATFORM_ADDR_OCP1							(0xA0)	// Mux channel 1
-#define HYFEPLATFORM_ADDR_RISER0						(0x90)	// Mux channel 1	Riser card  SPD - Temp sensor / FRU
+#define MUX_CHANNEL_P2_MCIO1_1								MUX_CHANNEL_0
+#define MUX_CHANNEL_P2_MCIO1_2								MUX_CHANNEL_1
+#define MUX_CHANNEL_P3_MCIO2_1								MUX_CHANNEL_2
+#define MUX_CHANNEL_P3_MCIO2_2								MUX_CHANNEL_3
+#define MUX_CHANNEL_P3_MCIO2_3								MUX_CHANNEL_4 // for PCIeX8 device
+#define MUX_CHANNEL_P3_MCIO2_4								MUX_CHANNEL_5
+#define MUX_CHANNEL_P0_CLK_GEN								MUX_CHANNEL_6 // for PCIeX8 device
+#define MUX_CHANNEL_P0_G_CLK_BUF							MUX_CHANNEL_7
 #define HYFEPLATFORM_ADDR_E1S0							(0xEE)	// Mux channel 3	E1.S
 #define HYFEPLATFORM_ADDR_E1S1							(0xEE)	// Mux channel 5	E1.S
-// Mux channel 2 is reserved
-// Mux channel 4 is for PCIeX8 device
-// Mux channel 6 is for PCIeX8 device
-
 
 #define HYFEPLATFORM_SMBUS_FAN_HWMONIOTR				(11)
 #define HYFEPLATFORM_ADDR_FAN_HWMON						(0x40)	// HW monitor (MB Fan ctrl IC, NCT7362Y)
@@ -209,9 +219,9 @@ typedef enum {
 } HyvePlatformPwrAUXIndex;
 
 typedef enum {
-	I2CMUX_CLKGEN = 0,	// MUX-PCA9546, for BMC SMBus channel to access clock generator
-	I2CMUX_PLINK,		// MUX-PCA9548, for BMC SMBus channel to access PCIe devices
-	I2CMUX_GLINK,		// MUX-PCA9546, for BMC SMBus channel to access OCP and Riser
+	I2CMUX_GLINK = 0, // MUX-PCA9548, for BMC SMBus channel to access PCIe devices
+	I2CMUX_CLKGEN,    // MUX-PCA9548, for BMC SMBus channel to access OCP, Riser, and clock generator
+	I2CMUX_PLINK,     // MUX-PCA9548, for BMC SMBus channel to access PCIe devices (MCIO connector)
 	I2CMUXIndex_MAX
 } HyvePlatformI2CMuxIndex;
 

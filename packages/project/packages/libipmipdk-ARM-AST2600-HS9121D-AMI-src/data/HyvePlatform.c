@@ -663,8 +663,8 @@ int HyvePlatform_DIMM_MuxControl(const INT8U op, INT8U* pIs_enable)
 int HyvePlatform_Reset_I2CMux(const INT8U muxIndex)
 {
 	const INT16U resetPins[I2CMUXIndex_MAX] = {
-			IO_BMC_CLKGEN_I2CMUX_RST_N, IO_BMC_PLINK_I2CMUX_RST_N,
-			IO_BMC_GLINK_I2CMUX_RST_N
+			IO_BMC_GLINK_I2CMUX_RST_N, IO_BMC_CLKGEN_I2CMUX_RST_N,
+			IO_BMC_PLINK_I2CMUX_RST_N
 	};
 
 	if (muxIndex >= I2CMUXIndex_MAX) { return -1; }
