@@ -295,7 +295,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x8b</value>
+		<value>0x8c</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -1167,7 +1167,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0x7b</value>
+		<value>0x75</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
@@ -1195,7 +1195,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x7c</value>
+		<value>0x77</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -1207,7 +1207,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0x66</value>
+		<value>0x6c</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -1392,7 +1392,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xcb</value>
+		<value>0xbe</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
@@ -1400,7 +1400,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xa8</value>
+		<value>0xb8</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -1420,7 +1420,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xcc</value>
+		<value>0xc1</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -1432,7 +1432,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xa7</value>
+		<value>0xb3</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
@@ -1617,7 +1617,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MAX</variable>
-		<value>0xd4</value>
+		<value>0xc8</value>
 	</config>
 	<config>
 		<variable>NOMINAL_READING</variable>
@@ -1625,7 +1625,7 @@
 	</config>
 	<config>
 		<variable>NOMINAL_MIN</variable>
-		<value>0xaf</value>
+		<value>0xbc</value>
 	</config>
 	<config>
 		<variable>LWR_T_MASK</variable>
@@ -1645,7 +1645,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0xd5</value>
+		<value>0xcc</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -1657,7 +1657,7 @@
 	</config>
 	<config>
 		<variable>LOWER_CRITICAL</variable>
-		<value>0xae</value>
+		<value>0xb8</value>
 	</config>
 	<config>
 		<variable>LOWER_NON_RECOVERABLE</variable>
