@@ -12,6 +12,7 @@ LIBRARY_NAME = libipmipdk
 SRC = PDKAlert.c PDKEEPROM.c PDKFRU.c PDKSensor.c PDKHooks.c PDKHW.c PDKLED.c PDKSDR.c PDKSEL.c PDKInt.c
 SRC += HyvePlatform.c HyvePlatformHooks.c HyvePlatformTask.c HyvePlatformFan.c HyvePlatformPSU.c HyvePlatformSensorMonitor.c
 SRC += HyvePlatformCmds.c HyvePlatformCPLD.c HyvePlatformROT.c HyvePlatformFRU.c HyvePlatformSKUconfig.c
+SRC += HyvePlatformMuxCtrl.c
 
 CFLAGS += -I${SPXINC}/global
 CFLAGS += -I${SPXINC}/ipmi
