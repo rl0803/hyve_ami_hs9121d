@@ -59,5 +59,6 @@ extern INT8 Hyveplatform_ErrorSELstatus();
 #define HYVEPLATFORM_PEFOEMACTION									Hyveplatform_PEFOemAction
 #define HYVEPLATFORM_POSTCLEARSEL									Hyveplatform_PostClearSEL
 #define HYVEPLATFORM_SYS_POWER_RESET								HyvePlatform_Reset_PwrAUX_IC
+#define HYVEPLATFORM_IS_BP_SUPPORT()								g_is_BP_supported
 
 #endif

@@ -24,6 +24,7 @@
 #include "HyvePlatformFRU.h"
 #include "HyvePlatformSKUconfig.h"
 #include "HyvePlatformMuxCtrl.h"
+#include "HyvePlatformBP_FP.h"
 
 //#define HYVEPSU_DEBUG_ENABLE 1
 //#define HYVEFSC_DEBUG_ENABLE 1
