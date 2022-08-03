@@ -72,7 +72,7 @@ PDK_PlatformSetupLED (int BMCInst)
 		{
 			FALSE,
 			PLATFORM_LED_SYS_STATUS_G,
-			LED_PATTERN_ON,
+			LED_PATTERN_OFF,
 			0,
 			0,
 			0,
@@ -88,13 +88,16 @@ PDK_PlatformSetupLED (int BMCInst)
 	};
 
 	sysLEDInitState = Hyveplatform_ErrorSELstatus();
-	if (2 == sysLEDInitState) {
+	if (sysLEDInitState) {
 		PlatformLEDMap[PLATFORM_LED_SYS_STATUS_R].Enable = TRUE;
-	} else if (1 == sysLEDInitState) {
 		PlatformLEDMap[PLATFORM_LED_SYS_STATUS_Y].Enable = TRUE;
-	} else {
-		INT8U on = 1;
-		HyvePlatform_LED_Control(PLATFORM_LED_SYS_STATUS_G, Hyve_VALUE_SET, &on);
+		if (2 == sysLEDInitState) {
+			PlatformLEDMap[PLATFORM_LED_SYS_STATUS_R].Pattern = LED_PATTERN_SLOW_BLINK;
+			PlatformLEDMap[PLATFORM_LED_SYS_STATUS_Y].Pattern = LED_PATTERN_SLOW_BLINK;
+		} else  {
+			PlatformLEDMap[PLATFORM_LED_SYS_STATUS_R].Pattern = LED_PATTERN_ON;
+			PlatformLEDMap[PLATFORM_LED_SYS_STATUS_Y].Pattern = LED_PATTERN_ON;
+		}
 	}
 
 	LOCK_BMC_SHARED_MEM_RET(BMCInst, ret);

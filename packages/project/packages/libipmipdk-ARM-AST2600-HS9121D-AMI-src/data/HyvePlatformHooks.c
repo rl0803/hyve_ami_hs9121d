@@ -244,13 +244,11 @@ int Hyveplatform_PEFOemAction(void *_pEvtRecord, int BMCInst)
 	}
 	// The system status LED is a 3 in one LED, so just light on one color at a time
 	if (g_ErrorSELCount) {
-		API_GlowLED(PLATFORM_LED_SYS_STATUS_Y, LED_PATTERN_OFF, 0, BMCInst);
-		API_GlowLED(PLATFORM_LED_SYS_STATUS_R, LED_PATTERN_SLOW_BLINK, 0, BMCInst);
-		HyvePlatform_LED_Control(PLATFORM_LED_SYS_STATUS_G, Hyve_VALUE_SET, &off);
-	} else if (0xf == g_is_allDesserted) {
 		API_GlowLED(PLATFORM_LED_SYS_STATUS_Y, LED_PATTERN_SLOW_BLINK, 0, BMCInst);
-		API_GlowLED(PLATFORM_LED_SYS_STATUS_R, LED_PATTERN_OFF, 0, BMCInst);
-		HyvePlatform_LED_Control(PLATFORM_LED_SYS_STATUS_G, Hyve_VALUE_SET, &off);
+		API_GlowLED(PLATFORM_LED_SYS_STATUS_R, LED_PATTERN_SLOW_BLINK, 0, BMCInst);
+	} else if (0xf == g_is_allDesserted) {
+		API_GlowLED(PLATFORM_LED_SYS_STATUS_Y, LED_PATTERN_ON, 0, BMCInst);
+		API_GlowLED(PLATFORM_LED_SYS_STATUS_R, LED_PATTERN_ON, 0, BMCInst);
 	}
 
 	return 0;
