@@ -63,19 +63,19 @@ static void HyvePlatform_InitPlatformID()
 	   etc...
 	*/
 
-		// Get MB FRU Product Name
-		if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE, ProductInfoAreaOffset, &productArea) < 0) {
-			printf("%s Unable to get FRU Product Info Area data from cache\n", __func__);
-			if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_EEPROM, ProductInfoAreaOffset, &productArea) < 0) {
-				printf("%s Unable to get FRU Product Info Area data from EEPROM\n", __func__);
-			}
+	// Get MB FRU Product Name
+	if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE, ProductInfoAreaOffset, &productArea) < 0) {
+		printf("%s Unable to get FRU Product Info Area data from cache\n", __func__);
+		if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_EEPROM, ProductInfoAreaOffset, &productArea) < 0) {
+			printf("%s Unable to get FRU Product Info Area data from EEPROM\n", __func__);
 		}
-		if (productArea.areaData) {
-			INT32U offset = PRODUCT_OFFSET_PRODUCT_NAME(productArea.areaData);
-			productName = HyveFRU_GetInfoAreaString(&productArea.areaData[offset]);
-			free(productArea.areaData);
-		}
-	
+	}
+	if (productArea.areaData) {
+		INT32U offset = PRODUCT_OFFSET_PRODUCT_NAME(productArea.areaData);
+		productName = HyveFRU_GetInfoAreaString(&productArea.areaData[offset]);
+		free(productArea.areaData);
+	}
+
 	if (strstr(tmpPlatformID, "CF")) {
 /*
 		 * Cloudflare
@@ -305,9 +305,9 @@ int HyvePlatform_BIOS_FlashAccessControl(const INT8U op, INT8U* pIs_enable)
 
 	if (Hyve_VALUE_SET == op) {
 		if (TRUE == *pIs_enable) {
-			ret = HyveExt_GPIO_Set_Data_High(IO_FM_BIOS_BMC_CTRL);
-		} else {
 			ret = HyveExt_GPIO_Set_Data_Low(IO_FM_BIOS_BMC_CTRL);
+		} else {
+			ret = HyveExt_GPIO_Set_Data_High(IO_FM_BIOS_BMC_CTRL);
 		}
 		return ret < 0 ? -1 : 0;
 	}

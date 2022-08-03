@@ -57,7 +57,7 @@
 #define IO_NCSI_BMC_TXD_1                   GPIOD7
 
 #define IO_FM_BACKUP_BIOS_SEL_N             GPIOE0 // GPIO, Output, High: primary BIOS; Low: secondary BIOS
-#define IO_FM_BIOS_BMC_CTRL                 GPIOE1 // GPIO, Output, pull High to enable BIOS flash access
+#define IO_FM_BIOS_BMC_CTRL                 GPIOE1 // GPIO, Output, pull Low to enable BIOS flash access
 #define IO_CLK_50M_CKMNG_BMCB               GPIOE2
 #define IO_RGMII4_CTL                       GPIOE3
 #define IO_NCSI_BMC_RXD_0                   GPIOE4
@@ -139,7 +139,7 @@
 
 #define IO_P0_PROCHOT_N                     GPION0 // GPIO, Input
 #define IO_NC_GPION1                        GPION1 // No Use
-#define IO_BMC_PLD_VR_ALERT_L               GPION2 // GPIO, Output, to inform the CPLD
+#define IO_BMC_PLD_VR_ALERT_L               GPION2 // GPIO, Output, to inform the CPLD to trigger PROCHOT
 #define IO_NC_GPION3                        GPION3 // No Use
 #define IO_EC_BMC_AP1_RESET_N               GPION4 // GPIO, Input, the ROT informs the BMC
 #define IO_EC_BMC_FATAL_ERROR_N             GPION5 // GPIO, Input, the ROT informs the BMC
