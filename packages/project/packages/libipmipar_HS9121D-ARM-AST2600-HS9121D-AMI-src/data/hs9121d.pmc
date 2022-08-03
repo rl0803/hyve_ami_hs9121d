@@ -24688,7 +24688,7 @@
 		</config>
 		<config>
 			<variable>SOL_IFC_PORT</variable>
-			<value>/dev/ttyS0</value>
+			<value>/dev/ttyS3</value>
 		</config>
 		<config>
 			<variable>SERIAL_IFC_PORT</variable>
