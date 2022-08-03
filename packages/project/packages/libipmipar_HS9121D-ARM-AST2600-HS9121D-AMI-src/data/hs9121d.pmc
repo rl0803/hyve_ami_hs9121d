@@ -1966,7 +1966,7 @@
 		</config>
 		<config>
 			<variable>M_VAL</variable>
-			<value>0x1</value>
+			<value>0x2</value>
 		</config>
 		<config>
 			<variable>TOLERENCE</variable>
@@ -19309,122 +19309,123 @@
 	<name>FanBoard_FRU</name>
 </device_connection>
 <sdrorder>
-	<item>MB_FRU</item>
-	<item>AST2600</item>
-	<item>PSU0_STATUS</item>
-	<item>PSU0_CIN</item>
-	<item>PSU1_STATUS</item>
-	<item>PSU0_COUT</item>
-	<item>PSU0_PIN</item>
-	<item>PSU0_POUT</item>
-	<item>PSU0_VOUT</item>
-	<item>PSU0_TEMP</item>
-	<item>PSU0_FAN</item>
-	<item>PSU1_CIN</item>
-	<item>PSU1_COUT</item>
-	<item>PSU1_PIN</item>
-	<item>PSU1_POUT</item>
-	<item>PSU1_VOUT</item>
-	<item>PSU1_TEMP</item>
-	<item>PSU1_FAN</item>
-	<item>VOLT_P12V</item>
-	<item>BAT_VOLT_P3V</item>
-	<item>PDB0_VOLT_P12V</item>
-	<item>PDB0_VOLT_P3V3</item>
-	<item>PDB0_VOLT_P5V</item>
-	<item>AUX_P5V</item>
-	<item>CPU0_VDD1V8</item>
-	<item>CPU0_VDD1V1</item>
-	<item>AUX_P12V</item>
-	<item>CPU0_VDD3V3</item>
-	<item>CPU0_VDDIO</item>
+	<item>CPU0_TEMP</item>
 	<item>CPU0_VDDSOC</item>
+	<item>CPU0_VDDIO</item>
 	<item>CPU0_VDDCORE0</item>
 	<item>CPU0_VDDCORE1</item>
-	<item>BMC_FW_Change</item>
-	<item>ACPI_STATUS</item>
-	<item>FRB2_TIMEOUT</item>
-	<item>POWER_UNIT</item>
-	<item>BMC_RESET</item>
-	<item>SEL_STATUS</item>
-	<item>INLET_TEMP</item>
-	<item>OUTLET_TEMP</item>
-	<item>P0_DIMM_A0_TEMP</item>
-	<item>CPU0_TEMP</item>
+	<item>CPU0_VDD1V1</item>
+	<item>CPU0_VDD1V8</item>
+	<item>CPU0_VDD3V3</item>
 	<item>P0_PACKAGE_POWER</item>
+	<item>OUTLET_TEMP</item>
+	<item>INLET_TEMP</item>
 	<item>CPU0_VR0_TEMP</item>
 	<item>CPU0_VR1_TEMP</item>
 	<item>CPU0_VR2_TEMP</item>
 	<item>CPU0_VR0_POUT</item>
 	<item>CPU0_VR1_POUT</item>
 	<item>CPU0_VR2_POUT</item>
-	<item>Fan0_0_TACH</item>
-	<item>TEMP_FP</item>
-	<item>FANBOARD0_TEMP</item>
-	<item>SystemEvent</item>
-	<item>Intrusion_Status</item>
-	<item>BUTTON_PRESS</item>
-	<item>BIOS_POST_CMPLT</item>
-	<item>FanBoard_FRU</item>
-	<item>FP_FRU</item>
-	<item>CPU0_MEM_HOT</item>
-	<item>ERR_PCIe</item>
-	<item>CPU_CATERR</item>
-	<item>MEMERR_CPU0A0</item>
-	<item>THRTL_CPU0Mem</item>
-	<item>THRM_CC_CPU0</item>
-	<item>STS_CPU0_THRM</item>
-	<item>ERR_Boot</item>
-	<item>INFO_SYSFWChange</item>
-	<item>MEMERR_CPU0B0</item>
-	<item>MEMERR_CPU0C0</item>
-	<item>MEMERR_CPU0D0</item>
-	<item>MEMERR_CPU0E0</item>
-	<item>MEMERR_CPU0F0</item>
-	<item>MEMERR_CPU0G0</item>
-	<item>MEMERR_CPU0H0</item>
-	<item>MEMERR_CPU0I0</item>
-	<item>MEMERR_CPU0J0</item>
-	<item>MEMERR_CPU0K0</item>
-	<item>MEMERR_CPU0L0</item>
-	<item>ERR_MCE</item>
-	<item>ERR_DATA_PCIe</item>
-	<item>Assert_GUID</item>
+	<item>VOLT_P12V</item>
+	<item>AUX_P12V</item>
+	<item>AUX_P5V</item>
 	<item>AUX_P3V3</item>
-	<item>CPU0_PRESENT</item>
-	<item>CPU0_PROCHOT</item>
-	<item>CPU0_VRHOT</item>
-	<item>CPU0_THERMTRIP</item>
-	<item>CPU0_VCC_IN_ERR</item>
-	<item>ERR_CPU0</item>
-	<item>CPU0_MEM_VR_HOT</item>
-	<item>P0_MEM_THERMTRIP</item>
+	<item>P0_DIMM_A0_TEMP</item>
 	<item>P0_DIMM_B0_TEMP</item>
 	<item>P0_DIMM_C0_TEMP</item>
 	<item>P0_DIMM_D0_TEMP</item>
 	<item>P0_DIMM_E0_TEMP</item>
 	<item>P0_DIMM_F0_TEMP</item>
-	<item>P0_DIMM_J0_TEMP</item>
-	<item>P0_DIMM_I0_TEMP</item>
 	<item>P0_DIMM_G0_TEMP</item>
 	<item>P0_DIMM_H0_TEMP</item>
-	<item>P0_DIMM_L0_TEMP</item>
+	<item>P0_DIMM_I0_TEMP</item>
+	<item>P0_DIMM_J0_TEMP</item>
 	<item>P0_DIMM_K0_TEMP</item>
-	<item>PDB0_TEMP</item>
+	<item>P0_DIMM_L0_TEMP</item>
+	<item>PSU0_TEMP</item>
+	<item>PSU1_TEMP</item>
+	<item>PSU0_VOUT</item>
+	<item>PSU1_VOUT</item>
+	<item>PSU0_CIN</item>
+	<item>PSU1_CIN</item>
+	<item>PSU0_COUT</item>
+	<item>PSU1_COUT</item>
+	<item>PSU0_POUT</item>
+	<item>PSU1_POUT</item>
+	<item>PSU0_FAN</item>
+	<item>PSU1_FAN</item>
+	<item>PSU0_STATUS</item>
+	<item>PSU1_STATUS</item>
+	<item>PSU0_PIN</item>
+	<item>PSU1_PIN</item>
+	<item>Fan0_0_TACH</item>
 	<item>Fan0_1_TACH</item>
 	<item>Fan1_0_TACH</item>
 	<item>Fan1_1_TACH</item>
 	<item>Fan2_0_TACH</item>
-	<item>Fan3_0_TACH</item>
 	<item>Fan2_1_TACH</item>
+	<item>Fan3_0_TACH</item>
 	<item>Fan3_1_TACH</item>
 	<item>Fan4_0_TACH</item>
+	<item>Fan4_1_TACH</item>
 	<item>Fan5_0_TACH</item>
+	<item>Fan5_1_TACH</item>
 	<item>Fan6_0_TACH</item>
 	<item>Fan6_1_TACH</item>
-	<item>Fan4_1_TACH</item>
-	<item>Fan5_1_TACH</item>
+	<item>PDB0_TEMP</item>
+	<item>PDB0_VOLT_P12V</item>
+	<item>PDB0_VOLT_P5V</item>
+	<item>PDB0_VOLT_P3V3</item>
+	<item>BAT_VOLT_P3V</item>
+	<item>FANBOARD0_TEMP</item>
+	<item>TEMP_FP</item>
+	<item>MEMERR_CPU0H0</item>
+	<item>ERR_DATA_PCIe</item>
+	<item>MEMERR_CPU0L0</item>
+	<item>FP_FRU</item>
+	<item>CPU0_VRHOT</item>
+	<item>ERR_PCIe</item>
+	<item>CPU0_PRESENT</item>
+	<item>CPU0_PROCHOT</item>
+	<item>MEMERR_CPU0C0</item>
+	<item>THRTL_CPU0Mem</item>
+	<item>Intrusion_Status</item>
+	<item>MEMERR_CPU0G0</item>
+	<item>INFO_SYSFWChange</item>
+	<item>MEMERR_CPU0K0</item>
+	<item>ACPI_STATUS</item>
+	<item>CPU0_MEM_HOT</item>
+	<item>CPU0_VCC_IN_ERR</item>
+	<item>THRM_CC_CPU0</item>
+	<item>CPU_CATERR</item>
+	<item>MEMERR_CPU0B0</item>
+	<item>Assert_GUID</item>
+	<item>MEMERR_CPU0F0</item>
+	<item>BUTTON_PRESS</item>
+	<item>MEMERR_CPU0J0</item>
+	<item>P0_MEM_THERMTRIP</item>
 	<item>PDB_FRU</item>
+	<item>FRB2_TIMEOUT</item>
+	<item>ERR_CPU0</item>
+	<item>STS_CPU0_THRM</item>
+	<item>MEMERR_CPU0A0</item>
+	<item>ERR_PCIe</item>
+	<item>MEMERR_CPU0E0</item>
+	<item>ERR_MCE</item>
+	<item>CPU0_THERMTRIP</item>
+	<item>MEMERR_CPU0I0</item>
+	<item>CPU0_MEM_VR_HOT</item>
+	<item>BIOS_POST_CMPLT</item>
+	<item>AST2600</item>
+	<item>BMC_RESET</item>
+	<item>POWER_UNIT</item>
+	<item>MB_FRU</item>
+	<item>BMC_FW_Change</item>
+	<item>SystemEvent</item>
+	<item>ERR_Boot</item>
+	<item>SEL_STATUS</item>
+	<item>MEMERR_CPU0D0</item>
+	<item>FanBoard_FRU</item>
 </sdrorder>
 	</devcfg>
 <module>
