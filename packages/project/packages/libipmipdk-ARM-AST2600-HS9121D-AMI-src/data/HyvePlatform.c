@@ -44,15 +44,14 @@ static void HyvePlatform_InitSKUID(const char* idStr)
  * @fn HyvePlatform_InitPlatformID
  * @brief	To initiate platform ID and SKU ID
  *
- * @param[in]	BMCInst
+ * @param[in]	is_MBFruOk, to indicate the MB FRU exist or not
  *
  * @return  none
  *-----------------------------------------------------------------*/
-static void HyvePlatform_InitPlatformID()
+static void HyvePlatform_InitPlatformID(const INT8U is_MBFruOk)
 {
 	char tmpPlatformID[MAX_PLATFORMID_SIZE] = {0};
 	char *productName = NULL;
-	HyveFRU_AreaData_T productArea = {0};
 
 	/* Get the default built-in platform ID string */
 	HyveExt_GetDefaultPlatformID(tmpPlatformID, sizeof(tmpPlatformID));
@@ -62,18 +61,20 @@ static void HyvePlatform_InitPlatformID()
 	   2. GPIO pin
 	   etc...
 	*/
-
-	// Get MB FRU Product Name
-	if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE, ProductInfoAreaOffset, &productArea) < 0) {
-		printf("%s Unable to get FRU Product Info Area data from cache\n", __func__);
-		if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_EEPROM, ProductInfoAreaOffset, &productArea) < 0) {
-			printf("%s Unable to get FRU Product Info Area data from EEPROM\n", __func__);
+	if (is_MBFruOk) {
+		HyveFRU_AreaData_T productArea = {0};
+		// Get MB FRU Product Name
+		if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE, ProductInfoAreaOffset, &productArea) < 0) {
+			printf("%s Unable to get FRU Product Info Area data from cache\n", __func__);
+			if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_EEPROM, ProductInfoAreaOffset, &productArea) < 0) {
+				printf("%s Unable to get FRU Product Info Area data from EEPROM\n", __func__);
+			}
 		}
-	}
-	if (productArea.areaData) {
-		INT32U offset = PRODUCT_OFFSET_PRODUCT_NAME(productArea.areaData);
-		productName = HyveFRU_GetInfoAreaString(&productArea.areaData[offset]);
-		free(productArea.areaData);
+		if (productArea.areaData) {
+			INT32U offset = PRODUCT_OFFSET_PRODUCT_NAME(productArea.areaData);
+			productName = HyveFRU_GetInfoAreaString(&productArea.areaData[offset]);
+			free(productArea.areaData);
+		}
 	}
 
 	if (strstr(tmpPlatformID, "CF")) {
@@ -178,15 +179,18 @@ static void HyvePlatform_InitExtBoardFRUCache()
  *-----------------------------------------------------------------*/
 int HyvePlatform_Init()
 {
+	INT8U is_MBfruOk = 1;
+
 	printf("[INFO] - Run %s\n", __func__);
 	HyvePlatform_InitChip();
 	HyveExt_MutexInit();
 
 	if (HyvePlatform_InitMBFRU() < 0 ) {
 		printf("[INFO] Error in creating MB FRU cache\n");
+		is_MBfruOk = 0;
 	}
 	// Recognize this platform
-	HyvePlatform_InitPlatformID();
+	HyvePlatform_InitPlatformID(is_MBfruOk);
 
 	return 0;
 }
