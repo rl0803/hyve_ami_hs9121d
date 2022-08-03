@@ -45,6 +45,7 @@ extern int HyvePlatform_AfterUpdateCPLD(int updateResult);
 extern int Hyveplatform_PEFOemAction(void *_pEvtRecord, int BMCInst);
 extern void Hyveplatform_PostClearSEL(int BMCInst);
 extern INT8 Hyveplatform_ErrorSELstatus();
+extern void HyvePlatform_InitUartRouting(void);
 
 #define HYVEPLATFORM_BIOS_FLASHSELECT								HyvePlatform_BIOS_FlashSelect
 #define HYVEPLATFORM_PREPARE_BIOSFLASH								HyvePlatform_PrepareBIOSFlash
@@ -60,5 +61,6 @@ extern INT8 Hyveplatform_ErrorSELstatus();
 #define HYVEPLATFORM_POSTCLEARSEL									Hyveplatform_PostClearSEL
 #define HYVEPLATFORM_SYS_POWER_RESET								HyvePlatform_Reset_PwrAUX_IC
 #define HYVEPLATFORM_IS_BP_SUPPORT()								g_is_BP_supported
+#define HYVEPLATFORM_INIT_UARTROUTING								HyvePlatform_InitUartRouting
 
 #endif

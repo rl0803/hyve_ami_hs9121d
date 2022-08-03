@@ -694,17 +694,39 @@ default_routing:
 			printf("[ERROR]%d: Current SOL/Serial Port Sharing does not support MUX to BMC.\n", __LINE__);
 		}
 		break;
+
+		/* The BIOS input is UART1
+		 * The BMC routes the UART1 to UART4 for SOL
+		 * 		   routes the UART1 to IO4 for physical output pin
+		 * 
+		 * For the input from BMC to the UART1:
+		 * By current HW design, only allow one writer at the same time
+		 *   There are 2 conditions:
+		 *   1. When SOL activated:
+		 *   	The input is from the UART4 to the UART1
+		 *   	So, SOL has the full-control right; and the physical-side is read-only.
+		 *   	
+		 *   2. When SOL deactivated:
+		 *      The input is from the IO4 to the UART1
+		 *   	So, the physical-side has the full-control right
+		*/   
 		
 		case MUX_2_SYS:
 		{
-			//UART1 TO COM1, and COM1 TO UART1
+			// UART1 to UART4
+			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
+			hal.lpcuart.source_port = UART1;
+			hal.lpcuart.destination_port = UART4;
+			lpcuart_route_set(&hal);
+			// UART1 to COM4
 			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_UART;
 			hal.lpcuart.source_port = UART1;
-			hal.lpcuart.destination_port = IO1;
+			hal.lpcuart.destination_port = IO4;
 			lpcuart_route_set(&hal);
 	
+			// COM4 to UART1
 			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_COM;
-			hal.lpcuart.source_port = IO1;
+			hal.lpcuart.source_port = IO4;
 			hal.lpcuart.destination_port = UART1;
 			lpcuart_route_set(&hal);
 			
@@ -715,14 +737,20 @@ default_routing:
 		
 		case MUX_2_SOL:
 		{
-			//UART1 TO COM1, and COM1 TO UART1
+			// UART1 to UART4
+			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
+			hal.lpcuart.source_port = UART1;
+			hal.lpcuart.destination_port = UART4;
+			lpcuart_route_set(&hal);
+			// UART1 to COM4
 			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_UART;
 			hal.lpcuart.source_port = UART1;
-			hal.lpcuart.destination_port = IO1;
+			hal.lpcuart.destination_port = IO4;
 			lpcuart_route_set(&hal);
 	
-			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_COM;
-			hal.lpcuart.source_port = IO1;
+			// UART4 to UART1
+			hal.lpcuart.source_port_type = HAL_SOURCE_PORT_BOTH;
+			hal.lpcuart.source_port = UART4;
 			hal.lpcuart.destination_port = UART1;
 			lpcuart_route_set(&hal);
 

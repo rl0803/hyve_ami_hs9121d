@@ -17,6 +17,8 @@
 #include "HyveCommon.h"
 
 
+#define REG_HICR9						(0x1E78909C)
+
 
 /*----------------------------------------------------------------------------
  * @fn HyvePlatform_GetHostStatus
@@ -194,7 +196,7 @@ static INT16 g_ErrorSELCount = 0;
 static INT8 g_is_allDesserted = 1;
 
 /*----------------------------------------------------------------------------
- * @fn HyvePlatform_AfterBIOSFlash
+ * @fn Hyveplatform_ErrorSELstatus
  *
  * @brief This function is called by PDK_PlatformSetupLED
           to know if there is an error SEL created before the "LEDTimer".
@@ -263,5 +265,13 @@ void Hyveplatform_PostClearSEL(int BMCInst)
 
 	API_GlowLED(PLATFORM_LED_SYS_STATUS_Y, LED_PATTERN_OFF, 0, BMCInst);
 	API_GlowLED(PLATFORM_LED_SYS_STATUS_R, LED_PATTERN_OFF, 0, BMCInst);
-	HyvePlatform_LED_Control(PLATFORM_LED_SYS_STATUS_G, Hyve_VALUE_SET, &on);
+}
+
+void HyvePlatform_InitUartRouting(void)
+{
+	INT32U regValue = 0x08030400; // Default bypass UART1 to COM4
+
+	printf("[HyvePlatform_InitUartRouting]  Default bypass UART1 to COM4 \n");
+	
+	HyveExt_BMC_Register(Hyve_RegOp_Assign, REG_HICR9, &regValue);
 }
