@@ -334,7 +334,7 @@ static void HyvePlatform_Sensor_CPU(int BMCInst)
 			} else {
 				g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].status = HAL_ERR_NONE;
 				g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].retryCount = 0;
-				g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].reading = ((*pU32Data) / 1000);
+				g_SensorReadArrt[SensorIndex_P0_PACKAGE_POWER].reading = ((*pU32Data) / 1000) / 2 /* adjust for SDR*/;
 			}			
 		} else if (HyvePlatform_Is_CPU_PwrGood() && is_PwrOnDelayOk(POWERON_DELAY_CPU)) {
 			is_ready = TRUE;
