@@ -371,9 +371,8 @@
 
 // For Host UART
 &uart1 {
-    status = "okay";
     // If use UART1 via superIO, the uart1 via phsical pin should be disabled
-    // status = "disabled";
+    status = "disabled";
 };
 
 &uart4 {
