@@ -51,22 +51,19 @@ static void HyvePlatform_InitSKUID(const char* idStr)
 static void HyvePlatform_InitPlatformID()
 {
 	char tmpPlatformID[MAX_PLATFORMID_SIZE] = {0};
-	int ret = 0;
+	char *productName = NULL;
+	HyveFRU_AreaData_T productArea = {0};
 
 	/* Get the default built-in platform ID string */
-	ret = HyveExt_GetDefaultPlatformID(tmpPlatformID, sizeof(tmpPlatformID));
+	HyveExt_GetDefaultPlatformID(tmpPlatformID, sizeof(tmpPlatformID));
 
 	/* Search the platform keyword, check if it needs to identify the SKU with
 	   1. FRU info
 	   2. GPIO pin
 	   etc...
 	*/
-#if 0 // Example code
-	if (strstr(tmpPlatformID, "CF") {
-		// Get MB FRU Product Name
-		char *productName = NULL;
-		HyveFRU_AreaData_T productArea = {0};
 
+		// Get MB FRU Product Name
 		if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_CACHE, ProductInfoAreaOffset, &productArea) < 0) {
 			printf("%s Unable to get FRU Product Info Area data from cache\n", __func__);
 			if (HyveFRU_GetInfoAreaData(HYFEPLATFORM_MB_FRU_ID, HYVE_STORETYPE_EEPROM, ProductInfoAreaOffset, &productArea) < 0) {
@@ -79,18 +76,31 @@ static void HyvePlatform_InitPlatformID()
 			free(productArea.areaData);
 		}
 	
+	if (strstr(tmpPlatformID, "CF")) {
+/*
+		 * Cloudflare
+			Production Name: EDGE-G12		Product PN: HYV-S-CF-EDGE-G12
+			Production Name: CORE-G12 		Product PN: HYV-S-CF-CORE-G12
+		
+*/
+		// Set default using EDGE SKU
+		char *pPlatformID = PLATFORMID_HS9121D_CF_EDGE;
+
 		// Recognize the platform with Product Name
 		if (productName) {
-			if (strstr(productName, "CORE-NVME") {
-				snprintf(tmpPlatformID, sizeof(tmpPlatformID), "%s", PLATFORMID_HS9121D_CF_1U10);
+			if (strstr(productName, "CORE-G12")) {
+				pPlatformID = PLATFORMID_HS9121D_CF_CORE;
 			}
-			free(productName);
 		}
+		snprintf(tmpPlatformID, sizeof(tmpPlatformID), "%s", pPlatformID);
 	}
-#endif
 
+	if (productName) {
+		free(productName);
+	}
 	// Overwrite the PlatformID
-	if (1 || !ret) { snprintf(PlatformID, sizeof(PlatformID), "%s", PLATFORMID_HS9121D); }
+	snprintf(PlatformID, sizeof(PlatformID), "%s", tmpPlatformID);
+
 	HyvePlatform_InitSKUID(PlatformID);
 	HyvePlatform_InitSKUFeature();
 	printf("    [INFO]     ====== Platform: %s    SKU ID: %d ======\n", PlatformID, HYVEPLATFORM_SKU);
