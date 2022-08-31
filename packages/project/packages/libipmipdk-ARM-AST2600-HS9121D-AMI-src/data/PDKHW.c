@@ -494,7 +494,7 @@ PDK_DiagInterruptChassis (int BMCInst)
     {
         BMCInst=BMCInst;  /*  -Wextra, fix for unused parameter  */
     }
-    return 0;
+    return HyvePlatform_TriggerHostCPU_NMI_SYNC_FLOOD();
 }
 
 /*--------------------------------------------------------------------
