@@ -74,6 +74,8 @@ void IRQhndlr_PWRGD_CPU_PWROK(IPMI_INTInfo_T *IntInfo);
 void IRQhndlr_SPD_HOST_CTRL_L(IPMI_INTInfo_T *IntInfo);
 void IRQhndlr_CPU_S3_STATE_N(IPMI_INTInfo_T *IntInfo);
 void IRQhndlr_CPU_S5_STATE_N(IPMI_INTInfo_T *IntInfo);
+void IRQhndlr_BIOS_POST_START(IPMI_INTInfo_T *IntInfo);
+void IRQhndlr_BIOS_POST_END(IPMI_INTInfo_T *IntInfo);
 
 void IRQhndlr_PCIE_P1_RISER_ALERT_N(IPMI_INTInfo_T *IntInfo);
 void IRQhndlr_TEMP_I2C_ALERT_L(IPMI_INTInfo_T *IntInfo);
@@ -132,6 +134,8 @@ IPMI_INTInfo_T m_IntInfo [] =
     { IRQhndlr_PMBusALERT_N, IO_PSU_SMB_ALERT_N, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
     { IRQhndlr_SMBUS_ALERT, IO_P0_SMBUS_ALERT, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
     
+    { IRQhndlr_BIOS_POST_START, IO_FM_P0_BMC_START_POST, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },
+    { IRQhndlr_BIOS_POST_END, IO_FM_P0_BMC_START_END, INT_REG_HNDLR, 0xFF, NON_THRESHOLD_SENSOR, IPMI_INT_TRIGGER_EDGE, BOTH_EDGES, 0, 0, 0 ,0 ,0 },  
 };
 
 int m_IntInfoCount = (sizeof(m_IntInfo)/sizeof(m_IntInfo[0]));
@@ -469,12 +473,14 @@ void IRQhndlr_SPD_HOST_CTRL_L(IPMI_INTInfo_T *IntInfo)
 
 	// Low: to inform the BMC the owner-ship of DIMMs is CPU
 	g_Is_DIMM_Ready = (IntInfo->gpioValue & 0x01);
-	/* Currently use the GPIO pin SPD_HOST_CTRL_L as the BIOS POST status pin.
+	/* Use the GPIO pin SPD_HOST_CTRL_L as the BIOS POST start pin.
 		Because during POST the DIMM ownership belongs to the Host until POST end */ 
-	msg.msgType = HyvePlatformIRQMsgQ_BIOS_POST;
-	msg.msgData = (~HYVEPLATFORM_IS_DIMM_READY) & 0x01;
-	if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
-		printf("%s: Error in posting IRQ signal(%u)\n", __func__, msg.msgData);
+	if (!g_Is_DIMM_Ready) {
+		msg.msgType = HyvePlatformIRQMsgQ_BIOS_POST;
+		msg.msgData = Hyve_BIOS_POST_START;
+		if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
+			printf("%s: Error in posting IRQ signal(%u)\n", __func__, msg.msgData);
+		}
 	}
 	// printf("DIMM SPD ownership is %s\n", HYVEPLATFORM_IS_DIMM_READY ? "BMC" : "Host");
 }
@@ -597,3 +603,25 @@ void IRQhndlr_SMBUS_ALERT(IPMI_INTInfo_T *IntInfo)
 	}
 }
 
+void IRQhndlr_BIOS_POST_START(IPMI_INTInfo_T *IntInfo)
+{
+	printf("%s: assert: %u\n", __func__, (IntInfo->gpioValue & 0x01));
+	// Note: this POST start is controlled by BIOS FW
+}
+
+void IRQhndlr_BIOS_POST_END(IPMI_INTInfo_T *IntInfo)
+{
+	HyveMsgQ_T msg = {0};
+
+	if (!IntInfo) { return; }
+	printf("%s: assert: %u\n", __func__, (IntInfo->gpioValue & 0x01));
+
+	// Low: to inform the BMC the BIOS POST end
+	if (!(IntInfo->gpioValue & 0x01)) {
+		msg.msgType = HyvePlatformIRQMsgQ_BIOS_POST;
+		msg.msgData = Hyve_BIOS_POST_END;
+		if (HyveExt_PostMsg(HYVEPLATFORM_MSG_Q_IRQ_FD, &msg) < 0) {
+			printf("%s: Error in posting IRQ signal(%u)\n", __func__, msg.msgData);
+		}
+	}
+}
