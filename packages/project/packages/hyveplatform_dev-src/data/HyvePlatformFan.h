@@ -37,15 +37,15 @@ extern int HyvePlatformFan_NCT7362Y_Init();
 extern void HyvePlatformFan_PresentDetect();
 
 extern const INT8U g_FSCI2CBusTable[];
-//extern const INT8U g_FSCI2CAddrTable[];
+extern const INT8U g_FSCI2CAddrTable[];
 extern const INT8U g_tachIndexTable[];
 extern const INT8U g_pwmIndexTable[];
 
 /***************** Platform override functions *****************/
 #define HYVEPLATFORM_FSC_I2C_BUS(index)					(g_FSCI2CBusTable[((index) / 4)])
-//#define HYVEPLATFORM_FSC_I2C_ADDR(index)				(g_FSCI2CAddrTable[((index) / 4)])
+#define HYVEPLATFORM_FSC_I2C_ADDR(index)				(g_FSCI2CAddrTable[((index) / 4)])
 #define HYVEPLATFORM_FSC_MONITOR_I2C_BUS(index)			(g_FSCI2CBusTable[((index) / 8)])
-//#define HYVEPLATFORM_FSC_MONITOR_I2C_ADDR(index)		(g_FSCI2CAddrTable[((index) / 8)])
+#define HYVEPLATFORM_FSC_MONITOR_I2C_ADDR(index)		(g_FSCI2CAddrTable[((index) / 8)])
 #define HYVEPLATFORM_FSC_PWM_INDEX(index)  				(g_pwmIndexTable[((index) % 4)])
 #define HYVEPLATFORM_FSC_TACH_INDEX(index)				(g_tachIndexTable[((index) % 8)])
 

@@ -23,11 +23,11 @@
 
 /********************* Global variable definitions *********************/
 const INT8U g_FSCI2CBusTable[] = {
-		HYFEPLATFORM_SMBUS_FAN_HWMONIOTR, HYFEPLATFORM_SMBUS_FAN_BOARD,
+		HYFEPLATFORM_SMBUS_FAN_BOARD, HYFEPLATFORM_SMBUS_FAN_BOARD,
 };
-//const INT8U g_FSCI2CAddrTable[] = {
-//		HYFEPLATFORM_ADDR_FAN_HWMON, HYFEPLATFORM_ADDR_FAN_HWMON,
-//};
+const INT8U g_FSCI2CAddrTable[] = {
+		HYFEPLATFORM_ADDR_FAN_HWMON, HYFEPLATFORM_ADDR_FAN_HWMON_2,
+};
 const INT8U g_tachIndexTable[] = {
 		TACH12, TACH13, TACH15, TACH14, TACH0, TACH1, TACH2, TACH3,
 };
@@ -120,13 +120,13 @@ int HyvePlatformFan_NCT7362Y_Init()
 	for (i = 0; i < NUM_FANCTRLIC; i++) {
 		INT8U portVal = 0;
 
-		if (HyveFSC_NCT7362Y_SetAllPinFunc(g_FSCI2CBusTable[i], HYVEFSC_I2C_ADDR, pinFunc) < 0) { ret = -1; }
+		if (HyveFSC_NCT7362Y_SetAllPinFunc(g_FSCI2CBusTable[i], g_FSCI2CAddrTable[i], pinFunc) < 0) { ret = -1; }
 		// Check fan present pin GPIO dir
-		if (!HyveFSC_NCT7362Y_GPIOPortDir(Hyve_VALUE_GET, g_FSCI2CBusTable[i], HYVEFSC_I2C_ADDR, 1, &portVal)) {
+		if (!HyveFSC_NCT7362Y_GPIOPortDir(Hyve_VALUE_GET, g_FSCI2CBusTable[i], g_FSCI2CAddrTable[i], 1, &portVal)) {
 			HyveFSCDBG("%s: GPIO Port 1: 0x%x\n", __func__, portVal);
 			if (0xF0 != (0xF0 & portVal)) {
 				portVal |= 0xF0;
-				if (HyveFSC_NCT7362Y_GPIOPortDir(Hyve_VALUE_SET, g_FSCI2CBusTable[i], HYVEFSC_I2C_ADDR, 1, &portVal) < 0) {
+				if (HyveFSC_NCT7362Y_GPIOPortDir(Hyve_VALUE_SET, g_FSCI2CBusTable[i], g_FSCI2CAddrTable[i], 1, &portVal) < 0) {
 					HyveFSCDBG("%s: Unable to set GPIO Port1 Dir\n", __func__);
 					ret = -1;
 				}
@@ -167,7 +167,7 @@ void HyvePlatformFan_PresentDetect()
 
 		do {
 			if (!HyveFSC_NCT7362Y_GPIOPort(Hyve_VALUE_GET, g_FSCI2CBusTable[i],
-											HYVEFSC_I2C_ADDR, 1, &portVal)) {
+											g_FSCI2CAddrTable[i], 1, &portVal)) {
 				detected |= 0x0F << (4 * i);
 				break;
 			}
