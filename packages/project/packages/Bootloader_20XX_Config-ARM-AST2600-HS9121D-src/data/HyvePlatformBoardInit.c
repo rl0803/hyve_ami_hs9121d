@@ -17,7 +17,7 @@
 
 
 #define REG_HICR5						(0x1E789080)
-
+#define REG_HICRA						(0x1E78909C)
 
 int HyvePlatformBoardInit(void)
 {
@@ -30,6 +30,9 @@ int HyvePlatformBoardInit(void)
 		 2. ACCEPT response code for snoop #0 commands
 		 3. port 80 to SGPIO/GPIO                                       */
 	*(volatile u32 *)(REG_HICR5) &= (~0xC0004003);
+
+	/* Default route UART1 <====> IO4 */
+	*(volatile u32 *)(REG_HICR5) = 0x08030400;
 
     return 0;
 }
