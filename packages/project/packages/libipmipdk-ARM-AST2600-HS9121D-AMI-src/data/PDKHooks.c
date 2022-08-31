@@ -1708,7 +1708,7 @@ void PDK_AfterSDRInit(INT8U BMCInst)
 			} else if (FRU_DEVICE_LOCATOR_SDR_REC == pSDRRecHdr->Type) {
 				FRUDevLocatorRec_T *pFruRec = (_FAR_ FRUDevLocatorRec_T*)pSDRRecHdr;
 
-				if ((pFruRec->FRUIDSlaveAddr > 0x00))
+				if ((pFruRec->FRUIDSlaveAddr > 0x02))
 					is_InDeleteList = 1;
 			}
 			if (is_InDeleteList) {
