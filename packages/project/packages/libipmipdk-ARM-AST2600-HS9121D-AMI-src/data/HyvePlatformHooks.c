@@ -267,11 +267,11 @@ void Hyveplatform_PostClearSEL(int BMCInst)
 	API_GlowLED(PLATFORM_LED_SYS_STATUS_R, LED_PATTERN_OFF, 0, BMCInst);
 }
 
-void HyvePlatform_InitUartRouting(void)
+int HyvePlatform_InitUartRouting(void)
 {
 	INT32U regValue = 0x08030400; // Default bypass UART1 to COM4
 
 	printf("[HyvePlatform_InitUartRouting]  Default bypass UART1 to COM4 \n");
 	
-	HyveExt_BMC_Register(Hyve_RegOp_Assign, REG_HICR9, &regValue);
+	return HyveExt_BMC_Register(Hyve_RegOp_Assign, REG_HICR9, &regValue);
 }

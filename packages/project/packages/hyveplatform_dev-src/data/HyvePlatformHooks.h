@@ -45,7 +45,7 @@ extern int HyvePlatform_AfterUpdateCPLD(int updateResult);
 extern int Hyveplatform_PEFOemAction(void *_pEvtRecord, int BMCInst);
 extern void Hyveplatform_PostClearSEL(int BMCInst);
 extern INT8 Hyveplatform_ErrorSELstatus();
-extern void HyvePlatform_InitUartRouting(void);
+extern int HyvePlatform_InitUartRouting(void);
 
 #define HYVEPLATFORM_BIOS_FLASHSELECT								HyvePlatform_BIOS_FlashSelect
 #define HYVEPLATFORM_PREPARE_BIOSFLASH								HyvePlatform_PrepareBIOSFlash
