@@ -2546,7 +2546,7 @@
         .dw 0x32                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan0_0_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN0_0_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -2590,15 +2590,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan0_0_TACH"   /* ID String Type / Length Code     */
-        .db "Fan0_0_TACH"
+        .db 0xc0 + sizeof "FAN0_0_TACH"   /* ID String Type / Length Code     */
+        .db "FAN0_0_TACH"
         
 
         /* SDR Record Header */
         .dw 0x33                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan0_1_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN0_1_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -2642,15 +2642,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan0_1_TACH"   /* ID String Type / Length Code     */
-        .db "Fan0_1_TACH"
+        .db 0xc0 + sizeof "FAN0_1_TACH"   /* ID String Type / Length Code     */
+        .db "FAN0_1_TACH"
         
 
         /* SDR Record Header */
         .dw 0x34                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan1_0_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN1_0_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -2694,15 +2694,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan1_0_TACH"   /* ID String Type / Length Code     */
-        .db "Fan1_0_TACH"
+        .db 0xc0 + sizeof "FAN1_0_TACH"   /* ID String Type / Length Code     */
+        .db "FAN1_0_TACH"
         
 
         /* SDR Record Header */
         .dw 0x35                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan1_1_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN1_1_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -2746,15 +2746,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan1_1_TACH"   /* ID String Type / Length Code     */
-        .db "Fan1_1_TACH"
+        .db 0xc0 + sizeof "FAN1_1_TACH"   /* ID String Type / Length Code     */
+        .db "FAN1_1_TACH"
         
 
         /* SDR Record Header */
         .dw 0x36                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan2_0_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN2_0_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -2798,15 +2798,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan2_0_TACH"   /* ID String Type / Length Code     */
-        .db "Fan2_0_TACH"
+        .db 0xc0 + sizeof "FAN2_0_TACH"   /* ID String Type / Length Code     */
+        .db "FAN2_0_TACH"
         
 
         /* SDR Record Header */
         .dw 0x37                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan2_1_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN2_1_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -2850,15 +2850,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan2_1_TACH"   /* ID String Type / Length Code     */
-        .db "Fan2_1_TACH"
+        .db 0xc0 + sizeof "FAN2_1_TACH"   /* ID String Type / Length Code     */
+        .db "FAN2_1_TACH"
         
 
         /* SDR Record Header */
         .dw 0x38                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan3_0_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN3_0_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -2902,15 +2902,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan3_0_TACH"   /* ID String Type / Length Code     */
-        .db "Fan3_0_TACH"
+        .db 0xc0 + sizeof "FAN3_0_TACH"   /* ID String Type / Length Code     */
+        .db "FAN3_0_TACH"
         
 
         /* SDR Record Header */
         .dw 0x39                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan3_1_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN3_1_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -2954,15 +2954,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan3_1_TACH"   /* ID String Type / Length Code     */
-        .db "Fan3_1_TACH"
+        .db 0xc0 + sizeof "FAN3_1_TACH"   /* ID String Type / Length Code     */
+        .db "FAN3_1_TACH"
         
 
         /* SDR Record Header */
         .dw 0x3a                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan4_0_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN4_0_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3006,15 +3006,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan4_0_TACH"   /* ID String Type / Length Code     */
-        .db "Fan4_0_TACH"
+        .db 0xc0 + sizeof "FAN4_0_TACH"   /* ID String Type / Length Code     */
+        .db "FAN4_0_TACH"
         
 
         /* SDR Record Header */
         .dw 0x3b                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan4_1_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN4_1_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3058,15 +3058,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan4_1_TACH"   /* ID String Type / Length Code     */
-        .db "Fan4_1_TACH"
+        .db 0xc0 + sizeof "FAN4_1_TACH"   /* ID String Type / Length Code     */
+        .db "FAN4_1_TACH"
         
 
         /* SDR Record Header */
         .dw 0x3c                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan5_0_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN5_0_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3110,15 +3110,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan5_0_TACH"   /* ID String Type / Length Code     */
-        .db "Fan5_0_TACH"
+        .db 0xc0 + sizeof "FAN5_0_TACH"   /* ID String Type / Length Code     */
+        .db "FAN5_0_TACH"
         
 
         /* SDR Record Header */
         .dw 0x3d                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan5_1_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN5_1_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3162,15 +3162,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan5_1_TACH"   /* ID String Type / Length Code     */
-        .db "Fan5_1_TACH"
+        .db 0xc0 + sizeof "FAN5_1_TACH"   /* ID String Type / Length Code     */
+        .db "FAN5_1_TACH"
         
 
         /* SDR Record Header */
         .dw 0x3e                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan6_0_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN6_0_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3214,15 +3214,15 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan6_0_TACH"   /* ID String Type / Length Code     */
-        .db "Fan6_0_TACH"
+        .db 0xc0 + sizeof "FAN6_0_TACH"   /* ID String Type / Length Code     */
+        .db "FAN6_0_TACH"
         
 
         /* SDR Record Header */
         .dw 0x3f                   /* Record ID                        */
         .db 0x51                  /* SDR Version                      */
         .db 0x01                        /* Record Type                      */
-        .db 43 + sizeof "Fan6_1_TACH"     /* Record Length = 43+ string length*/
+        .db 43 + sizeof "FAN6_1_TACH"     /* Record Length = 43+ string length*/
 
         /* Record Key Bytes*/
         .db 0x20                   /* Sensor Owner ID                  */
@@ -3266,8 +3266,8 @@
         .db 0x0                         /* Reserved                         */
         .db 0x0                         /* Reserved                         */
         .db 0x0                      /* OEM                              */
-        .db 0xc0 + sizeof "Fan6_1_TACH"   /* ID String Type / Length Code     */
-        .db "Fan6_1_TACH"
+        .db 0xc0 + sizeof "FAN6_1_TACH"   /* ID String Type / Length Code     */
+        .db "FAN6_1_TACH"
         
 
 		/* SDR Record Header */
@@ -3283,7 +3283,7 @@
 
 		/* Record Body Bytes*/
 		.db 0xe                   /* Entity ID                        */
-		.db 0x1                 /* Entity Instance                  */
+		.db 0x0                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
         .db 0x1                 /* Sensor Type                      */
@@ -3338,7 +3338,7 @@
 
 		/* Record Body Bytes*/
 		.db 0xe                   /* Entity ID                        */
-		.db 0x2                 /* Entity Instance                  */
+		.db 0x1                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
 		.db 0x02                        /* Sensor Type                      */
@@ -3392,8 +3392,8 @@
 		.db 0xc5               /* Sensor Number                    */
 
 		/* Record Body Bytes*/
-		.db 0x7                   /* Entity ID                        */
-		.db 0x3                 /* Entity Instance                  */
+		.db 0xe                   /* Entity ID                        */
+		.db 0x2                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
 		.db 0x02                        /* Sensor Type                      */
@@ -3447,8 +3447,8 @@
 		.db 0xc7               /* Sensor Number                    */
 
 		/* Record Body Bytes*/
-		.db 0x7                   /* Entity ID                        */
-		.db 0x4                 /* Entity Instance                  */
+		.db 0xe                   /* Entity ID                        */
+		.db 0x3                 /* Entity Instance                  */
 		.db 0x7f                 /* Sensor Initialization            */
 		.db 0x68                 /* Sensor Capabilities              */
 		.db 0x02                        /* Sensor Type                      */

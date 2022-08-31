@@ -10738,7 +10738,7 @@
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan0_0_TACH</name>
+	<name>FAN0_0_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa0</value>
@@ -10749,7 +10749,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan0_0_TACH</value>
+		<value>FAN0_0_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -10842,7 +10842,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan0_0_TACH [1]</name>
+		<name>FAN0_0_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -10956,12 +10956,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan0_0_TACH</name>
+	<name>FAN0_0_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan0_1_TACH</name>
+	<name>FAN0_1_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa1</value>
@@ -10972,7 +10972,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan0_1_TACH</value>
+		<value>FAN0_1_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -11065,7 +11065,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan0_1_TACH [1]</name>
+		<name>FAN0_1_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -11179,12 +11179,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan0_1_TACH</name>
+	<name>FAN0_1_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan1_0_TACH</name>
+	<name>FAN1_0_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa2</value>
@@ -11195,7 +11195,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan1_0_TACH</value>
+		<value>FAN1_0_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -11288,7 +11288,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan1_0_TACH [1]</name>
+		<name>FAN1_0_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -11402,12 +11402,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan1_0_TACH</name>
+	<name>FAN1_0_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan1_1_TACH</name>
+	<name>FAN1_1_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa3</value>
@@ -11418,7 +11418,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan1_1_TACH</value>
+		<value>FAN1_1_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -11511,7 +11511,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan1_1_TACH [1]</name>
+		<name>FAN1_1_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -11625,12 +11625,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan1_1_TACH</name>
+	<name>FAN1_1_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan2_0_TACH</name>
+	<name>FAN2_0_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa4</value>
@@ -11641,7 +11641,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan2_0_TACH</value>
+		<value>FAN2_0_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -11734,7 +11734,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan2_0_TACH [1]</name>
+		<name>FAN2_0_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -11848,12 +11848,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan2_0_TACH</name>
+	<name>FAN2_0_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan2_1_TACH</name>
+	<name>FAN2_1_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa5</value>
@@ -11864,7 +11864,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan2_1_TACH</value>
+		<value>FAN2_1_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -11957,7 +11957,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan2_1_TACH [1]</name>
+		<name>FAN2_1_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -12071,12 +12071,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan2_1_TACH</name>
+	<name>FAN2_1_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan3_0_TACH</name>
+	<name>FAN3_0_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa6</value>
@@ -12087,7 +12087,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan3_0_TACH</value>
+		<value>FAN3_0_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -12180,7 +12180,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan3_0_TACH [1]</name>
+		<name>FAN3_0_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -12294,12 +12294,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan3_0_TACH</name>
+	<name>FAN3_0_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan3_1_TACH</name>
+	<name>FAN3_1_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa7</value>
@@ -12310,7 +12310,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan3_1_TACH</value>
+		<value>FAN3_1_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -12403,7 +12403,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan3_1_TACH [1]</name>
+		<name>FAN3_1_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -12517,12 +12517,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan3_1_TACH</name>
+	<name>FAN3_1_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan4_0_TACH</name>
+	<name>FAN4_0_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa8</value>
@@ -12533,7 +12533,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan4_0_TACH</value>
+		<value>FAN4_0_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -12626,7 +12626,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan4_0_TACH [1]</name>
+		<name>FAN4_0_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -12740,12 +12740,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan4_0_TACH</name>
+	<name>FAN4_0_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan4_1_TACH</name>
+	<name>FAN4_1_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xa9</value>
@@ -12756,7 +12756,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan4_1_TACH</value>
+		<value>FAN4_1_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -12849,7 +12849,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan4_1_TACH [1]</name>
+		<name>FAN4_1_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -12963,12 +12963,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan4_1_TACH</name>
+	<name>FAN4_1_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan5_0_TACH</name>
+	<name>FAN5_0_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xaa</value>
@@ -12979,7 +12979,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan5_0_TACH</value>
+		<value>FAN5_0_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -13072,7 +13072,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan5_0_TACH [1]</name>
+		<name>FAN5_0_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -13186,12 +13186,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan5_0_TACH</name>
+	<name>FAN5_0_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan5_1_TACH</name>
+	<name>FAN5_1_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xab</value>
@@ -13202,7 +13202,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan5_1_TACH</value>
+		<value>FAN5_1_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -13295,7 +13295,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan5_1_TACH [1]</name>
+		<name>FAN5_1_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -13409,12 +13409,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan5_1_TACH</name>
+	<name>FAN5_1_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan6_0_TACH</name>
+	<name>FAN6_0_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xac</value>
@@ -13425,7 +13425,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan6_0_TACH</value>
+		<value>FAN6_0_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -13518,7 +13518,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan6_0_TACH [1]</name>
+		<name>FAN6_0_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -13632,12 +13632,12 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan6_0_TACH</name>
+	<name>FAN6_0_TACH</name>
 </device_connection>
 <device>
 	<dev_name>HyveFan_NC</dev_name>
 	<dev_class>Sensor</dev_class>
-	<name>Fan6_1_TACH</name>
+	<name>FAN6_1_TACH</name>
 	<config>
 		<variable>SENSOR_NUM</variable>
 		<value>0xad</value>
@@ -13648,7 +13648,7 @@
 	</config>
 	<config>
 		<variable>ID_STR</variable>
-		<value>Fan6_1_TACH</value>
+		<value>FAN6_1_TACH</value>
 	</config>
 	<config>
 		<variable>ID_ENUM</variable>
@@ -13741,7 +13741,7 @@
 	<pdk>
 	</pdk>
 	<sdr>
-		<name>Fan6_1_TACH [1]</name>
+		<name>FAN6_1_TACH [1]</name>
 		<config>
 			<variable>SDR_VER</variable>
 			<value>0x51</value>
@@ -13855,7 +13855,7 @@
 	</device_glyph>
 </device>
 <device_connection>
-	<name>Fan6_1_TACH</name>
+	<name>FAN6_1_TACH</name>
 </device_connection>
 <device>
 	<dev_name>Hyve_NC</dev_name>
@@ -13955,7 +13955,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x1</value>
+			<value>0x0</value>
 		</config>
 		<config>
 			<variable>SEN_TYPE</variable>
@@ -14186,7 +14186,7 @@
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x2</value>
+			<value>0x1</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -14407,11 +14407,11 @@
 		</config>
 		<config>
 			<variable>ENT_ID</variable>
-			<value>0x7</value>
+			<value>0xe</value>
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x3</value>
+			<value>0x2</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -14632,11 +14632,11 @@
 		</config>
 		<config>
 			<variable>ENT_ID</variable>
-			<value>0x7</value>
+			<value>0xe</value>
 		</config>
 		<config>
 			<variable>ENT_INST</variable>
-			<value>0x4</value>
+			<value>0x3</value>
 		</config>
 		<config>
 			<variable>SEN_INIT</variable>
@@ -19358,20 +19358,20 @@
 	<item>PSU1_STATUS</item>
 	<item>PSU0_PIN</item>
 	<item>PSU1_PIN</item>
-	<item>Fan0_0_TACH</item>
-	<item>Fan0_1_TACH</item>
-	<item>Fan1_0_TACH</item>
-	<item>Fan1_1_TACH</item>
-	<item>Fan2_0_TACH</item>
-	<item>Fan2_1_TACH</item>
-	<item>Fan3_0_TACH</item>
-	<item>Fan3_1_TACH</item>
-	<item>Fan4_0_TACH</item>
-	<item>Fan4_1_TACH</item>
-	<item>Fan5_0_TACH</item>
-	<item>Fan5_1_TACH</item>
-	<item>Fan6_0_TACH</item>
-	<item>Fan6_1_TACH</item>
+	<item>FAN0_0_TACH</item>
+	<item>FAN0_1_TACH</item>
+	<item>FAN1_0_TACH</item>
+	<item>FAN1_1_TACH</item>
+	<item>FAN2_0_TACH</item>
+	<item>FAN2_1_TACH</item>
+	<item>FAN3_0_TACH</item>
+	<item>FAN3_1_TACH</item>
+	<item>FAN4_0_TACH</item>
+	<item>FAN4_1_TACH</item>
+	<item>FAN5_0_TACH</item>
+	<item>FAN5_1_TACH</item>
+	<item>FAN6_0_TACH</item>
+	<item>FAN6_1_TACH</item>
 	<item>PDB0_TEMP</item>
 	<item>PDB0_VOLT_P12V</item>
 	<item>PDB0_VOLT_P5V</item>
