@@ -2,13 +2,14 @@
 
 
 ### Common code Repos ###
-AST2600_BRANCH="67968befdf22962a5a8985ed3dd7a1a9f90880c1"
-BOOTLOADER_BRANCH="4373150b320357851e331878bf564b3accb43312"
-COMMON_BRANCH="51fd6988ecfdc01fe75581989fc6b1eb7d30fad6"
-HYVECOMMON_BRANCH="5ff6eb7364286e37b613c551ba5d3fac6b0606d2"
-KERNEL_BRANCH="6839aa3027a9931ffa9a4dd1328fba26c2127093"
-TARGET_BRANCH="6038f8055572fb3bd08b7ba359b8ff75df04c47c"
-UTILITIES_VMCLI_BRANCH="c27499959ed52e51133875b035fc26d554c23e8d"
+AST2600_BRANCH="hyvecommon_dev"
+BOOTLOADER_BRANCH="hyvecommon_dev"
+COMMON_BRANCH="hyvecommon_dev"
+HYVECOMMON_BRANCH="hyvecommon_dev"
+KERNEL_BRANCH="hyvecommon_dev"
+TARGET_BRANCH="hyvecommon_dev"
+UTILITIES_VMCLI_BRANCH="hyvecommon_dev"
+
 
 # The format of mapping table:
 #       "submodule" "branch name / tag / commit hash ID "  "VarName" \
