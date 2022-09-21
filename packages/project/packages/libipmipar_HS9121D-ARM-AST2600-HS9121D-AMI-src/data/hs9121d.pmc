@@ -64,7 +64,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x5f</value>
+		<value>0x64</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -2085,7 +2085,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x32</value>
+		<value>0x41</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -2308,7 +2308,7 @@
 	</config>
 	<config>
 		<variable>UPPER_CRITICAL</variable>
-		<value>0x32</value>
+		<value>0x37</value>
 	</config>
 	<config>
 		<variable>UPPER_NON_CRITICAL</variable>
@@ -7847,7 +7847,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>6</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -8066,7 +8066,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>6</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -8723,7 +8723,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>6</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -8942,7 +8942,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>6</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -9161,7 +9161,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>6</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>
@@ -9380,7 +9380,7 @@
 	</config>
 	<config>
 		<variable>POWER_ON_DELAY</variable>
-		<value>0</value>
+		<value>6</value>
 	</config>
 	<config>
 		<variable>SYS_RESET_DELAY</variable>

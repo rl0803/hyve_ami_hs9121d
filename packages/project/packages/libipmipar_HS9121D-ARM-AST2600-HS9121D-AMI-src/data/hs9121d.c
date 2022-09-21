@@ -1633,7 +1633,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
         1,
         0x0,
         DUMMY_NORMAL_VALUE,
-        0,
+        6,
         0,
         
     };
@@ -1651,7 +1651,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
         1,
         0x0,
         DUMMY_NORMAL_VALUE,
-        0,
+        6,
         0,
         
     };
@@ -1705,7 +1705,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
         1,
         0x0,
         DUMMY_NORMAL_VALUE,
-        0,
+        6,
         0,
         
     };
@@ -1723,7 +1723,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
         1,
         0x0,
         DUMMY_NORMAL_VALUE,
-        0,
+        6,
         0,
         
     };
@@ -1741,7 +1741,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
         1,
         0x0,
         DUMMY_NORMAL_VALUE,
-        0,
+        6,
         0,
         
     };
@@ -1759,7 +1759,7 @@ int dev_fanboard_fru_write_device (hal_t *phal);
         1,
         0x0,
         DUMMY_NORMAL_VALUE,
-        0,
+        6,
         0,
         
     };
